@@ -20,6 +20,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ul li {
+  list-style-type: disc; /* punto normal */
+  /* o */
+  list-style-type: circle; /* círculo */
+  /* o */
+  list-style-type: square; /* cuadrado */
+}
+
 @media (min-width: 1920px) {  /* 3xl breakpoint */
   p {
     max-width: 70vw;
