@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "HandelGothic";
+  src: url("/fonts/HandelGo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "UniteaSans";
+  src: url("/fonts/UniteaSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "UniteaSans-bold";
+  src: url("/fonts/UniteaSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -16,7 +37,8 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #0E051C;  
+  /* background: #3a363f;  */
   font-family: Arial, Helvetica, sans-serif;
 }
 

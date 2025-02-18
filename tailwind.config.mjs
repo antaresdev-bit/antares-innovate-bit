@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        
       },
       screens: {
         '2xl': '1500px',
