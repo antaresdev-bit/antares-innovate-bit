@@ -14,7 +14,7 @@ function Slider() {
   const duplicatedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images];
 
   return (
-    <div className="flex justify-center items-center w-full px-4 sm:px-10 md:px-20 lg:px-44">
+    <div className=" flex justify-center items-center w-full px-4 sm:px-10 md:px-20 lg:px-44">
       <div className="overflow-hidden whitespace-nowrap h-28 flex items-center">
         <div
           className="inline-block animate-slide"
@@ -26,7 +26,7 @@ function Slider() {
               <Image
                 src={src}
                 alt="Antares Agency Logo"
-                width={70}
+                width={90}
                 height={98}
                 className="rounded-lg"
                 priority 

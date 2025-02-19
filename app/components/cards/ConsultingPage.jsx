@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 
 function ConsultingPage() {
-  const consultingPortadaSrc = "/assets/images/Consultoría Portada.png";
+  const consultingPortadaSrc =
+    "/assets/images/Portadas Servicios-home/Consultoría Portada.png";
   return (
-    <div className="relative mx-5 md:mx-[100px] mb-12 p-[1px] bg-transparent rounded-[48px] border border-[#1C5DE9] bg-[#1C5DE9]">
-      <div className="flex flex-wrap lg:flex-nowrap justify-between items-center bg-transparent rounded-[48px] p-8 md:p-[32px] text-white">
-        {/* Imagen arriba en mobile y tablet, a la derecha en desktop */}
+    <div className="relative mx-5 md:mx-[100px] mb-12 p-[1px]  rounded-[48px] border border-[#1C5DE9] bg-[#1C5DE9]">
+      <div className="flex flex-wrap lg:flex-nowrap justify-between items-center bg-transparent rounded-[24px] p-8 md:p-[32px] text-white">
         <div className="w-full md:w-full lg:w-1/2 flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0">
           <div className="relative">
             {/* Imagen para mobile */}
@@ -19,7 +19,7 @@ function ConsultingPage() {
             />
             {/* Imagen para tablet (md) */}
             <Image
-              src="/assets/images/Consultoria Portada tablet.png"
+              src="/assets/images/Portadas Servicios-home/Creatividad Portada (7).png"
               alt="Creatividad Tablet"
               width={400}
               height={400}
@@ -38,7 +38,7 @@ function ConsultingPage() {
 
         <div className="w-full md:w-full lg:w-1/2 border border-[#3874F5] rounded-[48px] h-auto md:h-[396px] flex flex-col justify-center bg-[#3874F5]">
           <h2
-            className="font-bold mb-4 ml-10"
+            className="font-bold mb-[35px] ml-10"
             style={{ fontFamily: "HandelGothic", fontSize: "40px" }}
           >
             Consultoría
@@ -63,16 +63,18 @@ function ConsultingPage() {
               Análisis financiero y de ventas para potenciar la rentabilidad.
             </li>
           </ul>
-          <button className="sm:mb-5 w-[230px] h-[48px] rounded-[32px] bg-white text-black font-bold flex items-center justify-center ml-5">
+          <div className=" mb-[22px]  sm:mb-[22px] flex items-center">
             <Image
-              src="/assets/images/Boton avion animado 1.png"
+              src="/assets/images/Boton avion animado 2.gif"
               alt="Botón Animado"
-              width={24}
-              height={24}
-              className="mr-2"
+              width={80}
+              height={80}
+              className="mr-2" 
             />
-            Ver Portafolio
-          </button>
+            <button className="w-[230px] h-[48px] rounded-[32px] bg-white text-black font-bold flex items-center justify-center">
+              Ver Portafolio
+            </button>
+          </div>
         </div>
       </div>
     </div>

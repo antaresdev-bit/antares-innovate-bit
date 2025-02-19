@@ -80,10 +80,12 @@ function Footer() {
           </div>
 
           {/* Sección Legal - Always visible */}
-          <div >
+          <div className=" hidden sm:block">
             <div>
-              <h3 className="font-semibold text-white mb-2 hidden sm:block">Legal</h3>
-              <ul className="space-y-2 text-[#ccc]">
+              <h3 className="font-semibold text-white mb-2 hidden sm:block">
+                Legal
+              </h3>
+              <ul className="space-y-2 text-[#ccc] ">
                 <ul className="hover:text-white ">
                   <a href="#">Legal Notice</a>
                 </ul>

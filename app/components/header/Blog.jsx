@@ -21,8 +21,8 @@ const blogItems = [
 function Blog() {
   return (
     <>
-      <div className="w-full max-w-[1299px] mx-auto sm:bg-white bg-transparent rounded-[48px] p-8 mt-[100px] ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[29px]">
+      <div className="w-full max-w-[1299px] mx-auto sm:bg-white bg-transparent rounded-[48px] p-8 mt-[100px]  ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[29px] ">
           {blogItems.map((item, index) => (
             <div
               key={index}
@@ -55,9 +55,11 @@ function Blog() {
               </h3>
 
               <div className="mt-auto flex justify-start">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-black">
-                  →
-                </span>
+                <img
+                  src="/assets/images/Flecha a negro.png"
+                  alt="Arrow"
+                  className="w-[48.33px] h-[48px] rounded-full border-2 border-black"
+                />
               </div>
             </div>
           ))}

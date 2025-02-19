@@ -10,12 +10,8 @@ import OurWork from "../components/header/OurWork";
 import Slider from "../components/header/Slider";
 import Statistics from "../components/header/Statistics";
 import TextIntroduction from "../components/header/TextIntroduction";
-import VideoHero from "../components/landing/VideoHero";
 import VideoLanding from "../components/landing/VideoLanding";
-import CenterElementsSection from "../components/sections/CenterElementsSection";
-import SectionImageLeft from "../components/sections/SectionImageLeft";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import LottieIChatbot from "../components/landing/LottieIChatbot";
 
 const Scene = dynamic(() => import("../components/sections/3D/Scene"), {
@@ -45,10 +41,10 @@ export default function Home() {
     <div className="">
       {isSceneVisible && <div className="">{<Scene />}</div>}
       <Header />
-
-      <Certificates />
-
-      <TextIntroduction />
+      <div className="bg-[radial-gradient(ellipse_at_center_left,_rgba(20,50,120,0.3)_20%,_#0E051C_60%)]">
+        <Certificates />
+        <TextIntroduction />
+      </div>
 
       <div
         className="relative overflow-hidden"
@@ -70,16 +66,12 @@ export default function Home() {
         </div>
       </div>
 
+
       <OurServices />
-
       <OurWork />
-
       <Statistics />
-
       <Blog />
-
       <LottieIChatbot />
-
       <Footer />
     </div>
   );

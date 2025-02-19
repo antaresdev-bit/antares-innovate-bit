@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function TextIntroduction() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 border-l border-white m-[150px]">
+    <div className="max-w-4xl mx-auto px-4 py-8 border-l border-white m-[161px]">
       <div className=" mb-2" style={{ fontFamily: "HandelGothic" }}>
         <h1 className="  leading-[40px] text-[40px] font-bold bg-gradient-to-r from-[#FDC548] to-[#FFFFFF] text-transparent bg-clip-text mb-[-30px] ml-[40px] ">
           La Creatividad Mueve el Mundo.
