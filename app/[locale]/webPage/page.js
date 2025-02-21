@@ -45,7 +45,7 @@ function DesarrolloWebPage() {
             style={{
               fontFamily: "UniteaSans",
               fontSize: "25px",
-              color:"white"
+              color: "white",
             }}
           >
             Innovación y Experiencia de Usuario de Alto Impacto

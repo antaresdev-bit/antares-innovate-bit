@@ -42,7 +42,7 @@ function Nav() {
             Servicios
           </Link>
           <Link
-            href={`/${locale}/webPage`}
+            href={`/${locale}/upardigital`}
             className="text-white hover:text-gray-300"
           >
             Portafolio
