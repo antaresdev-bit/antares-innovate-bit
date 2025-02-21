@@ -15,14 +15,14 @@ function Nav() {
     <div className="flex justify-center w-full mt-[50px]">
       <nav className="w-full lg:w-[1298px] h-[76px] flex items-center bg-[#0E051CA6] rounded-[24px] shadow-md px-8 relative">
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <Link href={`/${locale}/`} className="flex-shrink-0">
           <Image
             src="/assets/images/Logo Antares PNG.png"
             alt="Antares Logo"
             width={150}
             height={50}
           />
-        </div>
+        </Link>
 
         <div className="lg:hidden ml-auto" onClick={toggleMenu}>
           <FaBars className="w-6 h-6 text-white cursor-pointer" />
@@ -42,7 +42,7 @@ function Nav() {
             Servicios
           </Link>
           <Link
-            href={`/${locale}/portfolio`}
+            href={`/${locale}/webPage`}
             className="text-white hover:text-gray-300"
           >
             Portafolio

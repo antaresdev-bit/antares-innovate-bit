@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div className="">
       {isSceneVisible && <div className="">{<Scene />}</div>}
-      <Header />
+      {/* <Header /> */}
       <div className="bg-[radial-gradient(ellipse_at_center_left,_rgba(20,50,120,0.3)_20%,_#0E051C_60%)]">
         <Certificates />
         <TextIntroduction />
@@ -66,12 +66,11 @@ export default function Home() {
         </div>
       </div>
 
-
       <OurServices />
       <OurWork />
       <Statistics />
       <Blog />
-      <LottieIChatbot />
+
       <Footer />
     </div>
   );

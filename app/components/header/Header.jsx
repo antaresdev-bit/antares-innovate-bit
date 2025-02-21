@@ -1,3 +1,4 @@
+"use client";
 import Nav from "./Nav";
 const Header = () => {
   return (

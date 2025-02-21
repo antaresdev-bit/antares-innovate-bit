@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
-// Componente para manejar la reproducción de videos
 const WideVideoSection = ({ src }) => {
   return (
     <video
@@ -17,43 +18,49 @@ const WideVideoSection = ({ src }) => {
   );
 };
 
-const workItems = [
-  {
-    title: "Monster Energy",
-    description: '"I am the Beast"',
-    video: <WideVideoSection src="/assets/videos/Monster Preview.mp4" />,
-  },
-  {
-    title: "CIML",
-    description: "Innovación Editorial para la Salud Pública",
-    video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
-  },
-  {
-    title: "Uparsistem",
-    description: "Consolidando su Identidad Universitaria",
-    video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
-  },
-  {
-    title: "B2Fintech",
-    description: "Conectando con el Mercado Global de Criptomonedas",
-    video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
-  },
-  {
-    title: "Páginas Web",
-    description: "Innovación y Experiencia de Usuario de Alto Impacto",
-    video: <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />,
-  },
-  {
-    title: "Ver Más",
-    description: "",
-    image: "/assets/images/ourWork/Ver mas.png",
-  },
-];
-
 const OurWork = () => {
+  const locale = useLocale();
+
+  const workItems = [
+    {
+      title: "Monster Energy",
+      description: '"I am the Beast"',
+      video: <WideVideoSection src="/assets/videos/Monster Preview.mp4" />,
+    },
+    {
+      title: "CIML",
+      description: "Innovación Editorial para la Salud Pública",
+      video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
+    },
+    {
+      title: "Uparsistem",
+      description: "Consolidando su Identidad Universitaria",
+      video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
+    },
+    {
+      title: "B2Fintech",
+      description: "Conectando con el Mercado Global de Criptomonedas",
+      video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
+    },
+    {
+      title: "Páginas Web",
+      description: "Innovación y Experiencia de Usuario de Alto Impacto",
+      video: (
+        <Link href={`/${locale}/webPage`}>
+          <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
+        </Link>
+      ),
+    },
+    {
+      title: "Ver Más",
+      description: "",
+      image: "/assets/images/ourWork/Ver mas.png",
+    },
+  ];
+
   return (
     <div className="relative bg-opacity-70">
-      <div className=" flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16 sm:ml-[20px] md:ml-[40px] lg:ml-[70px] lg:w-[1300px]">
+      <div className="flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16 sm:ml-[20px] md:ml-[40px] lg:ml-[70px] lg:w-[1300px]">
         <h1
           className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]"
           style={{ fontFamily: "HandelGothic" }}
@@ -68,7 +75,7 @@ const OurWork = () => {
         </h1>
       </div>
 
-      <div className=" mb-[80px] max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-10 justify-items-center">
+      <div className="mb-[80px] max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-10 justify-items-center">
         {workItems.map((item, index) => (
           <div
             key={index}
@@ -80,8 +87,8 @@ const OurWork = () => {
               <Image
                 src={item.image}
                 alt={item.title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: "cover" }}
                 className="opacity-80"
               />
             )}
