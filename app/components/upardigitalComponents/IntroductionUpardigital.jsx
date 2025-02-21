@@ -17,8 +17,11 @@ function IntroductionUpardigital() {
       </div>
       <div className="space-y-6 ml-[40px]">
         <p
-          className="text-[30px] font-extrabold text-white leading-[35px] tracking-tight mt-[40px]"
-          style={{ fontFamily: "UniteaSans" }}
+          className="font-extrabold text-white leading-[35px] tracking-tight mt-[40px] 
+             lg:text-[30px] 
+             md:text-[20px] 
+             sm:text-[30px]"
+          style={{ fontFamily: "UniteaSans-bold" }}
         >
           Diseñamos Upardigital, una plataforma educativa innovadora pensada
           para los estudiantes de Uparsistem, con una experiencia UI/UX

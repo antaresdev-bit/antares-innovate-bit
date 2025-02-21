@@ -34,6 +34,15 @@ const OurWork = () => {
       ),
     },
     {
+      title: "Wersus",
+      description: "Innovación en logística de transporte",
+      video: (
+        <Link href={`/${locale}/wersus`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Video%20Promo%20Wersus%20TSP_1.mp4" />
+        </Link>
+      ),
+    },
+    {
       title: "Páginas Web",
       description: "Innovación y Experiencia de Usuario de Alto Impacto",
       video: (
@@ -42,11 +51,7 @@ const OurWork = () => {
         </Link>
       ),
     },
-    {
-      title: "Monster Energy",
-      description: '"I am the Beast"',
-      video: <WideVideoSection src="/assets/videos/Monster Preview.mp4" />,
-    },
+    
     {
       title: "CIML",
       description: "Innovación Editorial para la Salud Pública",
@@ -65,6 +70,12 @@ const OurWork = () => {
       onClick: () => setShowAll(true),
     },
     /* Ver mas debe estar de 6to  */
+
+    {
+      title: "Monster Energy",
+      description: '"I am the Beast"',
+      video: <WideVideoSection src="/assets/videos/Monster Preview.mp4" />,
+    },
     {
       title: "B2Fintech",
       description: "Conectando con el Mercado Global de Criptomonedas",
@@ -97,9 +108,18 @@ const OurWork = () => {
 
   return (
     <div className="relative bg-opacity-70">
-      <div className="flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16">
-        <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]">
-          Nuestro Trabajo
+      <div className=" flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16 sm:ml-[20px] md:ml-[40px] lg:ml-[70px] lg:w-[1300px]">
+        <h1
+          className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]"
+          style={{ fontFamily: "HandelGothic" }}
+        >
+          Nuestro
+        </h1>
+        <h1
+          className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] inline"
+          style={{ fontFamily: "HandelGothic" }}
+        >
+          Trabajo
         </h1>
       </div>
 

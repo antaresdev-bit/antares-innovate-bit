@@ -1,7 +1,6 @@
 import Footer from "@/app/components/header/Footer";
 import OurWork from "@/app/components/header/OurWork";
 import BannerTest from "@/app/components/subPages/BannerSubPages";
-import GradientTextSection from "@/app/components/subPages/BannerSubPages";
 import ConditionalText, {
   ConditionalTextResponsive,
 } from "@/app/components/subPages/ConditionalTextResponsive";
@@ -41,7 +40,11 @@ function UpardigitalPage() {
         gradient="linear-gradient(to right, #DA6A1A, #FFFFFF)"
       />
 
-      <IntroductionUpardigital />
+      <div className="flex justify-center items-center">
+        <div className="relative z-10">
+          <IntroductionUpardigital />
+        </div>
+      </div>
 
       <GridOneUpardigital />
 
