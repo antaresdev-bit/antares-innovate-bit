@@ -51,12 +51,17 @@ const OurWork = () => {
         </Link>
       ),
     },
-    
+
     {
-      title: "CIML",
-      description: "Innovación Editorial para la Salud Pública",
-      video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
+      title: "Monster Energy",
+      description: '"I am the Beast"',
+      video: (
+        <Link href={`/${locale}/monsterEnergy`}>
+          <WideVideoSection src="/assets/videos/Monster Preview.mp4"/>
+        </Link>
+      ),
     },
+
     {
       title: "Uparsistem",
       description: "Consolidando su Identidad Universitaria",
@@ -72,9 +77,9 @@ const OurWork = () => {
     /* Ver mas debe estar de 6to  */
 
     {
-      title: "Monster Energy",
-      description: '"I am the Beast"',
-      video: <WideVideoSection src="/assets/videos/Monster Preview.mp4" />,
+      title: "CIML",
+      description: "Innovación Editorial para la Salud Pública",
+      video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
     },
     {
       title: "B2Fintech",
