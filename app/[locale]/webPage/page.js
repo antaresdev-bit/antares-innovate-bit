@@ -4,8 +4,8 @@ import GridImageSectionThree from "@/app/components/webPageComponents/GridImageS
 import GridImageSectionTwo from "@/app/components/webPageComponents/GridImageSectionTwo";
 import IntroductionWebPage from "@/app/components/webPageComponents/IntroductionWebPage";
 import TextWebPage from "@/app/components/webPageComponents/TextWebPage";
-import Banner from "@/app/components/webPageComponents/banner";
-import GridImageSectionOne from "@/app/components/webPageComponents/gridImageSectionOne";
+import Banner from "@/app/components/webPageComponents/Banner";
+import GridImageSectionOne from "@/app/components/webPageComponents/GridImageSectionOne";
 import React from "react";
 
 function DesarrolloWebPage() {
