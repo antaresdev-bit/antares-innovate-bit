@@ -36,7 +36,7 @@ function Nav() {
           }`}
         >
           <Link
-            href={`/${locale}/services`}
+            href={`/${locale}/realEstate`}
             className="text-white hover:text-gray-300"
           >
             Servicios
