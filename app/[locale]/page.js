@@ -66,8 +66,10 @@ export default function Home() {
         </div>
       </div>
 
-      <OurServices />
-      <OurWork />
+      
+        <OurServices />
+        <OurWork />
+      
       <Statistics />
       <Blog />
 
