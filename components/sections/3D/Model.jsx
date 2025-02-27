@@ -12,6 +12,7 @@ export function Model(props) {
   const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.gltf')
   const { actions } = useAnimations(animations, group)
   const [materialsLoaded, setMaterialsLoaded] = useState(false)
+  const [compiledMaterials, setCompiledMaterials] = useState(null)
 
   // Material simple para carga inicial
   const simpleMaterial = useMemo(() => (
@@ -22,63 +23,78 @@ export function Model(props) {
     />
   ), [])
 
-  // Materiales originales
-  const astronautMaterial = useMemo(() => (
-    <meshPhysicalMaterial 
-      color="#000359"             
-      metalness={1}
-      specular="#ffffff"
-      roughness={0.1}
-      clearcoat={0.5}
-      ior={2.5}
-      reflectivity={1}
-      iridescence={0.5}
-      iridescenceIOR={2.5}
-      envMapIntensity={2}
-    />
-  ), [])
+  // Compilar materiales después del primer render
+  useEffect(() => {
+    const astronautMaterial = (
+      <meshPhysicalMaterial 
+        color="#000359"             
+        metalness={1}
+        specular="#ffffff"
+        roughness={0.1}
+        clearcoat={0.5}
+        ior={2.5}
+        reflectivity={1}
+        iridescence={0.5}
+        iridescenceIOR={2.5}
+        envMapIntensity={2}
+      />
+    )
 
-  const  figureMaterial = useMemo(() => (
-    <meshPhysicalMaterial 
-      color="#000359"             
-      metalness={1}
-      specular="#ffffff"
-      roughness={0}
-      clearcoat={1}
-      ior={2.5}
-      reflectivity={1}
-      iridescence={0.5}
-      iridescenceIOR={2.5}
-      envMapIntensity={2}
-      emissive="#fff"
-      emissiveIntensity={0.2}
-    />
-    ), [])
+    const figureMaterial = (
+      <meshPhysicalMaterial 
+        color="#000359"             
+        metalness={1}
+        specular="#ffffff"
+        roughness={0}
+        clearcoat={1}
+        ior={2.5}
+        reflectivity={1}
+        iridescence={0.5}
+        iridescenceIOR={2.5}
+        envMapIntensity={2}
+        emissive="#fff"
+        emissiveIntensity={0.2}
+      />
+    )
 
-  const cubeMaterial = useMemo(() => (
-    <MeshTransmissionMaterial 
-    transmissionSampler={true}
-    ior={2} 
-    chromaticAberration={0.3}
-    metalness={0.1}
-    transmission={1}
-    backside={true}
-    iridescence={0.5}           
-    iridescenceIOR={2}  
-    iridescenceThicknessRange={[500, 400]}  
-    toneMapped={false}      
-    depthWrite={true}
-    depthTest={true}
-    renderOrder={-1}
-    samples={8} 
-    thickness={0.05} 
-    anisotropy={1} 
-    roughness={0.05}
-    transparent={true}
-    attenuation={0.5}
-    reflectivity={0}
-  />
-  ), [])
+    const cubeMaterial = (
+      <MeshTransmissionMaterial 
+        transmissionSampler={true}
+        ior={2} 
+        chromaticAberration={0.3}
+        metalness={0.1}
+        transmission={1}
+        backside={true}
+        iridescence={0.5}           
+        iridescenceIOR={2}  
+        iridescenceThicknessRange={[500, 400]}  
+        toneMapped={false}      
+        depthWrite={true}
+        depthTest={true}
+        renderOrder={-1}
+        samples={8} 
+        thickness={0.05} 
+        anisotropy={1} 
+        roughness={0.05}
+        transparent={true}
+        attenuation={0.5}
+        reflectivity={0}
+      />
+    )
+
+    setCompiledMaterials({
+      astronautMaterial,
+      figureMaterial,
+      cubeMaterial
+    })
+
+    // Dar tiempo para que los materiales se compilen
+    const timer = setTimeout(() => {
+      setMaterialsLoaded(true)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     console.log('Animaciones disponibles:', Object.keys(actions))
@@ -88,14 +104,6 @@ export function Model(props) {
       action.clampWhenFinished = true
     })
   }, [actions])
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMaterialsLoaded(true)
-    }, 1000)
-
-    return () => clearTimeout(timer)
-  }, [])
 
   useFrame(({ pointer, viewport }) => {
     const x = ((pointer.x * viewport.width) / 100) * -1
@@ -131,7 +139,9 @@ export function Model(props) {
             geometry={nodes.Astronaut.geometry}
             skeleton={nodes.Astronaut.skeleton}
           >
-            {materialsLoaded ? astronautMaterial : simpleMaterial}
+            {materialsLoaded && compiledMaterials ? 
+              compiledMaterials.astronautMaterial : 
+              simpleMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="Broche1_1"
@@ -151,7 +161,9 @@ export function Model(props) {
             material={materials.Material}
             skeleton={nodes.cintas_1.skeleton}
           >
-            {materialsLoaded ? astronautMaterial : simpleMaterial}
+            {materialsLoaded && compiledMaterials ? 
+              compiledMaterials.astronautMaterial : 
+              simpleMaterial}
           </skinnedMesh>
           <primitive object={nodes.mixamorigHips} />
           <primitive object={nodes.neutral_bone} />
@@ -190,7 +202,9 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
         >
-          {materialsLoaded ? cubeMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.cubeMaterial : 
+            simpleMaterial}
         </mesh>
         <mesh
           name="Atronaut_cube_border"
@@ -218,7 +232,9 @@ export function Model(props) {
           rotation={[-2.123, -0.012, -2.103]}
           scale={-1.438}
         >
-          {materialsLoaded ? astronautMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.astronautMaterial : 
+            simpleMaterial}
         </mesh>
         <mesh
           name="Torus_l"
@@ -230,7 +246,9 @@ export function Model(props) {
           rotation={[-2.197, 1.209, -0.949]}
           scale={-0.801}
         >
-          {materialsLoaded ? astronautMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.astronautMaterial : 
+            simpleMaterial}
         </mesh>
 
         <mesh
@@ -241,7 +259,9 @@ export function Model(props) {
           position={[5.244, 0.687, 5.739]}
           scale={-1.088}
         >
-          {materialsLoaded ? figureMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
         </mesh>
         <group 
         position={[-3, -1, -1]}
@@ -256,7 +276,9 @@ export function Model(props) {
             rotation={[-0.297, -0.289, 0.157]}
             scale={0.397}
           >
-            {materialsLoaded ? figureMaterial : simpleMaterial}
+            {materialsLoaded && compiledMaterials ? 
+              compiledMaterials.figureMaterial : 
+              simpleMaterial}
           </mesh>
         </group>
 
@@ -269,7 +291,9 @@ export function Model(props) {
           position={[4.021, 24.424, -16.446]}
           scale={-3.464}
         >
-         {materialsLoaded ? figureMaterial : simpleMaterial}
+         {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
         </mesh>
         <mesh
           name="Icosphere_lt"
@@ -280,7 +304,9 @@ export function Model(props) {
           position={[-0.923, 16.023, -4.694]}
           scale={0.556}
         >
-          {materialsLoaded ? figureMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
         </mesh>
         <mesh
           name="Icosphere_rb"
@@ -291,7 +317,9 @@ export function Model(props) {
           position={[5.8125, -1.60853, 0.170475]}
           scale={0.556}
         >
-          {materialsLoaded ? figureMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
         </mesh>
         <mesh
           name="Cone_middle"
@@ -303,7 +331,9 @@ export function Model(props) {
           rotation={[1.356, 0.182, -1.104]}
           scale={0.228}
         >
-          {materialsLoaded ? figureMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
         </mesh>
 
         <mesh
@@ -314,7 +344,9 @@ export function Model(props) {
           position={[-2.611, 1.263, -4.861]}
           scale={0.145}
         >
-          {materialsLoaded ? astronautMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.astronautMaterial : 
+            simpleMaterial}
         </mesh>
         <mesh
           name="Star_rt"
@@ -325,7 +357,9 @@ export function Model(props) {
           position={[5.992, -3.087, 4.047]}
           scale={0.261}
         >
-          {materialsLoaded ? astronautMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.astronautMaterial : 
+            simpleMaterial}
         </mesh>
         <mesh
           name="Star_lt"
@@ -336,7 +370,9 @@ export function Model(props) {
           position={[-2.587, 8.035, 0.838]}
           scale={0.169}
         >
-          {materialsLoaded ? astronautMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.astronautMaterial : 
+            simpleMaterial}
         </mesh>        
         <mesh
           name="Star_rb"
@@ -347,7 +383,9 @@ export function Model(props) {
           position={[3.96, -2.437, 0.192]}
           scale={0.107}
         >
-          {materialsLoaded ? astronautMaterial : simpleMaterial}
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.astronautMaterial : 
+            simpleMaterial}
         </mesh>
       </group>
 
