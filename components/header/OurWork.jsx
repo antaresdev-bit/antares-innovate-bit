@@ -130,7 +130,7 @@ const OurWork = () => {
         </div>
       </div>
 
-      <div className="mb-[80px] max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 justify-items-center">
+      <div className="mb-[80px] max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 justify-items-center cursor-pointer">
         {visibleItems.map((item, index) => (
           <div
             key={index}
@@ -140,13 +140,14 @@ const OurWork = () => {
             {item.video ? (
               item.video
             ) : (
-              <Image
+              <div className="flex justify-center items-center h-full">
+               <Image
                 src={item.image}
                 alt={item.title}
-                fill
-                style={{ objectFit: "cover" }}
-                className="opacity-80 cursor-pointer"
-              />
+                height={50}
+                  width={50}
+                />
+              </div>
             )}
 
             <div className="absolute bottom-4 left-4 text-white">

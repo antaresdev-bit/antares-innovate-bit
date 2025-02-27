@@ -8,7 +8,7 @@ function GridTwoMonsterEnergy() {
         {/* Imagen izquierda */}
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632] ">
           <img
-            src="/assets/images/monster energy/cRANEO copia.png"
+            src="/assets/images/monster-energy/craneo.png"
             alt="Flyer Connor McGregor"
             className="w-full h-full object-cover"
           />
@@ -17,7 +17,7 @@ function GridTwoMonsterEnergy() {
         {/* Imagen derecha */}
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
-            src="/assets/images/monster energy/Guita Diseño.png"
+            src="/assets/images/monster-energy/guita-diseno.png"
             alt="Render Punto de Venta"
             className="w-full h-full object-cover"
           />
@@ -26,7 +26,7 @@ function GridTwoMonsterEnergy() {
       {/* Imagen superior */}
       <div className="w-full max-w-[1298px] mx-auto mb-10 rounded-3xl overflow-hidden aspect-[1298/869] ">
         <img
-          src="/assets/images/monster energy/Guitar 2.png"
+          src="/assets/images/monster-energy/guitar-2.png"
           alt="Stand Moto Cross"
           className="w-full h-full object-cover"
         />
@@ -34,7 +34,7 @@ function GridTwoMonsterEnergy() {
       {/* Imagen medio */}
       <div className="w-full max-w-[1298px] mx-auto mb-10 rounded-3xl overflow-hidden aspect-[1298/869] ">
         <img
-          src="/assets/images/monster energy/Mostrador Producto.png"
+          src="/assets/images/monster-energy/mostrador-producto.png"
           alt="Stand Moto Cross"
           className="w-full h-full object-cover"
         />
@@ -43,7 +43,7 @@ function GridTwoMonsterEnergy() {
       {/* Imagen inferior */}
       <div className="w-full max-w-[1298px] mx-auto mb-10 rounded-3xl overflow-hidden aspect-[1298/869] ">
         <img
-          src="/assets/images/monster energy/nevera.png"
+          src="/assets/images/monster-energy/nevera.png"
           alt="Stand Moto Cross"
           className="w-full h-full object-cover"
         />

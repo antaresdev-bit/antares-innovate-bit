@@ -56,7 +56,7 @@ function Blog() {
 
               <div className="mt-auto flex justify-start">
                 <img
-                  src="/assets/images/Flecha a negro.png"
+                  src="/assets/images/flecha-negro.png"
                   alt="Arrow"
                   className="w-[48.33px] h-[48px] rounded-full border-2 border-black"
                 />

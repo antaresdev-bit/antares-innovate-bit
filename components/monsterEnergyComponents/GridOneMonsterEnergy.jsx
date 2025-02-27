@@ -7,7 +7,7 @@ function GridOneMonsterEnergy() {
       {/* Imagen superior */}
       <div className="w-full max-w-[1298px] mx-auto mb-10 rounded-3xl overflow-hidden aspect-[1298/869] ">
         <img
-          src="/assets/images/monster energy/Stand Moto Cross.png"
+          src="/assets/images/monster-energy/stand-moto-cross.png"
           alt="Stand Moto Cross"
           className="w-full h-full object-cover"
         />
@@ -17,7 +17,7 @@ function GridOneMonsterEnergy() {
         {/* Imagen izquierda */}
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
-            src="/assets/images/monster energy/Flyer Connor Mcgregor.png"
+            src="/assets/images/monster-energy/flyer-connor-mcgregor.png"
             alt="Flyer Connor McGregor"
             className="w-full h-full object-cover"
           />
@@ -26,7 +26,7 @@ function GridOneMonsterEnergy() {
         {/* Imagen derecha */}
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
-            src="/assets/images/monster energy/Render Punto de venta.png"
+            src="/assets/images/monster-energy/render-punto-de-venta.png"
             alt="Render Punto de Venta"
             className="w-full h-full object-cover"
           />
