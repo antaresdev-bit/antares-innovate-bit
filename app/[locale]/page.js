@@ -4,18 +4,25 @@ import React, { useState, useEffect } from "react";
 import Blog from "../components/header/Blog";
 import Certificates from "../components/header/Certificates";
 import Footer from "../components/header/Footer";
-import Header from "../components/header/Header";
 import OurServices from "../components/header/OurServices";
-import OurWork from "../components/header/OurWork";
 import Slider from "../components/header/Slider";
 import Statistics from "../components/header/Statistics";
 import TextIntroduction from "../components/header/TextIntroduction";
-import VideoLanding from "../components/landing/VideoLanding";
 import dynamic from "next/dynamic";
-import LottieIChatbot from "../components/landing/LottieIChatbot";
 
 const Scene = dynamic(() => import("../components/sections/3D/Scene"), {
   ssr: false,
+});
+
+//Se hace importe dinámico a estos elementos para acelerar la carga de la Escena
+const OurWork = dynamic(() => import("../components/header/OurWork"), {
+  ssr: false,
+  loading: () => <div>Cargando OurWork...</div>, // fallback opcional
+});
+
+const VideoLanding = dynamic(() => import("../components/landing/VideoLanding"), {
+  ssr: false,
+  loading: () => <div>Cargando Video...</div>, // fallback opcional
 });
 
 export default function Home() {
