@@ -94,8 +94,8 @@ export function Model(props) {
     const loadMaterialsProgressively = () => {
       const intervals = [
         setTimeout(() => setLoadedMaterials(1), 1000),  // Carga astronauta y cube faces
-        setTimeout(() => setLoadedMaterials(2), 3000),  // Carga estrellas y otros elementos
-        setTimeout(() => setLoadedMaterials(3), 7000),  // Carga figuras
+        setTimeout(() => setLoadedMaterials(2), 2000),  // Carga estrellas y otros elementos
+        setTimeout(() => setLoadedMaterials(3), 3000),  // Carga figuras
       ];
 
       return () => intervals.forEach(interval => clearTimeout(interval));
