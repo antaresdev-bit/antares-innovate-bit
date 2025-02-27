@@ -17,12 +17,12 @@ const Scene = dynamic(() => import("../../components/sections/3D/Scene"), {
 //Se hace importe dinámico a estos elementos para acelerar la carga de la Escena
 const OurWork = dynamic(() => import("../../components/header/OurWork"), {
   ssr: false,
-  loading: () => <div>Cargando OurWork...</div>, // fallback opcional
+  loading: () => <div>Cargando OurWork...</div>,
 });
 
 const VideoLanding = dynamic(() => import("../../components/landing/VideoLanding"), {
   ssr: false,
-  loading: () => <div>Cargando Video...</div>, // fallback opcional
+  loading: () => <div>Cargando Video...</div>, 
 });
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="max-w-[1500px] w-full mx-auto relative">
+      <div className="w-screen mx-auto relative">
         {isSceneVisible && <div className="relative">{<Scene />}</div>}
 
         <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
