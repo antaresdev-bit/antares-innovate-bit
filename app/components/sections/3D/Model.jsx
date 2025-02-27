@@ -12,69 +12,6 @@ export function Model(props) {
   const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.gltf')
   const { actions } = useAnimations(animations, group)
 
-  const glassMaterial = useMemo(() => (
-    <MeshTransmissionMaterial 
-      color = "cornflowerblue"
-      samples={12} 
-      distortion={0.02}
-      transparent={true} 
-      thickness={0.5} 
-      chromaticAberration={0.5} 
-      anisotropy={1} 
-      roughness={0.1}
-      ior={1.5} 
-      transmission={1}
-      metalness={0.1}
-      clearcoat={0.5}
-      iridescence={1}           
-      iridescenceIOR={1.5}  
-      iridescenceThicknessRange={[50, 400]}
-      toneMapped={false}
-      transmissionSampler={true}
-    />
-  ), [])
-
-  const starMaterial = useMemo(() => (
-    <MeshTransmissionMaterial 
-      color = "cornflowerblue"
-      samples={8} 
-      distortion={0.02}
-      transparent={true} 
-      thickness={0.1} 
-      chromaticAberration={0.5} 
-      anisotropy={1} 
-      roughness={0.5}
-      ior={2.5} 
-      transmission={1}
-      metalness={0.1}
-      clearcoat={1}
-      toneMapped={false}
-      transmissionSampler={true}
-    />
-  ), [])
-
-  const figureMaterial = useMemo(() => (
-    <MeshTransmissionMaterial 
-      samples={8} 
-      thickness={0.1} 
-      anisotropy={2} 
-      roughness={0.1}
-      ior={1.5} 
-      transmission={0.9}
-      metalness={0.5}
-      clearcoat={1}
-      iridescence={1}           
-      iridescenceIOR={1.5}  
-      iridescenceThicknessRange={[50, 400]}
-      toneMapped={false}
-      transmissionSampler={true}
-      fresnel={2}
-      reflectivity={2}
-      backside={true}
-      emissive={"cornflowerblue"}
-      emissiveIntensity={0.6}
-    />
-  ), [])
 
   const astronautMaterial = useMemo(() => (
   <meshPhysicalMaterial 
@@ -250,7 +187,7 @@ export function Model(props) {
           position={[5.244, 0.687, 5.739]}
           scale={-1.088}
         >
-          {figureMaterial}
+         
         </mesh>
         <group 
         position={[-3, -1, -1]}
@@ -267,7 +204,7 @@ export function Model(props) {
             rotation={[-0.297, -0.289, 0.157]}
             scale={0.397}
           >
-            {figureMaterial}
+           
           </mesh>
         </group>
         <mesh
@@ -280,7 +217,7 @@ export function Model(props) {
           rotation={[-2.123, -0.012, -2.103]}
           scale={-1.438}
         >
-        {glassMaterial}
+        
         </mesh>
         <mesh
           name="Torus_l"
@@ -292,7 +229,7 @@ export function Model(props) {
           rotation={[-2.197, 1.209, -0.949]}
           scale={-0.801}
         >
-         {glassMaterial}
+         
         </mesh>
         <mesh
           name="Sphere_lb"
@@ -303,7 +240,7 @@ export function Model(props) {
           position={[4.021, 24.424, -16.446]}
           scale={-3.464}
         >
-          {figureMaterial}
+         
         </mesh>
         <mesh
           name="Icosphere_lt"
@@ -314,7 +251,7 @@ export function Model(props) {
           position={[-0.923, 16.023, -4.694]}
           scale={0.556}
         >
-          {figureMaterial}
+         
         </mesh>
 
         <mesh
@@ -326,7 +263,7 @@ export function Model(props) {
           position={[5.8125, -1.60853, 0.170475]}
           scale={0.556}
         >
-          {figureMaterial}
+         
         </mesh>
         <mesh
           name="Cone_middle"
@@ -339,7 +276,7 @@ export function Model(props) {
           rotation={[1.356, 0.182, -1.104]}
           scale={0.228}
         >
-            {figureMaterial}
+           
         </mesh>
 
         <mesh
@@ -351,7 +288,7 @@ export function Model(props) {
           position={[-2.611, 1.263, -4.861]}
           scale={0.145}
         >
-        {starMaterial}
+      
         </mesh>
         <mesh
           name="Star_rt"
@@ -362,7 +299,7 @@ export function Model(props) {
           position={[5.992, -3.087, 4.047]}
           scale={0.261}
         >
-        {starMaterial}
+      
         </mesh>
         <mesh
           name="Star_lt"
@@ -374,7 +311,7 @@ export function Model(props) {
           position={[-2.587, 8.035, 0.838]}
           scale={0.169}
         >
-        {starMaterial}
+      
         </mesh>
         
         <mesh
@@ -387,7 +324,7 @@ export function Model(props) {
           position={[3.96, -2.437, 0.192]}
           scale={0.107}
         >
-        {starMaterial}
+      
         </mesh>
       </group>
 
