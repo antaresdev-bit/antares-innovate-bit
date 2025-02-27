@@ -264,7 +264,7 @@ export function Model(props) {
           name="Icosphere_lt"
           castShadow
           receiveShadow
-          geometry={nodes.Icosphere_rt.geometry}
+          geometry={nodes.Icosphere_lt.geometry}
           material={materials.Material}
           position={[-0.923, 16.023, -4.694]}
           scale={0.556}
