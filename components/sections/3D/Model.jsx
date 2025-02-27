@@ -49,23 +49,23 @@ export function Model(props) {
   />
   ), [])
 
+  const astronautMaterial = useMemo(() => (
+    <meshPhysicalMaterial 
+      color="#000359"             
+      metalness={1}
+      specular="#ffffff"
+      roughness={0.1}
+      clearcoat={0.5}
+      ior={2.5}
+      reflectivity={1}
+      iridescence={0.5}
+      iridescenceIOR={2.5}
+      envMapIntensity={2}
+    />
+  ), [])
+
   // Compilar materiales después del primer render
   useEffect(() => {
-    const astronautMaterial = (
-      <meshPhysicalMaterial 
-        color="#000359"             
-        metalness={1}
-        specular="#ffffff"
-        roughness={0.1}
-        clearcoat={0.5}
-        ior={2.5}
-        reflectivity={1}
-        iridescence={0.5}
-        iridescenceIOR={2.5}
-        envMapIntensity={2}
-      />
-    )
-
     const figureMaterial = (
       <meshPhysicalMaterial 
         color="#000359"             
@@ -82,6 +82,7 @@ export function Model(props) {
         emissiveIntensity={0.2}
       />
     )
+
 
     setCompiledMaterials({
       astronautMaterial,
@@ -140,9 +141,7 @@ export function Model(props) {
             geometry={nodes.Astronaut.geometry}
             skeleton={nodes.Astronaut.skeleton}
           >
-            {materialsLoaded && compiledMaterials ? 
-              compiledMaterials.astronautMaterial : 
-              simpleMaterial}
+            {astronautMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="Broche1_1"
@@ -163,7 +162,7 @@ export function Model(props) {
             skeleton={nodes.cintas_1.skeleton}
           >
             {materialsLoaded && compiledMaterials ? 
-              compiledMaterials.astronautMaterial : 
+              astronautMaterial : 
               simpleMaterial}
           </skinnedMesh>
           <primitive object={nodes.mixamorigHips} />
@@ -232,8 +231,8 @@ export function Model(props) {
           scale={-1.438}
         >
           {materialsLoaded && compiledMaterials ? 
-            compiledMaterials.astronautMaterial : 
-            simpleMaterial}
+              astronautMaterial : 
+              simpleMaterial}
         </mesh>
         <mesh
           name="Torus_l"
@@ -246,8 +245,8 @@ export function Model(props) {
           scale={-0.801}
         >
           {materialsLoaded && compiledMaterials ? 
-            compiledMaterials.astronautMaterial : 
-            simpleMaterial}
+              astronautMaterial : 
+              simpleMaterial}
         </mesh>
 
         <mesh
@@ -344,8 +343,8 @@ export function Model(props) {
           scale={0.145}
         >
           {materialsLoaded && compiledMaterials ? 
-            compiledMaterials.astronautMaterial : 
-            simpleMaterial}
+              astronautMaterial : 
+              simpleMaterial}
         </mesh>
         <mesh
           name="Star_rt"
@@ -357,8 +356,8 @@ export function Model(props) {
           scale={0.261}
         >
           {materialsLoaded && compiledMaterials ? 
-            compiledMaterials.astronautMaterial : 
-            simpleMaterial}
+              astronautMaterial : 
+              simpleMaterial}
         </mesh>
         <mesh
           name="Star_lt"
@@ -370,8 +369,8 @@ export function Model(props) {
           scale={0.169}
         >
           {materialsLoaded && compiledMaterials ? 
-            compiledMaterials.astronautMaterial : 
-            simpleMaterial}
+              astronautMaterial : 
+              simpleMaterial}
         </mesh>        
         <mesh
           name="Star_rb"
@@ -383,8 +382,8 @@ export function Model(props) {
           scale={0.107}
         >
           {materialsLoaded && compiledMaterials ? 
-            compiledMaterials.astronautMaterial : 
-            simpleMaterial}
+              astronautMaterial : 
+              simpleMaterial}
         </mesh>
       </group>
 
