@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Blog from "../../components/header/Blog";
 import Certificates from "../../components/header/Certificates";
 import Footer from "../../components/header/Footer";
@@ -26,28 +26,53 @@ const VideoLanding = dynamic(() => import("../../components/landing/VideoLanding
 });
 
 export default function Home() {
-  const [isSceneVisible, setIsSceneVisible] = useState(true);
+  const [showScene, setShowScene] = useState(true);
+  const sceneContainerRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 1000) {
-        setIsSceneVisible(false);
-      } else {
-        setIsSceneVisible(true);
+    const currentRef = sceneContainerRef.current;
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowScene(entry.isIntersecting);       
+      
+        if (!entry.isIntersecting) {
+          const canvas = document.querySelector('canvas');
+          if (canvas) {
+            canvas.remove();
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
       }
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll);
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
     };
   }, []);
 
   return (
     <div className="">
-      <div className="w-screen mx-auto relative">
-        {isSceneVisible && <div className="relative">{<Scene />}</div>}
+      <div className="mx-auto scene-size relative">
+        {showScene ? (
+          <div className="relative" ref={sceneContainerRef}>
+            <Scene />
+          </div>
+        ) : (
+          <div className="relative">
+            Escena 3D no visible
+          </div>
+        )}
 
         <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <Certificates />

@@ -57,6 +57,11 @@ ul li {
   list-style-type: square; /* cuadrado */
 }
 
+.scene-size {
+  width: 100vw;
+  height: 75vh;
+}
+
 @media (min-width: 1920px) {  /* 3xl breakpoint */
   p {
     max-width: 70vw;

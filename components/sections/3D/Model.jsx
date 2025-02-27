@@ -344,5 +344,3 @@ export function Model(props) {
     </group>
   )
 }
-
-useGLTF.preload('/assets/models/astronaut_web.gltf')

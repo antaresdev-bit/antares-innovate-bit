@@ -15,7 +15,7 @@ export default function Scene() {
 
   return (
     <div
-      className="relative h-[75vh] w-full overflow-hidden"
+      className="relative scene-size overflow-hidden"
       style={{
         maskImage: 'linear-gradient(to bottom, #000 80%, rgba(0,0,0,0) 100%)',
         WebkitMaskImage: 'linear-gradient(to bottom, #000 80%, rgba(0,0,0,0) 100%)',
