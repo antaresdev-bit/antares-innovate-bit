@@ -24,6 +24,31 @@ export function Model(props) {
     />
   ), [])
 
+  const cubeMaterial = useMemo(() => (
+    <MeshTransmissionMaterial 
+    transmissionSampler={true}
+    ior={2} 
+    chromaticAberration={0.3}
+    metalness={0.1}
+    transmission={1}
+    backside={true}
+    iridescence={0.5}           
+    iridescenceIOR={2}  
+    iridescenceThicknessRange={[500, 400]}  
+    toneMapped={false}      
+    depthWrite={true}
+    depthTest={true}
+    renderOrder={-1}
+    samples={8} 
+    thickness={0.05} 
+    anisotropy={1} 
+    roughness={0.05}
+    transparent={true}
+    attenuation={0.5}
+    reflectivity={0}
+  />
+  ), [])
+
   // Compilar materiales después del primer render
   useEffect(() => {
     const astronautMaterial = (
@@ -55,31 +80,6 @@ export function Model(props) {
         envMapIntensity={2}
         emissive="#fff"
         emissiveIntensity={0.2}
-      />
-    )
-
-    const cubeMaterial = (
-      <MeshTransmissionMaterial 
-        transmissionSampler={true}
-        ior={2} 
-        chromaticAberration={0.3}
-        metalness={0.1}
-        transmission={1}
-        backside={true}
-        iridescence={0.5}           
-        iridescenceIOR={2}  
-        iridescenceThicknessRange={[500, 400]}  
-        toneMapped={false}      
-        depthWrite={true}
-        depthTest={true}
-        renderOrder={-1}
-        samples={8} 
-        thickness={0.05} 
-        anisotropy={1} 
-        roughness={0.05}
-        transparent={true}
-        attenuation={0.5}
-        reflectivity={0}
       />
     )
 
@@ -203,9 +203,7 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
         >
-          {materialsLoaded && compiledMaterials ? 
-            compiledMaterials.cubeMaterial : 
-            simpleMaterial}
+          {cubeMaterial}
         </mesh>
         <mesh
           name="Atronaut_cube_border"
