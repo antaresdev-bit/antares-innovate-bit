@@ -83,7 +83,7 @@ export default function Scene() {
           />
 
           <Env />
-          <Stats />
+          {/* <Stats /> */}
           <Model />
         </Suspense>
       </Canvas>
