@@ -233,9 +233,7 @@ export function Model(props) {
         <group 
         position={[-3, -1, -1]}
         >
-
           <mesh
-
             name="Cone_rb"
             castShadow
             receiveShadow
@@ -329,10 +327,8 @@ export function Model(props) {
           scale={0.169}
         >
           {astronautMaterial}
-        </mesh>
-        
+        </mesh>        
         <mesh
-
           name="Star_rb"
           castShadow
           receiveShadow
@@ -349,4 +345,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('/assets/models/astronaut_web.glb')
+useGLTF.preload('/assets/models/astronaut_web.gltf')

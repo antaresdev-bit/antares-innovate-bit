@@ -1,0 +1,14 @@
+{
+  "home": {
+    "title": "Bienvenido",
+    "description": "Esta es la página principal"
+  },
+  "about": {
+    "title": "Sobre nosotros",
+    "description": "Aprende más sobre nuestro proyecto"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "No se pudo encontrar el recurso solicitado"
+  }
+}
