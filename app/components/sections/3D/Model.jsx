@@ -131,7 +131,7 @@ export function Model(props) {
       <mesh>
         <sphereGeometry args={[40, 64, 64]} />
         <meshLambertMaterial 
-        color="#87CEEB"
+        color="#5a1fb4"
         side={THREE.DoubleSide}
         />
       </mesh>
