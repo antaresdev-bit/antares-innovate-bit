@@ -1,11 +1,11 @@
-import Footer from "@/app/components/header/Footer";
-import OurWork from "@/app/components/header/OurWork";
-import BannerTest from "@/app/components/subPages/BannerSubPages";
-import ConditionalText from "@/app/components/subPages/ConditionalTextResponsive";
-import GridOneWersus from "@/app/components/wersusComponents/GridOneWersus";
-import GridTwoWersus from "@/app/components/wersusComponents/GridTwoWersus";
-import IntroductionWersus from "@/app/components/wersusComponents/IntroductionWersus";
-import WersusText from "@/app/components/wersusComponents/WersusText";
+import Footer from "@/components/header/Footer";
+import OurWork from "@/components/header/OurWork";
+import BannerTest from "@/components/subPages/BannerSubPages";
+import ConditionalText from "@/components/subPages/ConditionalTextResponsive";
+import GridOneWersus from "@/components/wersusComponents/GridOneWersus";
+import GridTwoWersus from "@/components/wersusComponents/GridTwoWersus";
+import IntroductionWersus from "@/components/wersusComponents/IntroductionWersus";
+import WersusText from "@/components/wersusComponents/WersusText";
 import React from "react";
 
 function WersusPage() {

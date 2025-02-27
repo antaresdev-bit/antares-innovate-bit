@@ -25,8 +25,8 @@
 
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "../components/header/Header";
-import LottieIChatbot from "../components/landing/LottieIChatbot";
+import Header from "../../components/header/Header";
+import LottieIChatbot from "../../components/landing/LottieIChatbot";
 import { NextIntlClientProvider } from "next-intl"; 
 
 const inter = Inter({ subsets: ["latin"] });

@@ -1,13 +1,13 @@
-import Footer from "@/app/components/header/Footer";
-import OurWork from "@/app/components/header/OurWork";
-import BannerTest from "@/app/components/subPages/BannerSubPages";
+import Footer from "@/components/header/Footer";
+import OurWork from "@/components/header/OurWork";
+import BannerTest from "@/components/subPages/BannerSubPages";
 import ConditionalText, {
   ConditionalTextResponsive,
-} from "@/app/components/subPages/ConditionalTextResponsive";
-import GridOneUpardigital from "@/app/components/upardigitalComponents/GridOneUpardigital";
-import GridTwoUpardigital from "@/app/components/upardigitalComponents/GridTwoUpardigital";
-import IntroductionUpardigital from "@/app/components/upardigitalComponents/IntroductionUpardigital";
-import UpardigitalText from "@/app/components/upardigitalComponents/UpardigitalText";
+} from "@/components/subPages/ConditionalTextResponsive";
+import GridOneUpardigital from "@/components/upardigitalComponents/GridOneUpardigital";
+import GridTwoUpardigital from "@/components/upardigitalComponents/GridTwoUpardigital";
+import IntroductionUpardigital from "@/components/upardigitalComponents/IntroductionUpardigital";
+import UpardigitalText from "@/components/upardigitalComponents/UpardigitalText";
 import React from "react";
 
 function UpardigitalPage() {

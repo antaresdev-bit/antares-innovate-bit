@@ -1,11 +1,11 @@
-import Footer from "@/app/components/header/Footer";
-import OurWork from "@/app/components/header/OurWork";
-import GridImageSectionThree from "@/app/components/webPageComponents/GridImageSectionThree";
-import GridImageSectionTwo from "@/app/components/webPageComponents/GridImageSectionTwo";
-import IntroductionWebPage from "@/app/components/webPageComponents/IntroductionWebPage";
-import TextWebPage from "@/app/components/webPageComponents/TextWebPage";
-import Banner from "@/app/components/webPageComponents/Banner";
-import GridImageSectionOne from "@/app/components/webPageComponents/GridImageSectionOne";
+import Footer from "@/components/header/Footer";
+import OurWork from "@/components/header/OurWork";
+import GridImageSectionThree from "@/components/webPageComponents/GridImageSectionThree";
+import GridImageSectionTwo from "@/components/webPageComponents/GridImageSectionTwo";
+import IntroductionWebPage from "@/components/webPageComponents/IntroductionWebPage";
+import TextWebPage from "@/components/webPageComponents/TextWebPage";
+import Banner from "@/components/webPageComponents/Banner";
+import GridImageSectionOne from "@/components/webPageComponents/GridImageSectionOne";
 import React from "react";
 
 function DesarrolloWebPage() {

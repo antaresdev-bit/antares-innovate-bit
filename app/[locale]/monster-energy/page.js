@@ -1,13 +1,13 @@
-import Footer from "@/app/components/header/Footer";
-import OurWork from "@/app/components/header/OurWork";
-import GridOneMonsterEnergy from "@/app/components/monsterEnergyComponents/GridOneMonsterEnergy";
-import GridTwoMonsterEnergy from "@/app/components/monsterEnergyComponents/GridTwoMonsterEnergy";
-import IntroductionMonsterEnergy from "@/app/components/monsterEnergyComponents/IntroductionMonsterEnergy";
-import MonsterEnergyText from "@/app/components/monsterEnergyComponents/MonsterEnergyText";
-import BannerTest from "@/app/components/subPages/BannerSubPages";
-import ConditionalText from "@/app/components/subPages/ConditionalTextResponsive";
-import GridTwoUpardigital from "@/app/components/upardigitalComponents/GridTwoUpardigital";
-import UpardigitalText from "@/app/components/upardigitalComponents/UpardigitalText";
+import Footer from "@/components/header/Footer";
+import OurWork from "@/components/header/OurWork";
+import GridOneMonsterEnergy from "@/components/monsterEnergyComponents/GridOneMonsterEnergy";
+import GridTwoMonsterEnergy from "@/components/monsterEnergyComponents/GridTwoMonsterEnergy";
+import IntroductionMonsterEnergy from "@/components/monsterEnergyComponents/IntroductionMonsterEnergy";
+import MonsterEnergyText from "@/components/monsterEnergyComponents/MonsterEnergyText";
+import BannerTest from "@/components/subPages/BannerSubPages";
+import ConditionalText from "@/components/subPages/ConditionalTextResponsive";
+import GridTwoUpardigital from "@/components/upardigitalComponents/GridTwoUpardigital";
+import UpardigitalText from "@/components/upardigitalComponents/UpardigitalText";
 import React from "react";
 
 function MonsterEnergy() {

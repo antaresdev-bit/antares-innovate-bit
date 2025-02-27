@@ -1,14 +1,14 @@
-import Footer from "@/app/components/header/Footer";
-import BannerMarketing from "@/app/components/marketingComponents/BannerMarketing";
-import CardMarketing from "@/app/components/marketingComponents/CardMarketing";
-import ConditionalTextMarketing from "@/app/components/marketingComponents/ConditionalTextMarketing";
-import InfoCard from "@/app/components/marketingComponents/InfoCard";
-import IntroductionMarketing from "@/app/components/marketingComponents/IntroductionMarketing";
-import MarketingProfile from "@/app/components/marketingComponents/MarketingProfile";
-import MarketingStadicticts from "@/app/components/marketingComponents/MarketingStadicticts";
-import SliderMarketing from "@/app/components/marketingComponents/SliderMarketing";
-import VideoCard from "@/app/components/marketingComponents/VideoCard";
-import ConditionalTextArchitect from "@/app/components/realEstateComponents/ConditionalTextArquitect";
+import Footer from "@/components/header/Footer";
+import BannerMarketing from "@/components/marketingComponents/BannerMarketing";
+import CardMarketing from "@/components/marketingComponents/CardMarketing";
+import ConditionalTextMarketing from "@/components/marketingComponents/ConditionalTextMarketing";
+import InfoCard from "@/components/marketingComponents/InfoCard";
+import IntroductionMarketing from "@/components/marketingComponents/IntroductionMarketing";
+import MarketingProfile from "@/components/marketingComponents/MarketingProfile";
+import MarketingStadicticts from "@/components/marketingComponents/MarketingStadicticts";
+import SliderMarketing from "@/components/marketingComponents/SliderMarketing";
+import VideoCard from "@/components/marketingComponents/VideoCard";
+import ConditionalTextArchitect from "@/components/realEstateComponents/ConditionalTextArquitect";
 import React from "react";
 
 function page() {
