@@ -46,7 +46,7 @@ const OurWork = () => {
       title: "Páginas Web",
       description: "Innovación y Experiencia de Usuario de Alto Impacto",
       video: (
-        <Link href={`/${locale}/webPage`}>
+        <Link href={`/${locale}/web-page`}>
           <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
         </Link>
       ),
@@ -56,8 +56,8 @@ const OurWork = () => {
       title: "Monster Energy",
       description: '"I am the Beast"',
       video: (
-        <Link href={`/${locale}/monsterEnergy`}>
-          <WideVideoSection src="/assets/videos/Monster Preview.mp4"/>
+        <Link href={`/${locale}/monster-energy`}>
+          <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
         </Link>
       ),
     },
@@ -113,19 +113,21 @@ const OurWork = () => {
 
   return (
     <div className="relative bg-opacity-70">
-      <div className=" flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16 sm:ml-[20px] md:ml-[40px] lg:ml-[70px] lg:w-[1300px]">
-        <h1
-          className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]"
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Nuestro
-        </h1>
-        <h1
-          className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] inline"
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Trabajo
-        </h1>
+      <div className="max-w-[1500px] mx-auto">
+        <div className=" flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16 sm:ml-[20px] md:ml-[40px] lg:ml-[70px] lg:w-[1300px]">
+          <h1
+            className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]"
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Nuestro
+          </h1>
+          <h1
+            className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] inline"
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Trabajo
+          </h1>
+        </div>
       </div>
 
       <div className="mb-[80px] max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 justify-items-center">

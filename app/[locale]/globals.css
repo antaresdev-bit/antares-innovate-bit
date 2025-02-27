@@ -17,6 +17,13 @@
 }
 
 @font-face {
+  font-family: "UniteaSans-semi-bold";
+  src: url("/fonts/UniteaSans-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "UniteaSans-bold";
   src: url("/fonts/UniteaSans-Bold.ttf") format("truetype");
   font-weight: normal;
@@ -37,7 +44,7 @@
 
 body {
   color: var(--foreground);
-   background: #0E051C;  
+    background: #0E051C;   
   /* background: #3a363f;  */
   font-family: Arial, Helvetica, sans-serif;
 }

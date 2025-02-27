@@ -11,15 +11,9 @@ function Nav() {
   const industriesRef = useRef(null);
   const menuRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleIndustries = () => setIsIndustriesOpen(!isIndustriesOpen);
 
-  const toggleIndustries = () => {
-    setIsIndustriesOpen(!isIndustriesOpen);
-  };
-
-  // Cerrar dropdown y menú si se hace clic fuera
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -34,30 +28,30 @@ function Nav() {
     }
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
     <div className="flex justify-center w-full mt-[50px]">
-      <nav className="w-full lg:w-[1298px] h-[76px] flex items-center bg-[#0E051CA6] rounded-[24px] shadow-md px-8 relative">
-        {/* Logo */}
+      <nav
+        className="w-full max-w-[1500px] h-[76px] flex items-center 
+    bg-[rgba(14,5,28,0.65)] backdrop-blur-xl border border-[rgba(0,0,0,0.0)] 
+    rounded-[24px] shadow-md relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between"
+      >
         <Link href={`/${locale}/`} className="flex-shrink-0">
           <Image
-            src="/assets/images/Logo Antares PNG.png"
+            src="/assets/images/Logo Antares.svg"
             alt="Antares Logo"
             width={150}
             height={50}
           />
         </Link>
 
-        {/* Menú hamburguesa */}
+        {/* Menú Responsive */}
         <div className="lg:hidden ml-auto" onClick={toggleMenu}>
           <FaBars className="w-6 h-6 text-white cursor-pointer" />
         </div>
 
-        {/* Menú Responsive */}
         {isMenuOpen && (
           <div
             ref={menuRef}
@@ -70,13 +64,12 @@ function Nav() {
               Servicios
             </Link>
             <Link
-              href={`/${locale}/upardigital`}
+              href={`/${locale}/portafolio`}
               className="text-white hover:text-gray-300 py-2"
             >
               Portafolio
             </Link>
 
-            {/* Dropdown Industrias en Responsive */}
             <div
               className="w-full flex flex-col items-center"
               ref={industriesRef}
@@ -96,7 +89,7 @@ function Nav() {
                     Inmobiliaria
                   </Link>
                   <Link
-                    href={`/${locale}/industries/marketing`}
+                    href={`/${locale}/marketing`}
                     className="text-white hover:bg-gray-700 w-full text-center py-2"
                   >
                     Marketing
@@ -127,9 +120,7 @@ function Nav() {
         )}
 
         {/* Menú Desktop */}
-        <div
-          className={`flex-1 lg:flex lg:justify-center lg:items-center lg:gap-12 hidden`}
-        >
+        <div className="hidden lg:flex items-center gap-x-6">
           <Link
             href={`/${locale}/services`}
             className="text-white hover:text-gray-300"
@@ -143,7 +134,6 @@ function Nav() {
             Portafolio
           </Link>
 
-          {/* Dropdown Industrias en Desktop */}
           <div className="relative" ref={industriesRef}>
             <button
               onClick={toggleIndustries}
@@ -187,16 +177,16 @@ function Nav() {
           >
             Contacto
           </Link>
-        </div>
 
-        <div className="flex-shrink-0">
-          <Image
-            src="/assets/images/EEUU.png"
-            alt="EEUU Flag"
-            width={24}
-            height={16}
-            className="cursor-pointer"
-          />
+          <div className="flex-shrink-0">
+            <Image
+              src="/assets/images/EEUU.png"
+              alt="EEUU Flag"
+              width={24}
+              height={16}
+              className="cursor-pointer"
+            />
+          </div>
         </div>
       </nav>
     </div>

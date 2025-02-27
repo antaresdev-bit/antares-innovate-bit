@@ -46,10 +46,16 @@ export default function Home() {
 
   return (
     <div className="">
-      {isSceneVisible && <div className="">{<Scene />}</div>}
-      {/* <Header /> */}
+      <div className="max-w-[1500px] w-full mx-auto relative">
+        {isSceneVisible && <div className="relative">{<Scene />}</div>}
+
+        <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+          <Certificates />
+          {/* es espaciado entre certificados en lg:28px md:24 sm:24 */}
+        </div>
+      </div>
+
       <div className="bg-[radial-gradient(ellipse_at_center_left,_rgba(20,50,120,0.3)_20%,_#0E051C_60%)]">
-        <Certificates />
         <TextIntroduction />
       </div>
 
@@ -73,10 +79,9 @@ export default function Home() {
         </div>
       </div>
 
-      
-        <OurServices />
-        <OurWork />
-      
+      <OurServices />
+      <OurWork />
+
       <Statistics />
       <Blog />
 
