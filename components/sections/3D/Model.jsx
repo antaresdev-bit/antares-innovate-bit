@@ -89,7 +89,7 @@ export function Model(props) {
     })
   }, [actions])
 
-  // Carga progresiva de materiales
+
   useEffect(() => {
     const loadMaterialsProgressively = () => {
       const intervals = [
