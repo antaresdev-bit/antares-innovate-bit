@@ -31,6 +31,31 @@ export function Model(props) {
   />
   ), [])
 
+  const cubeMaterial = useMemo(() => (
+    <MeshTransmissionMaterial 
+    transmissionSampler={true}
+    ior={2} 
+    chromaticAberration={0.3}
+    metalness={0.1}
+    transmission={1}
+    backside={true}
+    iridescence={0.5}           
+    iridescenceIOR={2}  
+    iridescenceThicknessRange={[500, 400]}  
+    toneMapped={false}      
+    depthWrite={true}
+    depthTest={true}
+    renderOrder={-1}
+    samples={8} 
+    thickness={0.05} 
+    anisotropy={1} 
+    roughness={0.05}
+    transparent={true}
+    attenuation={0.5}
+    reflectivity={0}
+  />
+  ), [])
+
   useEffect(() => {
 
     console.log('Animaciones disponibles:', Object.keys(actions))
@@ -112,7 +137,7 @@ export function Model(props) {
             position={[-27.806, -18.87, 20.621]}
             rotation={[0.825, -0.753, 0]}
           >
-           {/* <EffectComposer multisampling={8}>
+           <EffectComposer multisampling={8}>
               <Bloom 
                 intensity={1}
                 kernelSize={KernelSize.SMALL}
@@ -123,8 +148,7 @@ export function Model(props) {
                 resolutionY={Resolution.AUTO_SIZE}
                 layers={0}
               />
-            </EffectComposer>
-            */}
+            </EffectComposer>            
           </PerspectiveCamera>
         </group>
 
@@ -138,28 +162,7 @@ export function Model(props) {
           scale={2.486}
           layers={[0,1]}
         >
-          <MeshTransmissionMaterial 
-            transmissionSampler={true}
-            ior={2} 
-            chromaticAberration={0.3}
-            metalness={0.1}
-            transmission={1}
-            backside={true}
-            iridescence={0.5}           
-            iridescenceIOR={2}  
-            iridescenceThicknessRange={[500, 400]}  
-            toneMapped={false}      
-            depthWrite={true}
-            depthTest={true}
-            renderOrder={-1}
-            samples={8} 
-            thickness={0.05} 
-            anisotropy={1} 
-            roughness={0.05}
-            transparent={true}
-            attenuation={0.5}
-            reflectivity={0}
-          />
+          {cubeMaterial}
         </mesh>
         <mesh
           name="Atronaut_cube_border"
@@ -174,7 +177,6 @@ export function Model(props) {
          <meshPhysicalMaterial
           color="#87CEEB"
           toneMapped={false}
-
          />
         </mesh>
 
