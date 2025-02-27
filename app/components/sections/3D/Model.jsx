@@ -9,16 +9,13 @@ import { EffectComposer } from '@react-three/postprocessing'
 export function Model(props) {
   const group = useRef()
   const camera = useRef()
-  const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.glb')
+  const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.gltf')
   const { actions } = useAnimations(animations, group)
-
-  const whiteLight = new THREE.Layers()
-  whiteLight.set(1)
 
   const glassMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
       color = "cornflowerblue"
-      samples={50} 
+      samples={12} 
       distortion={0.02}
       transparent={true} 
       thickness={0.5} 
@@ -40,7 +37,7 @@ export function Model(props) {
   const starMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
       color = "cornflowerblue"
-      samples={50} 
+      samples={8} 
       distortion={0.02}
       transparent={true} 
       thickness={0.1} 
@@ -58,7 +55,7 @@ export function Model(props) {
 
   const figureMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
-      samples={50} 
+      samples={8} 
       thickness={0.1} 
       anisotropy={2} 
       roughness={0.1}
@@ -131,7 +128,7 @@ export function Model(props) {
       <mesh>
         <sphereGeometry args={[40, 64, 64]} />
         <meshLambertMaterial 
-        color="#5a1fb4"
+        color="purple"
         side={THREE.DoubleSide}
         />
       </mesh>
@@ -217,7 +214,7 @@ export function Model(props) {
             depthWrite={true}
             depthTest={true}
             renderOrder={-1}
-            samples={250} 
+            samples={8} 
             thickness={0.05} 
             anisotropy={1} 
             roughness={0.05}
