@@ -11,7 +11,7 @@ export function Model(props) {
   const camera = useRef()
   const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.gltf')
   const { actions } = useAnimations(animations, group)
-  const [loadedMaterials, setLoadedMaterials] = useState(0)
+  const [materialsLoaded, setMaterialsLoaded] = useState(false)
 
   // Material simple para carga inicial
   const simpleMaterial = useMemo(() => (
@@ -89,20 +89,13 @@ export function Model(props) {
     })
   }, [actions])
 
-
   useEffect(() => {
-    const loadMaterialsProgressively = () => {
-      const intervals = [
-        setTimeout(() => setLoadedMaterials(1), 500),  // Carga astronauta y cube faces
-        setTimeout(() => setLoadedMaterials(2), 800),  // Carga estrellas y otros elementos
-        setTimeout(() => setLoadedMaterials(3), 1000),  // Carga figuras
-      ];
+    const timer = setTimeout(() => {
+      setMaterialsLoaded(true)
+    }, 1000)
 
-      return () => intervals.forEach(interval => clearTimeout(interval));
-    };
-
-    loadMaterialsProgressively();
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   useFrame(({ pointer, viewport }) => {
     const x = ((pointer.x * viewport.width) / 100) * -1
@@ -138,7 +131,7 @@ export function Model(props) {
             geometry={nodes.Astronaut.geometry}
             skeleton={nodes.Astronaut.skeleton}
           >
-            {astronautMaterial}
+            {materialsLoaded ? astronautMaterial : simpleMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="Broche1_1"
@@ -158,7 +151,7 @@ export function Model(props) {
             material={materials.Material}
             skeleton={nodes.cintas_1.skeleton}
           >
-            {astronautMaterial}
+            {materialsLoaded ? astronautMaterial : simpleMaterial}
           </skinnedMesh>
           <primitive object={nodes.mixamorigHips} />
           <primitive object={nodes.neutral_bone} />
@@ -197,7 +190,7 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
         >
-          {cubeMaterial}
+          {materialsLoaded ? cubeMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Atronaut_cube_border"
@@ -225,7 +218,7 @@ export function Model(props) {
           rotation={[-2.123, -0.012, -2.103]}
           scale={-1.438}
         >
-          {loadedMaterials >= 2 ? astronautMaterial : simpleMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Torus_l"
@@ -237,7 +230,7 @@ export function Model(props) {
           rotation={[-2.197, 1.209, -0.949]}
           scale={-0.801}
         >
-          {loadedMaterials >= 2 ? astronautMaterial : simpleMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
 
         <mesh
@@ -248,7 +241,7 @@ export function Model(props) {
           position={[5.244, 0.687, 5.739]}
           scale={-1.088}
         >
-          {loadedMaterials >= 2 ? figureMaterial : simpleMaterial}
+          {materialsLoaded ? figureMaterial : simpleMaterial}
         </mesh>
         <group 
         position={[-3, -1, -1]}
@@ -263,7 +256,7 @@ export function Model(props) {
             rotation={[-0.297, -0.289, 0.157]}
             scale={0.397}
           >
-            {loadedMaterials >= 2 ? figureMaterial : simpleMaterial}
+            {materialsLoaded ? figureMaterial : simpleMaterial}
           </mesh>
         </group>
 
@@ -276,7 +269,7 @@ export function Model(props) {
           position={[4.021, 24.424, -16.446]}
           scale={-3.464}
         >
-         {loadedMaterials >= 2 ? figureMaterial : simpleMaterial}
+         {materialsLoaded ? figureMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Icosphere_lt"
@@ -287,7 +280,7 @@ export function Model(props) {
           position={[-0.923, 16.023, -4.694]}
           scale={0.556}
         >
-          {loadedMaterials >= 2 ? figureMaterial : simpleMaterial}
+          {materialsLoaded ? figureMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Icosphere_rb"
@@ -298,7 +291,7 @@ export function Model(props) {
           position={[5.8125, -1.60853, 0.170475]}
           scale={0.556}
         >
-          {loadedMaterials >= 2 ? figureMaterial : simpleMaterial}
+          {materialsLoaded ? figureMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Cone_middle"
@@ -310,7 +303,7 @@ export function Model(props) {
           rotation={[1.356, 0.182, -1.104]}
           scale={0.228}
         >
-          {loadedMaterials >= 2 ? figureMaterial : simpleMaterial}
+          {materialsLoaded ? figureMaterial : simpleMaterial}
         </mesh>
 
         <mesh
@@ -321,7 +314,7 @@ export function Model(props) {
           position={[-2.611, 1.263, -4.861]}
           scale={0.145}
         >
-          {loadedMaterials >= 2 ? astronautMaterial : simpleMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Star_rt"
@@ -332,7 +325,7 @@ export function Model(props) {
           position={[5.992, -3.087, 4.047]}
           scale={0.261}
         >
-          {loadedMaterials >= 2 ? astronautMaterial : simpleMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Star_lt"
@@ -343,7 +336,7 @@ export function Model(props) {
           position={[-2.587, 8.035, 0.838]}
           scale={0.169}
         >
-          {loadedMaterials >= 2 ? astronautMaterial : simpleMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>        
         <mesh
           name="Star_rb"
@@ -354,7 +347,7 @@ export function Model(props) {
           position={[3.96, -2.437, 0.192]}
           scale={0.107}
         >
-          {loadedMaterials >= 2 ? astronautMaterial : simpleMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
       </group>
 
