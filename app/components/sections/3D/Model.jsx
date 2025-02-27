@@ -18,18 +18,32 @@ export function Model(props) {
     color="#000359"             
     metalness={1}
     specular="#ffffff"
-    specularIntensity={1.5}
-    thickness={0.5}
     roughness={0.1}
     clearcoat={0.5}
     ior={2.5}
-    clearcoatRoughness={0.02}
     reflectivity={1}
     iridescence={0.5}
     iridescenceIOR={2.5}
     envMapIntensity={2}
   />
   ), [])
+
+  const  figureMaterial = useMemo(() => (
+    <meshPhysicalMaterial 
+      color="#000359"             
+      metalness={1}
+      specular="#ffffff"
+      roughness={0}
+      clearcoat={1}
+      ior={2.5}
+      reflectivity={1}
+      iridescence={0.5}
+      iridescenceIOR={2.5}
+      envMapIntensity={2}
+      emissive="#fff"
+      emissiveIntensity={0.2}
+    />
+    ), [])
 
   const cubeMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
@@ -181,6 +195,31 @@ export function Model(props) {
         </mesh>
 
         <mesh
+          name="Torus_r"
+          castShadow
+          receiveShadow
+          geometry={nodes.Torus_r.geometry}
+          material={materials.Material}
+          position={[4.947, 6.219, 4.811]}
+          rotation={[-2.123, -0.012, -2.103]}
+          scale={-1.438}
+        >
+          {astronautMaterial}
+        </mesh>
+        <mesh
+          name="Torus_l"
+          castShadow
+          receiveShadow
+          geometry={nodes.Torus_l.geometry}
+          material={materials.Material}
+          position={[-2.244, 7.712, -3.501]}
+          rotation={[-2.197, 1.209, -0.949]}
+          scale={-0.801}
+        >
+          {astronautMaterial}
+        </mesh>
+
+        <mesh
           name="Sphere_rt"
           castShadow
           receiveShadow
@@ -189,7 +228,7 @@ export function Model(props) {
           position={[5.244, 0.687, 5.739]}
           scale={-1.088}
         >
-         
+         {figureMaterial}
         </mesh>
         <group 
         position={[-3, -1, -1]}
@@ -206,33 +245,10 @@ export function Model(props) {
             rotation={[-0.297, -0.289, 0.157]}
             scale={0.397}
           >
-           
+            {figureMaterial}
           </mesh>
         </group>
-        <mesh
-          name="Torus_r"
-          castShadow
-          receiveShadow
-          geometry={nodes.Torus_r.geometry}
-          material={materials.Material}
-          position={[4.947, 6.219, 4.811]}
-          rotation={[-2.123, -0.012, -2.103]}
-          scale={-1.438}
-        >
-        
-        </mesh>
-        <mesh
-          name="Torus_l"
-          castShadow
-          receiveShadow
-          geometry={nodes.Torus_l.geometry}
-          material={materials.Material}
-          position={[-2.244, 7.712, -3.501]}
-          rotation={[-2.197, 1.209, -0.949]}
-          scale={-0.801}
-        >
-         
-        </mesh>
+
         <mesh
           name="Sphere_lb"
           castShadow
@@ -242,7 +258,7 @@ export function Model(props) {
           position={[4.021, 24.424, -16.446]}
           scale={-3.464}
         >
-         
+         {figureMaterial}
         </mesh>
         <mesh
           name="Icosphere_lt"
@@ -253,9 +269,8 @@ export function Model(props) {
           position={[-0.923, 16.023, -4.694]}
           scale={0.556}
         >
-         
+          {figureMaterial}
         </mesh>
-
         <mesh
           name="Icosphere_rb"
           castShadow
@@ -265,7 +280,7 @@ export function Model(props) {
           position={[5.8125, -1.60853, 0.170475]}
           scale={0.556}
         >
-         
+          {figureMaterial}
         </mesh>
         <mesh
           name="Cone_middle"
@@ -278,7 +293,7 @@ export function Model(props) {
           rotation={[1.356, 0.182, -1.104]}
           scale={0.228}
         >
-           
+          {figureMaterial}
         </mesh>
 
         <mesh
@@ -290,7 +305,7 @@ export function Model(props) {
           position={[-2.611, 1.263, -4.861]}
           scale={0.145}
         >
-      
+          {astronautMaterial}
         </mesh>
         <mesh
           name="Star_rt"
@@ -301,7 +316,7 @@ export function Model(props) {
           position={[5.992, -3.087, 4.047]}
           scale={0.261}
         >
-      
+          {astronautMaterial}
         </mesh>
         <mesh
           name="Star_lt"
@@ -313,7 +328,7 @@ export function Model(props) {
           position={[-2.587, 8.035, 0.838]}
           scale={0.169}
         >
-      
+          {astronautMaterial}
         </mesh>
         
         <mesh
@@ -326,7 +341,7 @@ export function Model(props) {
           position={[3.96, -2.437, 0.192]}
           scale={0.107}
         >
-      
+          {astronautMaterial}
         </mesh>
       </group>
 
