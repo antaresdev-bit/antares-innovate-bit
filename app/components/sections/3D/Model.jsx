@@ -175,7 +175,7 @@ export function Model(props) {
             position={[-27.806, -18.87, 20.621]}
             rotation={[0.825, -0.753, 0]}
           >
-            <EffectComposer multisampling={8}>
+           {/* <EffectComposer multisampling={8}>
               <Bloom 
                 intensity={1}
                 kernelSize={KernelSize.SMALL}
@@ -187,6 +187,7 @@ export function Model(props) {
                 layers={0}
               />
             </EffectComposer>
+            */}
           </PerspectiveCamera>
         </group>
 
