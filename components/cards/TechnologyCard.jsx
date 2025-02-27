@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function TechnologyCard() {
   const tecnologiaPortadaSrc =
-    "/assets/images/Portadas Servicios-home/Tecnologia Portada (3).png";
+    "/assets/images/portadas-servicios-home/tecnologia-portada-3.png";
 
   return (
     <div className="relative mx-5 md:mx-[100px] mb-12 p-[1px]  rounded-[48px] border border-white bg-[#FFFFFF]">
@@ -19,7 +19,7 @@ function TechnologyCard() {
             />
 
             <Image
-              src="/assets/images/Portadas Servicios-home/Tecnologia Portada (4).png"
+              src="/assets/images/portadas-servicios-home/tecnologia-portada-4.png"
               alt="Creatividad Tablet"
               width={400}
               height={400}

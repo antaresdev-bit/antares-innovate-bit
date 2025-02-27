@@ -71,7 +71,7 @@ const OurWork = () => {
     {
       title: "Ver Más",
       description: "",
-      image: "/assets/images/ourWork/Ver mas.png",
+      image: "/assets/images/flecha-negro.png",
       onClick: () => setShowAll(true),
     },
     /* Ver mas debe estar de 6to  */

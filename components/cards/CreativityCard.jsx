@@ -9,7 +9,7 @@ function CreativityCard() {
           <div className="relative">
             {/* Imagen para mobile */}
             <Image
-              src="/assets/images/Portadas Servicios-home/Creatividad Portada (5).png"
+              src="/assets/images/portadas-servicios-home/creatividad-portada-5.png"
               alt="Creatividad"
               width={400}
               height={400}
@@ -17,7 +17,7 @@ function CreativityCard() {
             />
             {/* Imagen para tablet (md) */}
             <Image
-              src="/assets/images/Portadas Servicios-home/Creatividad Portada (6).png"
+              src="/assets/images/portadas-servicios-home/creatividad-portada-6.png"
               alt="Creatividad Tablet"
               width={400}
               height={400}
@@ -25,7 +25,7 @@ function CreativityCard() {
             />
             {/* Imagen para desktop (lg) */}
             <Image
-              src="/assets/images/Portadas Servicios-home/Creatividad Portada (5).png"
+              src="/assets/images/portadas-servicios-home/creatividad-portada-5.png"
               alt="Creatividad Desktop"
               width={400}
               height={400}

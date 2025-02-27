@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function ConsultingPage() {
   const consultingPortadaSrc =
-    "/assets/images/Portadas Servicios-home/Consultoría Portada.png";
+    "/assets/images/portadas-servicios-home/consultoria-portada.png";
   return (
     <div className="relative mx-5 md:mx-[100px] mb-12 p-[1px]  rounded-[48px] border border-[#1C5DE9] bg-[#1C5DE9]">
       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center bg-transparent rounded-[24px] p-8 md:p-[32px] text-white">
@@ -19,7 +19,7 @@ function ConsultingPage() {
             />
             {/* Imagen para tablet (md) */}
             <Image
-              src="/assets/images/Portadas Servicios-home/Creatividad Portada (7).png"
+              src="/assets/images/portadas-servicios-home/creatividad-portada-7.png"
               alt="Creatividad Tablet"
               width={400}
               height={400}
