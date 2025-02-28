@@ -1,10 +1,17 @@
 import React from "react";
-import WideVideoSection from "../media/WideVideoSection";
 
 const VideoLanding = () => {
   return (
-    <div className="  w-full max-w-[1298px] h-[730px]  flex justify-center items-center mx-auto mb-8 md:mb-12 lg:mb-[131px] px-[30px]">
-      <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/video_reel.mp4" />
+    <div className="w-full lg:w-[1298px] h-auto lg:h-[530.25px] mx-auto"> 
+      <div className="rounded-3xl overflow-hidden order-1 lg:order-2">
+        <video
+          className="w-full h-full object-cover"
+          src="https://storage.googleapis.com/antares-agency-rcs/video_reel.mp4"
+          autoPlay
+          loop
+          muted
+        ></video>
+      </div>
     </div>
   );
 };

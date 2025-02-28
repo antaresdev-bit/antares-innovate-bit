@@ -66,7 +66,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="mx-auto scene-size relative">
+      <div className="mx-auto scene-size relative flex justify-center overflow-hidden">
         {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
             <Scene />
@@ -75,8 +75,11 @@ export default function Home() {
           <div className="relative">Escena 3D no visible</div>
         )}
 
-        <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-          <Certificates />
+        <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">
+          <div className="flex justify-center">
+            {" "}
+            <Certificates />
+          </div>
         </div>
       </div>
 
@@ -99,8 +102,20 @@ export default function Home() {
         }}
       >
         <div className="relative z-10 mt-[100px]">
+          {/* aspect dadio igual */}
           <VideoLanding />
           <Slider />
+          {/* degrade */}
+          <div
+            className="absolute inset-x-0 mx-auto w-full max-w-[1298px] h-[542px]"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 60%)",
+              transform: "translateY(-50%)",
+              zIndex: -1,
+            }}
+          ></div>
+          {/* degrade */}
         </div>
       </div>
 

@@ -14,7 +14,7 @@ function Slider() {
   const duplicatedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images];
 
   return (
-    <div className=" flex justify-center items-center w-full px-4 sm:px-10 md:px-20 lg:px-44">
+    <div className=" flex justify-center items-center w-full  px-4 sm:px-10 md:px-20 lg:px-44  mt-[100px] sm:mt-[100px] md:mt-[200px] lg:mt-[300px]">
       <div className="overflow-hidden whitespace-nowrap h-28 flex items-center">
         <div
           className="inline-block animate-slide"
