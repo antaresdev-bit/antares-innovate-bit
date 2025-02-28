@@ -72,6 +72,20 @@ ul li {
   height: 75vh;
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  .scene-size {
+    height: 80vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .scene-size {
+    height: 60vh;
+  }
+}
+
 @media (min-width: 1920px) {  /* 3xl breakpoint */
   p {
     max-width: 70vw;
