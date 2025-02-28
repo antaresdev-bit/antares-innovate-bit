@@ -5,7 +5,6 @@ import * as THREE from 'three'
 import { Bloom } from '@react-three/postprocessing'
 import {KernelSize, Resolution } from 'postprocessing'
 import { EffectComposer } from '@react-three/postprocessing'
-import { preload } from 'react-dom'
 
 export function Model(props) {
   const group = useRef()

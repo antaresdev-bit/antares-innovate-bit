@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense, useRef } from 'react'
+import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Model } from './Model'
 import { Environment, Stats } from '@react-three/drei'
@@ -12,81 +12,102 @@ import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHel
 export default function Scene() {
 
   const lightRef = useRef()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    // Comprobar el tamaño inicial
+    const checkInitialSize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    // Ejecutar la comprobación inicial
+    checkInitialSize()
+
+    // Configurar el listener para cambios de tamaño
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
-    <div
-      className="relative scene-size overflow-hidden"
-      style={{
-        maskImage: 'linear-gradient(to bottom, #000 80%, rgba(0,0,0,0) 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, #000 80%, rgba(0,0,0,0) 100%)',
-      }}
-    >
-      <Canvas
-        style={{ background: 'transparent' }}
-        gl={{
-          alpha: true,
-          antialias: true,
-          stencil: false,
-          depth: false
+    <div className={`relative ${isMobile ? 'h-[90vh] w-screen' : 'pt-10'} flex items-center justify-center`}>
+      <div
+        className="relative scene-size overflow-hidden"
+        style={{
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
         }}
       >
-        <Suspense fallback={null}> 
-          {/* Luz ambiental más intensa y colorida */}
-          <ambientLight intensity={1} color="#341268" />
+        <Canvas
+          style={{ background: 'transparent' }}
+          gl={{
+            alpha: true,
+            antialias: true,
+            stencil: false,
+            depth: false
+          }}
+          dpr={[1, Math.min(window.devicePixelRatio, 1.5)]}
+        >
+          <Suspense fallback={null}> 
+            {/* Luz ambiental más intensa y colorida */}
+            <ambientLight intensity={1} color="#341268" />
 
-          {/* Luz de tipo panel blanca */}
-          <rectAreaLight
-            ref={lightRef}
-            width={15}
-            height={35}
-            color="#ffffff"
-            intensity={150}
-            position={[5, 12, 10]}
-            rotation={[- Math.PI/8,  -Math.PI/4, Math.PI/8]}
-          />
-          
-          {/* {lightRef.current && (
-            <primitive object={new RectAreaLightHelper(lightRef.current)} />
-          )} */}
-          
-          {/* Luz rosa más intensa */}
-          <pointLight 
-            color="#F40BFA"
-            intensity={2}
-            position={[19, -3.8, 0.2]}
-            distance={20}
-            decay={2}
-          />
+            {/* Luz de tipo panel blanca */}
+            <rectAreaLight
+              ref={lightRef}
+              width={15}
+              height={35}
+              color="#ffffff"
+              intensity={150}
+              position={[5, 12, 10]}
+              rotation={[- Math.PI/8,  -Math.PI/4, Math.PI/8]}
+            />
+            
+            {/* {lightRef.current && (
+              <primitive object={new RectAreaLightHelper(lightRef.current)} />
+            )} */}
+            
+            {/* Luz rosa más intensa */}
+            <pointLight 
+              color="#F40BFA"
+              intensity={2}
+              position={[19, -3.8, 0.2]}
+              distance={20}
+              decay={2}
+            />
 
-          {/* green light */}
-          <pointLight 
-            color="cornflowerblue"
-            intensity={15}
-            position={[-2, -3, -2]}
-            distance={50}
-          />
+            {/* green light */}
+            <pointLight 
+              color="cornflowerblue"
+              intensity={15}
+              position={[-2, -3, -2]}
+              distance={50}
+            />
 
-          {/* yellow light */}
-          <pointLight 
-            intensity={8} 
-            distance={100}
-            position={[4, 6, 4]} 
-            color="#ffd60a"
-          />
+            {/* yellow light */}
+            <pointLight 
+              intensity={8} 
+              distance={100}
+              position={[4, 6, 4]} 
+              color="#ffd60a"
+            />
 
-          {/* Luz adicional en cyan */}
-          <pointLight 
-            color="#00fff5"
-            intensity={10}
-            position={[0, 5, -5]}
-            distance={30}
-          />
+            {/* Luz adicional en cyan */}
+            <pointLight 
+              color="#00fff5"
+              intensity={10}
+              position={[0, 5, -5]}
+              distance={30}
+            />
 
-          <Env />
-          {/* <Stats /> */}
-          <Model />
-        </Suspense>
-      </Canvas>
+            <Env />
+            {/* <Stats /> */}
+            <Model />
+          </Suspense>
+        </Canvas>
+      </div>
     </div>
   )
 }

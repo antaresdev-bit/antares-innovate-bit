@@ -38,7 +38,8 @@ function Nav() {
     bg-[rgba(14,5,28,0.65)] backdrop-blur-xl border border-[rgba(0,0,0,0.0)] 
     rounded-[24px] shadow-md relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between"
       >
-        <Link href={`/${locale}/`} className="flex-shrink-0">
+        <Link href={`/${locale}/`}
+        className="flex-shrink-0">
           <Image
             src="/assets/images/Logo Antares.svg"
             alt="Antares Logo"

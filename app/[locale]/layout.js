@@ -1,8 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "../../components/header/Header";
-import LottieIChatbot from "../../components/landing/LottieIChatbot";
 import { NextIntlClientProvider } from "next-intl";
+import LayoutComponents from "@/components/layout/LayoutComponents";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,8 +32,6 @@ export default function RootLayout({ children, locale, messages }) {
       </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          <LottieIChatbot />
           {children}
         </NextIntlClientProvider>
       </body>

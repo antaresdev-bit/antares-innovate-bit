@@ -1,7 +1,6 @@
 'use client'
 import React from "react";
 import dynamic from "next/dynamic"; 
-
 const Scene = dynamic(() => import("@/components/sections/3D/Scene"), {
   ssr: false,
 });
@@ -9,7 +8,7 @@ const Scene = dynamic(() => import("@/components/sections/3D/Scene"), {
 export default function Confirmar() {
   return (
     <div suppressHydrationWarning>
-      hola
+      <Scene />
     </div>
   );
 }

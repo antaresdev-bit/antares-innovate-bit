@@ -9,6 +9,7 @@ import Slider from "../../components/header/Slider";
 import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
+import LayoutComponents from "@/components/layout/LayoutComponents";
 
 const Scene = dynamic(() => import("../../components/sections/3D/Scene"), {
   ssr: false,
@@ -65,8 +66,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="">
-      <div className="mx-auto scene-size relative flex justify-center overflow-hidden">
+    <>
+      <LayoutComponents />
+      <div className="mx-auto w-screen relative flex overflow-hidden">
         {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
             <Scene />
@@ -75,9 +77,8 @@ export default function Home() {
           <div className="relative">Escena 3D no visible</div>
         )}
 
-        <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">
+        <div className="certificates-container z-10 w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">
           <div className="flex justify-center">
-            {" "}
             <Certificates />
           </div>
         </div>
@@ -121,11 +122,9 @@ export default function Home() {
 
       <OurServices />
       <OurWork />
-
       <Statistics />
       <Blog />
-
       <Footer />
-    </div>
+    </>
   );
 }
