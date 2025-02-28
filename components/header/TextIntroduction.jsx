@@ -39,10 +39,10 @@ function TextIntroduction() {
         <div className="flex items-center text-left">
           <div className="ImageButtonIntroduction ml-2 border-none">
             <Image
-              src="/assets/images/Boton avion animado 2.gif"
+              src="/assets/images/Gif Avion.gif"
               alt="Antares Agency Logo"
-              width={78}
-              height={78}
+              width={48}
+              height={48}
               className="rounded-[20px]"
             />
           </div>

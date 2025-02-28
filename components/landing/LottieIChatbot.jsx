@@ -22,7 +22,7 @@ function LottieIChatbot() {
         }}
       >
         <img
-          src="/assets/images/Animation - 1739558310152.gif"
+          src="/assets/images/lottiChatbot.gif"
           alt="Chatbot Animation"
           style={{
             width: "100%",
@@ -31,17 +31,7 @@ function LottieIChatbot() {
           }}
         />
 
-        <img
-          src="/assets/images/whatsapp 1.png"
-          alt="WhatsApp Icon"
-          style={{
-            width: "32px",
-            height: "32px",
-            position: "absolute",
-            top: "-30px",
-            right: "-20px",
-          }}
-        />
+       
       </button>
     </div>
   );

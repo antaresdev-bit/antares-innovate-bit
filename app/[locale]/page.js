@@ -20,10 +20,13 @@ const OurWork = dynamic(() => import("../../components/header/OurWork"), {
   loading: () => <div>Cargando OurWork...</div>,
 });
 
-const VideoLanding = dynamic(() => import("../../components/landing/VideoLanding"), {
-  ssr: false,
-  loading: () => <div>Cargando Video...</div>, 
-});
+const VideoLanding = dynamic(
+  () => import("../../components/landing/VideoLanding"),
+  {
+    ssr: false,
+    loading: () => <div>Cargando Video...</div>,
+  }
+);
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
@@ -31,13 +34,13 @@ export default function Home() {
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
-    
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setShowScene(entry.isIntersecting);       
-      
+        setShowScene(entry.isIntersecting);
+
         if (!entry.isIntersecting) {
-          const canvas = document.querySelector('canvas');
+          const canvas = document.querySelector("canvas");
           if (canvas) {
             canvas.remove();
           }
@@ -69,20 +72,28 @@ export default function Home() {
             <Scene />
           </div>
         ) : (
-          <div className="relative">
-            Escena 3D no visible
-          </div>
+          <div className="relative">Escena 3D no visible</div>
         )}
 
         <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <Certificates />
-          {/* es espaciado entre certificados en lg:28px md:24 sm:24 */}
         </div>
       </div>
 
-      <div className="bg-[radial-gradient(ellipse_at_center_left,_rgba(20,50,120,0.3)_20%,_#0E051C_60%)]">
+      {/* <div className="bg-[radial-gradient(ellipse_at_center_left,_rgba(20,50,120,0.3)_20%,_#0E051C_80%)]">
         <TextIntroduction />
-      </div>
+      </div> */}
+
+<div
+  className="w-full h-[800px] flex items-center justify-center"
+  style={{
+    backgroundImage: `url(${"/assets/images/bg3.jpg"})`,
+    backgroundSize: "auto",
+    backgroundPosition: "center",
+  }}
+>
+  <TextIntroduction />
+</div>
 
       <div
         className="relative overflow-hidden"
@@ -99,8 +110,8 @@ export default function Home() {
           }}
         ></div>
         <div className="relative z-10">
-          <VideoLanding />
-          <Slider />
+          {/* <VideoLanding />
+          <Slider /> */}
         </div>
       </div>
 

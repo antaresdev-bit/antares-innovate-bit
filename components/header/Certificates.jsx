@@ -1,90 +1,54 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules"; // Importa el módulo Autoplay
+import "swiper/swiper-bundle.css"; // Importa los estilos de Swiper
 
-const Certificates = () => {
+function Certificates() {
   const images = [
-    "/assets/images/certifications/certificadoProvicional.png",
-    "/assets/images/certifications/certificadoProvicional.png",
-    "/assets/images/certifications/certificadoProvicional.png",
+    "/assets/images/certifications/1.png",
+    "/assets/images/certifications/2.png",
+    "/assets/images/certifications/3.png",
+    "/assets/images/certifications/4.png",
+    "/assets/images/certifications/5.png",
+    "/assets/images/certifications/6.png",
+    "/assets/images/certifications/7.png",
   ];
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    swipe: true,
-    swipeToSlide: true,
-    centerMode: true,
-    centerPadding: "0",
-    responsive: [
-      {
-        breakpoint: 640,
-        settings: {
-          swipe: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: "unslick",
-      },
-    ],
-  };
-  {
-    /* Slider solo en dispositivos pequeños (sm) */
-  }
   return (
-    <div className="mt-[100px]">
-      <div className="sm:hidden">
-        <Slider {...settings}>
-          {images.map((src, index) => (
-            <div key={index} className="px-0">
-              <Image
-                src={src}
-                alt={`Certificate ${index + 1}`}
-                width={227.75}
-                height={98}
-                className="rounded-[20px] mx-auto" 
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-              />
-            </div>
-          ))}
-        </Slider>
-      </div>
-
-      {/*  md y lg */}
-      <div className="hidden sm:block">
-        <div className="ContainerCertificates flex space-x-5 sm:space-x-5 overflow-x-auto scroll-smooth no-scrollbar md:!overflow-x-visible md:space-x-2 lg:justify-center">
-          {images.map((src, index) => (
-            <div
-              key={index}
-              className="w-[80%] flex-shrink-0 sm:w-[45%] md:w-auto lg:flex-shrink"
-            >
-              <Image
-                src={src}
-                alt={`Certificate ${index + 1}`}
-                width={227.75}
-                height={98}
-                className="rounded-[20px]"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="w-[738.45px] h-[98px]  ">
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={28}
+        slidesPerView={3}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        breakpoints={{
+          640: {
+            spaceBetween: 24,
+          },
+          768: {
+            spaceBetween: 24,
+          },
+        }}
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={image}
+              alt={`Certificado ${index + 1}`}
+              className="w-[227.75px] h-[98px] rounded-[12px] backdrop-blur-[10px]"
+              style={{
+                backgroundColor: "rgba(5, 12, 28, 0.24)", 
+                border: "1px solid rgba(255, 255, 255, 0.1)", 
+              }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
-};
+}
 
 export default Certificates;
