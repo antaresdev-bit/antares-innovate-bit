@@ -80,20 +80,16 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div className="bg-[radial-gradient(ellipse_at_center_left,_rgba(20,50,120,0.3)_20%,_#0E051C_80%)]">
+      <div
+        className="w-full min-h-screen flex items-center justify-center overflow-visible"
+        style={{
+          backgroundImage: `url(${"/assets/images/bg3.jpg"})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <TextIntroduction />
-      </div> */}
-
-<div
-  className="w-full h-[800px] flex items-center justify-center"
-  style={{
-    backgroundImage: `url(${"/assets/images/bg3.jpg"})`,
-    backgroundSize: "auto",
-    backgroundPosition: "center",
-  }}
->
-  <TextIntroduction />
-</div>
+      </div>
 
       <div
         className="relative overflow-hidden"
@@ -102,16 +98,9 @@ export default function Home() {
           borderBottomRightRadius: "20px",
         }}
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(34,55,154,0.7) 0%, rgba(34,55,154,0) 70%, rgba(11,12,40,0.7) )",
-          }}
-        ></div>
-        <div className="relative z-10">
-          {/* <VideoLanding />
-          <Slider /> */}
+        <div className="relative z-10 mt-[100px]">
+          <VideoLanding />
+          <Slider />
         </div>
       </div>
 

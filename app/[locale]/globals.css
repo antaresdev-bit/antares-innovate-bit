@@ -30,6 +30,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "UniteaSans-medium";
+  src: url("/fonts/UniteaSans-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
