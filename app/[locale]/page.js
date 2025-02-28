@@ -74,7 +74,7 @@ export default function Home() {
             <Scene />
           </div>
         ) : (
-          <div className="relative">Escena 3D no visible</div>
+          <div className="relative scene-size">Escena 3D no visible</div>
         )}
 
         <div className="certificates-container z-10 w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">
