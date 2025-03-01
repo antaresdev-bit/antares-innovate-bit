@@ -45,7 +45,7 @@ export default function Scene() {
       <Head>
         <link
           rel="preload"
-          href="/assets/models/astronaut_web_optimized.gltf"
+          href="/assets/models/astronaut_web_optimized.glb"
           as="fetch"
           type="model/gltf-binary"
           crossOrigin="anonymous"
