@@ -63,7 +63,7 @@ export function Model(props) {
     />
   ), [])
 
-  // Compilar materiales después del primer render
+  /*// Compilar materiales después del primer render
   useEffect(() => {
     const figureMaterial = (
       <meshPhysicalMaterial 
@@ -95,7 +95,7 @@ export function Model(props) {
     }, 1000)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [])*/
 
   useEffect(() => {
     console.log('Animaciones disponibles:', Object.keys(actions))
