@@ -3,6 +3,7 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Model } from './Model'
+import Head from 'next/head'
 import { Environment, Stats } from '@react-three/drei'
 import * as THREE from 'three'
 import { useLoader } from '@react-three/fiber'
@@ -15,23 +16,48 @@ export default function Scene() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Comprobar el tamaño inicial
-    const checkInitialSize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    // Ejecutar la comprobación inicial
-    checkInitialSize()
+    if (typeof window !== 'undefined') {
+      const checkInitialSize = () => {
+        setIsMobile(window.innerWidth < 768)
+      }
+      
+      // Ejecutar la comprobación inicial
+      checkInitialSize()
 
-    // Configurar el listener para cambios de tamaño
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
+      // Configurar el listener para cambios de tamaño
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768)
+      }
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
     }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  useEffect(() => {
+    window.onerror = function(msg, url, lineNo, columnNo, error) {
+      console.log('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
+      return false;
+    };
+  }, []);
+
   return (
+    <>
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/models/astronaut_web.gltf"
+          as="fetch"
+          type="model/gltf-binary"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/images/3D/hdri.hdr"
+          as="fetch"
+          type="application/octet-stream"
+          crossOrigin="anonymous"
+        />
+      </Head>
     <div className={`relative ${isMobile ? 'h-[80vh] w-screen' : ''} flex items-center justify-center`}>
       <div
         className="relative scene-size overflow-hidden"
@@ -44,11 +70,11 @@ export default function Scene() {
           style={{ background: 'transparent' }}
           gl={{
             alpha: true,
-            antialias: true,
+            antialias: false,
             stencil: false,
             depth: false
           }}
-          dpr={[1, Math.min(window.devicePixelRatio, 1.5)]}
+          dpr={typeof window !== 'undefined' ? [1, Math.min(window.devicePixelRatio, 1.5)] : [1, 1]}
         >
           <Suspense fallback={null}> 
             {/* Luz ambiental más intensa y colorida */}
@@ -109,6 +135,7 @@ export default function Scene() {
         </Canvas>
       </div>
     </div>
+    </>
   )
 }
 
