@@ -32,7 +32,7 @@ export default function Scene() {
   }, [])
 
   return (
-    <div className={`relative ${isMobile ? 'h-[90vh] w-screen' : 'pt-10'} flex items-center justify-center`}>
+    <div className={`relative ${isMobile ? 'h-[80vh] w-screen' : ''} flex items-center justify-center`}>
       <div
         className="relative scene-size overflow-hidden"
         style={{
