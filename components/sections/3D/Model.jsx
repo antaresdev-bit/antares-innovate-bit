@@ -9,7 +9,7 @@ import { EffectComposer } from '@react-three/postprocessing'
 export function Model(props) {
   const group = useRef()
   const camera = useRef()
-  const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.gltf')
+  const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web_optimized.gltf')
   const { actions } = useAnimations(animations, group)
   const [materialsLoaded, setMaterialsLoaded] = useState(false)
   const [compiledMaterials, setCompiledMaterials] = useState(null)
