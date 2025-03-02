@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { useGLTF, useAnimations, PerspectiveCamera } from '@react-three/drei'
+
 
 
 export function Model(props) {
@@ -8,6 +9,14 @@ export function Model(props) {
   const camera = useRef()
   const { nodes, materials, animations } = useGLTF('assets/models/astronaut_web.gltf')
   const { actions } = useAnimations(animations, group)
+
+  const simpleMaterial = useMemo(() => (
+    <meshLambertMaterial 
+      color="#fff"
+      roughness={1}
+      metalness={0}
+    />
+  ), [])
 
   useEffect(() => {
     
@@ -26,25 +35,33 @@ export function Model(props) {
             geometry={nodes.Astronaut.geometry}
             material={materials.Material}
             skeleton={nodes.Astronaut.skeleton}
-          />
+          >
+            {simpleMaterial}
+          </skinnedMesh>
           <skinnedMesh
             name="Broche1_1"
             geometry={nodes.Broche1_1.geometry}
             material={materials.Material}
             skeleton={nodes.Broche1_1.skeleton}
-          />
+          >
+            {simpleMaterial}
+          </skinnedMesh>
           <skinnedMesh
             name="Broche2"
             geometry={nodes.Broche2.geometry}
             material={materials.Material}
             skeleton={nodes.Broche2.skeleton}
-          />
+          >
+            {simpleMaterial}
+          </skinnedMesh>
           <skinnedMesh
             name="cintas_1"
             geometry={nodes.cintas_1.geometry}
             material={materials.Material}
             skeleton={nodes.cintas_1.skeleton}
-          />
+          >
+            {simpleMaterial}
+          </skinnedMesh>
           <primitive object={nodes.mixamorigHips} />
           <primitive object={nodes.neutral_bone} />
         </group>
@@ -57,7 +74,9 @@ export function Model(props) {
           position={[-0.088, 1.798, 0.499]}
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
-        />
+        >
+          {simpleMaterial}
+        </mesh>
         <mesh
           name="Atronaut_cube_border"
           castShadow
@@ -67,7 +86,11 @@ export function Model(props) {
           position={[-0.088, 1.798, 0.499]}
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
-        />
+        >
+          {simpleMaterial}
+        </mesh>
+
+
         <mesh
           name="Icosphere_rb"
           castShadow

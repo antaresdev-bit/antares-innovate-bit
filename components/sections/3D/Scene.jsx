@@ -1,175 +1,391 @@
-'use client'
-
-import React, { Suspense, useRef, useState, useEffect } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Model } from './Model'
-import Head from 'next/head'
-import { Environment, Stats } from '@react-three/drei'
+import React, { useRef, useEffect, useMemo, useState } from 'react'
+import { useGLTF, PerspectiveCamera, useAnimations, MeshTransmissionMaterial} from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { useLoader } from '@react-three/fiber'
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader'
-import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper'
+import { Bloom } from '@react-three/postprocessing'
+import {KernelSize, Resolution } from 'postprocessing'
+import { EffectComposer } from '@react-three/postprocessing'
 
-export default function Scene({ gpuTier }) {
+export function Model(props) {
+  const group = useRef()
+  const camera = useRef()
+  const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.gltf')
+  const { actions } = useAnimations(animations, group)
+  const [materialsLoaded, setMaterialsLoaded] = useState(false)
+  const [compiledMaterials, setCompiledMaterials] = useState(null)
 
-  const lightRef = useRef()
-  const [isMobile, setIsMobile] = useState(false)
+  // Material simple para carga inicial
+  const simpleMaterial = useMemo(() => (
+    <meshLambertMaterial 
+      color="#fff"
+      roughness={1}
+      metalness={0}
+    />
+  ), [])
 
+  const cubeMaterial = useMemo(() => (
+    <MeshTransmissionMaterial 
+    transmissionSampler={true}
+    ior={2} 
+    chromaticAberration={0.3}
+    metalness={0.1}
+    transmission={1}
+    backside={true}
+    iridescence={0.5}           
+    iridescenceIOR={2}  
+    iridescenceThicknessRange={[500, 400]}  
+    toneMapped={false}      
+    depthWrite={true}
+    depthTest={true}
+    renderOrder={-1}
+    samples={8} 
+    thickness={0.05} 
+    anisotropy={1} 
+    roughness={0.05}
+    transparent={true}
+    attenuation={0.5}
+    reflectivity={0}
+  />
+  ), [])
+
+  const astronautMaterial = useMemo(() => (
+    <meshPhysicalMaterial 
+      color="#000359"             
+      metalness={1}
+      specular="#ffffff"
+      roughness={0.1}
+      clearcoat={0.5}
+      ior={2.5}
+      reflectivity={1}
+      iridescence={0.5}
+      iridescenceIOR={2.5}
+      envMapIntensity={2}
+    />
+  ), [])
+
+  // Compilar materiales después del primer render
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const checkInitialSize = () => {
-        setIsMobile(window.innerWidth < 768)
-      }
-      
-      // Ejecutar la comprobación inicial
-      checkInitialSize()
+    const figureMaterial = (
+      <meshPhysicalMaterial 
+        color="#000359"             
+        metalness={1}
+        specular="#ffffff"
+        roughness={0}
+        clearcoat={1}
+        ior={2.5}
+        reflectivity={1}
+        iridescence={0.5}
+        iridescenceIOR={2.5}
+        envMapIntensity={2}
+        emissive="#fff"
+        emissiveIntensity={0.2}
+      />
+    )
 
-      // Configurar el listener para cambios de tamaño
-      const handleResize = () => {
-        setIsMobile(window.innerWidth < 768)
-      }
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
-    }
+
+    setCompiledMaterials({
+      astronautMaterial,
+      figureMaterial,
+      cubeMaterial
+    })
+
+    // Dar tiempo para que los materiales se compilen
+    const timer = setTimeout(() => {
+      setMaterialsLoaded(true)
+    }, 1000)
+
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
-    window.onerror = function(msg, url, lineNo, columnNo, error) {
-      console.log('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
-      return false;
-    };
-  }, []);
-
-  const getDpr = () => {
-    if (!gpuTier) return [1, 1]; // valor por defecto mientras se detecta
+    console.log('Animaciones disponibles:', Object.keys(actions))
     
-    // tier 1 es gama baja, 2 es media, 3 es alta
-    if (gpuTier.tier <= 1) {
-      return [1, 1];
-    } else {
-      return [1, Math.min(window.devicePixelRatio, 2)];
+    Object.values(actions).forEach((action) => {
+      action.reset().play()
+      action.clampWhenFinished = true
+    })
+  }, [actions])
+
+  useFrame(({ pointer, viewport }) => {
+    const x = ((pointer.x * viewport.width) / 100) * -1
+    const y = (pointer.y * viewport.height) / 40
+    
+    if (camera.current) {
+      camera.current.rotation.y = THREE.MathUtils.lerp(
+        camera.current.rotation.y,
+        x * 0.3,
+        0.1
+      )
+      camera.current.rotation.x = THREE.MathUtils.lerp(
+        camera.current.rotation.x,
+        y * 0.2,
+        0.1
+      )
     }
-  };
+  })
 
   return (
-    <>
-      <Head>
-        <link
-          rel="preload"
-          href="/assets/models/astronaut_web.gltf"
-          as="fetch"
-          type="model/gltf-binary"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/assets/images/3D/hdri.hdr"
-          as="fetch"
-          type="application/octet-stream"
-          crossOrigin="anonymous"
-        />
-      </Head>
-    <div className={`relative ${isMobile ? 'h-[80vh] w-screen' : ''} flex items-center justify-center`}>
-      <div
-        className="relative scene-size overflow-hidden"
-
-      >
-        <Canvas
-          style={{ background: 'transparent' }}
-          gl={{
-            alpha: true,
-            antialias: false,
-            stencil: false,
-            depth: false
-          }}
-          dpr={getDpr()}
-        >
-          <Suspense fallback={null}> 
-            {/* Luz ambiental más intensa y colorida */}
-            <ambientLight intensity={1} color="#341268" />
-
-            {/* Luz de tipo panel blanca */}
-            <rectAreaLight
-              ref={lightRef}
-              width={15}
-              height={35}
-              color="#ffffff"
-              intensity={150}
-              position={[5, 12, 10]}
-              rotation={[- Math.PI/8,  -Math.PI/4, Math.PI/8]}
-            />
-            
-            {/* {lightRef.current && (
-              <primitive object={new RectAreaLightHelper(lightRef.current)} />
-            )} */}
-            
-            {/* Luz rosa más intensa */}
-            <pointLight 
-              color="#F40BFA"
-              intensity={2}
-              position={[19, -3.8, 0.2]}
-              distance={20}
-              decay={2}
-            />
-
-            {/* green light */}
-            <pointLight 
-              color="cornflowerblue"
-              intensity={15}
-              position={[-2, -3, -2]}
-              distance={50}
-            />
-
-            {/* yellow light */}
-            <pointLight 
-              intensity={8} 
-              distance={100}
-              position={[4, 6, 4]} 
-              color="#ffd60a"
-            />
-
-            {/* Luz adicional en cyan */}
-            <pointLight 
-              color="#00fff5"
-              intensity={10}
-              position={[0, 5, -5]}
-              distance={30}
-            />
-
-            <Env />
-            {/* <Stats /> */}
-            <Model />
-          </Suspense>
-        </Canvas>
-      </div>
-    </div>
-    </>
-  )
-}
-
-function Env({
-  background,
-  intensity = 0.5,
-  blur = 10,
-  x = 0,
-  y = 0,
-  z = 0
-}) {
-  const texture = useLoader(RGBELoader, '/assets/images/3D/hdri.hdr')
-  return (
-    <Environment background={background} blur={blur} exclude={['Astronaut_cube_faces']}>
-      <color attach="background" args={['black']} />
-      <mesh rotation={[x, y, z]} scale={100}>
-        <sphereGeometry />
-        <meshBasicMaterial 
-          transparent 
-          opacity={intensity}
-          map={texture}
-          side={THREE.BackSide}
-          toneMapped={true}
-          exposure={0.1}
+    <group ref={group} {...props} dispose={null}>
+      <mesh>
+        <sphereGeometry args={[40, 64, 64]} />
+        <meshLambertMaterial 
+        color="purple"
+        side={THREE.DoubleSide}
         />
       </mesh>
-    </Environment>
+      <group name="Scene">
+      <group name="Armature" rotation={[Math.PI / 2, 0, 0]}>
+          <skinnedMesh
+            name="Astronaut"
+            geometry={nodes.Astronaut.geometry}
+            skeleton={nodes.Astronaut.skeleton}
+          >
+            {astronautMaterial}
+          </skinnedMesh>
+          <skinnedMesh
+            name="Broche1_1"
+            geometry={nodes.Broche1_1.geometry}
+            material={materials.Material}
+            skeleton={nodes.Broche1_1.skeleton}
+          />
+          <skinnedMesh
+            name="Broche2"
+            geometry={nodes.Broche2.geometry}
+            material={materials.Material}
+            skeleton={nodes.Broche2.skeleton}
+          />
+          <skinnedMesh
+            name="cintas_1"
+            geometry={nodes.cintas_1.geometry}
+            material={materials.Material}
+            skeleton={nodes.cintas_1.skeleton}
+          >
+            {materialsLoaded && compiledMaterials ? 
+              astronautMaterial : 
+              simpleMaterial}
+          </skinnedMesh>
+          <primitive object={nodes.mixamorigHips} />
+          <primitive object={nodes.neutral_bone} />
+        </group>
+        <group          ref={camera}>
+          <PerspectiveCamera
+            name="Camera"
+            makeDefault={true}
+            far={100}
+            near={0.1}
+            fov={18.895}
+            position={[-27.806, -18.87, 20.621]}
+            rotation={[0.825, -0.753, 0]}
+          >
+           <EffectComposer multisampling={8}>
+              <Bloom 
+                intensity={1}
+                kernelSize={KernelSize.SMALL}
+                luminanceThreshold={0.3}
+                luminanceSmoothing={1}
+                mipmapBlur
+                resolutionX={Resolution.AUTO_SIZE} 
+                resolutionY={Resolution.AUTO_SIZE}
+                layers={0}
+              />
+            </EffectComposer>            
+          </PerspectiveCamera>
+        </group>
+
+        <mesh
+          name="Astronaut_cube_faces"
+          receiveShadow
+          geometry={nodes.Astronaut_cube_faces.geometry}
+          material={materials.Material}
+          position={[-0.088, 1.798, 0.499]}
+          rotation={[0.253, -0.057, 1.596]}
+          scale={2.486}
+        >
+          {cubeMaterial}
+        </mesh>
+        <mesh
+          name="Atronaut_cube_border"
+          castShadow
+          receiveShadow
+          geometry={nodes.Atronaut_cube_border.geometry}
+          material={materials.Material}
+          position={[-0.088, 1.798, 0.499]}
+          rotation={[0.253, -0.057, 1.596]}
+          scale={2.486}          
+        >
+         <meshPhysicalMaterial
+          color="#87CEEB"
+          toneMapped={false}
+         />
+        </mesh>
+
+        <mesh
+          name="Torus_r"
+          castShadow
+          receiveShadow
+          geometry={nodes.Torus_r.geometry}
+          material={materials.Material}
+          position={[4.947, 6.219, 4.811]}
+          rotation={[-2.123, -0.012, -2.103]}
+          scale={-1.438}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              astronautMaterial : 
+              simpleMaterial}
+        </mesh>
+        <mesh
+          name="Torus_l"
+          castShadow
+          receiveShadow
+          geometry={nodes.Torus_l.geometry}
+          material={materials.Material}
+          position={[-2.244, 7.712, -3.501]}
+          rotation={[-2.197, 1.209, -0.949]}
+          scale={-0.801}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              astronautMaterial : 
+              simpleMaterial}
+        </mesh>
+
+        <mesh
+          name="Sphere_rt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere_rt.geometry}
+          position={[5.244, 0.687, 5.739]}
+          scale={-1.088}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <group 
+        position={[-3, -1, -1]}
+        >
+          <mesh
+            name="Cone_rb"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cone_rb.geometry}
+            material={materials.Material}
+            position={[-12.119, -4.999, 4.776]}
+            rotation={[-0.297, -0.289, 0.157]}
+            scale={0.397}
+          >
+            {materialsLoaded && compiledMaterials ? 
+              compiledMaterials.figureMaterial : 
+              simpleMaterial}
+          </mesh>
+        </group>
+
+        <mesh
+          name="Sphere_lb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere_lb.geometry}
+          material={materials.Material}
+          position={[4.021, 24.424, -16.446]}
+          scale={-3.464}
+        >
+         {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <mesh
+          name="Icosphere_lt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Icosphere_lt.geometry}
+          material={materials.Material}
+          position={[-0.923, 16.023, -4.694]}
+          scale={0.556}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <mesh
+          name="Icosphere_rb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Icosphere_rb.geometry}
+          material={materials.Material}
+          position={[5.8125, -1.60853, 0.170475]}
+          scale={0.556}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <mesh
+          name="Cone_middle"
+          castShadow
+          receiveShadow
+          geometry={nodes.Cone_middle.geometry}
+          material={materials.Material}
+          position={[-9.486, -3.653, 9.869]}
+          rotation={[1.356, 0.182, -1.104]}
+          scale={0.228}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+
+        <mesh
+          name="Star_lb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_lb.geometry}
+          position={[-2.611, 1.263, -4.861]}
+          scale={0.145}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              astronautMaterial : 
+              simpleMaterial}
+        </mesh>
+        <mesh
+          name="Star_rt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_rt.geometry}
+          material={materials.Material}
+          position={[5.992, -3.087, 4.047]}
+          scale={0.261}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              astronautMaterial : 
+              simpleMaterial}
+        </mesh>
+        <mesh
+          name="Star_lt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_lt.geometry}
+          material={materials.Material}
+          position={[-2.587, 8.035, 0.838]}
+          scale={0.169}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              astronautMaterial : 
+              simpleMaterial}
+        </mesh>        
+        <mesh
+          name="Star_rb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_rb.geometry}
+          material={materials.Material}
+          position={[3.96, -2.437, 0.192]}
+          scale={0.107}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              astronautMaterial : 
+              simpleMaterial}
+        </mesh>
+      </group>
+
+    </group>
   )
 }
