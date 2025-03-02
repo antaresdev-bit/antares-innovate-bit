@@ -15,31 +15,7 @@ export function Model(props) {
   const { actions } = useAnimations(animations, group)
   
  
-  useEffect(() => {
-    
-    Object.values(actions).forEach((action) => {
-      action.reset().play()
-      action.clampWhenFinished = true
-    })
-  }, [actions])
 
-  useFrame(({ pointer, viewport }) => {
-    const x = ((pointer.x * viewport.width) / 100) * -1
-    const y = (pointer.y * viewport.height) / 40
-    
-    if (camera.current) {
-      camera.current.rotation.y = THREE.MathUtils.lerp(
-        camera.current.rotation.y,
-        x * 0.3,
-        0.1
-      )
-      camera.current.rotation.x = THREE.MathUtils.lerp(
-        camera.current.rotation.x,
-        y * 0.2,
-        0.1
-      )
-    }
-  })
 
   return (
     <group ref={group} {...props} dispose={null}>
