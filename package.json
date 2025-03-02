@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 192.168.245.1",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -16,6 +16,7 @@
     "@react-three/fiber": "8.15.11",
     "@react-three/postprocessing": "^2.19.1",
     "aos": "^2.3.4",
+    "detect-gpu": "^5.0.70",
     "next": "14.1.0",
     "next-intl": "^3.4.1",
     "react": "18.2.0",

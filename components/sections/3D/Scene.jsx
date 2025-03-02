@@ -10,7 +10,7 @@ import { useLoader } from '@react-three/fiber'
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader'
 import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper'
 
-export default function Scene() {
+export default function Scene({ gpuTier }) {
 
   const lightRef = useRef()
   const [isMobile, setIsMobile] = useState(false)
@@ -40,12 +40,23 @@ export default function Scene() {
     };
   }, []);
 
+  const getDpr = () => {
+    if (!gpuTier) return [1, 1]; // valor por defecto mientras se detecta
+    
+    // tier 1 es gama baja, 2 es media, 3 es alta
+    if (gpuTier.tier <= 1) {
+      return [1, 1];
+    } else {
+      return [1, Math.min(window.devicePixelRatio, 2)];
+    }
+  };
+
   return (
     <>
       <Head>
         <link
           rel="preload"
-          href="/assets/models/astronaut_web_optimized.glb"
+          href="/assets/models/astronaut_web.gltf"
           as="fetch"
           type="model/gltf-binary"
           crossOrigin="anonymous"
@@ -61,10 +72,7 @@ export default function Scene() {
     <div className={`relative ${isMobile ? 'h-[80vh] w-screen' : ''} flex items-center justify-center`}>
       <div
         className="relative scene-size overflow-hidden"
-        style={{
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
-        }}
+
       >
         <Canvas
           style={{ background: 'transparent' }}
@@ -74,7 +82,7 @@ export default function Scene() {
             stencil: false,
             depth: false
           }}
-          dpr={typeof window !== 'undefined' ? [1, Math.min(window.devicePixelRatio, 1.5)] : [1, 1]}
+          dpr={getDpr()}
         >
           <Suspense fallback={null}> 
             {/* Luz ambiental más intensa y colorida */}

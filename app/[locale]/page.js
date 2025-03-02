@@ -10,8 +10,14 @@ import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
 import LayoutComponents from "@/components/layout/LayoutComponents";
+import { getGPUTier } from 'detect-gpu';
+import { isWebGL2Available } from "@react-three/drei";
 
 const Scene = dynamic(() => import("../../components/sections/3D/Scene"), {
+  ssr: false,
+});
+
+const TestScene = dynamic(() => import("../../components/sections/3D/TestScene"), {
   ssr: false,
 });
 
@@ -31,7 +37,23 @@ const VideoLanding = dynamic(
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
+  const [webGLSupported, setWebGLSupported] = useState(false);
+  const [gpuTier, setGpuTier] = useState(null);
   const sceneContainerRef = useRef(null);
+
+  useEffect(() => {
+    const detectGPU = async () => {
+      try {
+        const gpu = await getGPUTier();
+        setGpuTier(gpu);
+      } catch (e) {
+        console.error('Error detectando GPU:', e);
+        setGpuTier({ tier: 0 }); // fallback a configuración de bajo rendimiento
+      }
+    };
+    
+    detectGPU();
+  }, []);
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -39,13 +61,6 @@ export default function Home() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setShowScene(entry.isIntersecting);
-
-        if (!entry.isIntersecting) {
-          const canvas = document.querySelector("canvas");
-          if (canvas) {
-            canvas.remove();
-          }
-        }
       },
       {
         root: null,
@@ -65,16 +80,35 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const checkWebGL = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const isSupported = !!(
+          window.WebGLRenderingContext &&
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+        );
+        setWebGLSupported(isSupported);
+      } catch (e) {
+        setWebGLSupported(false);
+      }
+    };
+    
+    checkWebGL();
+  }, []);
+  
   return (
     <>
       <LayoutComponents />
       <div className="mx-auto w-screen relative flex overflow-hidden">
-        {showScene ? (
+        {showScene && isWebGL2Available ? (
           <div className="relative" ref={sceneContainerRef}>
-            <Scene />
+            <TestScene />
           </div>
         ) : (
-          <div className="relative scene-size">Escena 3D no visible</div>
+          <div className="relative scene-size">
+            {!isWebGL2Available ? 'Tu dispositivo no soporta nuestro visor 3D' : 'Escena 3D no visible'}
+          </div>
         )}
 
         <div className="certificates-container z-10 w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">

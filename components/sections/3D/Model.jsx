@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useRef, useEffect, useMemo, useState } from 'react'
 import { useGLTF, PerspectiveCamera, useAnimations, MeshTransmissionMaterial} from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
@@ -9,7 +11,7 @@ import { EffectComposer } from '@react-three/postprocessing'
 export function Model(props) {
   const group = useRef()
   const camera = useRef()
-  const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web_optimized.glb')
+  const { nodes, materials, animations } = useGLTF('/assets/models/astronaut_web.gltf')
   const { actions } = useAnimations(animations, group)
   const [materialsLoaded, setMaterialsLoaded] = useState(false)
   const [compiledMaterials, setCompiledMaterials] = useState(null)
@@ -22,8 +24,8 @@ export function Model(props) {
       metalness={0}
     />
   ), [])
-
-  const cubeMaterial = useMemo(() => (
+/*
+  const simpleMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
     transmissionSampler={true}
     ior={2} 
@@ -48,7 +50,7 @@ export function Model(props) {
   />
   ), [])
 
-  const astronautMaterial = useMemo(() => (
+  const simpleMaterial = useMemo(() => (
     <meshPhysicalMaterial 
       color="#000359"             
       metalness={1}
@@ -62,7 +64,7 @@ export function Model(props) {
       envMapIntensity={2}
     />
   ), [])
-
+*/
   /*// Compilar materiales después del primer render
   useEffect(() => {
     const figureMaterial = (
@@ -84,9 +86,9 @@ export function Model(props) {
 
 
     setCompiledMaterials({
-      astronautMaterial,
+      simpleMaterial,
       figureMaterial,
-      cubeMaterial
+      simpleMaterial
     })
 
     // Dar tiempo para que los materiales se compilen
@@ -139,7 +141,7 @@ export function Model(props) {
             geometry={nodes.Astronaut.geometry}
             skeleton={nodes.Astronaut.skeleton}
           >
-            {astronautMaterial}
+            {simpleMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="Broche1_1"
@@ -160,7 +162,7 @@ export function Model(props) {
             skeleton={nodes.cintas_1.skeleton}
           >
             {materialsLoaded && compiledMaterials ? 
-              astronautMaterial : 
+              simpleMaterial : 
               simpleMaterial}
           </skinnedMesh>
           <primitive object={nodes.mixamorigHips} />
@@ -176,7 +178,7 @@ export function Model(props) {
             position={[-27.806, -18.87, 20.621]}
             rotation={[0.825, -0.753, 0]}
           >
-          {/* <EffectComposer multisampling={8}>
+           <EffectComposer multisampling={8}>
               <Bloom 
                 intensity={1}
                 kernelSize={KernelSize.SMALL}
@@ -187,7 +189,7 @@ export function Model(props) {
                 resolutionY={Resolution.AUTO_SIZE}
                 layers={0}
               />
-            </EffectComposer> */}            
+            </EffectComposer>            
           </PerspectiveCamera>
         </group>
 
@@ -200,7 +202,7 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
         >
-          {cubeMaterial}
+          {simpleMaterial}
         </mesh>
         <mesh
           name="Atronaut_cube_border"
@@ -212,10 +214,173 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}          
         >
-         <meshPhysicalMaterial
-          color="#87CEEB"
-          toneMapped={false}
-         />
+
+        </mesh>
+
+        <mesh
+          name="Torus_r"
+          castShadow
+          receiveShadow
+          geometry={nodes.Torus_r.geometry}
+          material={materials.Material}
+          position={[4.947, 6.219, 4.811]}
+          rotation={[-2.123, -0.012, -2.103]}
+          scale={-1.438}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              simpleMaterial : 
+              simpleMaterial}
+        </mesh>
+        <mesh
+          name="Torus_l"
+          castShadow
+          receiveShadow
+          geometry={nodes.Torus_l.geometry}
+          material={materials.Material}
+          position={[-2.244, 7.712, -3.501]}
+          rotation={[-2.197, 1.209, -0.949]}
+          scale={-0.801}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              simpleMaterial : 
+              simpleMaterial}
+        </mesh>
+
+        <mesh
+          name="Sphere_rt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere_rt.geometry}
+          position={[5.244, 0.687, 5.739]}
+          scale={-1.088}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <group 
+        position={[-3, -1, -1]}
+        >
+          <mesh
+            name="Cone_rb"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cone_rb.geometry}
+            material={materials.Material}
+            position={[-12.119, -4.999, 4.776]}
+            rotation={[-0.297, -0.289, 0.157]}
+            scale={0.397}
+          >
+            {materialsLoaded && compiledMaterials ? 
+              compiledMaterials.figureMaterial : 
+              simpleMaterial}
+          </mesh>
+        </group>
+
+        <mesh
+          name="Sphere_lb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere_lb.geometry}
+          material={materials.Material}
+          position={[4.021, 24.424, -16.446]}
+          scale={-3.464}
+        >
+         {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <mesh
+          name="Icosphere_lt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Icosphere_lt.geometry}
+          material={materials.Material}
+          position={[-0.923, 16.023, -4.694]}
+          scale={0.556}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <mesh
+          name="Icosphere_rb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Icosphere_rb.geometry}
+          material={materials.Material}
+          position={[5.8125, -1.60853, 0.170475]}
+          scale={0.556}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+        <mesh
+          name="Cone_middle"
+          castShadow
+          receiveShadow
+          geometry={nodes.Cone_middle.geometry}
+          material={materials.Material}
+          position={[-9.486, -3.653, 9.869]}
+          rotation={[1.356, 0.182, -1.104]}
+          scale={0.228}
+        >
+          {materialsLoaded && compiledMaterials ? 
+            compiledMaterials.figureMaterial : 
+            simpleMaterial}
+        </mesh>
+
+        <mesh
+          name="Star_lb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_lb.geometry}
+          position={[-2.611, 1.263, -4.861]}
+          scale={0.145}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              simpleMaterial : 
+              simpleMaterial}
+        </mesh>
+        <mesh
+          name="Star_rt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_rt.geometry}
+          material={materials.Material}
+          position={[5.992, -3.087, 4.047]}
+          scale={0.261}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              simpleMaterial : 
+              simpleMaterial}
+        </mesh>
+        <mesh
+          name="Star_lt"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_lt.geometry}
+          material={materials.Material}
+          position={[-2.587, 8.035, 0.838]}
+          scale={0.169}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              simpleMaterial : 
+              simpleMaterial}
+        </mesh>        
+        <mesh
+          name="Star_rb"
+          castShadow
+          receiveShadow
+          geometry={nodes.Star_rb.geometry}
+          material={materials.Material}
+          position={[3.96, -2.437, 0.192]}
+          scale={0.107}
+        >
+          {materialsLoaded && compiledMaterials ? 
+              simpleMaterial : 
+              simpleMaterial}
         </mesh>
       </group>
 
