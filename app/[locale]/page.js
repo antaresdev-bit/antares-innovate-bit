@@ -9,7 +9,7 @@ import Slider from "../../components/header/Slider";
 import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
-import Header from "@/components/header/Header";
+import LayoutComponents from "@/components/layout/LayoutComponents";
 
 const Scene = dynamic(() => import("../../components/sections/3D/Scene"), {
   ssr: false,
@@ -66,6 +66,8 @@ export default function Home() {
   }, []);
 
   return (
+    <>
+    <LayoutComponents />
     <div className="">
       <div className="  relative flex justify-center overflow-hidden ">
         {showScene ? (
@@ -91,12 +93,12 @@ export default function Home() {
             className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
             style={{
               background:
-                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 45%)",
+              "radial-gradient(ellipse at center, #22379A 0%, #0E051C 45%)",
               left: "0%",
               transform: "translateX(-50%) translateY(10%)",
               zIndex: -1,
             }}
-          ></div>
+            ></div>
 
           {/* Contenido */}
           <TextIntroduction />
@@ -109,7 +111,7 @@ export default function Home() {
           borderBottomLeftRadius: "48px",
           borderBottomRightRadius: "48px",
         }}
-      >
+        >
         <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[100px]  lg:mt-[100px] w-full">
           <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-100 ">
             <VideoLanding />
@@ -121,12 +123,12 @@ export default function Home() {
             className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
             style={{
               background:
-                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 55%)",
+              "radial-gradient(ellipse at center, #22379A 0%, #0E051C 55%)",
               left: "50%",
               transform: "translateX(-50%) translateY(-65%)",
               zIndex: -1,
             }}
-          ></div>
+            ></div>
           {/* degrade */}
         </div>
       </div>
@@ -139,5 +141,6 @@ export default function Home() {
 
       <Footer />
     </div>
+    </>
   );
 }
