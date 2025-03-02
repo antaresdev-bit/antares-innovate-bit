@@ -66,6 +66,13 @@ export function Model(props) {
 
   return (
     <group ref={group} {...props} dispose={null}>
+        <mesh>
+        <sphereGeometry args={[60, 6, 6]} />
+        <meshLambertMaterial 
+        color="white"
+        side={THREE.DoubleSide}
+        />
+      </mesh>
       <group name="Scene">
         <group name="Armature" rotation={[Math.PI / 2, 0, 0]}>
           <skinnedMesh
@@ -272,15 +279,13 @@ export default function TestScene() {
     <div className="h-[80vh] w-screen flex items-center justify-center">
               <div
         className="relative scene-size overflow-hidden"
-
         style={{
           maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
         }}
-
       >
         <Canvas>
-            <ambientLight intensity={1} color="#341268" />
+            <ambientLight intensity={1} color="#3d1758" />
             {/* Luz de tipo panel blanca */}
             <rectAreaLight
             width={15}

@@ -127,7 +127,7 @@ export function Model(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh>
-        <sphereGeometry args={[40, 64, 64]} />
+        <sphereGeometry args={[40, 24, 24]} />
         <meshLambertMaterial 
         color="purple"
         side={THREE.DoubleSide}
