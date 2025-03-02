@@ -9,15 +9,8 @@ import Slider from "../../components/header/Slider";
 import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
-import LayoutComponents from "@/components/layout/LayoutComponents";
-import { getGPUTier } from 'detect-gpu';
-import { isWebGL2Available } from "@react-three/drei";
 
 const Scene = dynamic(() => import("../../components/sections/3D/Scene"), {
-  ssr: false,
-});
-
-const TestScene = dynamic(() => import("../../components/sections/3D/TestScene"), {
   ssr: false,
 });
 
@@ -37,23 +30,7 @@ const VideoLanding = dynamic(
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
-  const [webGLSupported, setWebGLSupported] = useState(false);
-  const [gpuTier, setGpuTier] = useState(null);
   const sceneContainerRef = useRef(null);
-
-  useEffect(() => {
-    const detectGPU = async () => {
-      try {
-        const gpu = await getGPUTier();
-        setGpuTier(gpu);
-      } catch (e) {
-        console.error('Error detectando GPU:', e);
-        setGpuTier({ tier: 0 }); // fallback a configuración de bajo rendimiento
-      }
-    };
-    
-    detectGPU();
-  }, []);
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -61,6 +38,13 @@ export default function Home() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setShowScene(entry.isIntersecting);
+
+        if (!entry.isIntersecting) {
+          const canvas = document.querySelector("canvas");
+          if (canvas) {
+            canvas.remove();
+          }
+        }
       },
       {
         root: null,
@@ -80,73 +64,65 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    const checkWebGL = () => {
-      try {
-        const canvas = document.createElement('canvas');
-        const isSupported = !!(
-          window.WebGLRenderingContext &&
-          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
-        );
-        setWebGLSupported(isSupported);
-      } catch (e) {
-        setWebGLSupported(false);
-      }
-    };
-    
-    checkWebGL();
-  }, []);
-  
   return (
-    <>
-      <LayoutComponents />
-      <div className="mx-auto w-screen relative flex overflow-hidden">
-        {showScene && isWebGL2Available ? (
+    <div className="">
+      <div className="mx-auto scene-size relative flex justify-center overflow-hidden ">
+        {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
-            <Scene gpuTier={gpuTier}/>
+            <Scene />
           </div>
         ) : (
-          <div className="relative scene-size">
-            {!isWebGL2Available ? 'Tu dispositivo no soporta nuestro visor 3D' : 'Escena 3D no visible'}
-          </div>
+          <div className="relative">Escena 3D no visible</div>
         )}
 
-        <div className="certificates-container z-10 w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">
+        <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">
           <div className="flex justify-center">
+            {" "}
             <Certificates />
           </div>
+        </div>
+      </div> 
+
+      <div className="relative flex justify-center overflow-hidden w-full h-screen">
+        <div className="w-full min-h-screen flex items-center justify-center overflow-visible relative">
+          {/* Degradado */}
+          <div
+            className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
+            style={{
+              background:
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 45%)",
+              left: "0%",
+              transform: "translateX(-50%) translateY(10%)",
+              zIndex: -1,
+            }}
+          ></div>
+
+          {/* Contenido */}
+          <TextIntroduction />
         </div>
       </div>
 
       <div
-        className="w-full min-h-screen flex items-center justify-center overflow-visible"
+        className="relative overflow-hidden  "
         style={{
-          backgroundImage: `url(${"/assets/images/bg3.jpg"})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          borderBottomLeftRadius: "48px",
+          borderBottomRightRadius: "48px",
         }}
       >
-        <TextIntroduction />
-      </div>
+        <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[100px]  lg:mt-[100px] w-full">
+          <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
+            <VideoLanding />
+          </div>
 
-      <div
-        className="relative overflow-hidden"
-        style={{
-          borderBottomLeftRadius: "20px",
-          borderBottomRightRadius: "20px",
-        }}
-      >
-        <div className="relative z-10 mt-[100px]">
-          {/* aspect dadio igual */}
-          <VideoLanding />
           <Slider />
           {/* degrade */}
           <div
-            className="absolute inset-x-0 mx-auto w-full max-w-[1298px] h-[542px]"
+            className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
             style={{
               background:
-                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 60%)",
-              transform: "translateY(-50%)",
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 55%)",
+              left: "50%",
+              transform: "translateX(-50%) translateY(-65%)",
               zIndex: -1,
             }}
           ></div>
@@ -156,9 +132,11 @@ export default function Home() {
 
       <OurServices />
       <OurWork />
+
       <Statistics />
       <Blog />
+
       <Footer />
-    </>
+    </div>
   );
 }

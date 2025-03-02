@@ -2,34 +2,56 @@ import React from "react";
 import Image from "next/image";
 
 const images = [
-  "/assets/images/7697be3c-f0ac-4adc-abaf-d83fc7ad9ce1 1.png",
-  "/assets/images/Easy-Taxi-Logo-Horizontal-RGB.png",
-  "/assets/images/Logo Fondo Oscuro  trasparente 1.png",
-  "/assets/images/Vector.png",
-  "/assets/images/aaa.png",
-  "/assets/images/posto.png",
+  "/assets/images/slider/a.png",
+  "/assets/images/slider/b.png",
+  "/assets/images/slider/c.png",
+  "/assets/images/slider/d.png",
+  "/assets/images/slider/e.png",
+  "/assets/images/slider/f.png",
+  "/assets/images/slider/g.png",
+  "/assets/images/slider/h.png",
+  "/assets/images/slider/i.png",
+  "/assets/images/slider/j.png",
+  "/assets/images/slider/k.png",
+  "/assets/images/slider/l.png",
+  "/assets/images/slider/m.png",
+  "/assets/images/slider/n.png",
 ];
 
 function Slider() {
-  const duplicatedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images];
+  const duplicatedImages = [
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+  ];
 
   return (
-    <div className=" flex justify-center items-center w-full  px-4 sm:px-10 md:px-20 lg:px-44  mt-[100px] sm:mt-[100px] md:mt-[200px] lg:mt-[300px]">
-      <div className="overflow-hidden whitespace-nowrap h-28 flex items-center">
+    <div className=" flex justify-center items-center w-full  px-4 sm:px-10 md:px-20 lg:px-44  mt-[100px] sm:mt-[100px] md:mt-[100px] lg:mt-[100px] mb-[80px] sm:mb-[80px] md:mb-[80px] lg:mb-[80px] ">
+      <div className="overflow-hidden whitespace-nowrap h-28 flex items-center  ">
         <div
           className="inline-block animate-slide"
-          onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = 'paused')}
-          onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = 'running')}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.animationPlayState = "paused")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.animationPlayState = "running")
+          }
         >
           {duplicatedImages.map((src, index) => (
-            <div key={index} className="inline-flex items-center justify-center mx-2">
+            <div
+              key={index}
+              className="inline-flex items-center justify-center mx-6  "
+            >
               <Image
                 src={src}
                 alt="Antares Agency Logo"
-                width={90}
-                height={98}
-                className="rounded-lg"
-                priority 
+                width={100}
+                height={129} 
+                className="rounded-lg object-cover h-[129px] w-auto"
               />
             </div>
           ))}
