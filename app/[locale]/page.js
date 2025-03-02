@@ -103,7 +103,7 @@ export default function Home() {
       <div className="mx-auto w-screen relative flex overflow-hidden">
         {showScene && isWebGL2Available ? (
           <div className="relative" ref={sceneContainerRef}>
-            <TestScene />
+            <Scene gpuTier={gpuTier}/>
           </div>
         ) : (
           <div className="relative scene-size">
