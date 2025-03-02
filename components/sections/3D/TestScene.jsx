@@ -1,7 +1,10 @@
 import { Canvas } from '@react-three/fiber';
 import React, { useRef, useEffect, useMemo } from 'react'
 import { useGLTF, useAnimations, PerspectiveCamera, MeshTransmissionMaterial } from '@react-three/drei'
-
+import { useLoader } from '@react-three/fiber'
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader'
+import { Environment} from '@react-three/drei'
+import * as THREE from 'three'
 
 export function Model(props) {
   const group = useRef()
@@ -38,6 +41,7 @@ export function Model(props) {
     transparent={true}
     attenuation={0.5}
     reflectivity={0}
+    doubleSided={true}
   />
   ), [])
 
@@ -265,9 +269,73 @@ export default function TestScene() {
   return (
     <div className="w-screen h-screen">
         <Canvas>
-            <ambientLight intensity={1} />
+            <ambientLight intensity={1} color="#341268" />
+            {/* Luz de tipo panel blanca */}
+            <rectAreaLight
+            width={15}
+            height={35}
+            color="#ffffff"
+            intensity={150}
+            position={[5, 12, 10]}
+            rotation={[- Math.PI/8,  -Math.PI/4, Math.PI/8]}
+            />
+
+            {/* Luz rosa más intensa */}
+            <pointLight 
+            color="#F40BFA"
+            intensity={2}
+            position={[19, -3.8, 0.2]}
+            distance={20}
+            decay={2}
+            />
+
+
+            {/* yellow light */}
+            <pointLight 
+            intensity={8} 
+            distance={100}
+            position={[4, 6, 4]} 
+            color="#ffd60a"
+            />
+
+            {/* Luz adicional en cyan */}
+            <pointLight 
+            color="#00fff5"
+            intensity={10}
+            position={[0, 5, -5]}
+            distance={30}
+            />
+
             <Model />
+            <Env />
         </Canvas>
     </div>
   );
 }
+
+function Env({
+    background,
+    intensity = 0.5,
+    blur = 10,
+    x = 0,
+    y = 0,
+    z = 0
+  }) {
+    const texture = useLoader(RGBELoader, '/assets/images/3D/hdri.hdr')
+    return (
+      <Environment background={background} blur={blur} exclude={['Astronaut_cube_faces']}>
+        <color attach="background" args={['black']} />
+        <mesh rotation={[x, y, z]} scale={100}>
+          <sphereGeometry />
+          <meshBasicMaterial 
+            transparent 
+            opacity={intensity}
+            map={texture}
+            side={THREE.BackSide}
+            toneMapped={true}
+            exposure={0.1}
+          />
+        </mesh>
+      </Environment>
+    )
+  }

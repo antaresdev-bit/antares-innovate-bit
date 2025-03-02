@@ -73,6 +73,11 @@ export default function Scene({ gpuTier }) {
       <div
         className="relative scene-size overflow-hidden"
 
+        style={{
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
+        }}
+
       >
         <Canvas
           style={{ background: 'transparent' }}
