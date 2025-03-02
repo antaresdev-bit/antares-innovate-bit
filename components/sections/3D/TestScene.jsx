@@ -1,7 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import React, { useRef, useEffect, useMemo } from 'react'
-import { useGLTF, useAnimations, PerspectiveCamera } from '@react-three/drei'
-
+import { useGLTF, useAnimations, PerspectiveCamera, MeshTransmissionMaterial } from '@react-three/drei'
 
 
 export function Model(props) {
@@ -15,6 +14,45 @@ export function Model(props) {
       color="#fff"
       roughness={1}
       metalness={0}
+    />
+  ), [])
+
+  const cubeMaterial = useMemo(() => (
+    <MeshTransmissionMaterial 
+    ior={2} 
+    chromaticAberration={0.3}
+    metalness={0.1}
+    transmission={1}
+    backside={true}
+    iridescence={0.5}           
+    iridescenceIOR={2}  
+    iridescenceThicknessRange={[500, 400]}  
+    toneMapped={false}      
+    depthWrite={true}
+    depthTest={true}
+    renderOrder={-1}
+    samples={8} 
+    thickness={0.05} 
+    anisotropy={1} 
+    roughness={0.05}
+    transparent={true}
+    attenuation={0.5}
+    reflectivity={0}
+  />
+  ), [])
+
+  const astronautMaterial = useMemo(() => (
+    <meshPhysicalMaterial 
+      color="#000359"             
+      metalness={1}
+      specular="#ffffff"
+      roughness={0.1}
+      clearcoat={0.5}
+      ior={2.5}
+      reflectivity={1}
+      iridescence={0.5}
+      iridescenceIOR={2.5}
+      envMapIntensity={2}
     />
   ), [])
 
@@ -36,7 +74,7 @@ export function Model(props) {
             material={materials.Material}
             skeleton={nodes.Astronaut.skeleton}
           >
-            {simpleMaterial}
+            {astronautMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="Broche1_1"
@@ -44,7 +82,7 @@ export function Model(props) {
             material={materials.Material}
             skeleton={nodes.Broche1_1.skeleton}
           >
-            {simpleMaterial}
+            {astronautMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="Broche2"
@@ -52,7 +90,7 @@ export function Model(props) {
             material={materials.Material}
             skeleton={nodes.Broche2.skeleton}
           >
-            {simpleMaterial}
+            {astronautMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="cintas_1"
@@ -60,7 +98,7 @@ export function Model(props) {
             material={materials.Material}
             skeleton={nodes.cintas_1.skeleton}
           >
-            {simpleMaterial}
+            {astronautMaterial}
           </skinnedMesh>
           <primitive object={nodes.mixamorigHips} />
           <primitive object={nodes.neutral_bone} />
@@ -75,7 +113,7 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
         >
-          {simpleMaterial}
+          {cubeMaterial}
         </mesh>
         <mesh
           name="Atronaut_cube_border"

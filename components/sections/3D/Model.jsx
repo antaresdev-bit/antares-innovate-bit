@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useRef, useEffect, useMemo, useState } from 'react'
 import { useGLTF, PerspectiveCamera, useAnimations, MeshTransmissionMaterial} from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
@@ -24,8 +22,8 @@ export function Model(props) {
       metalness={0}
     />
   ), [])
-/*
-  const simpleMaterial = useMemo(() => (
+
+  const cubeMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
     transmissionSampler={true}
     ior={2} 
@@ -50,7 +48,7 @@ export function Model(props) {
   />
   ), [])
 
-  const simpleMaterial = useMemo(() => (
+  const astronautMaterial = useMemo(() => (
     <meshPhysicalMaterial 
       color="#000359"             
       metalness={1}
@@ -64,8 +62,8 @@ export function Model(props) {
       envMapIntensity={2}
     />
   ), [])
-*/
-  /*// Compilar materiales después del primer render
+
+  // Compilar materiales después del primer render
   useEffect(() => {
     const figureMaterial = (
       <meshPhysicalMaterial 
@@ -86,9 +84,9 @@ export function Model(props) {
 
 
     setCompiledMaterials({
-      simpleMaterial,
+      astronautMaterial,
       figureMaterial,
-      simpleMaterial
+      cubeMaterial
     })
 
     // Dar tiempo para que los materiales se compilen
@@ -97,9 +95,10 @@ export function Model(props) {
     }, 1000)
 
     return () => clearTimeout(timer)
-  }, [])*/
+  }, [])
 
   useEffect(() => {
+    console.log('Animaciones disponibles:', Object.keys(actions))
     
     Object.values(actions).forEach((action) => {
       action.reset().play()
@@ -141,7 +140,7 @@ export function Model(props) {
             geometry={nodes.Astronaut.geometry}
             skeleton={nodes.Astronaut.skeleton}
           >
-            {simpleMaterial}
+            {astronautMaterial}
           </skinnedMesh>
           <skinnedMesh
             name="Broche1_1"
@@ -162,7 +161,7 @@ export function Model(props) {
             skeleton={nodes.cintas_1.skeleton}
           >
             {materialsLoaded && compiledMaterials ? 
-              simpleMaterial : 
+              astronautMaterial : 
               simpleMaterial}
           </skinnedMesh>
           <primitive object={nodes.mixamorigHips} />
@@ -202,7 +201,7 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
         >
-          {simpleMaterial}
+          {cubeMaterial}
         </mesh>
         <mesh
           name="Atronaut_cube_border"
@@ -214,7 +213,10 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}          
         >
-
+         <meshPhysicalMaterial
+          color="#87CEEB"
+          toneMapped={false}
+         />
         </mesh>
 
         <mesh
@@ -228,7 +230,7 @@ export function Model(props) {
           scale={-1.438}
         >
           {materialsLoaded && compiledMaterials ? 
-              simpleMaterial : 
+              astronautMaterial : 
               simpleMaterial}
         </mesh>
         <mesh
@@ -242,7 +244,7 @@ export function Model(props) {
           scale={-0.801}
         >
           {materialsLoaded && compiledMaterials ? 
-              simpleMaterial : 
+              astronautMaterial : 
               simpleMaterial}
         </mesh>
 
@@ -340,7 +342,7 @@ export function Model(props) {
           scale={0.145}
         >
           {materialsLoaded && compiledMaterials ? 
-              simpleMaterial : 
+              astronautMaterial : 
               simpleMaterial}
         </mesh>
         <mesh
@@ -353,7 +355,7 @@ export function Model(props) {
           scale={0.261}
         >
           {materialsLoaded && compiledMaterials ? 
-              simpleMaterial : 
+              astronautMaterial : 
               simpleMaterial}
         </mesh>
         <mesh
@@ -366,7 +368,7 @@ export function Model(props) {
           scale={0.169}
         >
           {materialsLoaded && compiledMaterials ? 
-              simpleMaterial : 
+              astronautMaterial : 
               simpleMaterial}
         </mesh>        
         <mesh
@@ -379,7 +381,7 @@ export function Model(props) {
           scale={0.107}
         >
           {materialsLoaded && compiledMaterials ? 
-              simpleMaterial : 
+              astronautMaterial : 
               simpleMaterial}
         </mesh>
       </group>
