@@ -32,6 +32,23 @@ const VideoLanding = dynamic(
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
+  const [gpuTier, setGpuTier] = useState({ tier: 0 });
+  const [webGLSupported, setWebGLSupported] = useState(false);
+
+ 
+  useEffect(() => {
+    const detectGPU = async () => {
+      try {
+        const gpu = await getGPUTier();
+        setGpuTier(gpu);
+      } catch (e) {
+        console.error('Error detectando GPU:', e);
+        setGpuTier({ tier: 0 }); // fallback a configuración de bajo rendimiento
+      }
+    };
+    
+    detectGPU();
+  }, []);
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -39,13 +56,6 @@ export default function Home() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setShowScene(entry.isIntersecting);
-
-        if (!entry.isIntersecting) {
-          const canvas = document.querySelector("canvas");
-          if (canvas) {
-            canvas.remove();
-          }
-        }
       },
       {
         root: null,
@@ -65,14 +75,30 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const checkWebGL = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const isSupported = !!(
+          window.WebGLRenderingContext &&
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+        );
+        setWebGLSupported(isSupported);
+      } catch (e) {
+        setWebGLSupported(false);
+      }
+    };
+    
+    checkWebGL();
+  }, []);
+
   return (
     <>
-    <LayoutComponents />
-    <div className="">
-      <div className="  relative flex justify-center overflow-hidden ">
+      <LayoutComponents />
+      <div className="relative flex justify-center overflow-hidden ">
         {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
-            <Scene />
+            <Scene gpuTier={gpuTier}/>
           </div>
         ) : (
           <div className="relative">Escena 3D no visible</div>
@@ -86,19 +112,19 @@ export default function Home() {
         </div>
       </div> 
 
-      <div className="relative flex justify-center overflow-hidden w-full h-screen">
-        <div className="w-full min-h-screen flex items-center justify-center overflow-visible relative">
+      <div className="relative flex justify-center overflow-hidden w-full">
+        <div className="w-full flex items-center justify-center overflow-visible relative">
           {/* Degradado */}
           <div
             className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
             style={{
               background:
-              "radial-gradient(ellipse at center, #22379A 0%, #0E051C 45%)",
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 45%)",
               left: "0%",
               transform: "translateX(-50%) translateY(10%)",
               zIndex: -1,
             }}
-            ></div>
+          ></div>
 
           {/* Contenido */}
           <TextIntroduction />
@@ -111,9 +137,9 @@ export default function Home() {
           borderBottomLeftRadius: "48px",
           borderBottomRightRadius: "48px",
         }}
-        >
+      >
         <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[100px]  lg:mt-[100px] w-full">
-          <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-100 ">
+          <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
             <VideoLanding />
           </div>
 
@@ -123,12 +149,12 @@ export default function Home() {
             className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
             style={{
               background:
-              "radial-gradient(ellipse at center, #22379A 0%, #0E051C 55%)",
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 55%)",
               left: "50%",
               transform: "translateX(-50%) translateY(-65%)",
               zIndex: -1,
             }}
-            ></div>
+          ></div>
           {/* degrade */}
         </div>
       </div>
@@ -140,7 +166,6 @@ export default function Home() {
       <Blog />
 
       <Footer />
-    </div>
     </>
   );
 }
