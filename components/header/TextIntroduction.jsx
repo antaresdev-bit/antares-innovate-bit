@@ -4,7 +4,7 @@ import Image from "next/image";
 function TextIntroduction() {
   return (
     <div className="max-w-[1500px] mx-auto px-[22px] md:px-[105px] lg:px-[223px] ">
-      <div className=" border-l-0  sm:border-l-0 md:border-l border-white mt-[50px]  sm:mt-[50px] md:mt-[127px] lg:mt-[161px]  ">
+      <div className=" border-l-0  sm:border-l-0 md:border-l border-white mt-[50px] lg:mt-[50px]">
         <div
           className=" mb-2  ml-[21px] sm:ml-[21px] md:ml-[0px] lg:ml-[0px] "
           style={{ fontFamily: "HandelGothic" }}
