@@ -22,19 +22,14 @@ export function Model(props) {
 
   const cubeMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
-    ior={2} 
+    ior={1.5} 
     chromaticAberration={0.3}
     metalness={0.1}
     transmission={1}
-    backside={true}
     iridescence={0.5}           
     iridescenceIOR={2}  
-    iridescenceThicknessRange={[500, 400]}  
-    toneMapped={false}      
-    depthWrite={true}
-    depthTest={true}
-    renderOrder={-1}
-    samples={8} 
+    resolution={256}
+    samples={2} 
     thickness={0.05} 
     anisotropy={1} 
     roughness={0.05}
@@ -57,6 +52,7 @@ export function Model(props) {
       iridescence={0.5}
       iridescenceIOR={2.5}
       envMapIntensity={2}
+      resolution={256}
     />
   ), [])
 
@@ -129,7 +125,11 @@ export function Model(props) {
           rotation={[0.253, -0.057, 1.596]}
           scale={2.486}
         >
-          {simpleMaterial}
+          <meshPhysicalMaterial
+          color="#87CEEB"
+          toneMapped={false}
+          resolution={256}
+         />
         </mesh>
 
 
@@ -266,8 +266,19 @@ export function Model(props) {
 useGLTF.preload('assets/models/astronaut_web.gltf')
 
 export default function TestScene() {
+
+    
   return (
-    <div className="w-screen h-screen">
+    <div className="h-[80vh] w-screen flex items-center justify-center">
+              <div
+        className="relative scene-size overflow-hidden"
+
+        style={{
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
+        }}
+
+      >
         <Canvas>
             <ambientLight intensity={1} color="#341268" />
             {/* Luz de tipo panel blanca */}
@@ -309,6 +320,7 @@ export default function TestScene() {
             <Model />
             <Env />
         </Canvas>
+        </div>
     </div>
   );
 }
