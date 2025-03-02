@@ -1,6 +1,9 @@
 import { Canvas } from '@react-three/fiber';
 import React, { useRef } from 'react'
 import { useGLTF, useAnimations, PerspectiveCamera } from '@react-three/drei'
+import { EffectComposer } from '@react-three/postprocessing'
+import { Bloom } from '@react-three/postprocessing'
+import {KernelSize, Resolution } from 'postprocessing'
 
 export function Model(props) {
   const group = useRef()
@@ -179,6 +182,18 @@ export function Model(props) {
             position={[-27.806, -18.87, 20.621]}
             rotation={[0.825, -0.753, 0]}
           >        
+           <EffectComposer multisampling={8}>
+              <Bloom 
+                intensity={1}
+                kernelSize={KernelSize.SMALL}
+                luminanceThreshold={0.3}
+                luminanceSmoothing={1}
+                mipmapBlur
+                resolutionX={Resolution.AUTO_SIZE} 
+                resolutionY={Resolution.AUTO_SIZE}
+                layers={0}
+              />
+            </EffectComposer>  
           </PerspectiveCamera>
         </group>
       </group>
@@ -192,6 +207,7 @@ export default function TestScene() {
   return (
     <div className="w-screen h-screen">
         <Canvas>
+            <ambientLight intensity={1} />
             <Model />
         </Canvas>
     </div>
