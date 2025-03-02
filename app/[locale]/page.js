@@ -101,10 +101,10 @@ export default function Home() {
             <Scene gpuTier={gpuTier}/>
           </div>
         ) : (
-          <div className="relative">Escena 3D no visible</div>
+          <div className="relative h-screen flex items-center justify-center">{webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}</div>
         )}
 
-        <div className="absolute top-[calc(50%+200px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full max-w-[90%] lg:max-w-[80%] md:max-w-[85%] sm:max-w-[90%]">
+        <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%]">
           <div className="flex justify-center">
             {" "}
             <Certificates />
