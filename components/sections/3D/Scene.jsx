@@ -69,7 +69,7 @@ export default function Scene({ gpuTier }) {
           crossOrigin="anonymous"
         />
       </Head>
-    <div className={`relative ${isMobile ? 'h-[80vh] w-screen' : ''} flex items-center justify-center`}>
+    <div className={`relative ${isMobile ? 'h-[80vh] w-screen' : 'h-screen w-screen'} flex items-center justify-center`}>
       <div
         className="relative scene-size overflow-hidden"
 
