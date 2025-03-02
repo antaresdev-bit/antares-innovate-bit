@@ -1,22 +1,11 @@
 import { Canvas } from '@react-three/fiber';
-import React, { useRef, useEffect } from 'react'
-import { useGLTF, PerspectiveCamera, useAnimations, MeshTransmissionMaterial} from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
-import { EffectComposer } from '@react-three/postprocessing'
-import { Bloom } from '@react-three/postprocessing'
-import {KernelSize, Resolution } from 'postprocessing'
-import * as THREE from 'three'
-
+import React, { useRef } from 'react'
+import { useGLTF, useAnimations, PerspectiveCamera } from '@react-three/drei'
 
 export function Model(props) {
   const group = useRef()
-  const camera = useRef()
   const { nodes, materials, animations } = useGLTF('assets/models/astronaut_web.gltf')
   const { actions } = useAnimations(animations, group)
-  
- 
-
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -180,8 +169,7 @@ export function Model(props) {
           position={[3.96, -2.437, 0.192]}
           scale={0.107}
         />
-      </group>
-      <group          ref={camera}>
+         <group          >
           <PerspectiveCamera
             name="Camera"
             makeDefault={true}
@@ -190,32 +178,20 @@ export function Model(props) {
             fov={18.895}
             position={[-27.806, -18.87, 20.621]}
             rotation={[0.825, -0.753, 0]}
-          >
-           <EffectComposer multisampling={8}>
-              <Bloom 
-                intensity={1}
-                kernelSize={KernelSize.SMALL}
-                luminanceThreshold={0.3}
-                luminanceSmoothing={1}
-                mipmapBlur
-                resolutionX={Resolution.AUTO_SIZE} 
-                resolutionY={Resolution.AUTO_SIZE}
-                layers={0}
-              />
-            </EffectComposer>            
+          >        
           </PerspectiveCamera>
         </group>
+      </group>
     </group>
   )
 }
 
-useGLTF.preload('/astronaut_web.gltf')
+useGLTF.preload('assets/models/astronaut_web.gltf')
 
 export default function TestScene() {
   return (
     <div className="w-screen h-screen">
         <Canvas>
-            <ambientLight intensity={1} />
             <Model />
         </Canvas>
     </div>
