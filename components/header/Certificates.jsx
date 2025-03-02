@@ -5,13 +5,13 @@ import "swiper/swiper-bundle.css"; // Importa los estilos de Swiper
 
 function Certificates() {
   const images = [
-    "/assets/images/certifications/1.png",
-    "/assets/images/certifications/2.png",
-    "/assets/images/certifications/3.png",
-    "/assets/images/certifications/4.png",
-    "/assets/images/certifications/5.png",
-    "/assets/images/certifications/6.png",
-    "/assets/images/certifications/7.png",
+    "/assets/images/certifications/a.png",
+    "/assets/images/certifications/b.png",
+    "/assets/images/certifications/c.png",
+    "/assets/images/certifications/d.png",
+    "/assets/images/certifications/e.png",
+    "/assets/images/certifications/f.png",
+    "/assets/images/certifications/g.png",
   ];
 
   return (
