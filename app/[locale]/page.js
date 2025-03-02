@@ -9,6 +9,7 @@ import Slider from "../../components/header/Slider";
 import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
+import Header from "@/components/header/Header";
 
 const Scene = dynamic(() => import("../../components/sections/3D/Scene"), {
   ssr: false,
@@ -66,7 +67,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="mx-auto scene-size relative flex justify-center overflow-hidden ">
+      <div className="  relative flex justify-center overflow-hidden ">
         {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
             <Scene />
@@ -110,7 +111,7 @@ export default function Home() {
         }}
       >
         <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[100px]  lg:mt-[100px] w-full">
-          <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
+          <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-100 ">
             <VideoLanding />
           </div>
 
