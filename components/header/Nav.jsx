@@ -32,7 +32,7 @@ function Nav() {
   }, []);
 
   return (
-    <div className="flex justify-center w-full mt-[30px]  sm:mt-[30px] md:mt-[50px] lg:mt-[50px]">
+    <div className="flex justify-center w-full mt-[30px] md:mt-[50px] lg:mt-[50px]">
       <nav
         className="w-full max-w-[1500px] h-[76px] flex items-center 
     bg-[rgba(14,5,28,0.65)] backdrop-blur-xl 

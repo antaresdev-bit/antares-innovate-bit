@@ -7,9 +7,9 @@ const OurServices = () => {
   return (
     <div className="relative bg-opacity-70">
       <div className="max-w-[1500px] mx-auto">
-        <div className=" flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16  lg:w-[1300px]  ">
+        <div className=" flex flex-col gap-4 items-center md:items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16  lg:w-[1300px]  ">
           <h1
-            className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]  w-[400px] leading-[65px] "
+            className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]  max-w-[400px] leading-[65px] "
             style={{ fontFamily: "HandelGothic" }}
           >
             Nuestros <br /> Servicios
