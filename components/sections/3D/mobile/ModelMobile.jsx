@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useMemo } from 'react'
+import React, { useRef, useEffect, useMemo, useState } from 'react'
 import { useGLTF, useAnimations, MeshTransmissionMaterial, useDetectGPU } from '@react-three/drei'
 import * as THREE from 'three'
 import MobileCamera from './MobileCamera'
@@ -10,7 +10,15 @@ export default function ModelMobile(props) {
   const gpu = useDetectGPU()
   const hasLowFPS = gpu.fps < 30
   const resolution = hasLowFPS ? 256 : 512
-  
+  const [materialsLoaded, setMaterialsLoaded] = useState(false)
+
+  const simpleMaterial = useMemo(() => (
+    <meshLambertMaterial 
+      color="#fff"
+      roughness={1}
+      metalness={0}
+    />
+  ), [])
 
   const coneMaterial = useMemo(() => (
     <meshStandardMaterial
@@ -64,6 +72,15 @@ export default function ModelMobile(props) {
       action.clampWhenFinished = true
     })
   }, [actions])
+
+  useEffect(() => {
+    // Dar tiempo para que los materiales se compilen
+    const timer = setTimeout(() => {
+      setMaterialsLoaded(true)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -149,7 +166,7 @@ export default function ModelMobile(props) {
           rotation={[-0.297, -0.289, 0.157]}
           scale={0.397}
         >
-          {coneMaterial}
+          {materialsLoaded ? coneMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Torus_r"
@@ -161,7 +178,7 @@ export default function ModelMobile(props) {
           rotation={[-2.123, -0.012, -2.103]}
           scale={-1.438}
         >
-          {astronautMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Cone_middle"
@@ -173,7 +190,7 @@ export default function ModelMobile(props) {
           rotation={[1.356, 0.182, -1.104]}
           scale={0.228}
         >
-          {coneMaterial}
+          {materialsLoaded ? coneMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Star_lb"
@@ -184,7 +201,7 @@ export default function ModelMobile(props) {
           position={[-2.611, 1.263, -4.861]}
           scale={0.145}
         >
-          {astronautMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Star_lt"
@@ -195,7 +212,7 @@ export default function ModelMobile(props) {
           position={[-2.587, 8.035, 0.838]}
           scale={0.169}
         >
-          {astronautMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
         <mesh
           name="Star_rb"
@@ -206,7 +223,7 @@ export default function ModelMobile(props) {
           position={[3.96, -2.437, 0.192]}
           scale={0.107}
         >
-          {astronautMaterial}
+          {materialsLoaded ? astronautMaterial : simpleMaterial}
         </mesh>
         <MobileCamera />
       </group>
