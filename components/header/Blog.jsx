@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const blogItems = [
   {
@@ -19,10 +19,24 @@ const blogItems = [
 ];
 
 function Blog() {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    setIsSmallScreen(window.innerWidth < 640);
+
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
-      <div className="w-full max-w-[1299px] mx-auto sm:bg-white bg-transparent rounded-[48px] p-8 mt-[100px]  ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[29px] ">
+      <div className="w-full max-w-[1299px] mx-auto sm:bg-white bg-transparent rounded-[48px] p-8 mt-[100px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[29px]">
           {blogItems.map((item, index) => (
             <div
               key={index}
@@ -68,10 +82,10 @@ function Blog() {
 
       {/* ------------------------------"footer de Blog" ------------------------------------ */}
 
-      <div className="w-full bg-gradient-to-t from-[#965318] via-[#C9AB69] to-transparent py-16 flex justify-center rounded-b-[48px]">
-        <div className="border-l text-center text-white px-6 mt-[50px] w-full max-w-[933px]">
+      <div className="w-full py-16 flex justify-center rounded-b-[48px] relative overflow-hidden">
+        <div className="border-l text-center text-white px-6 mt-[50px] w-full max-w-[933px] relative z-10">
           <p
-            className="text-xl md:text-2xl font-bold max-w-[933px] mx-auto text-left bg-gradient-to-r from-[#FDC548] to-[#FFFFFF] text-transparent bg-clip-text leading-tight md:leading-[43px]"
+            className="text-xl md:text-2xl font-bold max-w-[933px] mx-auto text-left bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] text-transparent bg-clip-text leading-tight md:leading-[43px]"
             style={{ fontFamily: "HandelGothic", fontSize: "40px" }}
           >
             Suscríbete a nuestro boletín para estar al tanto de las últimas
@@ -86,6 +100,16 @@ function Blog() {
             />
           </div>
         </div>
+
+        {/* Degradado condicional */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background: isSmallScreen
+              ? "radial-gradient(ellipse at 20% 80%, #22379A80 30%, #0B0C2840 70%)" // Degradado en pantallas pequeñas
+              : "radial-gradient(ellipse at 50% 100%, #22379A80 50%, #0B0C2840 90%)", // Degradado en pantallas grandes
+          }}
+        ></div>
       </div>
     </>
   );

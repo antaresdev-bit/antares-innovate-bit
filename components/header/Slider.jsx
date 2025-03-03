@@ -19,44 +19,28 @@ const images = [
 ];
 
 function Slider() {
-  const duplicatedImages = [
-    ...images,
-    ...images,
-    ...images,
-    ...images,
-    ...images,
-    ...images,
-    ...images,
-  ];
+  const duplicatedImages = Array(7).fill(images).flat();
 
   return (
-    <div className=" flex justify-center items-center w-full  px-4 sm:px-10 md:px-20 lg:px-44  mt-[100px] sm:mt-[100px] md:mt-[100px] lg:mt-[100px] mb-[80px] sm:mb-[80px] md:mb-[80px] lg:mb-[80px] ">
-      <div className="overflow-hidden whitespace-nowrap h-28 flex items-center  ">
+    <div className="flex justify-center items-center w-full px-4 sm:px-10 md:px-20 lg:px-44 mt-[40px] sm:mt-[40px] md:mt-[80px] lg:mt-[90px] mb-[40px] sm:mb-[40px] md:mb-[80px] lg:mb-[90px] ">
+      <div className="overflow-hidden whitespace-nowrap flex items-center">
         <div
           className="inline-block animate-slide"
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.animationPlayState = "paused")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.animationPlayState = "running")
-          }
+          onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = "paused")}
+          onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = "running")}
         >
           {duplicatedImages.map((src, index) => (
-            <div
-              key={index}
-              className="inline-flex items-center justify-center mx-6  "
-            >
+            <div key={index} className="inline-flex items-center justify-center mx-6 ">
               <Image
                 src={src}
                 alt="Antares Agency Logo"
                 width={100}
-                height={129} 
-                className="rounded-lg object-cover h-[129px] w-auto"
+                height={104} 
+                className="rounded-lg object-cover w-auto h-[74px] sm:h-[74px] md:h-[84px] lg:h-[104px]"
               />
             </div>
           ))}
         </div>
-
         <style jsx>{`
           @keyframes slide {
             0% {
@@ -66,10 +50,8 @@ function Slider() {
               transform: translateX(-50%);
             }
           }
-
           .animate-slide {
             animation: slide 30s linear infinite;
-            transition: animation-play-state 0.1s; // Smooth transition for pause
           }
         `}</style>
       </div>

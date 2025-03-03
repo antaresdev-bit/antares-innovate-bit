@@ -11,9 +11,12 @@ import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
 import LayoutComponents from "@/components/layout/LayoutComponents";
 
-const OptimisedScene = dynamic(() => import("../../components/sections/3D/OptimisedScene"), {
-  ssr: false,
-});
+const OptimisedScene = dynamic(
+  () => import("../../components/sections/3D/OptimisedScene"),
+  {
+    ssr: false,
+  }
+);
 
 //Se hace importe dinámico a estos elementos para acelerar la carga de la Escena
 const OurWork = dynamic(() => import("../../components/header/OurWork"), {
@@ -33,8 +36,6 @@ export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
   const [webGLSupported, setWebGLSupported] = useState(false);
-
-
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -64,17 +65,18 @@ export default function Home() {
   useEffect(() => {
     const checkWebGL = () => {
       try {
-        const canvas = document.createElement('canvas');
+        const canvas = document.createElement("canvas");
         const isSupported = !!(
           window.WebGLRenderingContext &&
-          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+          (canvas.getContext("webgl") ||
+            canvas.getContext("experimental-webgl"))
         );
         setWebGLSupported(isSupported);
       } catch (e) {
         setWebGLSupported(false);
       }
     };
-    
+
     checkWebGL();
   }, []);
 
@@ -84,10 +86,12 @@ export default function Home() {
       <div className="relative flex justify-center overflow-hidden ">
         {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
-            <OptimisedScene/>
+            <OptimisedScene />
           </div>
         ) : (
-          <div className="relative h-screen flex items-center justify-center">{webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}</div>
+          <div className="relative h-screen flex items-center justify-center">
+            {webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}
+          </div>
         )}
 
         <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%]">
@@ -96,7 +100,7 @@ export default function Home() {
             <Certificates />
           </div>
         </div>
-      </div> 
+      </div>
 
       <div className="relative flex justify-center overflow-hidden w-full">
         <div className="w-full flex items-center justify-center overflow-visible relative">
@@ -105,9 +109,9 @@ export default function Home() {
             className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
             style={{
               background:
-                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 45%)",
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 35%)",
               left: "0%",
-              transform: "translateX(-50%) translateY(10%)",
+              transform: "translateX(-40%) translateY(7%)",
               zIndex: -1,
             }}
           ></div>
@@ -118,7 +122,7 @@ export default function Home() {
       </div>
 
       <div
-        className="relative overflow-hidden  "
+        className="relative overflow-hidden  mt-[60px]  "
         style={{
           borderBottomLeftRadius: "48px",
           borderBottomRightRadius: "48px",
@@ -137,7 +141,7 @@ export default function Home() {
               background:
                 "radial-gradient(ellipse at center, #22379A 0%, #0E051C 55%)",
               left: "50%",
-              transform: "translateX(-50%) translateY(-65%)",
+              transform: "translateX(-50%) translateY(-50%)",
               zIndex: -1,
             }}
           ></div>
