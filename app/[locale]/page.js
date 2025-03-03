@@ -103,15 +103,15 @@ export default function Home() {
       </div>
 
       <div className="relative flex justify-center overflow-hidden w-full">
-        <div className="w-full flex items-center justify-center overflow-visible relative">
+        <div className="w-full flex items-center justify-center overflow-visible relative ">
           {/* Degradado */}
           <div
-            className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
+            className="absolute inset-x-0 mx-auto w-[3000px] h-[800px]  "
             style={{
               background:
-                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 35%)",
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 40%)",
               left: "0%",
-              transform: "translateX(-40%) translateY(7%)",
+              transform: "translateX(-50%) translateY(5%)",
               zIndex: -1,
             }}
           ></div>
@@ -128,7 +128,7 @@ export default function Home() {
           borderBottomRightRadius: "48px",
         }}
       >
-        <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[100px]  lg:mt-[100px] w-full">
+        <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[50px]  lg:mt-[50px] w-full">
           <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
             <VideoLanding />
           </div>
@@ -139,7 +139,7 @@ export default function Home() {
             className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
             style={{
               background:
-                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 55%)",
+                "radial-gradient(ellipse at center, #22379A 0%, #0E051C 50%)",
               left: "50%",
               transform: "translateX(-50%) translateY(-50%)",
               zIndex: -1,

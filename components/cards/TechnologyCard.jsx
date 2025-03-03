@@ -1,10 +1,121 @@
+// import React from "react";
+// import Image from "next/image";
+
+// function TechnologyCard() {
+//   return (
+//     <div className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-[#FFFFFF] rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white">
+//       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center  rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white flex-row-reverse">
+//         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0">
+//           <div className="relative">
+//             <Image
+//               src="/assets/images/portadas-servicios-home/tecnologia-portada-3.png"
+//               alt="Tecnologia"
+//               width={400}
+//               height={400}
+//               className="rounded-lg md:hidden"
+//             />
+//             <Image
+//               src="/assets/images/portadas-servicios-home/tecnologia-portada-4.png"
+//               alt="Tecnologia Tablet"
+//               width={700}
+//               height={400}
+//               className="rounded-lg hidden md:block lg:hidden"
+//             />
+//             <Image
+//               src="/assets/images/portadas-servicios-home/tecnologia-portada-3.png"
+//               alt="Tecnologia Desktop"
+//               width={800}
+//               height={600}
+//               className="rounded-lg hidden md:hidden lg:block"
+//             />
+//           </div>
+//         </div>
+
+//         <div className="w-full md:w-full lg:flex-grow border border-white rounded-[24px] flex flex-col justify-between p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] min-h-full bg-[#ECECEC]">
+//           <div>
+//             <h2
+//               className="font-bold mb-[18px] sm:mb-[18px] md:mb-[37px] lg:mb-[37px]"
+//               style={{
+//                 fontFamily: "HandelGothic",
+//                 fontSize: "40px",
+//                 color: "#0B0C28",
+//               }}
+//             >
+//               Tecnología
+//             </h2>
+//             <p
+//               style={{
+//                 fontFamily: "UniteaSans",
+//                 fontSize: "18px",
+//                 color: "#0B0C28",
+//               }}
+//             >
+//               Aplicamos innovación y tecnología para potenciar el crecimiento:
+//             </p>
+//             <ul
+//               className="mt-[10px] ml-[20px]"
+//               style={{
+//                 fontFamily: "UniteaSans",
+//                 fontSize: "18px",
+//                 color: "#0B0C28",
+//               }}
+//             >
+//               <li>Desarrollo web y mobile, con UX/UI optimizado.</li>
+//               <li>
+//                 Creación de software a medida y plataformas digitales
+//                 escalables.
+//               </li>
+//               <li>
+//                 Implementación de automatizaciones e Inteligencia Artificial
+//                 para optimizar procesos.
+//               </li>
+//             </ul>
+//           </div>
+//           <div className="flex items-center mt-10">
+//             <Image
+//               src="/assets/images/Gif Avion.gif"
+//               alt="Botón Animado"
+//               width={48}
+//               height={48}
+//               className=""
+//             />
+//             <button
+//               className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] border border-[#676781] hover:bg-gray-200 transition duration-300 font-bold"
+//               style={{ fontFamily: "HandelGothic" }}
+//             >
+//               Ver Portafolio
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default TechnologyCard;
+
 import React from "react";
 import Image from "next/image";
 
 function TechnologyCard() {
   return (
-    <div className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-[#FFFFFF] rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white">
-      <div className="flex flex-wrap lg:flex-nowrap justify-between items-center  rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white flex-row-reverse">
+    <div
+      className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-[#FFFFFF] lg:bg-[#0E051C] sm:bg-[#FFFFFF] md:bg-[#FFFFFF] lg:bg-none rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] sm:pb-[0px] md:pb-[0px] lg:pb-[40px] "
+      style={{
+        backgroundImage: "none", // Fondo por defecto (sin imagen)
+      }}
+    >
+      {/* Fondo de imagen solo en lg */}
+      <div
+        className="hidden lg:block absolute inset-0 bg-cover bg-center rounded-[48px]"
+        style={{
+          backgroundImage: "url('/assets/images/portadas-servicios-home/fondocard.png')",
+          backgroundSize: "100% 100%", // Ajusta el ancho al contenedor
+          backgroundPosition: "center",
+        }}
+      ></div>
+
+      <div className="flex flex-wrap lg:flex-nowrap justify-between items-center rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white flex-row-reverse relative z-10">
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0">
           <div className="relative">
             <Image
@@ -80,12 +191,8 @@ function TechnologyCard() {
               className=""
             />
             <button
-              className="w-[230px] h-[48px] rounded-[32px] bg-white text-black font-bold flex items-center justify-center "
-              style={{
-                fontFamily: "HandelGothic",
-                fontSize: "20px",
-                color: "#0B0C28",
-              }}
+              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] border border-[#676781] hover:bg-gray-200 transition duration-300 font-bold"
+              style={{ fontFamily: "HandelGothic" }}
             >
               Ver Portafolio
             </button>
