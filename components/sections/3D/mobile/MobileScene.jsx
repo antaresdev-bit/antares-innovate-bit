@@ -1,21 +1,47 @@
 import { Canvas } from '@react-three/fiber';
-import { useLoader } from '@react-three/fiber'
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader'
-import { Environment} from '@react-three/drei'
-import * as THREE from 'three'
-import { ModelMobile } from './mobile/ModelMobile'
+import ModelMobile from './ModelMobile'
+import EnvironmentTexture from '../EnvironmentTexture'
+import { Suspense } from 'react'
+import Head from 'next/head'
 
-export default function TestScene() {    
+export default function MobileScene() {    
   return (
-    <div className="h-[80vh] w-screen flex items-center justify-center">
-              <div
+    <>
+    <Head>
+    <link
+      rel="preload"
+      href="/assets/models/astronaut_phone.gltf"
+      as="fetch"
+      type="model/gltf-binary"
+      crossOrigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/3D/hdri.hdr"
+      as="fetch"
+      type="application/octet-stream"
+      crossOrigin="anonymous"
+    />
+  </Head>
+    <div className="relative h-[90vh] w-screen flex items-center justify-center">
+        <div
         className="relative scene-size overflow-hidden"
         style={{
           maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
         }}
-      >
-        <Canvas>
+        >
+        <Canvas 
+            style={{ background: 'transparent' }}
+            gl={{
+            alpha: true,
+            antialias: false,
+            stencil: false,
+            depth: false
+            }}
+            dpr={[1, 1]}
+        >
+            <Suspense fallback={null}>
             <ambientLight intensity={1} color="#3d1758" />
             {/* Luz de tipo panel blanca */}
             <rectAreaLight
@@ -44,37 +70,12 @@ export default function TestScene() {
             distance={30}
             />
 
+            <EnvironmentTexture />
             <ModelMobile />
-            <Env />
+            </Suspense>
         </Canvas>
         </div>
     </div>
+    </>
   );
 }
-
-function Env({
-    background,
-    intensity = 0.5,
-    blur = 10,
-    x = 0,
-    y = 0,
-    z = 0
-  }) {
-    const texture = useLoader(RGBELoader, '/assets/images/3D/hdri.hdr')
-    return (
-      <Environment background={background} blur={blur} exclude={['Astronaut_cube_faces']}>
-        <color attach="background" args={['black']} />
-        <mesh rotation={[x, y, z]} scale={100}>
-          <sphereGeometry />
-          <meshBasicMaterial 
-            transparent 
-            opacity={intensity}
-            map={texture}
-            side={THREE.BackSide}
-            toneMapped={true}
-            exposure={0.5}
-          />
-        </mesh>
-      </Environment>
-    )
-  }

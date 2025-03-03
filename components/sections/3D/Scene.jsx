@@ -1,37 +1,15 @@
 'use client'
 
-import React, { Suspense, useRef, useState, useEffect } from 'react'
+import React, { Suspense, useRef, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Model } from './Model'
 import Head from 'next/head'
-import { Environment, Stats } from '@react-three/drei'
-import * as THREE from 'three'
-import { useLoader } from '@react-three/fiber'
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader'
-import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper'
+import { Stats } from '@react-three/drei'
+import EnvironmentTexture from './EnvironmentTexture'
 
-export default function Scene({ gpuTier }) {
+export default function Scene() {
 
   const lightRef = useRef()
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const checkInitialSize = () => {
-        setIsMobile(window.innerWidth < 768)
-      }
-      
-      // Ejecutar la comprobación inicial
-      checkInitialSize()
-
-      // Configurar el listener para cambios de tamaño
-      const handleResize = () => {
-        setIsMobile(window.innerWidth < 768)
-      }
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
-    }
-  }, [])
 
   useEffect(() => {
     window.onerror = function(msg, url, lineNo, columnNo, error) {
@@ -39,17 +17,6 @@ export default function Scene({ gpuTier }) {
       return false;
     };
   }, []);
-
-  const getDpr = () => {
-    if (!gpuTier) return [1, 1]; // valor por defecto mientras se detecta
-    
-    // tier 1 es gama baja, 2 es media, 3 es alta
-    if (gpuTier.tier <= 1) {
-      return [1, 1];
-    } else {
-      return [1, Math.min(window.devicePixelRatio, 2)];
-    }
-  };
 
   return (
     <>
@@ -69,7 +36,7 @@ export default function Scene({ gpuTier }) {
           crossOrigin="anonymous"
         />
       </Head>
-    <div className={`relative ${isMobile ? 'h-[80vh] w-screen' : 'h-screen w-screen'} flex items-center justify-center`}>
+    <div className="relative h-screen w-screen flex items-center justify-center">
       <div
         className="relative scene-size overflow-hidden"
 
@@ -87,7 +54,6 @@ export default function Scene({ gpuTier }) {
             stencil: false,
             depth: false
           }}
-          dpr={getDpr()}
         >
           <Suspense fallback={null}> 
             {/* Luz ambiental más intensa y colorida */}
@@ -141,7 +107,7 @@ export default function Scene({ gpuTier }) {
               distance={30}
             />
 
-            <Env />
+            <EnvironmentTexture/>
             {/* <Stats /> */}
             <Model />
           </Suspense>
@@ -149,32 +115,5 @@ export default function Scene({ gpuTier }) {
       </div>
     </div>
     </>
-  )
-}
-
-function Env({
-  background,
-  intensity = 0.5,
-  blur = 10,
-  x = 0,
-  y = 0,
-  z = 0
-}) {
-  const texture = useLoader(RGBELoader, '/assets/images/3D/hdri.hdr')
-  return (
-    <Environment background={background} blur={blur} exclude={['Astronaut_cube_faces']}>
-      <color attach="background" args={['black']} />
-      <mesh rotation={[x, y, z]} scale={100}>
-        <sphereGeometry />
-        <meshBasicMaterial 
-          transparent 
-          opacity={intensity}
-          map={texture}
-          side={THREE.BackSide}
-          toneMapped={true}
-          exposure={0.1}
-        />
-      </mesh>
-    </Environment>
   )
 }
