@@ -10,13 +10,12 @@ export default function ModelMobile(props) {
   const gpu = useDetectGPU()
   const hasLowFPS = gpu.fps < 30
   const resolution = hasLowFPS ? 256 : 512
-  const isLowEnd = gpu.isMobile && gpu.tier < 2
-  const toneMapped = !isLowEnd
+  
 
   const coneMaterial = useMemo(() => (
     <meshStandardMaterial
     color="#87CEEB"
-    toneMapped={toneMapped}
+    toneMapped={false}
     resolution={resolution}
     emissive="#87CEEB"
     emissiveIntensity={1}
@@ -25,11 +24,9 @@ export default function ModelMobile(props) {
 
   const cubeMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
-    transmissionSampler={!isLowEnd}
     ior={1.5} 
     metalness={0.1}
     transmission={1}
-    backside={!isLowEnd}
     iridescence={0.5}           
     iridescenceIOR={2}  
     resolution={resolution}
@@ -41,10 +38,6 @@ export default function ModelMobile(props) {
     attenuation={0.5}
     reflectivity={0}
     doubleSided={true}
-    toneMapped={toneMapped}
-    depthWrite={!isLowEnd}
-    depthTest={!isLowEnd}
-
   />
   ), [])
 
