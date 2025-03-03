@@ -1,18 +1,21 @@
 import React, { useRef, useEffect, useMemo } from 'react'
-import { useGLTF, useAnimations, PerspectiveCamera, MeshTransmissionMaterial } from '@react-three/drei'
+import { useGLTF, useAnimations, MeshTransmissionMaterial, useDetectGPU } from '@react-three/drei'
 import * as THREE from 'three'
+import MobileCamera from './MobileCamera'
 
 export default function ModelMobile(props) {
   const group = useRef()
-  const camera = useRef()
   const { nodes, materials, animations } = useGLTF('assets/models/astronaut_phone.gltf')
   const { actions } = useAnimations(animations, group)
+  const gpu = useDetectGPU()
+  const hasLowFPS = gpu.fps < 30
+  const resolution = hasLowFPS ? 256 : 512
 
   const coneMaterial = useMemo(() => (
     <meshStandardMaterial
     color="#87CEEB"
     toneMapped={false}
-    resolution={256}
+    resolution={resolution}
     emissive="#87CEEB"
     emissiveIntensity={1}
    />
@@ -25,7 +28,7 @@ export default function ModelMobile(props) {
     transmission={1}
     iridescence={0.5}           
     iridescenceIOR={2}  
-    resolution={256}
+    resolution={resolution}
     samples={2} 
     thickness={0.05} 
     anisotropy={1} 
@@ -49,7 +52,7 @@ export default function ModelMobile(props) {
       iridescence={0.5}
       iridescenceIOR={2.5}
       envMapIntensity={2}
-      resolution={256}
+      resolution={resolution}
     />
   ), [])
 
@@ -132,7 +135,7 @@ export default function ModelMobile(props) {
           <meshPhysicalMaterial
           color="#87CEEB"
           toneMapped={false}
-          resolution={256}
+          resolution={resolution}
          />
         </mesh>
         <mesh
@@ -204,16 +207,7 @@ export default function ModelMobile(props) {
         >
           {astronautMaterial}
         </mesh>
-        <PerspectiveCamera
-          ref={camera}
-          name="Camera"
-          makeDefault={true}
-          far={100}
-          near={0.1}
-          fov={18.895}
-          position={[-27.806, -18.87, 20.621]}
-          rotation={[0.825, -0.753, 0]}
-        /> 
+        <MobileCamera />
       </group>
     </group>
   )
