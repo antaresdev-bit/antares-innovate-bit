@@ -3,13 +3,8 @@ import ModelMobile from './ModelMobile'
 import EnvironmentTexture from '../EnvironmentTexture'
 import { Suspense } from 'react'
 import Head from 'next/head'
-import { useDetectGPU } from '@react-three/drei'
 
 export default function MobileScene() {    
-  const gpu = useDetectGPU()
-  const isLowEnd = gpu.isMobile && gpu.tier < 2
-  const cyanLightIntensity = isLowEnd ? 100 : 10
-
   return (
     <>
     <Head>
@@ -70,7 +65,7 @@ export default function MobileScene() {
             {/* Luz adicional en cyan */}
             <pointLight 
             color="#00fff5"
-            intensity={cyanLightIntensity}
+            intensity={100}
             position={[0, 5, -5]}
             distance={30}
             />
