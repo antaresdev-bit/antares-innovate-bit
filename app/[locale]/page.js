@@ -32,23 +32,9 @@ const VideoLanding = dynamic(
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
-  const [gpuTier, setGpuTier] = useState({ tier: 0 });
   const [webGLSupported, setWebGLSupported] = useState(false);
 
- 
-  useEffect(() => {
-    const detectGPU = async () => {
-      try {
-        const gpu = await getGPUTier();
-        setGpuTier(gpu);
-      } catch (e) {
-        console.error('Error detectando GPU:', e);
-        setGpuTier({ tier: 0 }); // fallback a configuración de bajo rendimiento
-      }
-    };
-    
-    detectGPU();
-  }, []);
+
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -98,7 +84,7 @@ export default function Home() {
       <div className="relative flex justify-center overflow-hidden ">
         {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
-            <OptimisedScene gpuTier={gpuTier}/>
+            <OptimisedScene/>
           </div>
         ) : (
           <div className="relative h-screen flex items-center justify-center">{webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}</div>

@@ -86,21 +86,20 @@ ul li {
   list-style-type: square; /* cuadrado */
 }
 
-.scene-size {
-  width: 100vw;
+.scene-height {
   height: 75vh;
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .scene-size {
+  .scene-height {
     height: 80vh;
   }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .scene-size {
+  .scene-height {
     height: 60vh;
   }
 }
