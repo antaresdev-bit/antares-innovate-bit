@@ -36,9 +36,9 @@ export default function Scene() {
           crossOrigin="anonymous"
         />
       </Head>
-    <div className="relative h-screen w-screen flex items-center justify-center">
+    <div className="relative h-screen w-full flex items-center justify-center">
       <div
-        className="relative scene-size overflow-hidden"
+        className="relative scene-height w-screen overflow-hidden"
 
         style={{
           maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',
