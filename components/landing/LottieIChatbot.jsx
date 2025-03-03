@@ -2,36 +2,13 @@ import React from "react";
 
 function LottieIChatbot() {
   return (
-    <div
-      style={{
-        position: "fixed",
-        bottom: "25px",
-        right: "50px",
-        zIndex: 1000,
-      }}
-    >
-      <button
-        style={{
-          width: "98px",
-          height: "104px",
-          border: "none",
-          background: "transparent",
-          cursor: "pointer",
-          padding: 0,
-          position: "relative",
-        }}
-      >
+    <div className="fixed bottom-[25px] right-[21px] sm:right-[21px] md:right-[49px] lg:right-[71px] z-[1000]">
+      <button className="w-[98px] h-[104px] border-none bg-transparent cursor-pointer p-0 relative">
         <img
           src="/assets/images/lottiChatbot.gif"
           alt="Chatbot Animation"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
+          className="w-full h-full object-cover"
         />
-
-       
       </button>
     </div>
   );

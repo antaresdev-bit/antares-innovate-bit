@@ -83,16 +83,16 @@ function Blog() {
       {/* ------------------------------"footer de Blog" ------------------------------------ */}
 
       <div className="w-full py-16 flex justify-center rounded-b-[48px] relative overflow-hidden">
-        <div className="border-l text-center text-white px-6 mt-[50px] w-full max-w-[933px] relative z-10">
+      <div className="border-l text-center text-white px-6 mt-[0px] w-full max-w-[933px] relative z-10 flex flex-col justify-center h-[200px] mb-[15px] sm:mb-[100px] md:mb-[40px] lg:mb-[40px] ">
           <p
-            className="text-xl md:text-2xl font-bold max-w-[933px] mx-auto text-left bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] text-transparent bg-clip-text leading-tight md:leading-[43px]"
-            style={{ fontFamily: "HandelGothic", fontSize: "40px" }}
+            className="leading-[35px] sm:leading-[31px] md:leading-[40px] lg:leading-[50px] text-[32px] sm:text-[32px] md:text-[40px] lg:text-[45px]  font-bold max-w-[933px] mx-auto text-left bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] text-transparent bg-clip-text leading-tight md:leading-[43px]"
+            style={{ fontFamily: "HandelGothic" }}
           >
             Suscríbete a nuestro boletín para estar al tanto de las últimas
             novedades.
           </p>
 
-          <div className="mt-6 flex justify-center">
+          <div className=" flex justify-center mt-[20px] ">
             <input
               type="email"
               placeholder="Tu dirección de correo electrónico..."

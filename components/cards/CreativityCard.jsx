@@ -67,12 +67,8 @@ function CreativityCard() {
               className=""
             />
             <button
-              className="w-[230px] h-[48px] rounded-[32px] bg-white text-black font-bold flex items-center justify-center"
-              style={{
-                fontFamily: "HandelGothic",
-                fontSize: "20px",
-                color: "#0B0C28",
-              }}
+              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
+              style={{ fontFamily: "HandelGothic" }}
             >
               Ver Portafolio
             </button>
