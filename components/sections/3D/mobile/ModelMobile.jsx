@@ -25,9 +25,11 @@ export default function ModelMobile(props) {
 
   const cubeMaterial = useMemo(() => (
     <MeshTransmissionMaterial 
+    transmissionSampler={!isLowEnd}
     ior={1.5} 
     metalness={0.1}
     transmission={1}
+    backside={!isLowEnd}
     iridescence={0.5}           
     iridescenceIOR={2}  
     resolution={resolution}
@@ -40,6 +42,9 @@ export default function ModelMobile(props) {
     reflectivity={0}
     doubleSided={true}
     toneMapped={toneMapped}
+    depthWrite={!isLowEnd}
+    depthTest={!isLowEnd}
+
   />
   ), [])
 
