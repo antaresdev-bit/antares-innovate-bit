@@ -11,7 +11,7 @@ import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
 import LayoutComponents from "@/components/layout/LayoutComponents";
 
-const Scene = dynamic(() => import("../../components/sections/3D/Scene"), {
+const OptimisedScene = dynamic(() => import("../../components/sections/3D/OptimisedScene"), {
   ssr: false,
 });
 
@@ -98,7 +98,7 @@ export default function Home() {
       <div className="relative flex justify-center overflow-hidden ">
         {showScene ? (
           <div className="relative" ref={sceneContainerRef}>
-            <Scene gpuTier={gpuTier}/>
+            <OptimisedScene gpuTier={gpuTier}/>
           </div>
         ) : (
           <div className="relative h-screen flex items-center justify-center">{webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}</div>

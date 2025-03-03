@@ -2,8 +2,7 @@ import React, { useRef, useEffect, useMemo } from 'react'
 import { useGLTF, useAnimations, PerspectiveCamera, MeshTransmissionMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 
-
-export function ModelMobile(props) {
+export default function ModelMobile(props) {
   const group = useRef()
   const camera = useRef()
   const { nodes, materials, animations } = useGLTF('assets/models/astronaut_phone.gltf')
