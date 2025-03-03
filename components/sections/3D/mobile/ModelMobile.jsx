@@ -48,7 +48,7 @@ export default function ModelMobile(props) {
       reflectivity={1}
       iridescence={0.5}
       iridescenceIOR={2.5}
-      envMapIntensity={3}
+      envMapIntensity={2}
       resolution={256}
     />
   ), [])
