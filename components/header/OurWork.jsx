@@ -42,15 +42,6 @@ const OurWork = () => {
         </Link>
       ),
     },
-    {
-      title: "Páginas Web",
-      description: "Innovación y Experiencia de Usuario de Alto Impacto",
-      video: (
-        <Link href={`/${locale}/web-page`}>
-          <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
-        </Link>
-      ),
-    },
 
     {
       title: "Monster Energy",
@@ -62,65 +53,85 @@ const OurWork = () => {
       ),
     },
 
-    {
-      title: "Uparsistem",
-      description: "Consolidando su Identidad Universitaria",
-      video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
-    },
+    // {
+    //   title: "Páginas Web",
+    //   description: "Innovación y Experiencia de Usuario de Alto Impacto",
+    //   video: (
+    //     <Link href={`/${locale}/web-page`}>
+    //       <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
+    //     </Link>
+    //   ),
+    // },
+
+    // {
+    //   title: "Monster Energy",
+    //   description: '"I am the Beast"',
+    //   video: (
+    //     <Link href={`/${locale}/monster-energy`}>
+    //       <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
+    //     </Link>
+    //   ),
+    // },
+
+    // {
+    //   title: "Uparsistem",
+    //   description: "Consolidando su Identidad Universitaria",
+    //   video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
+    // },
     /* Ver mas debe estar de 6to  */
-    {
-      title: "Ver Más",
-      description: "",
-      image: "/assets/images/flecha-negro.png",
-      onClick: () => setShowAll(true),
-    },
+    // {
+    //   title: "Ver Más",
+    //   description: "",
+    //   image: "/assets/images/flecha-negro.png",
+    //   onClick: () => setShowAll(true),
+    // },
     /* Ver mas debe estar de 6to  */
 
-    {
-      title: "CIML",
-      description: "Innovación Editorial para la Salud Pública",
-      video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
-    },
-    {
-      title: "B2Fintech",
-      description: "Conectando con el Mercado Global de Criptomonedas",
-      video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
-    },
+    // {
+    //   title: "CIML",
+    //   description: "Innovación Editorial para la Salud Pública",
+    //   video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
+    // },
+    // {
+    //   title: "B2Fintech",
+    //   description: "Conectando con el Mercado Global de Criptomonedas",
+    //   video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
+    // },
 
-    {
-      title: "7",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
-    {
-      title: "8",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
-    {
-      title: "9",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
-    {
-      title: "10",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
+    // {
+    //   title: "7",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
+    // {
+    //   title: "8",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
+    // {
+    //   title: "9",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
+    // {
+    //   title: "10",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
   ];
 
   const visibleItems = showAll ? workItems : workItems.slice(0, 6);
 
   return (
     <div className="relative bg-opacity-70">
-       <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[8px] ">
-          <h1
-            className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
-            style={{ fontFamily: "HandelGothic" }}
-          >
-            Nuestros <br /> Trabajos
-          </h1>
-        </div>
+      <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[8px] ">
+        <h1
+          className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
+          style={{ fontFamily: "HandelGothic" }}
+        >
+          Nuestros <br /> Trabajos
+        </h1>
+      </div>
 
       <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mx-auto mb-[80px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center cursor-pointer">
         {visibleItems.map((item, index) => (

@@ -151,7 +151,6 @@ export default function Home() {
 
       <OurServices />
       <OurWork />
-
       <Statistics />
       <Blog />
 
