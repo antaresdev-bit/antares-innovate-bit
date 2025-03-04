@@ -104,7 +104,7 @@ function Nav() {
               href={`/${locale}/about`}
               className="text-white hover:text-gray-300 py-2"
             >
-              Sobre Nosotros
+               Nosotros
             </Link>
             <Link
               href={`/${locale}/blog`}
@@ -165,7 +165,7 @@ function Nav() {
             href={`/${locale}/about`}
             className="text-white hover:text-gray-300"
           >
-            Sobre Nosotros
+             Nosotros
           </Link>
           <Link
             href={`/${locale}/blog`}

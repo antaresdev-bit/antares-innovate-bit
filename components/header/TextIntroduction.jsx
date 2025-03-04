@@ -10,7 +10,7 @@ function TextIntroduction() {
           style={{ fontFamily: "HandelGothic" }}
         >
           <h1 className="min-h-[100px] sm:min-h-[120px] md:min-h-[140px] lg:min-h-[100px] text-[32px] sm:text-[32px] md:text-[40px] lg:text-[45px] leading-[35px] sm:leading-[31px] md:leading-[40px] lg:leading-[50px]   text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] bg-clip-text font-bold sm:ml-[22px] md:ml-[53px] lg:ml-[53px] tracking-[2px] sm:text-left ">
-            La Creatividad Mueve el Mundo, la Tecnología lo Acelera.
+            La Creatividad Mueve el Mundo; la Tecnología lo Acelera.
           </h1>
         </div>
         <div className="text-[25px] sm:text-[25px] md:text-[25px] lg:text-[30px] mt-[28px] sm:mt-[28px] md:mt-[30px] lg:mt-[57px] sm:ml-[22px] md:ml-[53px] lg:ml-[53px]">
@@ -22,7 +22,7 @@ function TextIntroduction() {
           >
             En Antares, creamos tendencias. Impulsamos negocios con IA,
             automatización y diseño disruptivo, ayudando a marcas visionarias a
-            liderar en lo digital.
+            liderar en el mundo  digital.
           </p>
 
           <div className="flex items-center text-left  mt-[49px] ml-[21px] sm:ml-[21px] md:ml-[0px] lg:ml-[0px] mb-[100px]">

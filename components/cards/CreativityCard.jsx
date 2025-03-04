@@ -37,24 +37,24 @@ function CreativityCard() {
               className="font-bold mb-[18px] sm:mb-[18px] md:mb-[37px] lg:mb-[37px]"
               style={{ fontFamily: "HandelGothic", fontSize: "40px" }}
             >
-              Consultoría
+              Creatividad
             </h2>
             <p style={{ fontFamily: "UniteaSans", fontSize: "18px" }}>
-              Ayudamos a tomar decisiones estratégicas con enfoque en
-              resultados:
+              Transformamos ideas en experiencias visuales de alto impacto:
             </p>
             <ul
               className="mt-[10px] ml-[20px]"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
             >
               <li>
-                Consultoría en marketing digital y estrategias de crecimiento
+                Estrategias de branding que posicionan marcas en el mercado.
               </li>
               <li>
-                Optimización de procesos para mejorar la eficiencia operativa.
+                Diseño gráfico y UI/UX, asegurando identidad visual coherente y
+                efectiva.
               </li>
               <li>
-                Análisis financiero y de ventas para potenciar la rentabilidad
+                Producción audiovisual para potenciar la narrativa de marca.
               </li>
             </ul>
           </div>
