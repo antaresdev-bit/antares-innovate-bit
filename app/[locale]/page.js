@@ -42,11 +42,13 @@ export default function Home() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setShowScene(entry.isIntersecting);
+        if (entry.isIntersecting !== showScene) {
+          setShowScene(entry.isIntersecting);
+        }
       },
       {
         root: null,
-        rootMargin: "0px",
+        rootMargin: "0px 0px",
         threshold: 0.1,
       }
     );
@@ -60,7 +62,7 @@ export default function Home() {
         observer.unobserve(currentRef);
       }
     };
-  }, []);
+  }, [showScene]);
 
   useEffect(() => {
     const checkWebGL = () => {
@@ -83,16 +85,14 @@ export default function Home() {
   return (
     <>
       <LayoutComponents />
-      <div className="relative flex justify-center overflow-hidden ">
-        {showScene ? (
-          <div className="relative" ref={sceneContainerRef}>
+      <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden ">
+        <div ref={sceneContainerRef} className="w-full h-full">
+          {showScene ? (
             <OptimisedScene />
-          </div>
-        ) : (
-          <div className="relative h-screen flex items-center justify-center">
-            {webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}
-          </div>
-        )}
+          ) : (
+            <div className="w-full h-full" />
+          )}
+        </div>
 
         <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%]">
           <div className="flex justify-center">
