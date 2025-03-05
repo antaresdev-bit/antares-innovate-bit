@@ -37,7 +37,7 @@ function Nav() {
         className="w-full max-w-[1500px] h-[76px] flex items-center 
     bg-[rgba(14,5,28,0.65)] backdrop-blur-xl 
     rounded-[24px] relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between
-    border border-[rgba(255,255,255,0.25)] md:border-none"      
+    border border-[rgba(255,255,255,0.25)] "      
       >
         <Link href={`/${locale}/`}
         className="flex-shrink-0">

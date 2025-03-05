@@ -124,46 +124,55 @@ const OurWork = () => {
 
   return (
     <div className="relative bg-opacity-70">
-      <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[8px] ">
-        <h1
-          className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Nuestros <br /> Trabajos
-        </h1>
-      </div>
-
-      <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mx-auto mb-[80px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center cursor-pointer">
-        {visibleItems.map((item, index) => (
-          <div
-            key={index}
-            className="relative max-w-[90%] sm:max-w-[400px] w-full h-auto min-h-[250px] rounded-[24.15px] overflow-hidden bg-gray-800 shadow-lg"
-            onClick={item.onClick ? item.onClick : undefined}
+      <div className="max-w-[1500px] mx-auto">
+        <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[8px] ">
+          <h1
+            className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
+            style={{ fontFamily: "HandelGothic" }}
           >
-            {item.video ? (
-              item.video
-            ) : (
-              <div className="flex justify-center items-center h-full">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  height={50}
-                  width={50}
-                />
-              </div>
-            )}
+            Nuestros <br /> Trabajos
+          </h1>
+        </div>
 
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="font-bold text-lg">{item.title}</h3>
-              {item.description && (
-                <p className="text-sm">{item.description}</p>
+        <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mx-auto mb-[80px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center cursor-pointer">
+          {visibleItems.map((item, index) => (
+            <div
+              key={index}
+              className="relative max-w-[90%] sm:max-w-[400px] w-full h-auto min-h-[250px] rounded-[24.15px] overflow-hidden bg-gray-800 shadow-lg"
+              onClick={item.onClick ? item.onClick : undefined}
+            >
+              {item.video ? (
+                item.video
+              ) : (
+                <div className="flex justify-center items-center h-full">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    height={50}
+                    width={50}
+                  />
+                </div>
               )}
+
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="font-bold text-lg">{item.title}</h3>
+                {item.description && (
+                  <p className="text-sm">{item.description}</p>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export default OurWork;
+
+/* 
+
+<div className="max-w-[1500px] mx-auto">
+
+
+*/
