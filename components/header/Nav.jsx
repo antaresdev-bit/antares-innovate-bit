@@ -113,7 +113,7 @@ function Nav() {
               Blog
             </Link>
             <Link
-              href={`/${locale}/contact`}
+              href={`/${locale}/form-contact`}
               className="text-white hover:text-gray-300 py-2"
             >
               Contacto
@@ -174,7 +174,7 @@ function Nav() {
             Blog
           </Link>
           <Link
-            href={`/${locale}/contact`}
+            href={`/${locale}/form-contact`}
             className="text-white hover:text-gray-300"
           >
             Contacto
