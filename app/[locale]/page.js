@@ -10,6 +10,7 @@ import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
 import LayoutComponents from "@/components/layout/LayoutComponents";
+import LoadingScreen from "@/components/loading/LoadingScreen";
 
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
@@ -28,7 +29,7 @@ const VideoLanding = dynamic(
   () => import("../../components/landing/VideoLanding"),
   {
     ssr: false,
-    loading: () => <div>Cargando Video...</div>,
+    loading: () => <LoadingScreen />,
   }
 );
 
@@ -36,6 +37,7 @@ export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
   const [webGLSupported, setWebGLSupported] = useState(false);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -82,15 +84,52 @@ export default function Home() {
     checkWebGL();
   }, []);
 
+  useEffect(() => {
+    const preventDefault = (e) => e.preventDefault();
+    
+    if (isVideoLoading) {
+      // Aplicar bloqueo inmediatamente usando CSS
+      document.documentElement.style.cssText = `
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      `;
+      
+      // Agregar listeners para todos los eventos táctiles
+      document.addEventListener('touchmove', preventDefault, { passive: false });
+      document.addEventListener('touchstart', preventDefault, { passive: false });
+      document.addEventListener('touchend', preventDefault, { passive: false });
+    } else {
+      // Restaurar scroll
+      document.documentElement.style.cssText = '';
+      document.removeEventListener('touchmove', preventDefault);
+      document.removeEventListener('touchstart', preventDefault);
+      document.removeEventListener('touchend', preventDefault);
+    }
+
+    return () => {
+      // Cleanup
+      document.documentElement.style.cssText = '';
+      document.removeEventListener('touchmove', preventDefault);
+      document.removeEventListener('touchstart', preventDefault);
+      document.removeEventListener('touchend', preventDefault);
+    };
+  }, [isVideoLoading]);
+
   return (
     <>
       <LayoutComponents />
+      {isVideoLoading && <LoadingScreen />}
       <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden ">
         <div ref={sceneContainerRef} className="w-full h-full">
           {showScene ? (
             <OptimisedScene />
           ) : (
-            <div className="w-full h-full" />
+            <div className="w-full h-full">
+              <p>{webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}</p>
+            </div>
           )}
         </div>
 
@@ -130,7 +169,7 @@ export default function Home() {
       >
         <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[50px]  lg:mt-[50px] w-full">
           <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
-            <VideoLanding />
+            <VideoLanding onLoadComplete={() => setIsVideoLoading(false)} />
           </div>
 
           <Slider />
