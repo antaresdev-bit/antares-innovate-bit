@@ -20,24 +20,33 @@ function Form() {
         </h2>
         <form className="mt-4 space-y-4">
           <div className="space-y-4">
+          <input
+              type="text"
+              placeholder="Nombre empresa*"
+              className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
+              style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
+              required
+            />
             <input
               type="text"
               placeholder="Nombre*"
-              className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white"
+              className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
               required
             />
+
             <input
               type="email"
               placeholder="Correo Electrónico*"
-              className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white"
+              className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
               required
             />
+
             <input
               type="tel"
               placeholder="Número Telefónico*"
-              className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white"
+              className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
               required
             />
@@ -77,8 +86,9 @@ function Form() {
 
           <textarea
             placeholder="Cuéntanos sobre tu proyecto*"
-            className="w-full p-3 rounded-[24px] bg-[#3874F5] border border-white text-white min-h-[157px]"
+            className="w-full p-3 rounded-[24px] bg-[#3874F5] border border-white text-white min-h-[157px] placeholder:text-white"
             required
+            style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
           ></textarea>
 
           <div className="flex items-center justify-center mt-6 sm:mt-8">

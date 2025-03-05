@@ -238,12 +238,14 @@ function Blog() {
   return (
     <>
       <div className="mb-[40px] h-[80px] ml-[21px] sm:ml-[21px] md:ml-[49px] lg:ml-[72px] mt-[150px]">
-        <h1
-          className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px]"
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Blog
-        </h1>
+        <div className="max-w-[1500px] mx-auto">
+          <h1
+            className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px]"
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Blog
+          </h1>
+        </div>
       </div>
 
       <div className="mx-[7px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
@@ -286,8 +288,7 @@ function Blog() {
       </div>
 
       <div className="w-full py-16 flex justify-center rounded-b-[48px] relative overflow-hidden">
-      <div className="text-center text-white px-6 mt-[0px] w-full max-w-[933px] relative z-10 flex flex-col justify-center h-[200px] mb-[15px] sm:mb-[100px] md:mb-[40px] lg:mb-[40px] sm:border-l-0 md:border-l">
-
+        <div className="text-center text-white px-6 mt-[0px] w-full max-w-[933px] relative z-10 flex flex-col justify-center h-[200px] mb-[15px] sm:mb-[100px] md:mb-[40px] lg:mb-[40px] sm:border-l-0 md:border-l">
           <p
             className="leading-[35px] sm:leading-[31px] md:leading-[40px] lg:leading-[50px] text-[32px] sm:text-[32px] md:text-[40px] lg:text-[45px] font-bold max-w-[933px] mx-auto text-left bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] text-transparent bg-clip-text leading-tight md:leading-[43px]"
             style={{ fontFamily: "HandelGothic" }}
@@ -325,3 +326,10 @@ function Blog() {
 }
 
 export default Blog;
+
+/* 
+
+<div className="max-w-[1500px] mx-auto">
+
+
+*/
