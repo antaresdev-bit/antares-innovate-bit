@@ -60,6 +60,19 @@ body {
    overflow-x: hidden; 
 }
 
+@keyframes scaleText {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-scale {
+  animation: scaleText 1.5s ease-in-out infinite;
+}
+
 /* Estilos personalizados para la barra de desplazamiento */
 ::-webkit-scrollbar {
   width: 6px;

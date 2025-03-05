@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const VideoLanding = () => {
+const VideoLanding = ({ onLoadComplete}) => {
   const [videoSrc, setVideoSrc] = useState("");
 
   useEffect(() => {
@@ -31,6 +31,12 @@ const VideoLanding = () => {
           autoPlay
           loop
           muted
+          onLoadedData={() => {
+            console.log("Video cargado");
+            if (onLoadComplete) {
+              onLoadComplete(); 
+            }
+          }}
         ></video>
       </div>
     </div>

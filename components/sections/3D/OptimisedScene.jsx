@@ -3,7 +3,7 @@ import Scene from './Scene'
 import MobileScene from './mobile/MobileScene'
 import { useEffect, useState } from 'react'
 
-export default function OptimisedScene({gpuTier}) {
+export default function OptimisedScene({isSceneLoading}) {
     const [isMobile, setIsMobile] = useState(false)
 
     useEffect(() => {
