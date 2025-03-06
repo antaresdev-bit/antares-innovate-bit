@@ -3,7 +3,7 @@ import WideVideoSection from "../media/WideVideoSection";
 
 function GridOneMonsterEnergy() {
   return (
-    <div className="container mx-auto px-5 lg:px-20  mb-0">
+    <div className=" h-auto">
       {/* Imagen superior */}
       <div className="w-full max-w-[1298px] mx-auto mb-10 rounded-3xl overflow-hidden aspect-[1298/869] ">
         <img
@@ -33,8 +33,9 @@ function GridOneMonsterEnergy() {
         </div>
       </div>
 
-      {/* Imagen inferior */}
-      <div className="w-full max-w-[1298px] mx-auto mt-5 rounded-3xl overflow-hidden aspect-[1298/869]">
+      {/* Video inferior */}
+
+      <div className="w-full h-[500px] max-w-[1298px] mx-auto  rounded-3xl overflow-hidden aspect-[1298/869] ">
         <WideVideoSection
           src={
             "https://storage.googleapis.com/antares-agency-rcs/monsterGridOneVideo.mp4"
@@ -46,4 +47,3 @@ function GridOneMonsterEnergy() {
 }
 
 export default GridOneMonsterEnergy;
-
