@@ -2,7 +2,7 @@ import React from "react";
 
 const ConditionalText = ({ title, subtitle, gradient }) => {
   return (
-    <div className="sm:block md:hidden lg:hidden mt-[50px] ml-[20px] p-[20px]">
+    <div className="sm:block md:hidden lg:hidden mt-[104px]">
       <div
         className="text-left text-6xl font-bold"
         style={{

@@ -3,8 +3,8 @@ import WideVideoSection from "../media/WideVideoSection";
 
 function GridTwoMonsterEnergy() {
   return (
-    <div className="container mx-auto px-5 lg:px-20  mb-0">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 max-w-[1298px] mx-auto  mb-[40px] mt-[160px]">
+    <div className=" h-auto ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 max-w-[1298px] mx-auto  mb-[40px]  ">
         {/* Imagen izquierda */}
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632] ">
           <img
