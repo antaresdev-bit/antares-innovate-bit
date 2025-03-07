@@ -34,12 +34,14 @@ function GridOneMonsterEnergy() {
       </div>
 
       {/* Video inferior */}
-
-      <div className="w-full h-[500px] max-w-[1298px] mx-auto  rounded-3xl overflow-hidden aspect-[1298/869] ">
-        <WideVideoSection
-          src={
-            "https://storage.googleapis.com/antares-agency-rcs/monsterGridOneVideo.mp4"
-          }
+      <div className="w-full max-w-[1298px] mx-auto mt-[25px] rounded-3xl overflow-hidden aspect-video ">
+        <video
+          src="https://storage.googleapis.com/antares-agency-rcs/monsterGridOneVideo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
         />
       </div>
     </div>
