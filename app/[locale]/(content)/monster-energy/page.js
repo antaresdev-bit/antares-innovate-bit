@@ -2,13 +2,10 @@ import Footer from "@/components/header/Footer";
 import OurWork from "@/components/header/OurWork";
 import GridOneMonsterEnergy from "@/components/monsterEnergyComponents/GridOneMonsterEnergy";
 import GridTwoMonsterEnergy from "@/components/monsterEnergyComponents/GridTwoMonsterEnergy";
-import IntroductionMonsterEnergy from "@/components/monsterEnergyComponents/IntroductionMonsterEnergy";
 import BannerTest from "@/components/subPages/BannerSubPages";
 import ConditionalText from "@/components/subPages/ConditionalTextResponsive";
 import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
-import GridTwoUpardigital from "@/components/upardigitalComponents/GridTwoUpardigital";
-import UpardigitalText from "@/components/upardigitalComponents/UpardigitalText";
 import React from "react";
 
 function MonsterEnergy() {
@@ -48,7 +45,6 @@ function MonsterEnergy() {
             subtitle="Presencia de Marca | Activaciones | Eventos | Stands"
             paragraph="Monster Energy es sinónimo de adrenalina, fuerza y una actitud desafiante. Nuestra colaboración con la marca se centró en consolidar su presencia en puntos de venta estratégicos y eventos masivos, asegurando que su identidad visual y mensaje resonaran con su audiencia."
           />
-          {/* <IntroductionMonsterEnergy /> */}
         </div>
 
         <GridOneMonsterEnergy />
