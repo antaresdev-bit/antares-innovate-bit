@@ -34,16 +34,6 @@ const OurWork = () => {
       ),
     },
     {
-      title: "Wersus",
-      description: "Innovación en logística de transporte",
-      video: (
-        <Link href={`/${locale}/wersus`}>
-          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Video%20Promo%20Wersus%20TSP_1.mp4" />
-        </Link>
-      ),
-    },
-
-    {
       title: "Monster Energy",
       description: '"I am the Beast"',
       video: (
@@ -52,7 +42,6 @@ const OurWork = () => {
         </Link>
       ),
     },
-
     {
       title: "Páginas Web",
       description: "Innovación y Experiencia de Usuario de Alto Impacto",
@@ -62,62 +51,59 @@ const OurWork = () => {
         </Link>
       ),
     },
-
     {
-      title: "Monster Energy",
-      description: '"I am the Beast"',
+      title: "Wersus",
+      description: "Innovación en logística de transporte",
       video: (
-        <Link href={`/${locale}/monster-energy`}>
-          <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
+        <Link href={`/${locale}/wersus`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Video%20Promo%20Wersus%20TSP_1.mp4" />
         </Link>
       ),
     },
+    // {
+    //   title: "Uparsistem",
+    //   description: "Consolidando su Identidad Universitaria",
+    //   video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
+    // },
+    // /* Ver mas debe estar de 6to  */
+    // {
+    //   title: "Ver Más",
+    //   description: "",
+    //   image: "/assets/images/flecha blanca.png",
+    //   onClick: () => setShowAll(true),
+    // },
 
-    {
-      title: "Uparsistem",
-      description: "Consolidando su Identidad Universitaria",
-      video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
-    },
-    /* Ver mas debe estar de 6to  */
-    {
-      title: "Ver Más",
-      description: "",
-      image: "/assets/images/flecha-negro.png",
-      onClick: () => setShowAll(true),
-    },
-    /* Ver mas debe estar de 6to  */
+    // {
+    //   title: "CIML",
+    //   description: "Innovación Editorial para la Salud Pública",
+    //   video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
+    // },
+    // {
+    //   title: "B2Fintech",
+    //   description: "Conectando con el Mercado Global de Criptomonedas",
+    //   video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
+    // },
 
-    {
-      title: "CIML",
-      description: "Innovación Editorial para la Salud Pública",
-      video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
-    },
-    {
-      title: "B2Fintech",
-      description: "Conectando con el Mercado Global de Criptomonedas",
-      video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
-    },
-
-    {
-      title: "7",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
-    {
-      title: "8",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
-    {
-      title: "9",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
-    {
-      title: "10",
-      description: "Ejemplo adicional",
-      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    },
+    // {
+    //   title: "7",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
+    // {
+    //   title: "8",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
+    // {
+    //   title: "9",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
+    // {
+    //   title: "10",
+    //   description: "Ejemplo adicional",
+    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    // },
   ];
 
   const visibleItems = showAll ? workItems : workItems.slice(0, 6);
@@ -169,4 +155,3 @@ const OurWork = () => {
 };
 
 export default OurWork;
-
