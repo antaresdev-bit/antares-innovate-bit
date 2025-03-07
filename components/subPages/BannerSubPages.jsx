@@ -1,7 +1,7 @@
 import React from "react";
 import WideVideoSection from "../media/WideVideoSection";
 
-const BannerTest = ({ videoUrl, title, subtitle, textPosition = "left" }) => {
+const BannerTest = ({ videoUrl, title, subtitle, textPosition, ColorText = "linear-gradient(to right, #63B6DF, #FFFFFF)" }) => {
   const BannerText = ({ size }) => (
     <div
       className={`absolute bottom-8 ${
@@ -14,7 +14,7 @@ const BannerTest = ({ videoUrl, title, subtitle, textPosition = "left" }) => {
         className={`${size} font-bold`}
         style={{
           fontFamily: "HandelGothic",
-          background: "linear-gradient(to right, #63B6DF, #FFFFFF)",
+          background: ColorText,
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
