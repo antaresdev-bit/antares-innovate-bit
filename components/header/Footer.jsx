@@ -1,5 +1,10 @@
 import React from "react";
-import { FaInstagram, FaTiktok, FaYoutube, FaFacebook } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaTiktok,
+  FaLinkedinIn,
+  FaFacebook,
+} from "react-icons/fa";
 
 function Footer() {
   return (
@@ -115,16 +120,40 @@ function Footer() {
 
         <div className="flex justify-center space-x-6 mt-8">
           <div className="w-12 h-12 flex items-center justify-center rounded-full border-[0.5px] border-white">
-            <FaInstagram className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            <a
+              href="https://www.instagram.com/antares.innovate?igsh=eXFkZ3F1MjZneGs3"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            </a>
           </div>
           <div className="w-12 h-12 flex items-center justify-center rounded-full border-[0.5px] border-white">
-            <FaTiktok className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            <a
+              href="https://www.tiktok.com/@antaresinnovate1?_t=ZS-8uT9ArsfVbg&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTiktok className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            </a>
           </div>
           <div className="w-12 h-12 flex items-center justify-center rounded-full border-[0.5px] border-white">
-            <FaYoutube className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            <a
+              href="https://www.linkedin.com/company/antaresinnova/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            </a>
           </div>
           <div className="w-12 h-12 flex items-center justify-center rounded-full border-[0.5px] border-white">
-            <FaFacebook className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            <a
+              href="https://www.facebook.com/share/14J97RoQgT/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+            </a>
           </div>
         </div>
 
