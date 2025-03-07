@@ -17,12 +17,12 @@ function UpardigitalPage() {
           title="Upardigital"
           subtitle="Revolucionando la educación virtual en Uparsistem"
           textPosition="left"
+          ColorText="linear-gradient(to right, #A55D2A, #FFFFFF)"
         />
       </div>
 
       <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
         {/* degrade */}
-
         <div
           className="hidden sm:block absolute inset-x-0 mx-auto w-full max-w-[1409px] h-[542px]"
           style={{
@@ -32,7 +32,6 @@ function UpardigitalPage() {
             zIndex: -1,
           }}
         ></div>
-
         {/* degrade */}
 
         <ConditionalText

@@ -53,71 +53,71 @@ const OurWork = () => {
       ),
     },
 
-    // {
-    //   title: "Páginas Web",
-    //   description: "Innovación y Experiencia de Usuario de Alto Impacto",
-    //   video: (
-    //     <Link href={`/${locale}/web-page`}>
-    //       <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
-    //     </Link>
-    //   ),
-    // },
+    {
+      title: "Páginas Web",
+      description: "Innovación y Experiencia de Usuario de Alto Impacto",
+      video: (
+        <Link href={`/${locale}/web-page`}>
+          <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
+        </Link>
+      ),
+    },
 
-    // {
-    //   title: "Monster Energy",
-    //   description: '"I am the Beast"',
-    //   video: (
-    //     <Link href={`/${locale}/monster-energy`}>
-    //       <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
-    //     </Link>
-    //   ),
-    // },
+    {
+      title: "Monster Energy",
+      description: '"I am the Beast"',
+      video: (
+        <Link href={`/${locale}/monster-energy`}>
+          <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
+        </Link>
+      ),
+    },
 
-    // {
-    //   title: "Uparsistem",
-    //   description: "Consolidando su Identidad Universitaria",
-    //   video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
-    // },
+    {
+      title: "Uparsistem",
+      description: "Consolidando su Identidad Universitaria",
+      video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
+    },
     /* Ver mas debe estar de 6to  */
-    // {
-    //   title: "Ver Más",
-    //   description: "",
-    //   image: "/assets/images/flecha-negro.png",
-    //   onClick: () => setShowAll(true),
-    // },
+    {
+      title: "Ver Más",
+      description: "",
+      image: "/assets/images/flecha-negro.png",
+      onClick: () => setShowAll(true),
+    },
     /* Ver mas debe estar de 6to  */
 
-    // {
-    //   title: "CIML",
-    //   description: "Innovación Editorial para la Salud Pública",
-    //   video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
-    // },
-    // {
-    //   title: "B2Fintech",
-    //   description: "Conectando con el Mercado Global de Criptomonedas",
-    //   video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
-    // },
+    {
+      title: "CIML",
+      description: "Innovación Editorial para la Salud Pública",
+      video: <WideVideoSection src="/assets/videos/CIML preview.mp4" />,
+    },
+    {
+      title: "B2Fintech",
+      description: "Conectando con el Mercado Global de Criptomonedas",
+      video: <WideVideoSection src="/assets/videos/2bfintech preview.mp4" />,
+    },
 
-    // {
-    //   title: "7",
-    //   description: "Ejemplo adicional",
-    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    // },
-    // {
-    //   title: "8",
-    //   description: "Ejemplo adicional",
-    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    // },
-    // {
-    //   title: "9",
-    //   description: "Ejemplo adicional",
-    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    // },
-    // {
-    //   title: "10",
-    //   description: "Ejemplo adicional",
-    //   video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
-    // },
+    {
+      title: "7",
+      description: "Ejemplo adicional",
+      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    },
+    {
+      title: "8",
+      description: "Ejemplo adicional",
+      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    },
+    {
+      title: "9",
+      description: "Ejemplo adicional",
+      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    },
+    {
+      title: "10",
+      description: "Ejemplo adicional",
+      video: <WideVideoSection src="/assets/videos/uparpreview.mp4" />,
+    },
   ];
 
   const visibleItems = showAll ? workItems : workItems.slice(0, 6);
@@ -170,9 +170,3 @@ const OurWork = () => {
 
 export default OurWork;
 
-/* 
-
-<div className="max-w-[1500px] mx-auto">
-
-
-*/

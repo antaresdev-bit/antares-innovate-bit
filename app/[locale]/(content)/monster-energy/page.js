@@ -17,6 +17,7 @@ function MonsterEnergy() {
           title="Monster Energy"
           subtitle="“I am The Beast”"
           textPosition="left"
+          ColorText="linear-gradient(to right, #70A52A, #FFFFFF)"
         />
       </div>
 
