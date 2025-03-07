@@ -1,8 +1,9 @@
 import BannerForm from "@/components/formContactComponents/BannerForm";
-import Form from "@/components/formContactComponents/Form";
+import ContactForm from "@/components/formContactComponents/ContactForm";
 import TextContact from "@/components/formContactComponents/TextContact";
 import Footer from "@/components/header/Footer";
 import React from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 function FormPage() {
   return (
@@ -22,7 +23,7 @@ function FormPage() {
           >
             <div className="flex flex-col lg:flex-row-reverse justify-center mt-[200px] mb-[50px] gap-6">
               <div className="h-auto w-full flex justify-center">
-                <Form />
+                <ContactForm />
               </div>
               <div className="h-auto w-full flex justify-center">
                 <TextContact />
@@ -32,6 +33,7 @@ function FormPage() {
           <Footer />
         </div>
       </div>
+      <ToastContainer position="bottom-right" />
     </>
   );
 }
