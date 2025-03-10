@@ -60,6 +60,21 @@ const OurWork = () => {
         </Link>
       ),
     },
+    {
+      title: "CIML",
+      description: "Innovación Editorial para la Salud Pública",
+      video: (
+        <Link href={`/${locale}/ciml`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/CIML%20preview.mp4" />
+        </Link>
+      ),
+    },
+    {
+      title: "Ver Más",
+      description: "",
+      image: "/assets/images/flecha blanca.png",
+      onClick: () => setShowAll(true),
+    },
     // {
     //   title: "Uparsistem",
     //   description: "Consolidando su Identidad Universitaria",
