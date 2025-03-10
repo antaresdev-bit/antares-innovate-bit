@@ -69,18 +69,24 @@ const OurWork = () => {
         </Link>
       ),
     },
+    // /* Ver mas debe estar de 6to  */
     {
       title: "Ver Más",
       description: "",
       image: "/assets/images/flecha blanca.png",
       onClick: () => setShowAll(true),
     },
-    // {
-    //   title: "Uparsistem",
-    //   description: "Consolidando su Identidad Universitaria",
-    //   video: <WideVideoSection src="/assets/videos/uniupar preview.mp4" />,
-    // },
     // /* Ver mas debe estar de 6to  */
+    {
+      title: "Politécnico Grancolombiano",
+      description: "Estrategia Digital para Conectar con los Jóvenes",
+      video: (
+        <Link href={`/${locale}/politecnico`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Poli%20Preview.mp4" />
+        </Link>
+      ),
+    },
+    
     // {
     //   title: "Ver Más",
     //   description: "",
