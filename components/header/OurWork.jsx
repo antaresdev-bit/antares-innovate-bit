@@ -87,12 +87,15 @@ const OurWork = () => {
       ),
     },
     
-    // {
-    //   title: "Ver Más",
-    //   description: "",
-    //   image: "/assets/images/flecha blanca.png",
-    //   onClick: () => setShowAll(true),
-    // },
+    {
+      title: "Lili Estevez",
+      description: "Concept Art para Sencillo Musical “La Señal”",
+      video: (
+        <Link href={`/${locale}/lili-estevez`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Lili%20Preview.mp4" />
+        </Link>
+      ),
+    },
 
     // {
     //   title: "CIML",
