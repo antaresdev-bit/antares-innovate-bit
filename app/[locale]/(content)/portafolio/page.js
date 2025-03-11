@@ -86,11 +86,21 @@ const PortafolioPage = () => {
     },
     {
       title: "Lili Estevez",
-      description: "Concept Art para Sencillo Musical “La Señal”",
+      description: "Concept Art para Sencillo Musical “La Señal",
       category: ["technology"],
       video: (
         <Link href={`/${locale}/lili-estevez`}>
           <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Lili%20Preview.mp4" />
+        </Link>
+      ),
+    },
+    {
+      title: "Fundación Heinrich Böll",
+      description: "Escuela de Administración y Gestión del Estado para Transiciones Justas",
+      category: ["creativity"],
+      video: (
+        <Link href={`/${locale}/fundacion`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/heinrich%20boll%20PREVIEW.mp4" />
         </Link>
       ),
     },
