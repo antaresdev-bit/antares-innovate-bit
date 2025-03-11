@@ -104,6 +104,16 @@ const PortafolioPage = () => {
         </Link>
       ),
     },
+    {
+      title: "Uparsistem",
+      description: "Consolidando su Identidad Universitaria",
+      category: ["creativity"],
+      video: (
+        <Link href={`/${locale}/uparsistem`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Uparsistem%20preview.mp4" />
+        </Link>
+      ),
+    },
   ];
 
   const filteredItems = workItems.filter((item) =>
