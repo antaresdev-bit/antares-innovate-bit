@@ -19,7 +19,7 @@ const WideVideoSection = ({ src }) => {
   );
 };
 
-const OurWork = () => {
+const PortafolioPage = () => {
   const locale = useLocale();
 
   const workItems = [
@@ -59,6 +59,34 @@ const OurWork = () => {
         </Link>
       ),
     },
+    {
+      title: "CIML",
+      description: "Innovación Editorial para la Salud Pública",
+      video: (
+        <Link href={`/${locale}/ciml`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/CIML%20preview.mp4" />
+        </Link>
+      ),
+    },
+    {
+      title: "Politécnico Grancolombiano",
+      description: "Estrategia Digital para Conectar con los Jóvenes",
+      video: (
+        <Link href={`/${locale}/politecnico`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Poli%20Preview.mp4" />
+        </Link>
+      ),
+    },
+
+    {
+      title: "Lili Estevez",
+      description: "Concept Art para Sencillo Musical “La Señal”",
+      video: (
+        <Link href={`/${locale}/lili-estevez`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Lili%20Preview.mp4" />
+        </Link>
+      ),
+    },
   ];
 
   return (
@@ -69,7 +97,7 @@ const OurWork = () => {
             className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
             style={{ fontFamily: "HandelGothic" }}
           >
-            Nuestros <br /> Trabajos
+            portafolio
           </h1>
         </div>
 
@@ -77,9 +105,7 @@ const OurWork = () => {
           {workItems.map((item, index) => (
             <div
               key={index}
-              className={`relative max-w-[90%] sm:max-w-[400px] w-full h-auto min-h-[250px] rounded-[24.15px] overflow-hidden bg-gray-800 shadow-lg ${
-                item.title === "Wersus" ? "lg:hidden" : ""
-              }`}
+              className="relative max-w-[90%] sm:max-w-[400px] w-full h-auto min-h-[250px] rounded-[24.15px] overflow-hidden bg-gray-800 shadow-lg"
               onClick={item.onClick ? item.onClick : undefined}
             >
               {item.video ? (
@@ -105,30 +131,26 @@ const OurWork = () => {
           ))}
         </div>
         {/* Boton */}
-        <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
-  <div className="flex justify-center mb-[160px] w-full">
-    <div className="flex items-center justify-center w-full sm:w-auto">
-      <Image
-        src="/assets/images/Gif Avion.gif"
-        alt="Botón Animado"
-        width={48}
-        height={48}
-        className=""
-      />
-      <Link href={`/${locale}/portafolio`} className="w-full sm:w-auto">
-        <button
-          className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Ver Portafolio
-        </button>
-      </Link>
-    </div>
-  </div>
-</div>
+        <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]  ">
+          <div className="flex justify-center  - mb-[160px] ">
+            <Image
+              src="/assets/images/Gif Avion.gif"
+              alt="Botón Animado"
+              width={48}
+              height={48}
+              className=""
+            />
+            <button
+              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
+              style={{ fontFamily: "HandelGothic" }}
+            >
+              Ver Portafolio
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default OurWork;
+export default PortafolioPage;
