@@ -124,6 +124,16 @@ const PortafolioPage = () => {
         </Link>
       ),
     },
+    {
+      title: "B2Fintech",
+      description: "Conectando con el Mercado Global de Criptomonedas",
+      category: ["creativity"],
+      video: (
+        <Link href={`/${locale}/b2fintech`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/2bfintech%20preview.mp4" />
+        </Link>
+      ),
+    },
   ];
 
   const filteredItems = workItems.filter((item) =>
