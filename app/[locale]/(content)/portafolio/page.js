@@ -114,6 +114,16 @@ const PortafolioPage = () => {
         </Link>
       ),
     },
+    {
+      title: "OIM",
+      description: "Cartografía Migratoria: Impacto de la Migración Haitiana",
+      category: ["creativity"],
+      video: (
+        <Link href={`/${locale}/oim`}>
+          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/IOM%20preview.mp4" />
+        </Link>
+      ),
+    },
   ];
 
   const filteredItems = workItems.filter((item) =>
