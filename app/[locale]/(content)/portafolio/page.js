@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
@@ -21,11 +21,13 @@ const WideVideoSection = ({ src }) => {
 
 const PortafolioPage = () => {
   const locale = useLocale();
+  const [activeCategory, setActiveCategory] = useState("all");
 
   const workItems = [
     {
       title: "Upardigital",
       description: "Revolucionando la educación virtual en Uparsistem",
+      category: ["creativity"],
       video: (
         <Link href={`/${locale}/upardigital`}>
           <WideVideoSection src="/assets/videos/uparpreview.mp4" />
@@ -35,6 +37,7 @@ const PortafolioPage = () => {
     {
       title: "Monster Energy",
       description: '"I am the Beast"',
+      category: ["technology"],
       video: (
         <Link href={`/${locale}/monster-energy`}>
           <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
@@ -44,6 +47,7 @@ const PortafolioPage = () => {
     {
       title: "Páginas Web",
       description: "Innovación y Experiencia de Usuario de Alto Impacto",
+      category: ["consulting", "technology"],
       video: (
         <Link href={`/${locale}/web-page`}>
           <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
@@ -53,6 +57,7 @@ const PortafolioPage = () => {
     {
       title: "Wersus",
       description: "Innovación en logística de transporte",
+      category: ["consulting", "technology"],
       video: (
         <Link href={`/${locale}/wersus`}>
           <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Video%20Promo%20Wersus%20TSP_1.mp4" />
@@ -62,6 +67,7 @@ const PortafolioPage = () => {
     {
       title: "CIML",
       description: "Innovación Editorial para la Salud Pública",
+      category: ["technology"],
       video: (
         <Link href={`/${locale}/ciml`}>
           <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/CIML%20preview.mp4" />
@@ -71,16 +77,17 @@ const PortafolioPage = () => {
     {
       title: "Politécnico Grancolombiano",
       description: "Estrategia Digital para Conectar con los Jóvenes",
+      category: ["consulting", "creativity"],
       video: (
         <Link href={`/${locale}/politecnico`}>
           <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Poli%20Preview.mp4" />
         </Link>
       ),
     },
-
     {
       title: "Lili Estevez",
       description: "Concept Art para Sencillo Musical “La Señal”",
+      category: ["technology"],
       video: (
         <Link href={`/${locale}/lili-estevez`}>
           <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Lili%20Preview.mp4" />
@@ -88,6 +95,10 @@ const PortafolioPage = () => {
       ),
     },
   ];
+
+  const filteredItems = workItems.filter((item) =>
+    activeCategory === "all" ? true : item.category.includes(activeCategory)
+  );
 
   return (
     <div className="relative bg-opacity-70">
@@ -101,8 +112,42 @@ const PortafolioPage = () => {
           </h1>
         </div>
 
+        <div className="flex flex-wrap gap-4 px-5 sm:px-6 md:px-10 lg:px-16">
+          <button
+            onClick={() => setActiveCategory("all")}
+            className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Ver Todos
+          </button>
+
+          <button
+            onClick={() => setActiveCategory("creativity")}
+            className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Creatividad
+          </button>
+
+          <button
+            onClick={() => setActiveCategory("technology")}
+            className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Tecnologia
+          </button>
+
+          <button
+            onClick={() => setActiveCategory("consulting")}
+            className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Consultoria
+          </button>
+        </div>
+
         <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mx-auto mb-[40px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center cursor-pointer ">
-          {workItems.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <div
               key={index}
               className="relative max-w-[90%] sm:max-w-[400px] w-full h-auto min-h-[250px] rounded-[24.15px] overflow-hidden bg-gray-800 shadow-lg"
@@ -129,24 +174,6 @@ const PortafolioPage = () => {
               </div>
             </div>
           ))}
-        </div>
-        {/* Boton */}
-        <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]  ">
-          <div className="flex justify-center  - mb-[160px] ">
-            <Image
-              src="/assets/images/Gif Avion.gif"
-              alt="Botón Animado"
-              width={48}
-              height={48}
-              className=""
-            />
-            <button
-              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
-              style={{ fontFamily: "HandelGothic" }}
-            >
-              Ver Portafolio
-            </button>
-          </div>
         </div>
       </div>
     </div>
