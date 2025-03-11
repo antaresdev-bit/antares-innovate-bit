@@ -154,8 +154,6 @@ export default function Home() {
               zIndex: -1,
             }}
           ></div>
-
-          {/* Contenido */}
           <TextIntroduction />
         </div>
       </div>
