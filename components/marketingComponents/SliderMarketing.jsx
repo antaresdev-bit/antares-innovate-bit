@@ -66,7 +66,7 @@ function SliderMarketing() {
   };
 
   return (
-    <div className="w-full max-w-[1300px] h-[520px] mx-auto p-4 mt-[90px] relative">
+    <div className="w-full ">
       <Swiper
         ref={swiperRef}
         slidesPerView={1}
@@ -84,7 +84,7 @@ function SliderMarketing() {
       >
         {/* card  "Nuestro Modelo Integral"  */}
         <SwiperSlide>
-          <div className="w-[90%] sm:w-[396px] h-[473px] bg-white shadow-lg rounded-[48px] p-6 flex flex-col mx-auto border border-white relative">
+          <div className=" w-[100%] sm:w-[396px] h-[473px] bg-white shadow-lg rounded-[48px] p-6 flex flex-col mx-auto border border-white relative">
             <div className="w-[110px] h-[110px] bg-blue-600 rounded-full flex items-center justify-center absolute top-[30px] left-6 shadow-md">
               <Image
                 src="/assets/images/marketing/card vector.png"
@@ -110,7 +110,7 @@ function SliderMarketing() {
         {marketingItems.map((item, index) => (
           <SwiperSlide key={index}>
             <div
-              className="w-[90%] sm:w-[396px] h-[473px] bg-none shadow-lg rounded-[48px] p-4 flex flex-col mx-auto border border-white"
+              className="w-[100%] sm:w-[396px] h-[473px] bg-none shadow-lg rounded-[48px] p-4 flex flex-col mx-auto border border-white"
               style={{ outline: "0.5px solid white", outlineOffset: "-15px" }}
             >
               <Image

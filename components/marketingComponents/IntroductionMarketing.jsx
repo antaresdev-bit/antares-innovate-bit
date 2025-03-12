@@ -1,28 +1,33 @@
 import React from "react";
-import Image from "next/image";
 
 function IntroductionMarketing() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 border-l border-white lg:m-[50px] md:m-[161px] sm:m-[50px] ">
-      <div className="mb-2" style={{ fontFamily: "HandelGothic" }}>
-        <h1 
-          className="leading-[40px] text-[45px] font-bold mb-[-30px] ml-[40px] bg-gradient-to-r from-[#FDC548] to-[#FFFFFF] text-transparent bg-clip-text"
-        >
-          Diseñamos Índices de Gestión Avanzados para la toma de decisiones
-        </h1>
-      </div>
-      <div className="space-y-6 ml-[40px]">
-        <p
-          className="font-extrabold text-white leading-[35px] tracking-tight mt-[80px] 
-             lg:text-[30px] 
-             md:text-[20px] 
-             sm:text-[30px]"
-          style={{ fontFamily: "UniteaSans-bold" }}
-        >
-          Optimizamos la toma de decisiones empresariales a través de Índices de
-          Gestión Avanzados, diseñados para medir, analizar y mejorar el
-          rendimiento en tiempo real.
-        </p>
+    <div className="max-w-[1500px] mx-auto px-[22px] md:px-[105px] lg:px-[223px]   ">
+      <div className=" border-l-0 sm:border-l-0 md:border-l border-white ">
+        <div className="   " style={{ fontFamily: "HandelGothic" }}>
+          <h1
+            className="leading-[30px] sm:leading-[30px] md:leading-[38px] lg:leading-[45px] ml-[0px] sm:ml-[0px] md:ml-[45px] lg:ml-[55px] text-[33px] sm:text-[33px] md:text-[40px] lg:text-[45px] mb-[67px]"
+            style={{
+              background: "linear-gradient(to right, #4D86FF, #FFFFFF)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            Diseñamos Índices de Gestión Avanzados para la toma de decisiones
+          </h1>
+        </div>
+
+        <div className="ml-[0px] sm:ml-[0px] md:ml-[45px] lg:ml-[55px] text-[25px] sm:text-[25px] md:text-[25px] lg:text-[30px] mb-[64px] mb-[64px] mb-[45px] mb-[60px] ">
+          <p
+            className="  leading-[30px] "
+            style={{ fontFamily: "UniteaSans-medium", color: "white" }}
+          >
+            Optimizamos la toma de decisiones empresariales a través de Índices
+            de Gestión Avanzados, diseñados para medir, analizar y mejorar el
+            rendimiento en tiempo real.
+          </p>
+        </div>
       </div>
     </div>
   );

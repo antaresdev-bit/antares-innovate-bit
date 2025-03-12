@@ -1,13 +1,18 @@
+"use client";
+
+import { useLocale } from "next-intl";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function InfoCard() {
+  const locale = useLocale();
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="w-full max-w-[1299px] bg-[#1C5DE9] rounded-[48px] md:p-10 p-6">
         <div className="w-full max-w-[1235px] bg-[#3874F5] rounded-[24px] p-6 md:p-8 text-white sm:bg-[#3874F5] ">
           <h2
-            className="text-xl md:text-2xl font-bold mb-4 mt-[40px] "
+            className="text-xl md:text-2xl font-bold mb-4 mt-[40px] leading-[40px]"
             style={{
               fontFamily: "HandelGothic",
               color: "white",
@@ -17,7 +22,7 @@ function InfoCard() {
             ¿Por qué elegir Antares?
           </h2>
           <ul
-            className="space-y-4 text-sm md:text-base mt-[40px] ml-[30px] "
+            className="space-y-4 text-sm md:text-base mt-[40px] ml-[30px]  "
             style={{
               fontFamily: "UniteaSans",
               fontSize: "18px",
@@ -39,17 +44,22 @@ function InfoCard() {
               sostenible.
             </li>
           </ul>
-          <div className="mt-[30px] sm:mb-[10px] flex items-center ">
+          <div className="flex items-center mt-10">
             <Image
-              src="/assets/images/Boton avion animado 2.gif"
+              src="/assets/images/Gif Avion.gif"
               alt="Botón Animado"
-              width={80}
-              height={80}
-              className="mr-2"
+              width={48}
+              height={48}
+              className=""
             />
-            <button className="w-[230px] h-[48px] rounded-[32px] bg-white text-black font-bold flex items-center justify-center">
-              Ver Portafolio
-            </button>
+            <Link href={`/${locale}/portafolio`} className="w-full sm:w-auto">
+              <button
+                className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
+                style={{ fontFamily: "HandelGothic" }}
+              >
+                Ver Portafolio
+              </button>
+            </Link>
           </div>
         </div>
       </div>

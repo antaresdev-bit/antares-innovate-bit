@@ -8,38 +8,52 @@ import MarketingProfile from "@/components/marketingComponents/MarketingProfile"
 import MarketingStadicticts from "@/components/marketingComponents/MarketingStadicticts";
 import SliderMarketing from "@/components/marketingComponents/SliderMarketing";
 import VideoCard from "@/components/marketingComponents/VideoCard";
-import ConditionalTextArchitect from "@/components/realEstateComponents/ConditionalTextArquitect";
 import React from "react";
 
 function page() {
   return (
-    <div className="relative">
+    <div className="relative ">
       <BannerMarketing />
+      <div className="max-w-[1500px] mx-auto px-[21px] sm:px-[21px] md:px-[49px] lg:px-[71px]">
+        <ConditionalTextMarketing
+          title="Industria del Marketing"
+          subtitle="“En Antares, no solo anticipamos la revolución digital; la lideramos.”"
+          gradient="linear-gradient(to right, #FFFFFF, #FFFFFF)"
+          circleColor="#1C5DE9" 
+          iconSrc="/assets/images/marketing/1.png" 
+        />
 
-      <ConditionalTextMarketing
-        title="Industria del Marketing"
-        subtitle="“En Antares, no solo anticipamos la revolución digital; la lideramos.”"
-        gradient="linear-gradient(to right, #FFFFFF, #FFFFFF)"
-      />
+        <MarketingProfile />
 
-      <MarketingProfile />
+        <CardMarketing />
 
-      <CardMarketing />
-
-      <MarketingStadicticts />
-
-      <SliderMarketing />
-
-      <InfoCard />
-
-      <div className="flex justify-center items-center">
-        <div className="relative z-10">
-          <IntroductionMarketing />
+        <div className="  mt-[164px] sm:mt-[164px] md:mt-[144px] lg:mt-[211px]  ">
+          <h1
+            className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
+            style={{ fontFamily: "HandelGothic" }}
+          >
+            Nuestros Indicadores de Gestión
+          </h1>
         </div>
+
+        <div className=" mt-[200px] sm:mt-[200px] md:mt-[106px] lg:mt-[124px]">
+          <MarketingStadicticts />
+        </div>
+
+        <div className="mt-[200px] sm:mt-[200px] md:mt-[106px] lg:mt-[124px]">
+          <SliderMarketing />
+        </div>
+
+        <InfoCard />
+
+        <div className="flex justify-center items-center ">
+          <div className="relative ">
+            <IntroductionMarketing />
+          </div>
+        </div>
+
+        <VideoCard />
       </div>
-
-      <VideoCard/>
-
       <Footer />
     </div>
   );

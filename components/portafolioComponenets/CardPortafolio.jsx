@@ -42,7 +42,7 @@ function CardPortafolio() {
               className="rounded-lg hidden md:block lg:hidden"
             />
             <Image
-              src="/assets/images/portafolio/sm.png"
+              src="/assets/images/portafolio/lg.png"
               alt="Portafolio"
               width={700}
               height={600}

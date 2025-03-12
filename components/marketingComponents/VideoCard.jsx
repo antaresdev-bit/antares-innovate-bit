@@ -1,10 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import React, { useState } from "react";
 
 const videos = [
   "https://storage.googleapis.com/antares-agency-rcs/1-Marketing.mp4",
@@ -16,62 +12,47 @@ const videos = [
 ];
 
 function VideoCard() {
-  const swiperRef = useRef(null);
+  const [currentVideo, setCurrentVideo] = useState(0);
 
   const handleVideoEnd = () => {
-    if (swiperRef.current) {
-      if (swiperRef.current.isEnd) {
-        swiperRef.current.slideTo(0);
-      } else {
-        swiperRef.current.slideNext();
-      }
-    }
+    setCurrentVideo((prev) => (prev + 1) % videos.length);
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-none p-4">
-      <div
-        className="w-full bg-white rounded-[48px] overflow-hidden relative
-        lg:w-[1298px] lg:h-[663px]  // Tamaño para lg
-        md:w-[924px] md:h-[471.97px] // Tamaño para md
-        sm:w-[370px] sm:h-[356.56px]  // Tamaño para sm
-      "
-      >
-        <Swiper
-          pagination={{
-            clickable: true,
-            renderBullet: (index, className) => {
-              return `<span class="${className}" style="width: 171.29px; height: 5px; background-color: ${
-                className.includes("swiper-pagination-bullet-active")
-                  ? "#1C5DE9"
-                  : "#D9D9D9"
-              }; margin: 0 5px; border-radius: 2.5px;"></span>`;
-            },
-          }}
-          modules={[Pagination]}
-          className="w-full h-full"
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-        >
-          {videos.map((video, index) => (
-            <SwiperSlide key={index}>
-              <div className="w-full h-full flex justify-center items-center p-4">
-                <div className="w-full h-full">
-                  <video
-                    className="w-full h-full object-cover rounded-[48px]"
-                    controls
-                    src={video}
-                    autoPlay
-                    muted
-                    playsInline
-                    onEnded={handleVideoEnd}
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <div
+      className="w-[1298px] max-w-full bg-[#D9D9D9]
+    pb-[50px] sm:pb-[50px] md:pb-[50px] lg:pb-[50px]
+    pt-[50px] sm:pt-[50px] md:pt-[34px] lg:pt-[34px]
+    pl-[9px] sm:pl-[9px] md:pl-[22px] lg:pl-[34px]
+    pr-[9px] sm:pr-[9px] md:pr-[22px] lg:pr-[34px]
+    flex flex-col items-center rounded-[48px] shadow-lg mx-auto"
+    >
+      <div className="w-full relative pt-[56.25%] ">
+        <div className="absolute top-0 left-0 w-full h-full">
+          <video
+            key={videos[currentVideo]}
+            className="w-full h-full object-cover rounded-[24px]"
+            controls
+            autoPlay
+            muted
+            onEnded={handleVideoEnd}
+          >
+            <source src={videos[currentVideo]} type="video/mp4" />
+            Tu navegador no soporta videos.
+          </video>
+        </div>
+      </div>
+
+      <div className="w-full flex justify-center space-x-4 mt-[25px]">
+        {videos.map((_, index) => (
+          <button
+            key={index}
+            className={`h-1 w-[52px] sm:w-[52px] md:w-[121px] lg:w-[165px] ${
+              index === currentVideo ? "bg-blue-500" : "bg-gray-400"
+            }`}
+            onClick={() => setCurrentVideo(index)}
+          />
+        ))}
       </div>
     </div>
   );
