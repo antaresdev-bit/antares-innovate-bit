@@ -106,26 +106,26 @@ const OurWork = () => {
         </div>
         {/* Boton */}
         <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
-  <div className="flex justify-center mb-[160px] w-full">
-    <div className="flex items-center justify-center w-full sm:w-auto">
-      <Image
-        src="/assets/images/Gif Avion.gif"
-        alt="Botón Animado"
-        width={48}
-        height={48}
-        className=""
-      />
-      <Link href={`/${locale}/portafolio`} className="w-full sm:w-auto">
-        <button
-          className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Ver Portafolio
-        </button>
-      </Link>
-    </div>
-  </div>
-</div>
+          <div className="flex justify-center mb-[160px] w-full">
+            <div className="flex items-center justify-center w-full sm:w-auto">
+              <Image
+                src="/assets/images/Gif Avion.gif"
+                alt="Botón Animado"
+                width={48}
+                height={48}
+                className=""
+              />
+              <Link href={`/${locale}/portafolio`} className="w-full sm:w-auto">
+                <button
+                  className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
+                  style={{ fontFamily: "HandelGothic" }}
+                >
+                  Ver Portafolio
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

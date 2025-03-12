@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import CardPortafolio from "@/components/portafolioComponenets/CardPortafolio";
 
 const WideVideoSection = ({ src }) => {
   return (
@@ -143,20 +144,31 @@ const PortafolioPage = () => {
 
   return (
     <div className="relative bg-opacity-70">
-      <div className="max-w-[1500px] mx-auto">
-        <div className=" flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1500px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[8px] ">
+      {/* degrade */}
+      <div
+        className=" absolute inset-x-0 mx-auto w-full max-w-[1409px] h-[542px]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, #334385 0%, #0E051C 60%)",
+          transform: "translateY(-70%)",
+          zIndex: -1,
+        }}
+      ></div>
+      {/* degrade */}
+      <div className="max-w-[1500px] mx-auto   ">
+        <div className="mt-[187px]  mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]  ">
           <h1
-            className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
+            className="mb-[69px] ml-[0px] sm:ml-[0px] md:ml-[65px] lg:ml-[68px] text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
             style={{ fontFamily: "HandelGothic" }}
           >
             portafolio
           </h1>
         </div>
 
-        <div className="flex flex-wrap gap-4 px-5 sm:px-6 md:px-10 lg:px-16 ml-[20px]">
+        <div className="flex flex-col sm:flex-row flex-wrap mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]  gap-4 sm:gap- border-b pb-[43px]">
           <button
             onClick={() => setActiveCategory("all")}
-            className="flex items-center justify-center w-[136.46px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
+            className="flex items-center justify-center w-[136.46px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold sm:mr-[19px] lg:mr-[34px]"
             style={{ fontFamily: "HandelGothic" }}
           >
             <img
@@ -169,7 +181,7 @@ const PortafolioPage = () => {
 
           <button
             onClick={() => setActiveCategory("creativity")}
-            className="flex items-center justify-center w-[196.8px] h-[48px] border-[1px] border-white bg-transparent text-white text-[20px] rounded-[32px] hover:bg-white hover:text-[#02021E] transition duration-300 font-bold"
+            className="flex items-center justify-center w-[196.8px] h-[48px] border-[1px] border-white bg-transparent text-white text-[20px] rounded-[32px] hover:bg-white hover:text-[#02021E] transition duration-300 font-bold sm:mr-[19px] lg:mr-[34px]"
             style={{ fontFamily: "HandelGothic" }}
           >
             <img
@@ -182,7 +194,7 @@ const PortafolioPage = () => {
 
           <button
             onClick={() => setActiveCategory("technology")}
-            className="flex items-center justify-center w-[196.8px] h-[48px] border-[1px] border-white bg-transparent text-white text-[20px] rounded-[32px] hover:bg-white hover:text-[#02021E] transition duration-300 font-bold"
+            className="flex items-center justify-center w-[196.8px] h-[48px] border-[1px] border-white bg-transparent text-white text-[20px] rounded-[32px] hover:bg-white hover:text-[#02021E] transition duration-300 font-bold sm:mr-[19px] lg:mr-[34px]"
             style={{ fontFamily: "HandelGothic" }}
           >
             <img
@@ -193,7 +205,6 @@ const PortafolioPage = () => {
             Tecnologia
           </button>
 
-          
           <button
             onClick={() => setActiveCategory("consulting")}
             className="flex items-center justify-center w-[196.8px] h-[48px] border-[1px] border-white bg-transparent text-white text-[20px] rounded-[32px] hover:bg-white hover:text-[#02021E] transition duration-300 font-bold"
@@ -236,6 +247,10 @@ const PortafolioPage = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-[187px]">
+          <CardPortafolio />
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@ function Footer() {
                 alt="WhatsApp"
                 className="w-8"
               />
-              <p>Llámanos: +1 689 331 2690</p>
+              <p className="ml-[15px]">Llámanos: +1 689 331 2690</p>
             </div>
           </div>
 
