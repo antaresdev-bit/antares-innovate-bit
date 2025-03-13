@@ -86,7 +86,7 @@ export default function Home() {
 
   useEffect(() => {
     const preventDefault = (e) => e.preventDefault();
-    
+
     if (isVideoLoading) {
       // Aplicar bloqueo inmediatamente usando CSS
       document.documentElement.style.cssText = `
@@ -96,25 +96,29 @@ export default function Home() {
         height: 100%;
         touch-action: none;
       `;
-      
+
       // Agregar listeners para todos los eventos táctiles
-      document.addEventListener('touchmove', preventDefault, { passive: false });
-      document.addEventListener('touchstart', preventDefault, { passive: false });
-      document.addEventListener('touchend', preventDefault, { passive: false });
+      document.addEventListener("touchmove", preventDefault, {
+        passive: false,
+      });
+      document.addEventListener("touchstart", preventDefault, {
+        passive: false,
+      });
+      document.addEventListener("touchend", preventDefault, { passive: false });
     } else {
       // Restaurar scroll
-      document.documentElement.style.cssText = '';
-      document.removeEventListener('touchmove', preventDefault);
-      document.removeEventListener('touchstart', preventDefault);
-      document.removeEventListener('touchend', preventDefault);
+      document.documentElement.style.cssText = "";
+      document.removeEventListener("touchmove", preventDefault);
+      document.removeEventListener("touchstart", preventDefault);
+      document.removeEventListener("touchend", preventDefault);
     }
 
     return () => {
       // Cleanup
-      document.documentElement.style.cssText = '';
-      document.removeEventListener('touchmove', preventDefault);
-      document.removeEventListener('touchstart', preventDefault);
-      document.removeEventListener('touchend', preventDefault);
+      document.documentElement.style.cssText = "";
+      document.removeEventListener("touchmove", preventDefault);
+      document.removeEventListener("touchstart", preventDefault);
+      document.removeEventListener("touchend", preventDefault);
     };
   }, [isVideoLoading]);
 
@@ -128,7 +132,9 @@ export default function Home() {
             <OptimisedScene />
           ) : (
             <div className="w-full h-full">
-              <p>{webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}</p>
+              <p>
+                {webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}
+              </p>
             </div>
           )}
         </div>
@@ -186,7 +192,9 @@ export default function Home() {
         </div>
       </div>
 
-      <OurServices />
+      <div id="our-services">
+        <OurServices />
+      </div>
       <OurWork />
       <Statistics />
       <Blog />

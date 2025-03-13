@@ -14,7 +14,6 @@ function Nav() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleIndustries = () => setIsIndustriesOpen(!isIndustriesOpen);
 
-  // Función para cerrar el menú responsive
   const closeMenu = () => setIsMenuOpen(false);
 
   useEffect(() => {
@@ -62,16 +61,29 @@ function Nav() {
             className="absolute top-full left-0 w-full bg-[#263B9E] rounded-[24px] shadow-md flex flex-col items-center py-4 mt-2 lg:hidden"
           >
             <Link
-              href={`/${locale}/services`}
-              className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu} // Cierra el menú al hacer clic
+              href={`/${locale}/`}
+              className="text-white hover:text-gray-300"
+              onClick={(e) => {
+                e.preventDefault();
+
+                const targetElement = document.getElementById("our-services");
+                if (targetElement) {
+                  targetElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+
+                closeMenu();
+              }}
             >
               Servicios
             </Link>
+
             <Link
               href={`/${locale}/portafolio`}
               className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu} // Cierra el menú al hacer clic
+              onClick={closeMenu}
             >
               Portafolio
             </Link>
@@ -91,14 +103,14 @@ function Nav() {
                   <Link
                     href={`/${locale}/real-estate`}
                     className="text-white hover:bg-gray-700 w-full text-center py-2"
-                    onClick={closeMenu} // Cierra el menú al hacer clic
+                    onClick={closeMenu}
                   >
                     Inmobiliaria
                   </Link>
                   <Link
                     href={`/${locale}/marketing`}
                     className="text-white hover:bg-gray-700 w-full text-center py-2"
-                    onClick={closeMenu} // Cierra el menú al hacer clic
+                    onClick={closeMenu}
                   >
                     Marketing
                   </Link>
@@ -109,21 +121,21 @@ function Nav() {
             <Link
               href={`/${locale}/about`}
               className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu} // Cierra el menú al hacer clic
+              onClick={closeMenu}
             >
               Nosotros
             </Link>
             <Link
               href={`/${locale}/blog`}
               className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu} // Cierra el menú al hacer clic
+              onClick={closeMenu}
             >
               Blog
             </Link>
             <Link
               href={`/${locale}/form-contact`}
               className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu} // Cierra el menú al hacer clic
+              onClick={closeMenu}
             >
               Contacto
             </Link>
@@ -133,11 +145,23 @@ function Nav() {
         {/* Menú Desktop */}
         <div className="hidden lg:flex items-center gap-x-6">
           <Link
-            href={`/${locale}/services`}
+            href={`/${locale}/`}
             className="text-white hover:text-gray-300"
+            onClick={(e) => {
+              e.preventDefault();
+
+              const targetElement = document.getElementById("our-services");
+              if (targetElement) {
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
           >
             Servicios
           </Link>
+
           <Link
             href={`/${locale}/portafolio`}
             className="text-white hover:text-gray-300"
@@ -157,14 +181,12 @@ function Nav() {
                 <Link
                   href={`/${locale}/real-estate`}
                   className="block px-4 py-2 hover:bg-gray-200"
-                  
                 >
                   Inmobiliaria
                 </Link>
                 <Link
                   href={`/${locale}/marketing`}
                   className="block px-4 py-2 hover:bg-gray-200"
-                  
                 >
                   Marketing
                 </Link>

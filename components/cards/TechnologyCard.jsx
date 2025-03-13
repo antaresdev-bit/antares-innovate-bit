@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
 function TechnologyCard() {
+  const locale = useLocale();
   return (
     <div
       className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-[#FFFFFF] lg:bg-[#0E051C] sm:bg-[#FFFFFF] md:bg-[#FFFFFF] lg:bg-none rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] sm:pb-[0px] md:pb-[0px] lg:pb-[40px] "
@@ -95,12 +98,14 @@ function TechnologyCard() {
               height={48}
               className=""
             />
-            <button
-              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] border border-[#676781] hover:bg-gray-200 transition duration-300 font-bold"
-              style={{ fontFamily: "HandelGothic" }}
-            >
-              Ver Portafolio
-            </button>
+            <Link href={`/${locale}/portafolio`} className="w-full sm:w-auto">
+              <button
+                className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
+                style={{ fontFamily: "HandelGothic" }}
+              >
+                Ver Portafolio
+              </button>
+            </Link>
           </div>
         </div>
       </div>

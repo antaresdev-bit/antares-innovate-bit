@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { useLocale } from "next-intl";
+import Link from "next/link";
 
 function CreativityCard() {
+  const locale = useLocale();
   return (
     <div className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-transparent rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white">
       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center bg-transparent rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white">
@@ -66,12 +69,14 @@ function CreativityCard() {
               height={48}
               className=""
             />
-            <button
-              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
-              style={{ fontFamily: "HandelGothic" }}
-            >
-              Ver Portafolio
-            </button>
+            <Link href={`/${locale}/portafolio`} className="w-full sm:w-auto">
+              <button
+                className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
+                style={{ fontFamily: "HandelGothic" }}
+              >
+                Ver Portafolio
+              </button>
+            </Link>
           </div>
         </div>
       </div>
