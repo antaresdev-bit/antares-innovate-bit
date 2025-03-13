@@ -14,6 +14,9 @@ function Nav() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleIndustries = () => setIsIndustriesOpen(!isIndustriesOpen);
 
+  // Función para cerrar el menú responsive
+  const closeMenu = () => setIsMenuOpen(false);
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -37,10 +40,9 @@ function Nav() {
         className="w-full max-w-[1500px] h-[76px] flex items-center 
     bg-[rgba(14,5,28,0.65)] backdrop-blur-xl 
     rounded-[24px] relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between
-    border border-[rgba(255,255,255,0.25)] "      
+    border border-[rgba(255,255,255,0.25)]"
       >
-        <Link href={`/${locale}/`}
-        className="flex-shrink-0">
+        <Link href={`/${locale}/`} className="flex-shrink-0">
           <Image
             src="/assets/images/Logo Antares.svg"
             alt="Antares Logo"
@@ -62,12 +64,14 @@ function Nav() {
             <Link
               href={`/${locale}/services`}
               className="text-white hover:text-gray-300 py-2"
+              onClick={closeMenu} // Cierra el menú al hacer clic
             >
               Servicios
             </Link>
             <Link
               href={`/${locale}/portafolio`}
               className="text-white hover:text-gray-300 py-2"
+              onClick={closeMenu} // Cierra el menú al hacer clic
             >
               Portafolio
             </Link>
@@ -87,12 +91,14 @@ function Nav() {
                   <Link
                     href={`/${locale}/real-estate`}
                     className="text-white hover:bg-gray-700 w-full text-center py-2"
+                    onClick={closeMenu} // Cierra el menú al hacer clic
                   >
                     Inmobiliaria
                   </Link>
                   <Link
                     href={`/${locale}/marketing`}
                     className="text-white hover:bg-gray-700 w-full text-center py-2"
+                    onClick={closeMenu} // Cierra el menú al hacer clic
                   >
                     Marketing
                   </Link>
@@ -103,18 +109,21 @@ function Nav() {
             <Link
               href={`/${locale}/about`}
               className="text-white hover:text-gray-300 py-2"
+              onClick={closeMenu} // Cierra el menú al hacer clic
             >
-               Nosotros
+              Nosotros
             </Link>
             <Link
               href={`/${locale}/blog`}
               className="text-white hover:text-gray-300 py-2"
+              onClick={closeMenu} // Cierra el menú al hacer clic
             >
               Blog
             </Link>
             <Link
               href={`/${locale}/form-contact`}
               className="text-white hover:text-gray-300 py-2"
+              onClick={closeMenu} // Cierra el menú al hacer clic
             >
               Contacto
             </Link>
@@ -148,12 +157,14 @@ function Nav() {
                 <Link
                   href={`/${locale}/real-estate`}
                   className="block px-4 py-2 hover:bg-gray-200"
+                  
                 >
                   Inmobiliaria
                 </Link>
                 <Link
                   href={`/${locale}/marketing`}
                   className="block px-4 py-2 hover:bg-gray-200"
+                  
                 >
                   Marketing
                 </Link>
@@ -165,7 +176,7 @@ function Nav() {
             href={`/${locale}/about`}
             className="text-white hover:text-gray-300"
           >
-             Nosotros
+            Nosotros
           </Link>
           <Link
             href={`/${locale}/blog`}
