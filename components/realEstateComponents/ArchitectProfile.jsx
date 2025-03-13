@@ -5,19 +5,19 @@ function ArchitectProfile() {
   const texts = {
     paragraph:
       '"El éxito de un proyecto se logra trabajando en equipo con visión estratégica y compromiso."',
-    name: "Yamile Durán - Arquitecta, Project Manager",
+    name: "Yamile Duran - Arquitecta, Project Manager",
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[500px] p-4 ">
+    <div className="flex items-center justify-center min-h-[500px] mb-[74px] sm:mb-[74px] md:mb-[0px] lg:mb-[0px] ">
       <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row items-center justify-center w-full md:w-[1122px] h-auto md:h-[253px] bg-transparent shadow-lg rounded-lg overflow-hidden">
         <div className="sm:flex md:hidden lg:hidden flex-col items-start text-left mb-4">
           <p
-            className="text-[40px] sm:text-[40px] md:text-[40px] lg:text-[45px] font-bold px-4"
+            className="text-[40px] sm:text-[40px] md:text-[40px] lg:text-[45px] font-bold "
             style={{
               fontFamily: "HandelGothic",
               lineHeight: "1.2",
-              background: "linear-gradient(to right, #FDC548, #FFFFFF)",
+              background: "linear-gradient(to right, #FFFFFF, #FFFFFF)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -27,7 +27,7 @@ function ArchitectProfile() {
         </div>
 
         {/* imagen en sm*/}
-        <div className="sm:flex md:hidden lg:hidden flex items-center space-x-4">
+        <div className="sm:flex md:hidden lg:hidden flex items-center space-x-4 mt-[47px] sm:mt-[47px] md:mt-[0px] lg:mt-[0px]">
           <div className="w-[135px] h-[135px] relative">
             <Image
               src="/assets/images/inmobiliaria/yamile.png"
@@ -69,7 +69,7 @@ function ArchitectProfile() {
             style={{
               fontFamily: "HandelGothic",
               lineHeight: "1",
-              background: "linear-gradient(to right, #FDC548, #FFFFFF)",
+              background: "linear-gradient(to right, #FFFFFF, #FFFFFF)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}

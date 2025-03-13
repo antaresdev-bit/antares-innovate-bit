@@ -19,8 +19,8 @@ function page() {
           title="Industria del Marketing"
           subtitle="“En Antares, no solo anticipamos la revolución digital; la lideramos.”"
           gradient="linear-gradient(to right, #FFFFFF, #FFFFFF)"
-          circleColor="#1C5DE9" 
-          iconSrc="/assets/images/marketing/1.png" 
+          circleColor="#1C5DE9"
+          iconSrc="/assets/images/marketing/1.png"
         />
 
         <MarketingProfile />

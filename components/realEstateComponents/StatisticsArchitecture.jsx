@@ -1,6 +1,4 @@
-
-"use client"
-
+"use client";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,26 +8,18 @@ const statisticItems = [
   {
     title: "Años de experiencia",
     image: "/assets/images/statistics/+30.png",
-    width: 60,
-    height: 52,
   },
   {
     title: "Proyectos Nacionales e Internacionales",
     image: "/assets/images/statistics/world.png",
-    width: 50,
-    height: 52,
   },
   {
     title: "Proyectos Habilidades en Estructuracióny Viabilidad ",
     image: "/assets/images/statistics/+100.png",
-    width: 70,
-    height: 52,
   },
   {
     title: "Especialistas en Diseño Arquitectónico",
     image: "/assets/images/statistics/brain.png",
-    width: 50,
-    height: 52,
   },
 ];
 
@@ -45,7 +35,23 @@ function StatisticsArchitecture() {
     arrows: false,
     responsive: [
       {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          centerMode: false,
+          centerPadding: "0",
+        },
+      },
+      {
         breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          centerMode: false,
+          centerPadding: "0",
+        },
+      },
+      {
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           centerMode: false,
@@ -56,13 +62,14 @@ function StatisticsArchitecture() {
   };
 
   return (
-    <div className="p-4 ">
+    <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
       {/* Desktop & Tablet View */}
-      <div className="hidden md:flex flex-wrap justify-center gap-[70px]">
+      <div className="hidden md:flex flex-wrap justify-center gap-[20px] lg:gap-10">
         {statisticItems.map((item, index) => (
           <div
             key={index}
-            className="w-[239px] h-[240px] flex flex-col items-center justify-center rounded-full border-2 border-white text-white text-[25px] text-center p-4"
+            className="flex flex-col items-center justify-center rounded-full border-[1px] border-white text-white text-center p-4 
+              w-[165.46px] h-[166.15px] sm:w-[165.46px] sm:h-[166.15px] md:w-[187.31px] md:h-[188.09px] lg:w-[239px] lg:h-[240px]"
           >
             <img
               src={item.image}
@@ -71,7 +78,9 @@ function StatisticsArchitecture() {
               height={item.height}
               className="mb-4"
             />
-            <p>{item.title}</p>
+            <p className="text-[10px] sm:text-[10px] md:text-[18px] lg:text-[20px] ">
+              {item.title}
+            </p>
           </div>
         ))}
       </div>
@@ -82,9 +91,12 @@ function StatisticsArchitecture() {
           {statisticItems.map((item, index) => (
             <div
               key={index}
-              className="flex justify-center py-4 mb-[30px] last:mb-0"
+              className="flex justify-center py-[20px] mb-[30px] last:mb-0"
             >
-              <div className="w-[239px] h-[240px] flex flex-col items-center justify-center rounded-full border-2 border-white text-white text-[25px] text-center p-4 mx-auto">
+              <div
+                className="flex flex-col items-center justify-center rounded-full border-[1px] border-white text-white text-[15px] sm:text-[15px] md:text-[18px] lg:text-[20px]  text-center p-4 mx-auto 
+                w-[165.46px] h-[166.15px] sm:w-[165.46px] sm:h-[166.15px] md:w-[187.31px] md:h-[188.09px] lg:w-[239px] lg:h-[240px]"
+              >
                 <img
                   src={item.image}
                   alt={item.title}
@@ -97,11 +109,18 @@ function StatisticsArchitecture() {
             </div>
           ))}
         </Slider>
+        {/* Agregar la imagen debajo del Slider en móvil */}
+        <div className="flex justify-center mt-4">
+          <img
+            src="/assets/images/statistics/Swipe.png"
+            alt="Swipe"
+            width="68.58px"
+            height="22px"
+          />
+        </div>
       </div>
     </div>
   );
 }
 
 export default StatisticsArchitecture;
-
-

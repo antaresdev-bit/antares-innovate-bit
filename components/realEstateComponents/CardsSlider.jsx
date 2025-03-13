@@ -1,9 +1,14 @@
 "use client";
-import React, { useState, useRef } from "react";
+
+import React, { useRef, useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const initialImages = [
+const marketingItems = [
   "/assets/images/inmobiliaria/b1.png",
   "/assets/images/inmobiliaria/b2.png",
   "/assets/images/inmobiliaria/b3.png",
@@ -19,118 +24,120 @@ const toggledImages = [
   "/assets/images/inmobiliaria/r5.png",
 ];
 
-const ojoGif = "/assets/images/inmobiliaria/Ojo.gif";
+function InfiniteSlider() {
+  const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [showToggled, setShowToggled] = useState({});
 
-const InfiniteSlider = () => {
-  const [offset, setOffset] = useState(0);
-  const [images, setImages] = useState(initialImages);
-  const sliderRef = useRef(null);
+  useEffect(() => {
+    if (swiperRef.current) {
+      const swiper = swiperRef.current.swiper;
+      setTotalPages(swiper.snapGrid.length);
+    }
+  }, []);
 
   const prevSlide = () => {
-    setOffset((prevOffset) => (prevOffset === 0 ? -400 : prevOffset + 100));
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+    }
   };
 
   const nextSlide = () => {
-    setOffset((prevOffset) => (prevOffset === -400 ? 0 : prevOffset - 100));
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+    }
   };
 
   const handleImageClick = (index) => {
-    setImages((prevImages) =>
-      prevImages.map((img, i) =>
-        i === index
-          ? img === initialImages[i]
-            ? toggledImages[i]
-            : initialImages[i]
-          : img
-      )
-    );
+    setShowToggled((prev) => ({ ...prev, [index]: !prev[index] ?? true }));
   };
 
   return (
-    <>
-      <div className=" flex flex-col gap-4 items-left min-h-[20vh] py-24 px-5 sm:px-6 md:px-10 lg:px-16 sm:ml-[20px] md:ml-[20px] lg:mr-[10px] lg:w-[1300px] ">
-        <h1
-          className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF]"
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Algunos de
-        </h1>
-        <h1
-          className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] inline"
-          style={{ fontFamily: "HandelGothic" }}
-        >
-          Nuestros Proyectos
-        </h1>
-      </div>
-      {/* slider */}
-      <div className="flex flex-col items-center text-white bg-[none]  overflow-hidden">
-        <div className="relative mt-[20px] w-full overflow-hidden">
-          <div
-            ref={sliderRef}
-            className="flex whitespace-nowrap"
-            style={{
-              transform: `translateX(${offset}%)`,
-              transition: "transform 0.3s ease-in-out",
-            }}
-          >
-            {images.map((src, index) => (
+    <div className="w-full mt-[47px] sm:mt-[47px] md:mt-[56px] lgmt-[77px]">
+      <Swiper
+        ref={swiperRef}
+        slidesPerView={1}
+        spaceBetween={50}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 2 },
+        }}
+        pagination={{ el: null }}
+        modules={[Pagination]}
+        className="h-full"
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        onSwiper={(swiper) => setTotalPages(swiper.snapGrid.length)}
+      >
+        {marketingItems.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex items-center justify-center">
               <div
-                key={index}
-                className="relative w-full lg:w-[683.84px] lg:h-[456.71px] px-2 flex-shrink-0 cursor-pointer"
-                onClick={() => handleImageClick(index)}
+                className="relative w-full h-0 pb-[65.5%] rounded-[24px] overflow-hidden"
+                style={{
+                  maxWidth: "694.52px", 
+                }}
               >
+                
                 <Image
-                  src={src}
-                  alt={`Slide ${index + 1}`}
-                  width={683.84}
-                  height={456.71}
-                  className="rounded-lg object-cover w-full h-full transition-all duration-300 ease-in-out"
+                  src={showToggled[index] ? toggledImages[index] : item}
+                  alt={`Imagen ${index + 1}`}
+                  fill
+                  className="object-cover cursor-pointer"
+                  onClick={() => handleImageClick(index)}
                 />
 
-                {initialImages.includes(src) && (
-                  <Image
-                    src={ojoGif}
-                    alt="Ojo"
-                    width={50}
-                    height={50}
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-80"
-                  />
+                {/* Imagen del ojo en la mitad */}
+                {!showToggled[index] && (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <Image
+                      src="/assets/images/inmobiliaria/Ojo.gif"
+                      alt="Ojo"
+                      width={55.13} // Ajusta el tamaño según sea necesario
+                      height={55.13}
+                      className="object-contain"
+                    />
+                  </div>
                 )}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-        <div className="sm:mb-[200px] md:mr-[700px] lg:mr-[1300px] bottom-4 left-4 flex flex-col items-center w-[150px] lg:w-[150px] md:w-[100px] sm:w-[50px] h-[100px] space-y-2">
-          <div className="flex space-x-2">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setOffset(-index * 100)}
-                className={`h-3 w-3 rounded-full border border-white ${
-                  offset === -index * 100 ? "bg-white" : "bg-transparent"
-                }`}
-              />
-            ))}
-          </div>
-          <div className="flex space-x-4">
-            <button
-              onClick={prevSlide}
-              className="border border-white p-3 rounded-full"
-            >
-              <FaChevronLeft size={20} />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="border border-white p-3 rounded-full"
-            >
-              <FaChevronRight size={20} />
-            </button>
-          </div>
+      <div className="flex sm:justify-start justify-center space-x-2 mt-4 mb-[35px] sm:ml-[10px] ml-0">
+        {[...Array(totalPages)].map((_, index) => (
+          <div
+            key={index}
+            className={`w-4 h-4 rounded-full border border-white ${
+              index === activeIndex ? "bg-white" : "bg-transparent"
+            }`}
+          ></div>
+        ))}
+      </div>
+
+      <div className="relative flex items-center justify-start w-full mt-4">
+        <div className="absolute left-0 flex space-x-4 z-10 hidden sm:flex">
+          <button
+            onClick={prevSlide}
+            className="border border-white p-3 rounded-full bg-opacity-80 bg-black hover:bg-opacity-100 transition"
+          >
+            <FaChevronLeft size={20} className="text-white" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="border border-white p-3 rounded-full bg-opacity-80 bg-black hover:bg-opacity-100 transition"
+          >
+            <FaChevronRight size={20} className="text-white" />
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 
 export default InfiniteSlider;
