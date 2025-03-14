@@ -1,18 +1,33 @@
-import React from 'react'
-import Scene from './Scene'
-import MobileScene from './mobile/MobileScene'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Scene from './Scene';
 
-export default function OptimisedScene({isSceneLoading}) {
-    const [isMobile, setIsMobile] = useState(false)
+export default function OptimisedScene({ isSceneLoading }) {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     useEffect(() => {
-        setIsMobile(window.innerWidth < 768)
-    }, [])
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <>
-            {isMobile ? <MobileScene/> : <Scene/>}
+            {isMobile ? (
+                <video 
+                    src="https://storage.googleapis.com/antares-agency-rcs/3dMobile.mp4" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-screen h-[550px] object-cover"
+                />
+            ) : (
+                <Scene />
+            )}
         </>
-    )
+    );
 }
+
