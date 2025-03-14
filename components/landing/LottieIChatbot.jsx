@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 // Configura la URL base del API
-const API_BASE_URL = "http://localhost:8000"; // Cambia esto en producción
+const API_BASE_URL = "http://localhost:9000"; // Cambia esto en producción
 
 function LottieIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
