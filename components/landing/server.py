@@ -1,10 +1,21 @@
+import os
+import sys
+import uuid
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional, Dict, Any
-import uuid
+from typing import Dict
 
-# Importar la clase MrAntaresWeb desde tu archivo
+# Obtener la ruta de la carpeta donde está este script
+landing_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Cambiar el directorio de trabajo a "landing"
+os.chdir(landing_dir)
+sys.path.insert(0, landing_dir)
+
+print(f"Servidor iniciado en {os.getcwd()}")
+
+# Importar la clase MrAntaresWeb desde el módulo correcto
 from chatbot.mr_antares_openai1 import MrAntaresWeb
 
 # Inicializar FastAPI
@@ -30,37 +41,26 @@ active_sessions: Dict[str, MrAntaresWeb] = {}
 # Endpoint para crear nueva sesión
 @app.post("/api/mr-antares/session")
 async def create_session():
-    # Generar un ID de sesión único
     session_id = f"session_{uuid.uuid4().hex}"
-    
-    # Crear una nueva instancia de MrAntaresWeb
-    # Nota: Aquí puedes proporcionar tu API key de OpenAI si la tienes
-    # bot = MrAntaresWeb(session_id=session_id, api_key="tu-api-key")
     bot = MrAntaresWeb(session_id=session_id)
-    
-    # Guardar la sesión
     active_sessions[session_id] = bot
-    
     return {"session_id": session_id}
 
 # Endpoint para procesar mensajes
 @app.post("/api/mr-antares/message")
 async def process_message(request: MessageRequest):
-    # Verificar si la sesión existe
     if request.session_id not in active_sessions:
         raise HTTPException(status_code=404, detail="Sesión no encontrada")
-    
-    # Obtener el bot de la sesión
+
     bot = active_sessions[request.session_id]
     
     try:
-        # Procesar el mensaje
         result = await bot.get_response(request.message)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error al procesar mensaje: {str(e)}")
 
-# Endpoint opcional para verificar el estado del servidor
+# Endpoint para verificar el estado del servidor
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
@@ -68,4 +68,4 @@ async def health_check():
 # Ejecutar el servidor si se llama directamente
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=9000)
