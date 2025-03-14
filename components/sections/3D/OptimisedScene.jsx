@@ -16,10 +16,8 @@ export default function OptimisedScene({ isSceneLoading }) {
     return (
         <>
             {isMobile ? (
-                <video 
-                   //Peso: 69mb tarda en cargar  src="https://storage.googleapis.com/antares-agency-rcs/3dMobile.mp4" 
-                   //Se reemplaza por el siguiente video que pesa 2,7mb y carga mucho mas rapido
-                   src="/assets/videos/3dMobile.webm" 
+                <video                 
+                    src="/assets/videos/3dMobile.webm" 
                     autoPlay 
                     loop 
                     muted 
