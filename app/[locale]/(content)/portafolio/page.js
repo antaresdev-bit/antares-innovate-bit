@@ -41,7 +41,7 @@ const PortafolioPage = () => {
       category: ["creativity"],
       video: (
         <Link href={`/${locale}/monster-energy`}>
-          <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
+          <WideVideoSection src="/assets/videos/monsterpreview.mp4" />
         </Link>
       ),
     },
@@ -51,7 +51,7 @@ const PortafolioPage = () => {
       category: ["creativity", "technology", "consulting"],
       video: (
         <Link href={`/${locale}/web-page`}>
-          <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
+          <WideVideoSection src="/assets/videos/webpagespreview.mp4" />
         </Link>
       ),
     },

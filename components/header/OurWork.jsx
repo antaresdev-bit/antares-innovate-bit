@@ -3,8 +3,22 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import { useResponsive } from "../../hooks/useResponsive";
 
 const WideVideoSection = ({ src }) => {
+  const { isMobile } = useResponsive();
+  
+  const getMobileVideoPath = (originalSrc) => {
+    if (originalSrc.includes('wersuspreview')) {
+      return originalSrc;
+    }
+
+    const pathParts = originalSrc.split('.');
+    return `${pathParts[0]}_mobile.webm`;
+  };
+
+  const videoSrc = isMobile ? getMobileVideoPath(src) : src;
+
   return (
     <video
       autoPlay
@@ -13,7 +27,11 @@ const WideVideoSection = ({ src }) => {
       playsInline
       className="w-full h-full object-cover opacity-80"
     >
-      <source src={src} type="video/mp4" />
+      {(isMobile || src.includes('wersuspreview')) ? (
+        <source src={videoSrc} type="video/webm" />
+      ) : (
+        <source src={src} type="video/mp4" />
+      )}
       Your browser does not support the video tag.
     </video>
   );
@@ -37,7 +55,7 @@ const OurWork = () => {
       description: '"I am the Beast"',
       video: (
         <Link href={`/${locale}/monster-energy`}>
-          <WideVideoSection src="/assets/videos/Monster Preview.mp4" />
+          <WideVideoSection src="/assets/videos/monsterpreview.mp4" />
         </Link>
       ),
     },
@@ -46,7 +64,7 @@ const OurWork = () => {
       description: "Innovación y Experiencia de Usuario de Alto Impacto",
       video: (
         <Link href={`/${locale}/web-page`}>
-          <WideVideoSection src="/assets/videos/Paginas web Preview.mp4" />
+          <WideVideoSection src="/assets/videos/webpagespreview.mp4" />
         </Link>
       ),
     },
@@ -55,7 +73,7 @@ const OurWork = () => {
       description: "Innovación en logística de transporte",
       video: (
         <Link href={`/${locale}/wersus`}>
-          <WideVideoSection src="https://storage.googleapis.com/antares-agency-rcs/Video%20Promo%20Wersus%20TSP_1.mp4" />
+          <WideVideoSection src="/assets/videos/wersuspreview_mobile.webm" />
         </Link>
       ),
     },

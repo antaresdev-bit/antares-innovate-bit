@@ -1,22 +1,27 @@
+"use client";
 import { useEffect, useState } from "react";
 import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import { useResponsive } from "../../hooks/useResponsive";
 
 const VideoLanding = ({ onLoadComplete }) => {
+  const { isMobile } = useResponsive();
   const [videoSrc, setVideoSrc] = useState("");
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const mobileVideoSrc = "/assets/videos/video_reel_mobile.webm";
+  const desktopVideoSrc = "https://storage.googleapis.com/antares-agency-rcs/video_reel.mp4";
 
   useEffect(() => {
     const updateVideoSource = () => {
-      setVideoSrc(
-        "https://storage.googleapis.com/antares-agency-rcs/video_reel.mp4"
-      );
+      const newVideoSrc = isMobile ? mobileVideoSrc : desktopVideoSrc;
+      setVideoSrc(newVideoSrc);
+      setIsMuted(isMobile);
     };
 
     updateVideoSource();
     window.addEventListener("resize", updateVideoSource);
 
     return () => window.removeEventListener("resize", updateVideoSource);
-  }, []);
+  }, [isMobile]);
 
   const toggleMute = () => {
     setIsMuted((prev) => !prev);
