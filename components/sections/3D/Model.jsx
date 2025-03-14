@@ -113,12 +113,12 @@ export function Model(props) {
     if (camera.current) {
       camera.current.rotation.y = THREE.MathUtils.lerp(
         camera.current.rotation.y,
-        x * 0.3,
+        x * 0.5,
         0.1
       )
       camera.current.rotation.x = THREE.MathUtils.lerp(
         camera.current.rotation.x,
-        y * 0.2,
+        y * 0.4,
         0.1
       )
     }

@@ -126,7 +126,7 @@ export default function Home() {
     <>
       <LayoutComponents />
       {isVideoLoading && <LoadingScreen />}
-      <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden ">
+      <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c]">
         <div ref={sceneContainerRef} className="w-full h-full">
           {showScene ? (
             <OptimisedScene />
