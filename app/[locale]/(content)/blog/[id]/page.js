@@ -7,7 +7,7 @@ import Footer from "@/components/header/Footer";
 export default function BlogPost({ params }) {
   const { id } = params;
   const post = dataBlog.find((item) => item.id === id);
-  const latestPosts = dataBlog.slice(-3).reverse(); // Últimas tres noticias
+  const latestPosts = dataBlog.slice(-3).reverse(); 
 
   if (!post) {
     return <div className="text-center text-xl py-10">Post not found</div>;
@@ -17,7 +17,6 @@ export default function BlogPost({ params }) {
     <div className="relative bg-[white] ">
       <BannerBlog />
       <div className="max-w-[1500px] mx-auto px-[21px] sm:px-[21px] md:px-[49px] lg:px-[71px] mt-[128px] flex flex-col lg:flex-row gap-10">
-        {/* Contenido Principal */}
         <div className="flex-1">
           <img
             src={post.image}
@@ -37,13 +36,13 @@ export default function BlogPost({ params }) {
             {post.category}
           </p>
           <h1
-            className="text-[45px] font-bold leading-[45px]"
+            className="text-[45px] font-bold leading-[50px] mb-[64px]"
             style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
           >
             {post.title}
           </h1>
           <p
-            className="text-[18px] whitespace-pre-line leading-[20px]"
+            className="text-[18px] whitespace-pre-line leading-[25px] sm:leading-[25px] md:leading-[28px] lg:leading-[30px]"
             style={{ fontFamily: "UniteaSans", color: "#0B0C28" }}
           >
             {post.info}
