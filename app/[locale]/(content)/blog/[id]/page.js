@@ -7,7 +7,7 @@ import Footer from "@/components/header/Footer";
 export default function BlogPost({ params }) {
   const { id } = params;
   const post = dataBlog.find((item) => item.id === id);
-  const latestPosts = dataBlog.slice(-3).reverse(); 
+  const latestPosts = dataBlog.slice(-3).reverse();
 
   if (!post) {
     return <div className="text-center text-xl py-10">Post not found</div>;
@@ -18,11 +18,14 @@ export default function BlogPost({ params }) {
       <BannerBlog />
       <div className="max-w-[1500px] mx-auto px-[21px] sm:px-[21px] md:px-[49px] lg:px-[71px] mt-[128px] flex flex-col lg:flex-row gap-10">
         <div className="flex-1">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-[617px] object-cover mb-6 rounded-[24px]"
-          />
+          <div className="w-full aspect-[16/9] sm:aspect-[4/3] md:aspect-[16/9] lg:aspect-[16/9] overflow-hidden rounded-[24px] mb-6">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-full object-cover sm:max-h-[300px] md:max-h-none" 
+            />
+          </div>
+
           <p
             className="font-semibold text-[18px] mb-[25px]"
             style={{ fontFamily: "UniteaSans-bold", color: "black" }}
