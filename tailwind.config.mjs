@@ -16,6 +16,14 @@ module.exports = {
         '2xl': '1500px',
         '3xl': '1920px',
       },
+      keyframes: {
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' }
+        }
+      },
+      animation: {
+        'shimmer': 'shimmer 2s infinite'
+      }
     },
   },
   plugins: [],

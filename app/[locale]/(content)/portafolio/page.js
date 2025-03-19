@@ -5,8 +5,26 @@ import dynamic from "next/dynamic";
 import { workItems } from "@/components/portafolioComponenets/workItems";
 import CategoryButtons from "@/components/portafolioComponenets/CategoryButtons";
 import PortfolioItem from "@/components/portafolioComponenets/PortfolioItem";
+import { Suspense } from "react";
 
-const CardPortafolio = dynamic(() => import("@/components/portafolioComponenets/CardPortafolio"));
+// Componente de carga
+const LoadingFallback = () => (
+  <div className="w-full max-w-[1500px] mx-auto p-6">
+    <div className="h-[300px] bg-gradient-to-r from-gray-800 to-gray-700 rounded-[24px] animate-pulse">
+      <div className="h-full flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    </div>
+  </div>
+);
+
+const CardPortafolio = dynamic(
+  () => import("@/components/portafolioComponenets/CardPortafolio"),
+  {
+    loading: () => <LoadingFallback />,
+    ssr: false
+  }
+);
 
 const PortafolioPage = () => {
   const locale = useLocale();
@@ -47,21 +65,23 @@ const PortafolioPage = () => {
           activeCategory={activeCategory} 
           onCategoryChange={setActiveCategory} 
         />
-
-        {/* Portfolio Grid */}
-        <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mb-[40px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center">
-          {filteredItems.map((item, index) => (
-            <PortfolioItem 
+        <Suspense fallback={<LoadingFallback />}>
+          {/* Portfolio Grid */}
+          <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mb-[40px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center">
+            {filteredItems.map((item, index) => (
+              <PortfolioItem 
               key={index} 
               item={item} 
               locale={locale} 
-            />
-          ))}
-        </div>
-
-        <div className="mt-[187px]">
-          <CardPortafolio />
-        </div>
+              />
+            ))}
+          </div>
+        </Suspense>
+          <div className="mt-[187px]">
+            <Suspense fallback={<LoadingFallback />}>
+            <CardPortafolio />
+            </Suspense>
+          </div>
       </div>
     </div>
   );
