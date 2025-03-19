@@ -26,8 +26,8 @@ function ConsultingPage() {
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0  ml-[0px] sm:ml-[0px] md:ml-[30px] ">
           <div className="relative">
             <Image
-              src="/assets/images/portadas-servicios-home/Phone 3.png"
-              alt="Tecnologia"
+              src="/assets/images/portadas-servicios-home/consultoriasm.png"
+              alt="Consultoria"
               width={400}
               height={400}
               className="rounded-lg md:hidden"
