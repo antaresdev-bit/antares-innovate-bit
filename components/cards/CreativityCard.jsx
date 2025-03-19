@@ -11,21 +11,21 @@ function CreativityCard() {
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0">
           <div className="relative">
             <Image
-              src="/assets/images/portadas-servicios-home/creatividad-portada-5.png"
+              src="/assets/images/portadas-servicios-home/phone.png"
               alt="Consultoría"
               width={400}
               height={400}
               className="rounded-lg md:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/creatividad-portada-6.png"
+              src="/assets/images/portadas-servicios-home/Tablet.png"
               alt="Consultoría Tablet"
               width={700}
               height={400}
               className="rounded-lg hidden md:block lg:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/creatividad-portada-5.png"
+              src="/assets/images/portadas-servicios-home/phone.png"
               alt="Consultoría Desktop"
               width={700}
               height={400}
