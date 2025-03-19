@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { workItems } from "@/components/portafolioComponenets/workItems";
 import dynamic from "next/dynamic";
-
+import LoadingScreen from "@/components/loading/LoadingScreen";
 // Separamos el contenido dinámico en un componente lazy
 const PortfolioContent = dynamic(() => import("@/components/portafolioComponenets/PortfolioClient"), {
   loading: () => null, // No mostramos loading aquí porque ya tenemos el Suspense
@@ -33,7 +33,7 @@ export default function PortafolioPage() {
         </div>
 
         {/* Contenido interactivo en el cliente con streaming */}
-        <Suspense>
+        <Suspense fallback={<LoadingScreen />}>
           <PortfolioContent initialItems={workItems} />
         </Suspense>
       </div>
