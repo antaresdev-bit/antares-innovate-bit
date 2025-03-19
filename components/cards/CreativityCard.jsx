@@ -8,7 +8,7 @@ function CreativityCard() {
   return (
     <div className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-transparent rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white">
       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center bg-transparent rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white">
-        <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0">
+        <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0  ml-[0px] sm:ml-[0px] md:ml-[0px] lg:ml-[30px]">
           <div className="relative">
             <Image
               src="/assets/images/portadas-servicios-home/phone.png"
@@ -27,8 +27,8 @@ function CreativityCard() {
             <Image
               src="/assets/images/portadas-servicios-home/phone.png"
               alt="Consultoría Desktop"
-              width={700}
-              height={400}
+              width={560}
+              height={300}
               className="rounded-lg hidden md:hidden lg:block"
             />
           </div>
