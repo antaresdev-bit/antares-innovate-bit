@@ -45,7 +45,7 @@ export default function BlogPost({ params }) {
             {post.title}
           </h1>
           <p
-            className="text-[18px] whitespace-pre-line leading-[25px] sm:leading-[25px] md:leading-[28px] lg:leading-[30px]"
+            className="text-[18px] whitespace-pre-line leading-[25px] sm:leading-[20px] md:leading-[28px] lg:leading-[25px]"
             style={{ fontFamily: "UniteaSans", color: "#0B0C28" }}
           >
             {post.info}

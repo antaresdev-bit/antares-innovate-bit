@@ -11,7 +11,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 export default function PageBlog() {
   const locale = useLocale();
   const [posts, setPosts] = useState(
-    [...dataBlog].sort((a, b) => new Date(b.date) - new Date(a.date))
+    [...dataBlog].sort((a, b) => b.id - a.id) 
   );
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
@@ -66,7 +66,7 @@ export default function PageBlog() {
                 </div>
 
                 <p
-                  className="text-[24px] sm:text-[14px] md:text-[30px] lg:text-[35px] leading-[40px] mb-[20px]"
+                  className="text-[24px] sm:text-[14px] md:text-[30px] lg:text-[35px] leading-[28px] leading-[28px] sm:leading-[28px] md:leading-[28px] lg:leading-[38px] mb-[25px]"
                   style={{
                     fontFamily: "HandelGothic",
                     color: "#0B0C28",
