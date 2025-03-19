@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import Blog from "../../components/header/Blog";
 import Certificates from "../../components/header/Certificates";
 import Footer from "../../components/header/Footer";
@@ -12,6 +12,45 @@ import dynamic from "next/dynamic";
 import LayoutComponents from "@/components/layout/LayoutComponents";
 import LoadingScreen from "@/components/loading/LoadingScreen";
 
+// Skeletons para cada sección
+const HeroSkeleton = () => (
+  <div className="h-screen relative bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c]">
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="max-w-[1500px] w-full mx-auto px-[21px]">
+        <div className="space-y-4 max-w-[600px]">
+          <div className="h-12 bg-gray-700/50 rounded-lg w-3/4 animate-pulse" />
+          <div className="h-12 bg-gray-700/50 rounded-lg w-1/2 animate-pulse" />
+          <div className="h-12 bg-gray-700/50 rounded-lg w-2/3 animate-pulse" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const WorkSkeleton = () => (
+  <div className="max-w-[1500px] mx-auto px-[21px] py-20">
+    <div className="space-y-8">
+      <div className="h-8 bg-gray-700/50 rounded-lg w-[200px] animate-pulse" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="aspect-video bg-gray-700/50 rounded-[24px] animate-pulse" />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+const StatisticsSkeleton = () => (
+  <div className="max-w-[1500px] mx-auto px-[21px] py-20">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {[1, 2, 3, 4].map((i) => (
+        <div key={i} className="h-32 bg-gray-700/50 rounded-[24px] animate-pulse" />
+      ))}
+    </div>
+  </div>
+);
+
+// Componentes dinámicos
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
   {
@@ -133,6 +172,7 @@ export default function Home() {
       <LayoutComponents />
       {isVideoLoading && <LoadingScreen />}
       <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c]">
+        <Suspense fallback={<HeroSkeleton />}>
         <div ref={sceneContainerRef} className="w-full h-full">
           {showScene ? (
             <OptimisedScene />
@@ -144,7 +184,7 @@ export default function Home() {
             </div>
           )}
         </div>
-
+        </Suspense>
         <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%]">
           <div className="flex justify-center">
             {" "}
@@ -166,7 +206,9 @@ export default function Home() {
               zIndex: -1,
             }}
           ></div>
-          <TextIntroduction />
+          <Suspense fallback={<div className="h-40 bg-[#0E051C]" />}>
+            <TextIntroduction />
+          </Suspense>
         </div>
       </div>
 
@@ -179,7 +221,9 @@ export default function Home() {
       >
         <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[50px]  lg:mt-[50px] w-full">
           <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
-            <VideoLanding onLoadComplete={() => setIsVideoLoading(false)} />
+            <Suspense fallback={<WorkSkeleton />}>
+              <VideoLanding onLoadComplete={() => setIsVideoLoading(false)} />
+            </Suspense>
           </div>
 
           <Slider />
@@ -199,13 +243,29 @@ export default function Home() {
       </div>
 
       <div id="our-services">
-        <OurServices />
+        <Suspense fallback={
+          <div className="max-w-[1500px] mx-auto px-[21px] py-20">
+            <div className="h-[400px] bg-gray-700/50 rounded-[24px] animate-pulse" />
+          </div>
+        }>
+          <OurServices />
+        </Suspense>
       </div>
-      <OurWork />
-      <Statistics />
-      <Blog />
+      <Suspense fallback={<WorkSkeleton />}>
+        <OurWork />
+      </Suspense>
+      <Suspense fallback={<StatisticsSkeleton />}>
+        <Statistics />
+      </Suspense>
+      <Suspense fallback={<WorkSkeleton />}>
+        <Blog />
+      </Suspense>
 
-      <Footer />
+      <Suspense fallback={
+        <div className="h-[300px] bg-[#0E051C]" />
+      }>
+        <Footer />
+      </Suspense>
     </>
   );
 }
