@@ -16,6 +16,11 @@ const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
   {
     ssr: false,
+    loading: () => (
+      <div className="h-[500px] flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    ),
   }
 );
 
@@ -30,6 +35,7 @@ const VideoLanding = dynamic(
   {
     ssr: false,
     loading: () => <LoadingScreen />,
+    priority: true
   }
 );
 

@@ -41,7 +41,27 @@ function Nav() {
     rounded-[24px] relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between
     border border-[rgba(255,255,255,0.25)]"
       >
-        <Link href={`/${locale}/`} className="flex-shrink-0">
+        <Link 
+          href={`/${locale}/`} 
+          className="flex-shrink-0"
+          prefetch={true}
+          onMouseEnter={() => {
+            // Precarga los componentes pesados del home al hacer hover en el logo
+            Promise.all([
+              import('@/components/sections/3D/OptimisedScene'),
+              import('@/components/landing/VideoLanding'),
+              import('@/components/header/OurWork')
+            ]);
+          }}
+          onClick={() => {
+            // También precarga al hacer click
+            Promise.all([
+              import('@/components/sections/3D/OptimisedScene'),
+              import('@/components/landing/VideoLanding'),
+              import('@/components/header/OurWork')
+            ]);
+          }}
+        >
           <Image
             src="/assets/images/Logo Antares.svg"
             alt="Antares Logo"
