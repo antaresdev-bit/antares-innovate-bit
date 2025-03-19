@@ -184,19 +184,19 @@ export default function Home() {
     <>
       <LayoutComponents />
       {isVideoLoading && <LoadingScreen />}
-      <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c]">
+      <div id="home" className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c]">
         <Suspense fallback={<HeroSkeleton />}>
-        <div ref={sceneContainerRef} className="w-full h-full">
-          {showScene ? (
-            <OptimisedScene />
-          ) : (
-            <div className="w-full h-full">
-              <p>
-                {webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}
-              </p>
-            </div>
-          )}
-        </div>
+          <div ref={sceneContainerRef} className="w-full h-full">
+            {showScene ? (
+              <OptimisedScene />
+            ) : (
+              <div className="w-full h-full">
+                <p>
+                  {webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}
+                </p>
+              </div>
+            )}
+          </div>
         </Suspense>
         <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%]">
           <div className="flex justify-center">

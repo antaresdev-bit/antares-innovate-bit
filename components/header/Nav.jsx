@@ -45,13 +45,23 @@ function Nav() {
           href={`/${locale}/`} 
           className="flex-shrink-0"
           prefetch={true}
+          onClick={() => {
+            // Implementar navegación inmediata sin esperar a que carguen los componentes
+            const homeElement = document.getElementById("home");
+            if (homeElement) {
+              homeElement.scrollIntoView({ behavior: "auto" });
+            }
+          }}
           onMouseEnter={() => {
-            // Precarga en segundo plano al hacer hover
-            Promise.all([
-              import('@/components/sections/3D/OptimisedScene'),
-              import('@/components/landing/VideoLanding'),
-              import('@/components/header/OurWork')
-            ]);
+            // Mantener la precarga en segundo plano al hacer hover
+            // pero no bloquear la navegación
+            setTimeout(() => {
+              Promise.all([
+                import('@/components/sections/3D/OptimisedScene'),
+                import('@/components/landing/VideoLanding'),
+                import('@/components/header/OurWork')
+              ]);
+            }, 100);
           }}
         >
           <Image
