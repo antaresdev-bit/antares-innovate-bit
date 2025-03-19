@@ -1,3 +1,5 @@
+import LoadingScreen from "@/components/loading/LoadingScreen";
+
 export default function Default() {
   return (
     <div className="relative bg-opacity-70">
@@ -18,6 +20,7 @@ export default function Default() {
             portafolio
           </h1>
         </div>
+        <LoadingScreen />
       </div>
     </div>
   );
