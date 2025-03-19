@@ -17,7 +17,7 @@ export default function Default() {
             className="mb-[69px] ml-[0px] sm:ml-[0px] md:ml-[65px] lg:ml-[68px] text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px]"
             style={{ fontFamily: "HandelGothic" }}
           >
-            portafolio
+            WAOS
           </h1>
         </div>
         <LoadingScreen />

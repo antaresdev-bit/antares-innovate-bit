@@ -1,14 +1,24 @@
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { workItems } from "@/components/portafolioComponenets/workItems";
 import dynamic from "next/dynamic";
 import LoadingScreen from "@/components/loading/LoadingScreen";
 // Separamos el contenido dinámico en un componente lazy
 const PortfolioContent = dynamic(() => import("@/components/portafolioComponenets/PortfolioClient"), {
-  loading: () => <LoadingScreen />,
+  loading: () => null,
   ssr: true
 });
 
 export default function PortafolioPage() {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Asegurar que el estado de carga sea visible por al menos 800ms
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <div className="relative bg-opacity-70">
       {/* Gradient background - se renderiza inmediatamente */}
@@ -37,9 +47,9 @@ export default function PortafolioPage() {
           <Suspense fallback={
             <div className="w-full">
               {/* Indicador de carga visible */}
-              <div className="flex justify-center items-center mb-8">
-                <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-                <p className="ml-4 text-white">Cargando proyectos...</p>
+              <div className="flex justify-center items-center py-16 mb-8">
+                <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                <p className="ml-4 text-xl text-white font-bold">Cargando proyectos...</p>
               </div>
               
               {/* Grid de placeholders animados */}
@@ -55,7 +65,8 @@ export default function PortafolioPage() {
               </div>
             </div>
           }>
-            <PortfolioContent initialItems={workItems} />
+            {!isLoading && <PortfolioContent initialItems={workItems} />}
+            {isLoading && <LoadingScreen />}
           </Suspense>
         </div>
       </div>
