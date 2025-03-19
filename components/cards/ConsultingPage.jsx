@@ -33,8 +33,8 @@ function ConsultingPage() {
               className="rounded-lg md:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/Tablet 3.png"
-              alt="Tecnologia Tablet"
+              src="/assets/images/portadas-servicios-home/consultoriatb.png"
+              alt="Consultoria Tablet"
               width={700}
               height={400}
               className="rounded-lg hidden md:block lg:hidden"
