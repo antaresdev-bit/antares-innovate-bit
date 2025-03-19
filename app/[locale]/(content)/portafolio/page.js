@@ -2,11 +2,20 @@ import { Suspense} from "react";
 import { workItems } from "@/components/portafolioComponenets/workItems";
 import dynamic from "next/dynamic";
 import LoadingScreen from "@/components/loading/LoadingScreen";
-// Separamos el contenido dinámico en un componente lazy
-const PortfolioContent = dynamic(() => import("@/components/portafolioComponenets/PortfolioClient"), {
-  loading: () => null,
-  ssr: true
-});
+
+// Usar dos approach diferentes, uno para navegación y otro para renderizado inicial
+const PortfolioContent = dynamic(() => 
+  import("@/components/portafolioComponenets/PortfolioClient").then(mod => {
+    // Simular una carga mínima para asegurar que el estado de carga sea visible
+    return new Promise(resolve => {
+      setTimeout(() => resolve(mod), 500);
+    });
+  }), 
+  {
+    loading: () => <LoadingScreen />,
+    ssr: true
+  }
+);
 
 export default function PortafolioPage() {
   
