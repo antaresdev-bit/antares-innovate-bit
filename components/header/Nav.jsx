@@ -46,15 +46,7 @@ function Nav() {
           className="flex-shrink-0"
           prefetch={true}
           onMouseEnter={() => {
-            // Precarga los componentes pesados del home al hacer hover en el logo
-            Promise.all([
-              import('@/components/sections/3D/OptimisedScene'),
-              import('@/components/landing/VideoLanding'),
-              import('@/components/header/OurWork')
-            ]);
-          }}
-          onClick={() => {
-            // También precarga al hacer click
+            // Precarga en segundo plano al hacer hover
             Promise.all([
               import('@/components/sections/3D/OptimisedScene'),
               import('@/components/landing/VideoLanding'),
