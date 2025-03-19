@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import LoadingScreen from "@/components/loading/LoadingScreen";
 // Separamos el contenido dinámico en un componente lazy
 const PortfolioContent = dynamic(() => import("@/components/portafolioComponenets/PortfolioClient"), {
-  loading: () => null, // No mostramos loading aquí porque ya tenemos el Suspense
+  loading: () => <LoadingScreen />,
   ssr: true
 });
 
@@ -34,13 +34,7 @@ export default function PortafolioPage() {
 
         {/* Grid de carga mientras el contenido se prepara */}
         <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
-          <Suspense fallback={
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1,2,3].map((i) => (
-                <div key={i} className="h-64 bg-gray-800/20 rounded-[24px] animate-pulse" />
-              ))}
-            </div>
-          }>
+          <Suspense fallback={<LoadingScreen />}>
             <PortfolioContent initialItems={workItems} />
           </Suspense>
         </div>
