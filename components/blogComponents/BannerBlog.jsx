@@ -46,7 +46,7 @@ const BannerBlog = () => {
               }}
             >
               <Image
-                src="/assets/images/blog/Group 60.png"
+                src="/assets/images/blog/Vector.png"
                 alt="Icono"
                 width={25}
                 height={25}
