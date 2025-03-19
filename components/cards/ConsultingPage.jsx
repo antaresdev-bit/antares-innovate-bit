@@ -23,10 +23,10 @@ function ConsultingPage() {
       ></div>
 
       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white relative z-10">
-        <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0">
+        <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0  ml-[0px] sm:ml-[0px] md:ml-[30px] ">
           <div className="relative">
             <Image
-              src="/assets/images/portadas-servicios-home/Escritorio 3.png"
+              src="/assets/images/portadas-servicios-home/Phone 3.png"
               alt="Tecnologia"
               width={400}
               height={400}
@@ -42,8 +42,8 @@ function ConsultingPage() {
             <Image
               src="/assets/images/portadas-servicios-home/Escritorio 3.png"
               alt="Tecnologia Desktop"
-              width={700}
-              height={600}
+              width={560}
+              height={300}
               className="rounded-lg hidden md:hidden lg:block"
             />
           </div>
