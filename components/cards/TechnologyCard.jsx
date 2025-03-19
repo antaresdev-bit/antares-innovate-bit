@@ -24,7 +24,7 @@ function TechnologyCard() {
       ></div>
 
       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white flex-row-reverse relative z-10">
-        <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0">
+        <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0 mr-[0px] sm:mr-[0px] md:mr-[0px] lg:mr-[30px]">
           <div className="relative">
             <Image
               src="/assets/images/portadas-servicios-home/phone 2.png"
@@ -43,7 +43,7 @@ function TechnologyCard() {
             <Image
               src="/assets/images/portadas-servicios-home/phone 2.png"
               alt="Tecnologia Desktop"
-              width={800}
+              width={550}
               height={600}
               className="rounded-lg hidden md:hidden lg:block"
             />
