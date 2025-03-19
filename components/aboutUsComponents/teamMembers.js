@@ -8,7 +8,7 @@ export const teamMembers = [
   },
   {
     name: "Michelle Cadavid",
-    role: "Arquitecta de Software | Full Stack",
+    role: "Arquitecta de Software y Experta Full Stack",
     src: "/assets/images/about/2.png",
     perfil:
       "Innovadora en desarrollo web y mobile, Michelle domina el stack completo para crear aplicaciones escalables y disruptivas. Su experiencia en el sector educativo la posiciona como una líder en soluciones tecnológicas de alto impacto.",
@@ -22,7 +22,7 @@ export const teamMembers = [
   },
   {
     name: "Andrés Grondona",
-    role: "Arquitecto de Software y Experta Full Stack",
+    role: "Arquitecto de Software y Experto Full Stack",
     src: "/assets/images/about/3.png",
     perfil:
       "Experto en desarrollo web y mobile,  domina el stack completo para crear aplicaciones modernas, escalables y de alto rendimiento. Su enfoque en la arquitectura de software y experiencia en tecnologías de vanguardia le permiten diseñar soluciones innovadoras que transforman la experiencia digital. Con una visión estratégica y habilidades técnicas sólidas, lidera proyectos que impulsan la evolución tecnológica en diversos sectores.",
