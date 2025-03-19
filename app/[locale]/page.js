@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef, Suspense } from "react";
-import Blog from "../../components/header/Blog";
 import Certificates from "../../components/header/Certificates";
 import Footer from "../../components/header/Footer";
 import OurServices from "../../components/header/OurServices";
@@ -50,24 +49,15 @@ const StatisticsSkeleton = () => (
   </div>
 );
 
-// Componentes dinámicos
+// 1. Componentes críticos (carga inmediata)
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-[500px] flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    ),
+    loading: () => <HeroSkeleton />,
+    priority: true
   }
 );
-
-//Se hace importe dinámico a estos elementos para acelerar la carga de la Escena
-const OurWork = dynamic(() => import("../../components/header/OurWork"), {
-  ssr: false,
-  loading: () => <div>Cargando OurWork...</div>,
-});
 
 const VideoLanding = dynamic(
   () => import("../../components/landing/VideoLanding"),
@@ -78,11 +68,25 @@ const VideoLanding = dynamic(
   }
 );
 
+// 2. Componentes secundarios (carga diferida)
+const OurWork = dynamic(() => import("../../components/header/OurWork"), {
+  ssr: false,
+  loading: () => <WorkSkeleton />,
+});
+
+// 3. Componentes no críticos (carga bajo demanda)
+const Blog = dynamic(() => import("../../components/header/Blog"), {
+  ssr: false,
+  loading: () => <WorkSkeleton />,
+  loading: () => null
+});
+
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
   const [webGLSupported, setWebGLSupported] = useState(false);
   const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const [hasLoadedCritical, setHasLoadedCritical] = useState(false);
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -167,6 +171,15 @@ export default function Home() {
     };
   }, [isVideoLoading]);
 
+  // Detectar cuando los componentes críticos han cargado
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasLoadedCritical(true);
+    }, 2000); // Ajusta este tiempo según tus necesidades
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <LayoutComponents />
@@ -242,30 +255,22 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="our-services">
-        <Suspense fallback={
-          <div className="max-w-[1500px] mx-auto px-[21px] py-20">
-            <div className="h-[400px] bg-gray-700/50 rounded-[24px] animate-pulse" />
-          </div>
-        }>
+      {/* Sección 2: Componentes secundarios */}
+      {hasLoadedCritical && (
+        <Suspense fallback={<WorkSkeleton />}>
           <OurServices />
+          <OurWork />
         </Suspense>
-      </div>
-      <Suspense fallback={<WorkSkeleton />}>
-        <OurWork />
-      </Suspense>
-      <Suspense fallback={<StatisticsSkeleton />}>
-        <Statistics />
-      </Suspense>
-      <Suspense fallback={<WorkSkeleton />}>
-        <Blog />
-      </Suspense>
+      )}
 
-      <Suspense fallback={
-        <div className="h-[300px] bg-[#0E051C]" />
-      }>
-        <Footer />
-      </Suspense>
+      {/* Sección 3: Componentes no críticos */}
+      {hasLoadedCritical && (
+        <Suspense>
+          <Blog />
+          <Statistics />
+          <Footer />
+        </Suspense>
+      )}
     </>
   );
 }
