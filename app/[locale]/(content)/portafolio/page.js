@@ -44,7 +44,7 @@ export default function PortafolioPage() {
       />
 
       <div className="max-w-[1500px] mx-auto">
-        {/* Header - se renderiza inmediatamente */}
+        {/* Header */}
         <div className="mt-[187px] mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
           <h1
             className="mb-[69px] ml-[0px] sm:ml-[0px] md:ml-[65px] lg:ml-[68px] text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px]"
