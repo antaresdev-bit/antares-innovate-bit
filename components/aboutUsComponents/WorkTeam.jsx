@@ -72,7 +72,7 @@ function WorkTeam() {
               </h3>
               <div className="mt-[5px]">
                 <p
-                  className="text-[18px]"
+                  className="text-white text-[18px]"
                   style={{ fontFamily: "UniteaSans-medium" }}
                 >
                   {member.role}
@@ -111,21 +111,20 @@ function WorkTeam() {
             className="bg-[#1C5DE9] rounded-[48px] w-full sm:w-[871px] h-auto p-[22px] relative mx-4 sm:mx-0  z-50"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-[#3874F5] rounded-[24px] p-[22px]">
-              <div className="flex flex-col sm:flex-row items-center">
-                <div className=" w-[40%] sm:w-[40%] md:w-[40%] lg:w-[40%]  flex justify-center order-1 sm:order-2 ">
-                  <div className="w-[209px] h-[209px] overflow-hidden rounded-full ">
-                    <Image
-                      src={selectedMember.src}
-                      alt={selectedMember.name}
-                      width={209}
-                      height={209}
-                      className="object-cover"
-                    />
-                  </div>
+            <div className="flex flex-col sm:flex-row items-center">
+              <div className=" w-[40%] sm:w-[40%] md:w-[40%] lg:w-[40%]  flex justify-center order-1 sm:order-2 hidden  lg:block ">
+                <div className="w-[209px] h-[209px] overflow-hidden rounded-full ml-[22px]">
+                  <Image
+                    src={selectedMember.src}
+                    alt={selectedMember.name}
+                    width={209}
+                    height={209}
+                    className="object-cover"
+                  />
                 </div>
-
-                <div className=" flex flex-col text-left w-full sm:w-[60%] pr-0 sm:pr-[20px] order-2 sm:order-1 mt-4 sm:mt-0">
+              </div>
+              <div className="bg-[#3874F5] rounded-[24px] p-[22px]">
+                <div className=" flex flex-col text-left w-full  pr-0 sm:pr-[20px] order-2 sm:order-1 mt-4 sm:mt-0">
                   <h3
                     className="text-white text-[28px] sm:text-[28px] md:text-[28px] lg:text-[35px] font-semibold"
                     style={{ fontFamily: "HandelGothic" }}
@@ -134,14 +133,14 @@ function WorkTeam() {
                   </h3>
                   <div className="mt-[5px]">
                     <p
-                      className="text-[24px] sm:text-[24px] md:text-[26px] lg:text-[26px] text-white"
+                      className="text-[24px] sm:text-[24px] md:text-[26px] lg:text-[26px] text-white leading-[25px]"
                       style={{ fontFamily: "UniteaSans-medium" }}
                     >
                       {selectedMember.role}
                     </p>
                   </div>
                   <p
-                    className="text-[17px] sm:text-[17px] md:text-[17px] lg:text-[17px] text-white mt-[20px]"
+                    className="text-[17px] sm:text-[17px] md:text-[17px] lg:text-[17px] text-white mt-[20px] "
                     style={{ fontFamily: "UniteaSans" }}
                   >
                     {selectedMember.perfil}
