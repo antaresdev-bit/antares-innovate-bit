@@ -42,6 +42,10 @@ export default function PortafolioPage() {
           </h1>
         </div>
 
+        <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
+          cargando...
+        </div>
+
         {/* Grid de carga visible mientras el contenido se prepara */}
         <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
           <Suspense fallback={
