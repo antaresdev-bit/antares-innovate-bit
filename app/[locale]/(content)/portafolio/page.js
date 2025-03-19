@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense} from "react";
 import { workItems } from "@/components/portafolioComponenets/workItems";
 import dynamic from "next/dynamic";
 import LoadingScreen from "@/components/loading/LoadingScreen";
@@ -9,7 +9,6 @@ const PortfolioContent = dynamic(() => import("@/components/portafolioComponenet
 });
 
 export default function PortafolioPage() {
-  const [isLoading, setIsLoading] = useState(true);
   
   return (
     <div className="relative bg-opacity-70">
@@ -57,8 +56,7 @@ export default function PortafolioPage() {
               </div>
             </div>
           }>
-            {!isLoading && <PortfolioContent initialItems={workItems} />}
-            {isLoading && <LoadingScreen />}
+            <PortfolioContent initialItems={workItems} />
           </Suspense>
         </div>
       </div>
