@@ -4,7 +4,7 @@ export const teamMembers = [
     role: "CEO de Antares | Estratega en IA y Crecimiento Digital",
     src: "/assets/images/about/1.png",
     perfil:
-      "Impulsa la transformación digital y escalabilidad empresarial a través de IA, automatización y estrategias digitales de alto impacto. Ha liderado la evolución de compañías en consumo masivo, bebidas, farmacéutico y tecnología, potenciando su crecimiento con innovación basada en datos.",
+      "Impulsa la transformación digital y escalabilidad empresarial a través de IA, automatización y estrategias digitales de alto impacto. Ha liderado la evolución de compañías en consumo masivo, bebidas, farmacéutico y tecnología, potenciando su crecimiento con innovación basada en datos, Con una trayectoria en Grupo Ardila Lule, Postobón y mercados de EE.UU., Brasil y Asia, ha optimizado modelos de negocio y diseñado estrategias de expansión global. Su enfoque en inteligencia de datos y metodologías ágiles lo posiciona como un referente en la evolución digital de marcas líderes.",
   },
   {
     name: "Michelle Cadavid",
