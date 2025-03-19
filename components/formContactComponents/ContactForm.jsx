@@ -1,14 +1,14 @@
-'use client'
+"use client";
 import Image from "next/image";
-import { handleHomeContactSubmit } from '@/utils/handleSubmit';
-
+import { handleHomeContactSubmit } from "@/utils/handleSubmit";
 
 function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const selectedServices = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-      .map(checkbox => checkbox.value);
+
+    const selectedServices = Array.from(
+      document.querySelectorAll('input[type="checkbox"]:checked')
+    ).map((checkbox) => checkbox.value);
 
     const formData = {
       company: e.target.company.value,
@@ -20,21 +20,23 @@ function ContactForm() {
     };
 
     const resetForm = () => {
-      e.target.reset(); // Resetea todos los campos del formulario
-      // Desmarca todos los checkboxes
-      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        checkbox.checked = false;
-      });
+      e.target.reset();
+
+      document
+        .querySelectorAll('input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.checked = false;
+        });
     };
 
     handleHomeContactSubmit(
-      formData, 
-      { 
-        setSubmitting: () => {}, 
-        resetForm: resetForm 
-      }, 
-      'Gracias por contactarnos', 
-      'Error al enviar el formulario'
+      formData,
+      {
+        setSubmitting: () => {},
+        resetForm: resetForm,
+      },
+      "Gracias por contactarnos",
+      "Error al enviar el formulario"
     );
   };
 
@@ -42,7 +44,7 @@ function ContactForm() {
     <div className="w-full max-w-[648px] min-h-[925px] bg-[#1C5DE9] rounded-[24px] flex flex-col items-center relative overflow-visible px-4 sm:px-6 lg:px-8">
       <div className="absolute -top-40">
         <Image
-          src="/assets/images/form-contact/AstronautaForm.png"
+          src="/assets/images/form-contact/Formulario.png"
           alt="Astronauta"
           width={302}
           height={304}
