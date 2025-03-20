@@ -3,7 +3,7 @@ import { workItems } from "@/components/portafolioComponenets/workItems";
 import dynamic from "next/dynamic";
 
 
-const PortfolioContentSection = dynamic(() => 
+const PortfolioContent = dynamic(() => 
   import("@/components/portafolioComponenets/PortfolioClientVideosSection"), 
   { ssr: false, loading: () => <LoadingItems /> }
 );
@@ -57,7 +57,7 @@ export default function PortafolioPage() {
         {/* Contenedor principal */}
         <div className="relative min-h-[600px]">
           <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
-            <PortfolioContentSection initialItems={workItems} />
+            <PortfolioContent initialItems={workItems} />
           </div>
         </div>
       </div>

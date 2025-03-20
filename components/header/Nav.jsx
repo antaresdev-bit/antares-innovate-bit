@@ -81,12 +81,22 @@ function Nav() {
             </Link>
 
             <Link
-              href={`/${locale}/portafolio`}
-              className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu}
-            >
-              Portafolio
-            </Link>
+            href={`/${locale}/portafolio`}
+            className="text-white hover:text-gray-300"
+            prefetch={true}
+            onClick={(e) => {
+              const prefetchPortfolio = () => import('@/app/[locale]/(content)/portafolio/page');
+              const prefetchClient = () => import('@/components/portafolioComponenets/PortfolioClientVideosSection');
+              Promise.all([prefetchPortfolio(), prefetchClient()]);
+            }}
+            onMouseEnter={() => {
+              const prefetchPortfolio = () => import('@/app/[locale]/(content)/portafolio/page');
+              const prefetchClient = () => import('@/components/portafolioComponenets/PortfolioClientVideosSection');
+              Promise.all([prefetchPortfolio(), prefetchClient()]);
+            }}
+          >
+            Portafolio
+          </Link>
 
             <div
               className="w-full flex flex-col items-center"
@@ -165,6 +175,7 @@ function Nav() {
           <Link
             href={`/${locale}/portafolio`}
             className="text-white hover:text-gray-300"
+            prefetch={true}
           >
             Portafolio
           </Link>
