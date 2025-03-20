@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import LayoutComponents from "@/components/layout/LayoutComponents";
+import en from "@/messages/en.json";
+import es from "@/messages/es.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +13,12 @@ export const metadata = {
     "Antares Innovate es una empresa que se dedica a la transformación digital.",
 };
 
-export default function RootLayout({ children, locale, messages }) {
+
+const messages = { en, es };
+
+export default function RootLayout({ children, params }) {
+  const locale = params.locale; 
+
   return (
     <html lang={locale} className={inter.className}>
       <head>
@@ -31,7 +38,8 @@ export default function RootLayout({ children, locale, messages }) {
         />
       </head>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages[locale]}>
+          <LayoutComponents />
           {children}
         </NextIntlClientProvider>
       </body>

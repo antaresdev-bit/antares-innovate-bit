@@ -3,18 +3,28 @@ import Image from "next/image";
 import { FaBars, FaChevronDown } from "react-icons/fa";
 import { useLocale } from "next-intl";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 function Nav() {
+  const t = useTranslations(); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const locale = useLocale();
+  const router = useRouter();
   const industriesRef = useRef(null);
   const menuRef = useRef(null);
+  const languageRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleIndustries = () => setIsIndustriesOpen(!isIndustriesOpen);
+  const toggleLanguageMenu = () => setIsLanguageOpen(!isLanguageOpen);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const changeLanguage = (lang) => {
+    router.push(`/${lang}`);
+    setIsLanguageOpen(false);
+  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -27,6 +37,9 @@ function Nav() {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
       }
+      if (languageRef.current && !languageRef.current.contains(event.target)) {
+        setIsLanguageOpen(false);
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -35,12 +48,7 @@ function Nav() {
 
   return (
     <div className="flex justify-center w-full mt-[30px] md:mt-[50px] lg:mt-[50px]">
-      <nav
-        className="w-full max-w-[1500px] h-[76px] flex items-center 
-    bg-[rgba(14,5,28,0.65)] backdrop-blur-xl 
-    rounded-[24px] relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between
-    border border-[rgba(255,255,255,0.25)]"
-      >
+      <nav className="w-full max-w-[1500px] h-[76px] flex items-center bg-[rgba(14,5,28,0.65)] backdrop-blur-xl rounded-[24px] relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between border border-[rgba(255,255,255,0.25)]">
         <Link href={`/${locale}/`} className="flex-shrink-0">
           <Image
             src="/assets/images/Logo Antares.svg"
@@ -63,41 +71,15 @@ function Nav() {
             <Link
               href={`/${locale}/`}
               className="text-white hover:text-gray-300"
-              onClick={(e) => {
-                e.preventDefault();
-
-                const targetElement = document.getElementById("our-services");
-                if (targetElement) {
-                  targetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }
-
-                closeMenu();
-              }}
             >
-              Servicios
+              {t("navbar.services")}
             </Link>
-
             <Link
-            href={`/${locale}/portafolio`}
-            className="text-white hover:text-gray-300"
-            prefetch={true}
-            onClick={(e) => {
-              const prefetchPortfolio = () => import('@/app/[locale]/(content)/portafolio/page');
-              const prefetchClient = () => import('@/components/portafolioComponenets/PortfolioClientVideosSection');
-              Promise.all([prefetchPortfolio(), prefetchClient()]);
-            }}
-            onMouseEnter={() => {
-              const prefetchPortfolio = () => import('@/app/[locale]/(content)/portafolio/page');
-              const prefetchClient = () => import('@/components/portafolioComponenets/PortfolioClientVideosSection');
-              Promise.all([prefetchPortfolio(), prefetchClient()]);
-            }}
-          >
-            Portafolio
-          </Link>
-
+              href={`/${locale}/portafolio`}
+              className="text-white hover:text-gray-300"
+            >
+              {t("navbar.portfolio")}
+            </Link>
             <div
               className="w-full flex flex-col items-center"
               ref={industriesRef}
@@ -106,86 +88,97 @@ function Nav() {
                 onClick={toggleIndustries}
                 className="text-white hover:text-gray-300 flex items-center gap-1 py-2"
               >
-                Industrias <FaChevronDown className="w-4 h-4" />
+                {t("industries")} <FaChevronDown className="w-4 h-4" />
               </button>
               {isIndustriesOpen && (
                 <div className="w-full flex flex-col items-center bg-[#1A2B6D] rounded-lg shadow-lg mt-2">
                   <Link
                     href={`/${locale}/real-estate`}
                     className="text-white hover:bg-gray-700 w-full text-center py-2"
-                    onClick={closeMenu}
                   >
-                    Inmobiliaria
+                    {t("realEstate")}
                   </Link>
                   <Link
                     href={`/${locale}/marketing`}
                     className="text-white hover:bg-gray-700 w-full text-center py-2"
-                    onClick={closeMenu}
                   >
-                    Marketing
+                    {t("marketing")}
                   </Link>
                 </div>
               )}
             </div>
-
             <Link
               href={`/${locale}/about`}
               className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu}
             >
-              Nosotros
+              {t("aboutUs")}
             </Link>
             <Link
               href={`/${locale}/blog`}
               className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu}
             >
-              Blog
+              {t("blog")}
             </Link>
             <Link
               href={`/${locale}/form-contact`}
               className="text-white hover:text-gray-300 py-2"
-              onClick={closeMenu}
             >
-              Contacto
+              {t("navbar.contact")}
             </Link>
+
+            <div
+              className="w-full flex flex-col items-center"
+              ref={languageRef}
+            >
+              <button
+                onClick={toggleLanguageMenu}
+                className="flex items-center text-white gap-2"
+              >
+                <Image
+                  src="/assets/images/EEUU.png"
+                  alt="EEUU Flag"
+                  width={24}
+                  height={16}
+                />
+                <FaChevronDown className="w-4 h-4" />
+              </button>
+              {isLanguageOpen && (
+                <div className="absolute top-full mt-2 bg-white text-black rounded-lg shadow-lg">
+                  <button
+                    className="block px-4 py-2 hover:bg-gray-200"
+                    onClick={() => changeLanguage("en")}
+                  >
+                    English
+                  </button>
+                  <button
+                    className="block px-4 py-2 hover:bg-gray-200"
+                    onClick={() => changeLanguage("es")}
+                  >
+                    Español
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         )}
 
         {/* Menú Desktop */}
         <div className="hidden lg:flex items-center gap-x-6">
-          <Link
-            href={`/${locale}/`}
-            className="text-white hover:text-gray-300"
-            onClick={(e) => {
-              e.preventDefault();
-
-              const targetElement = document.getElementById("our-services");
-              if (targetElement) {
-                targetElement.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-            }}
-          >
-            Servicios
+          <Link href={`/${locale}/`} className="text-white hover:text-gray-300">
+            {t("navbar.services")}
           </Link>
-
           <Link
             href={`/${locale}/portafolio`}
             className="text-white hover:text-gray-300"
-            prefetch={true}
           >
-            Portafolio
+            {t("navbar.portfolio")}
           </Link>
-
           <div className="relative" ref={industriesRef}>
             <button
               onClick={toggleIndustries}
               className="text-white hover:text-gray-300 flex items-center gap-1"
             >
-              Industrias <FaChevronDown className="w-4 h-4" />
+              {t("navbar.industries")} <FaChevronDown className="w-4 h-4" />
             </button>
             {isIndustriesOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg overflow-hidden">
@@ -193,45 +186,65 @@ function Nav() {
                   href={`/${locale}/real-estate`}
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
-                  Inmobiliaria
+                  {t("navbar.realEstate")}
                 </Link>
                 <Link
                   href={`/${locale}/marketing`}
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
-                  Marketing
+                  {t("navbar.marketing")}
                 </Link>
               </div>
             )}
           </div>
-
           <Link
             href={`/${locale}/about`}
             className="text-white hover:text-gray-300"
           >
-            Nosotros
+            {t("navbar.aboutUs")}
           </Link>
           <Link
             href={`/${locale}/blog`}
             className="text-white hover:text-gray-300"
           >
-            Blog
+            {t("navbar.blog")}
           </Link>
           <Link
             href={`/${locale}/form-contact`}
             className="text-white hover:text-gray-300"
           >
-            Contacto
+            {t("navbar.contact")}
           </Link>
 
-          <div className="flex-shrink-0">
-            <Image
-              src="/assets/images/EEUU.png"
-              alt="EEUU Flag"
-              width={24}
-              height={16}
-              className="cursor-pointer"
-            />
+          <div className="relative" ref={languageRef}>
+            <button
+              onClick={toggleLanguageMenu}
+              className="flex items-center text-white gap-2"
+            >
+              <Image
+                src="/assets/images/EEUU.png"
+                alt="EEUU Flag"
+                width={24}
+                height={16}
+              />
+              <FaChevronDown className="w-4 h-4" />
+            </button>
+            {isLanguageOpen && (
+              <div className="absolute top-full mt-2 bg-white text-black rounded-lg shadow-lg">
+                <button
+                  className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => changeLanguage("en")}
+                >
+                  English
+                </button>
+                <button
+                  className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => changeLanguage("es")}
+                >
+                  Español
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>

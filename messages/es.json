@@ -1,14 +1,20 @@
 {
-  "home": {
-    "title": "Bienvenido",
-    "description": "Esta es la página principal"
+  "navbar": {
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "industries": "Industrias",
+    "realEstate": "Inmobiliaria",
+    "marketing": "Marketing",
+    "aboutUs": "Nosotros",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "language": "Idioma"
   },
-  "about": {
-    "title": "Sobre nosotros",
-    "description": "Aprende más sobre nuestro proyecto"
-  },
-  "notFound": {
-    "title": "Página no encontrada",
-    "description": "No se pudo encontrar el recurso solicitado"
+  "landing": {
+    "headline": "La Creatividad Mueve el Mundo; la Tecnología lo Acelera.",
+    "paragraph": "En Antares, creamos tendencias. Impulsamos negocios con IA, automatización y diseño disruptivo, ayudando a marcas visionarias a liderar en el mundo digital.",
+    "buttonParagraph":"Trabajemos juntos",
+    "serviceText1":"Nuestros",
+    "serviceText2":"Servicios"
   }
 }

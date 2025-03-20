@@ -2,8 +2,10 @@ import React from "react";
 import CreativityCard from "../cards/CreativityCard";
 import TechnologyCard from "../cards/TechnologyCard";
 import ConsultingPage from "../cards/ConsultingPage";
+import { useTranslations } from "next-intl";
 
 const OurServices = () => {
+  const t = useTranslations("landing");
   return (
     <div className="relative bg-opacity-70">
       <div className="max-w-[1500px] mx-auto">
@@ -12,7 +14,7 @@ const OurServices = () => {
             className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
             style={{ fontFamily: "HandelGothic" }}
           >
-            Nuestros <br /> Servicios
+            {t("serviceText1")} <br /> {t("serviceText2")}
           </h1>
         </div>
 

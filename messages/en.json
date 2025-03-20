@@ -1,14 +1,22 @@
 {
-  "home": {
-    "title": "Welcome",
-    "description": "This is the home page"
+  "navbar": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "industries": "Industries",
+    "realEstate": "Real Estate",
+    "marketing": "Marketing",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "contact": "Contact",
+    "language": "Language"
   },
-  "about": {
-    "title": "About us",
-    "description": "Learn more about our project"
-  },
-  "notFound": {
-    "title": "Page Not Found",
-    "description": "Could not find the requested resource"
+  "landing": {
+    "headline": "Creativity Moves the World. Technology Accelerates It.",
+    "paragraph": "At Antares, we create trends. We drive businesses forward with AI, automation, and disruptive design, empowering visionary brands to lead in the digital world.",
+    "buttonParagraph":"Let's Collaborate",
+    "serviceText1":"Our ",
+    "serviceText2":"Services"
+  
+    
   }
 }
