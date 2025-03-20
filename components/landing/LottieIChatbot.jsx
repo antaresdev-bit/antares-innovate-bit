@@ -282,19 +282,25 @@
 
 // export default LottieIChatbot;
 
-"use client"
+"use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 function LottieIChatbot() {
-  const handleClick = () => {
-    window.open("https://wa.me/573053456611", "_blank");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleClick = (phoneNumber) => {
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <div className="fixed bottom-[25px] right-[21px] sm:right-[21px] md:right-[49px] lg:right-[71px] z-[1000]">
       <button
-        onClick={handleClick}
+        onClick={toggleMenu}
         className="w-[98px] h-[104px] border-none bg-transparent cursor-pointer p-0 relative"
       >
         <img
@@ -303,6 +309,31 @@ function LottieIChatbot() {
           className="w-full h-full object-cover"
         />
       </button>
+
+      {isMenuOpen && (
+        <div className="absolute bottom-[120px] right-0 bg-white shadow-lg rounded-lg p-4">
+          <p
+            className="text-[17px] font-semibold mb-2"
+            style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
+          >
+            Contactanos!
+          </p>
+          <button
+            onClick={() => handleClick("573053456611")}
+            className="block w-full text-left py-2 px-4 hover:bg-gray-100 border border-[#0B0C28] rounded-[10px] mb-[10px]"
+            style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
+          >
+            🇨🇴 COL
+          </button>
+          <button
+            onClick={() => handleClick("16893312690")}
+            className="block w-full text-left py-2 px-4 hover:bg-gray-100 border border-[#0B0C28] rounded-[10px]" 
+            style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
+          >
+            🇺🇸 EU
+          </button>
+        </div>
+      )}
     </div>
   );
 }
