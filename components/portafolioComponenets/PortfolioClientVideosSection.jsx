@@ -22,27 +22,27 @@ export default function PortfolioClientVideosSection({ initialItems }) {
   const locale = useLocale();
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const filteredItems = useMemo(() => 
-    initialItems.filter((item) =>
-      activeCategory === "all" ? true : item.category.includes(activeCategory)
-    ),
+  const filteredItems = useMemo(
+    () =>
+      initialItems.filter((item) =>
+        activeCategory === "all"
+          ? true
+          : Array.isArray(item.category) &&
+            item.category.includes(activeCategory)
+      ),
     [activeCategory, initialItems]
   );
 
   return (
     <>
-      <CategoryButtons 
-        activeCategory={activeCategory} 
-        onCategoryChange={setActiveCategory} 
+      <CategoryButtons
+        activeCategory={activeCategory}
+        onCategoryChange={setActiveCategory}
       />
 
       <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mb-[40px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center">
         {filteredItems.map((item, index) => (
-          <PortfolioItem 
-            key={index} 
-            item={item} 
-            locale={locale} 
-          />
+          <PortfolioItem key={index} item={item} locale={locale} />
         ))}
       </div>
 

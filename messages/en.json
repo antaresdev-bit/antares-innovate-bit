@@ -36,13 +36,28 @@
     "consCardInfo1":"Digital marketing consulting and growth strategies.",
     "consCardInfo2":"Process optimization to enhance operational efficiency.",
     "consCardInfo3":"Financial and sales analysis to maximize profitability.",
-    "consCardButtton":"View Portfolio"
+    "consCardButtton":"View Portfolio",
+
+    "ourWorkText1":"Our",
+    "ourWorkText2":"Work",
+    "ourWorkButtton":"See More"
   },
   "portafolio":{
     "categoryPortAll":"All",
     "categoryPortCreat":"Creativity",
     "categoryPortTec":"Technology",
-    "categoryPortConsu":"Consulting"
+    "categoryPortConsu":"Consulting",
+
+    "descUpardigital":"Revolutionizing Virtual Education at Uparsistem",
+    "descPaginasWeb":"Innovation & High-Impact User Experience",
+    "descWersus":"Innovation in Transport Logistics",
+    "descCIML":"Editorial Innovation for Public Health",
+    "descPolitecnicoGrancolombiano":"Youth Engagement Strategy",
+    "descLiliEstevez":"Motion Graphics & Retrofuturism",
+    "descFundaciónHeinrich":"School of Administration & State Management for Just Transitions",
+    "descUparsistem":"Strengthening Its University Identity",
+    "descOIM":"Impact of Haitian Migration",
+    "descB2Fintech":"Connecting with the Global Cryptocurrency Market"
     
   }
 }

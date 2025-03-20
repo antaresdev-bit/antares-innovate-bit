@@ -37,7 +37,11 @@
     "consCardInfo1":"Consultoría en marketing digital y estrategias de crecimiento.",
     "consCardInfo2":"Optimización de procesos para mejorar la eficiencia operativa.",
     "consCardInfo3":"Análisis financiero y de ventas para potenciar la rentabilidad.",
-    "consCardButtton":"Ver Portafolio"
+    "consCardButtton":"Ver Portafolio",
+
+    "ourWorkText1":"Nuestros",
+    "ourWorkText2":"Trabajos",
+    "ourWorkButtton":"Ver Mas"
 
   },
 
@@ -45,6 +49,17 @@
     "categoryPortAll":"Todos",
     "categoryPortCreat":"Creatividad",
     "categoryPortTec":"Tecnologia",
-    "categoryPortConsu":"Consultoria"
+    "categoryPortConsu":"Consultoria",
+
+    "descUpardigital":"Revolucionando la educación virtual en Uparsistem",
+    "descPaginasWeb":"Innovación y Experiencia de Usuario de Alto Impacto",
+    "descWersus":"Innovación en logística de transporte",
+    "descCIML":"Innovación Editorial para la Salud Pública",
+    "descPolitecnicoGrancolombiano":"Estrategia Digital para Conectar con los Jóvenes",
+    "descLiliEstevez":"Concept Art para Sencillo Musical “La Señal”",
+    "descFundaciónHeinrich":"Escuela de Administración y Gestión del Estado para Transiciones Justas",
+    "descUparsistem":"Consolidando su Identidad Universitaria",
+    "descOIM":"Cartografía Migratoria: Impacto de la Migración Haitiana",
+    "descB2Fintech":"Conectando con el Mercado Global de Criptomonedas"
   }
 }
