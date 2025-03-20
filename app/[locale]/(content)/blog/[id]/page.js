@@ -1,13 +1,18 @@
 "use client";
 import BannerBlog from "@/components/blogComponents/BannerBlog";
-import { dataBlog } from "@/components/blogComponents/dataBlog";
+import { DataBlog } from "@/components/blogComponents/DataBlog";
+
 import Blog from "@/components/header/Blog";
 import Footer from "@/components/header/Footer";
 
 export default function BlogPost({ params }) {
   const { id } = params;
-  const post = dataBlog.find((item) => item.id === id);
-  const latestPosts = dataBlog.slice(-3).reverse();
+
+  const data = DataBlog();
+
+  const post = data.find((item) => item.id === id);
+
+  const latestPosts = data.slice(-3).reverse();
 
   if (!post) {
     return <div className="text-center text-xl py-10">Post not found</div>;
@@ -22,7 +27,7 @@ export default function BlogPost({ params }) {
             <img
               src={post.image}
               alt={post.title}
-              className="w-full h-full object-cover sm:max-h-[300px] md:max-h-none" 
+              className="w-full h-full object-cover sm:max-h-[300px] md:max-h-none"
             />
           </div>
 

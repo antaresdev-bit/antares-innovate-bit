@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { dataBlog } from "../blogComponents/dataBlog";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import { DataBlog } from "../blogComponents/DataBlog";
 
 function Blog() {
   const locale = useLocale();
@@ -17,7 +17,8 @@ function Blog() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const sortedDataBlog = dataBlog.sort(
+  // Llamar a la función DataBlog para obtener el array de datos
+  const sortedDataBlog = DataBlog().sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
@@ -55,7 +56,7 @@ function Blog() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-[225px] sm:h-[225px] md:h-[225px] lg:h-[225px]   rounded-[12px] object-cover"
+                    className="w-full h-[225px] sm:h-[225px] md:h-[225px] lg:h-[225px] rounded-[12px] object-cover"
                   />
                   <p
                     className="text-gray-600 mt-4"

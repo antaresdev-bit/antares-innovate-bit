@@ -3,15 +3,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import BannerBlog from "@/components/blogComponents/BannerBlog";
-import { dataBlog } from "@/components/blogComponents/dataBlog";
 import CardBlog from "@/components/blogComponents/CardBlog";
 import Footer from "@/components/header/Footer";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { DataBlog } from "@/components/blogComponents/DataBlog";
 
 export default function PageBlog() {
   const locale = useLocale();
   const [posts, setPosts] = useState(
-    [...dataBlog].sort((a, b) => b.id - a.id) 
+    DataBlog().sort((a, b) => b.id - a.id) 
   );
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
