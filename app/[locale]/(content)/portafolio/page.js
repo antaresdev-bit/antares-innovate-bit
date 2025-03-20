@@ -1,27 +1,39 @@
-"use client";
-import React, { useState, useMemo } from "react";
-import { useLocale } from "next-intl";
-import dynamic from "next/dynamic";
+"use client"
 import { workItems } from "@/components/portafolioComponenets/workItems";
-import CategoryButtons from "@/components/portafolioComponenets/CategoryButtons";
-import PortfolioItem from "@/components/portafolioComponenets/PortfolioItem";
+import dynamic from "next/dynamic";
 
-const CardPortafolio = dynamic(() => import("@/components/portafolioComponenets/CardPortafolio"));
 
-const PortafolioPage = () => {
-  const locale = useLocale();
-  const [activeCategory, setActiveCategory] = useState("all");
+const PortfolioContentSection = dynamic(() => 
+  import("@/components/portafolioComponenets/PortfolioClientVideosSection"), 
+  { ssr: false, loading: () => <LoadingItems /> }
+);
 
-  const filteredItems = useMemo(() => 
-    workItems.filter((item) =>
-      activeCategory === "all" ? true : item.category.includes(activeCategory)
-    ),
-    [activeCategory]
+function LoadingItems() {
+  return (
+    <div 
+      className="loading-container mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mt-8"
+      aria-label="Cargando elementos del portafolio"
+      role="status"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div key={i} className="relative h-64 bg-gray-800/30 rounded-[24px] animate-pulse" aria-hidden="true">
+            <div className="absolute bottom-4 left-4 w-2/3">
+              <div className="h-5 bg-gray-700/50 rounded w-3/4 mb-2 animate-pulse"></div>
+              <div className="h-4 bg-gray-700/30 rounded w-full animate-pulse"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
+}
 
+export default function PortafolioPage() {
+  
   return (
     <div className="relative bg-opacity-70">
-      {/* Gradient background */}
+      {/* Fondo Gradiente */}
       <div
         className="absolute inset-x-0 mx-auto w-full max-w-[1409px] h-[542px]"
         style={{
@@ -42,29 +54,13 @@ const PortafolioPage = () => {
           </h1>
         </div>
 
-        {/* Category Filters */}
-        <CategoryButtons 
-          activeCategory={activeCategory} 
-          onCategoryChange={setActiveCategory} 
-        />
-
-        {/* Portfolio Grid */}
-        <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mb-[40px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center">
-          {filteredItems.map((item, index) => (
-            <PortfolioItem 
-              key={index} 
-              item={item} 
-              locale={locale} 
-            />
-          ))}
-        </div>
-
-        <div className="mt-[187px]">
-          <CardPortafolio />
+        {/* Contenedor principal */}
+        <div className="relative min-h-[600px]">
+          <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
+            <PortfolioContentSection initialItems={workItems} />
+          </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default PortafolioPage;
+}
