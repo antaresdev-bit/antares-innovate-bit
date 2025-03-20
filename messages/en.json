@@ -36,11 +36,9 @@
     "consCardInfo1":"Digital marketing consulting and growth strategies.",
     "consCardInfo2":"Process optimization to enhance operational efficiency.",
     "consCardInfo3":"Financial and sales analysis to maximize profitability.",
-    "consCardButtton":"View Portfolio",
+    "consCardButtton":"View Portfolio"
 
-    "ourWorkText1":"Our",
-    "ourWorkText2":"Work",
-    "ourWorkButtton":"See More"
+    
   },
   "portafolio":{
     "categoryPortAll":"All",
@@ -57,7 +55,11 @@
     "descFundaciónHeinrich":"School of Administration & State Management for Just Transitions",
     "descUparsistem":"Strengthening Its University Identity",
     "descOIM":"Impact of Haitian Migration",
-    "descB2Fintech":"Connecting with the Global Cryptocurrency Market"
+    "descB2Fintech":"Connecting with the Global Cryptocurrency Market",
+
+    "ourWorkText1":"Our",
+    "ourWorkText2":"Work",
+    "ourWorkButtton":"See More"
     
   }
 }

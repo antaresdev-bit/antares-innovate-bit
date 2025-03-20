@@ -37,11 +37,9 @@
     "consCardInfo1":"Consultoría en marketing digital y estrategias de crecimiento.",
     "consCardInfo2":"Optimización de procesos para mejorar la eficiencia operativa.",
     "consCardInfo3":"Análisis financiero y de ventas para potenciar la rentabilidad.",
-    "consCardButtton":"Ver Portafolio",
+    "consCardButtton":"Ver Portafolio"
 
-    "ourWorkText1":"Nuestros",
-    "ourWorkText2":"Trabajos",
-    "ourWorkButtton":"Ver Mas"
+    
 
   },
 
@@ -60,6 +58,10 @@
     "descFundaciónHeinrich":"Escuela de Administración y Gestión del Estado para Transiciones Justas",
     "descUparsistem":"Consolidando su Identidad Universitaria",
     "descOIM":"Cartografía Migratoria: Impacto de la Migración Haitiana",
-    "descB2Fintech":"Conectando con el Mercado Global de Criptomonedas"
+    "descB2Fintech":"Conectando con el Mercado Global de Criptomonedas",
+
+    "ourWorkText1":"Nuestros",
+    "ourWorkText2":"Trabajos",
+    "ourWorkButtton":"Ver Portafolio"
   }
 }

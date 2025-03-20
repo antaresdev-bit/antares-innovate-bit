@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { useResponsive } from "../../hooks/useResponsive";
+import { useTranslations } from "next-intl";
 
 const WideVideoSection = ({ src }) => {
   const { isMobile } = useResponsive();
@@ -39,11 +40,12 @@ const WideVideoSection = ({ src }) => {
 
 const OurWork = () => {
   const locale = useLocale();
+  const t = useTranslations("portafolio");
 
   const workItems = [
     {
       title: "Upardigital",
-      description: "Revolucionando la educación virtual en Uparsistem",
+      description: <div>{t("descUpardigital")}</div>,
       video: (
         <Link href={`/${locale}/upardigital`}>
           <WideVideoSection src="/assets/videos/uparpreview.mp4" />
@@ -61,7 +63,7 @@ const OurWork = () => {
     },
     {
       title: "Páginas Web",
-      description: "Innovación y Experiencia de Usuario de Alto Impacto",
+      description: <div>{t("descPaginasWeb")}</div>,
       video: (
         <Link href={`/${locale}/web-page`}>
           <WideVideoSection src="/assets/videos/webpagespreview.mp4" />
@@ -70,7 +72,7 @@ const OurWork = () => {
     },
     {
       title: "Wersus",
-      description: "Innovación en logística de transporte",
+      description: <div>{t("descWersus")}</div>,
       video: (
         <Link href={`/${locale}/wersus`}>
           <WideVideoSection src="/assets/videos/wersuspreview_mobile.webm" />
@@ -87,7 +89,7 @@ const OurWork = () => {
             className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
             style={{ fontFamily: "HandelGothic" }}
           >
-            Nuestros <br /> Trabajos
+            {t("ourWorkText1")} <br /> {t("ourWorkText2")}
           </h1>
         </div>
 
@@ -138,7 +140,7 @@ const OurWork = () => {
                   className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
                   style={{ fontFamily: "HandelGothic" }}
                 >
-                  Ver Portafolio
+                  {t("ourWorkButtton")}
                 </button>
               </Link>
             </div>
