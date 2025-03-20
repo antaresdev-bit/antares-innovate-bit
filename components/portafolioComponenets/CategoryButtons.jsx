@@ -1,9 +1,13 @@
+
+import { useTranslations } from "next-intl";
+
 const CategoryButtons = ({ activeCategory, onCategoryChange }) => {
+  const t = useTranslations("portafolio");
     const categories = [
-      { id: "all", label: "Todos", icon: "4.png", width: "136.46px" },
-      { id: "creativity", label: "Creatividad", icon: "3.png", width: "196.8px" },
-      { id: "technology", label: "Tecnologia", icon: "2.png", width: "196.8px" },
-      { id: "consulting", label: "Consultoria", icon: "1.png", width: "196.8px" }
+      { id: "all", label: t("categoryPortAll"), icon: "4.png", width: "136.46px" },
+      { id: "creativity", label: t("categoryPortCreat"), icon: "3.png", width: "196.8px" },
+      { id: "technology", label: t("categoryPortTec"), icon: "2.png", width: "196.8px" },
+      { id: "consulting", label: t("categoryPortConsu"),icon: "1.png", width: "196.8px" }
     ];
   
     return (

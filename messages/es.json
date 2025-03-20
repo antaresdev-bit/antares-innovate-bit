@@ -16,5 +16,11 @@
     "buttonParagraph":"Trabajemos juntos",
     "serviceText1":"Nuestros",
     "serviceText2":"Servicios"
+  },
+  "portafolio":{
+    "categoryPortAll":"Todos",
+    "categoryPortCreat":"Creatividad",
+    "categoryPortTec":"Tecnologia",
+    "categoryPortConsu":"Consultoria"
   }
 }

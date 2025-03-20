@@ -16,7 +16,11 @@
     "buttonParagraph":"Let's Collaborate",
     "serviceText1":"Our ",
     "serviceText2":"Services"
-  
-    
+  },
+  "portafolio":{
+    "categoryPortAll":"All",
+    "categoryPortCreat":"Creativity",
+    "categoryPortTec":"Technology",
+    "categoryPortConsu":"Consulting"
   }
 }
