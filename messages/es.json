@@ -63,5 +63,12 @@
     "ourWorkText1":"Nuestros",
     "ourWorkText2":"Trabajos",
     "ourWorkButtton":"Ver Portafolio"
+  },
+
+  "statistics":{
+    "stadistic1":"Años de experiencia",
+    "stadistic2":"Presencia en Colombia y EE.UU",
+    "stadistic3":"Proyectos realizados",
+    "stadistic4":"Automatización e Inteligencia Artificial"
   }
 }

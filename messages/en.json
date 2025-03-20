@@ -60,6 +60,11 @@
     "ourWorkText1":"Our",
     "ourWorkText2":"Work",
     "ourWorkButtton":"See More"
-    
+  },
+  "statistics":{
+    "stadistic1":"Years of Experience",
+    "stadistic2":"Presence in Colombia & USA",
+    "stadistic3":"Completed Projects",
+    "stadistic4":"Automation & Artificial Intelligence"
   }
 }
