@@ -2,8 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 function CreativityCard() {
+  const t = useTranslations("landing");
   const locale = useLocale();
   return (
     <div className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-transparent rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white">
@@ -40,25 +42,18 @@ function CreativityCard() {
               className="font-bold mb-[18px] sm:mb-[18px] md:mb-[37px] lg:mb-[37px]"
               style={{ fontFamily: "HandelGothic", fontSize: "40px" }}
             >
-              Creatividad
+              {t("creatCardTittle")}
             </h2>
             <p style={{ fontFamily: "UniteaSans", fontSize: "18px" }}>
-              Transformamos ideas en experiencias visuales de alto impacto:
+              {t("creatCardSubTittle")}
             </p>
             <ul
               className="mt-[10px] ml-[20px]"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
             >
-              <li>
-                Estrategias de branding que posicionan marcas en el mercado.
-              </li>
-              <li>
-                Diseño gráfico y UI/UX, asegurando identidad visual coherente y
-                efectiva.
-              </li>
-              <li>
-                Producción audiovisual para potenciar la narrativa de marca.
-              </li>
+              <li>{t("creatCardInfo1")}</li>
+              <li>{t("creatCardInfo2")}</li>
+              <li>{t("creatCardInfo3")}</li>
             </ul>
           </div>
           <div className="flex items-center mt-10">
@@ -74,7 +69,7 @@ function CreativityCard() {
                 className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
                 style={{ fontFamily: "HandelGothic" }}
               >
-                Ver Portafolio
+                {t("creatCardButtton")}
               </button>
             </Link>
           </div>

@@ -10,13 +10,37 @@
     "contact": "Contacto",
     "language": "Idioma"
   },
+
   "landing": {
     "headline": "La Creatividad Mueve el Mundo; la Tecnología lo Acelera.",
     "paragraph": "En Antares, creamos tendencias. Impulsamos negocios con IA, automatización y diseño disruptivo, ayudando a marcas visionarias a liderar en el mundo digital.",
     "buttonParagraph":"Trabajemos juntos",
     "serviceText1":"Nuestros",
-    "serviceText2":"Servicios"
+    "serviceText2":"Servicios",
+
+    "creatCardTittle":"Creatividad",
+    "creatCardSubTittle":"Transformamos ideas en experiencias visuales de alto impacto:",
+    "creatCardInfo1":"Estrategias de branding que posicionan marcas en el mercado.",
+    "creatCardInfo2":"Diseño gráfico y UI/UX, asegurando identidad visual coherente y efectiva.",
+    "creatCardInfo3":"Producción audiovisual para potenciar la narrativa de marca.",
+    "creatCardButtton":"Ver Portafolio",
+
+    "tecCardTittle":"Tecnología",
+    "tecCardSubTittle":"Aplicamos innovación y tecnología para potenciar el crecimiento:",
+    "tecCardInfo1":"Desarrollo web y mobile, con UX/UI optimizado.",
+    "tecCardInfo2":"Creación de software a medida y plataformas digitales escalables.",
+    "tecCardInfo3":"Implementación de automatizaciones e Inteligencia Artificial para optimizar procesos.",
+    "tecCardButtton":"Ver Portafolio",
+
+    "consCardTittle":"Consultoría",
+    "consCardSubTittle":"Ayudamos a tomar decisiones estratégicas con enfoque en resultados:",
+    "consCardInfo1":"Consultoría en marketing digital y estrategias de crecimiento.",
+    "consCardInfo2":"Optimización de procesos para mejorar la eficiencia operativa.",
+    "consCardInfo3":"Análisis financiero y de ventas para potenciar la rentabilidad.",
+    "consCardButtton":"Ver Portafolio"
+
   },
+
   "portafolio":{
     "categoryPortAll":"Todos",
     "categoryPortCreat":"Creatividad",

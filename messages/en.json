@@ -15,12 +15,34 @@
     "paragraph": "At Antares, we create trends. We drive businesses forward with AI, automation, and disruptive design, empowering visionary brands to lead in the digital world.",
     "buttonParagraph":"Let's Collaborate",
     "serviceText1":"Our ",
-    "serviceText2":"Services"
+    "serviceText2":"Services",
+
+    "creatCardTittle":"Creativity",
+    "creatCardSubTittle":"We transform ideas into high-impact visual experiences:",
+    "creatCardInfo1":"Branding strategies that position brands in the market.",
+    "creatCardInfo2":"Graphic design and UI/UX, ensuring a coherent and effective visual identity.",
+    "creatCardInfo3":"Audiovisual production to enhance brand storytelling.",
+    "creatCardButtton":"View Portfolio",
+
+    "tecCardTittle":"Technology",
+    "tecCardSubTittle":"We apply innovation and technology to drive growth:",
+    "tecCardInfo1":"Web and mobile development with optimized UX/UI.",
+    "tecCardInfo2":"Custom software development and scalable digital platforms.",
+    "tecCardInfo3":"Implementation of automation and Artificial Intelligence to optimize processes.",
+    "tecCardButtton":"View Portfolio",
+
+    "consCardTittle":"Consulting",
+    "consCardSubTittle":"We help make strategic, results-driven decisions:",
+    "consCardInfo1":"Digital marketing consulting and growth strategies.",
+    "consCardInfo2":"Process optimization to enhance operational efficiency.",
+    "consCardInfo3":"Financial and sales analysis to maximize profitability.",
+    "consCardButtton":"View Portfolio"
   },
   "portafolio":{
     "categoryPortAll":"All",
     "categoryPortCreat":"Creativity",
     "categoryPortTec":"Technology",
     "categoryPortConsu":"Consulting"
+    
   }
 }

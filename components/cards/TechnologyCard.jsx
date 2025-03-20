@@ -2,23 +2,24 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 
 function TechnologyCard() {
+  const t = useTranslations("landing");
   const locale = useLocale();
   return (
     <div
       className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-[#FFFFFF] lg:bg-[#0E051C] sm:bg-[#FFFFFF] md:bg-[#FFFFFF] lg:bg-none rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] sm:pb-[0px] md:pb-[0px] lg:pb-[40px] "
       style={{
-        backgroundImage: "none", 
+        backgroundImage: "none",
       }}
     >
-      {/* Fondo de imagen solo en lg */}
       <div
         className="hidden lg:block absolute inset-0 bg-cover bg-center rounded-[48px]"
         style={{
           backgroundImage:
             "url('/assets/images/portadas-servicios-home/fondocard.png')",
-          backgroundSize: "100% 100%", // Ajusta el ancho al contenedor
+          backgroundSize: "100% 100%",
           backgroundPosition: "center",
         }}
       ></div>
@@ -60,7 +61,7 @@ function TechnologyCard() {
                 color: "#0B0C28",
               }}
             >
-              Tecnología
+              {t("tecCardTittle")}
             </h2>
             <p
               style={{
@@ -69,7 +70,7 @@ function TechnologyCard() {
                 color: "#0B0C28",
               }}
             >
-              Aplicamos innovación y tecnología para potenciar el crecimiento:
+              {t("tecCardSubTittle")}
             </p>
             <ul
               className="mt-[10px] ml-[20px]"
@@ -79,15 +80,9 @@ function TechnologyCard() {
                 color: "#0B0C28",
               }}
             >
-              <li>Desarrollo web y mobile, con UX/UI optimizado.</li>
-              <li>
-                Creación de software a medida y plataformas digitales
-                escalables.
-              </li>
-              <li>
-                Implementación de automatizaciones e Inteligencia Artificial
-                para optimizar procesos.
-              </li>
+              <li>{t("tecCardInfo1")}</li>
+              <li>{t("tecCardInfo2")}</li>
+              <li>{t("tecCardInfo3")}</li>
             </ul>
           </div>
           <div className="flex items-center mt-10">
@@ -103,7 +98,7 @@ function TechnologyCard() {
                 className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
                 style={{ fontFamily: "HandelGothic" }}
               >
-                Ver Portafolio
+                {t("tecCardButtton")}
               </button>
             </Link>
           </div>

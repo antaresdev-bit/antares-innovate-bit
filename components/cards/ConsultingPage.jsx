@@ -2,8 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 
 function ConsultingPage() {
+  const t = useTranslations("landing");
   const locale = useLocale();
   return (
     <div
@@ -59,7 +61,7 @@ function ConsultingPage() {
                 color: "white",
               }}
             >
-              Consultoría
+              {t("consCardTittle")}
             </h2>
             <p
               style={{
@@ -68,8 +70,7 @@ function ConsultingPage() {
                 color: "white",
               }}
             >
-              Ayudamos a tomar decisiones estratégicas con enfoque en
-              resultados:
+              {t("consCardSubTittle")}
             </p>
             <ul
               className="mt-[10px] ml-[20px]"
@@ -79,15 +80,9 @@ function ConsultingPage() {
                 color: "white",
               }}
             >
-              <li>
-                Consultoría en marketing digital y estrategias de crecimiento.
-              </li>
-              <li>
-                Optimización de procesos para mejorar la eficiencia operativa.
-              </li>
-              <li>
-                Análisis financiero y de ventas para potenciar la rentabilidad.
-              </li>
+              <li>{t("consCardInfo1")}</li>
+              <li>{t("consCardInfo2")}</li>
+              <li>{t("consCardInfo3")}</li>
             </ul>
           </div>
           <div className="flex items-center mt-10">
@@ -103,7 +98,7 @@ function ConsultingPage() {
                 className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
                 style={{ fontFamily: "HandelGothic" }}
               >
-                Ver Portafolio
+                {t("consCardButtton")}
               </button>
             </Link>
           </div>
