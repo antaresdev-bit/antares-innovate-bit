@@ -28,21 +28,21 @@ function CardPortafolio() {
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0  ml-[0px] sm:ml-[0px] md:ml-[30px] ">
           <div className="relative">
             <Image
-              src="/assets/images/portadas-servicios-home/consultoriasm.png"
+              src="/assets/images/portadas-servicios-home/cardInfo.png"
               alt="Consultoria"
               width={400}
               height={400}
               className="rounded-lg md:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/consultoriatb.png"
+              src="/assets/images/portadas-servicios-home/cardInfotablet.png"
               alt="Consultoria Tablet"
               width={700}
               height={400}
               className="rounded-lg hidden md:block lg:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/Escritorio 3.png"
+              src="/assets/images/portadas-servicios-home/cardInfo.png"
               alt="Tecnologia Desktop"
               width={560}
               height={300}
