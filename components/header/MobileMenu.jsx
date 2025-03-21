@@ -35,7 +35,7 @@ const MobileMenu = (
             {isMenuOpen && (
                 <div
                     ref={menuRef}
-                    className="absolute top-full left-0 w-full bg-[#263B9E] rounded-[24px] shadow-md flex flex-col items-center py-4 mt-2 gap-y-2"
+                    className="absolute top-full left-0 w-full bg-[#263B9E] rounded-[24px] shadow-md flex flex-col items-center py-4 mt-2 gap-y-2 lg:hidden"
                 >
                     <SmoothLink
                         href={servicesLink}
