@@ -19,8 +19,8 @@ function page() {
 
       <div className="max-w-[1500px] mx-auto px-[21px] sm:px-[21px] md:px-[49px] lg:px-[71px]">
         <ConditionalTextArchitect
-          title="Industria Inmobiliaria"
-          subtitle="“Arquitectos Expertos en Innovación”"
+          title={t("bannerRealText1")}
+          subtitle={t("bannerRealText2")}
           gradient="linear-gradient(to right, #FFFFFF, #FFFFFF)"
           circleColor="#FDC548"
           iconSrc="/assets/images/inmobiliaria/Vector.png"
@@ -58,7 +58,9 @@ function page() {
 
         <CardGrowth />
 
-        <CardContact />
+        <div className="mt-[100px] sm:mt-[10px] md:mt-[150px] lg:mt-[180px]">
+          <CardContact />
+        </div>
       </div>
       <Footer />
     </div>

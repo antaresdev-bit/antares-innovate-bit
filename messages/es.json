@@ -153,6 +153,7 @@
     "formText5":"Dinos qué necesitas y crearemos una estrategia digital a la medida.",
     "formText6":"¿Necesitas un cambio digital?",
     "formText7":"Te ayudamos a modernizar tu negocio con tecnología, creatividad y estrategia.",
+    
 
     "formText8":"Formulario de Contacto",
     "formText9":"Nombre de la empresa*",
@@ -166,7 +167,8 @@
     "formText17":"UX/UI y Diseño Web",
     "formText18":"Innovación con IA",
     "formText19":"Cuéntanos sobre tu proyecto*",
-    "formText20":"Dale vida a tu idea*"
+    "formText20":"Dale vida a tu idea*",
+    "formText21":"Contacto"
   },
   "realEstate": {
     "bannerRealText1":"Industria Inmobiliaria",

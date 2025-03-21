@@ -2,8 +2,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 function BannerForm() {
+  const t = useTranslations("form");
   const [imageSrc, setImageSrc] = useState(
     "/assets/images/form-contact/Banner.svg"
   );
@@ -44,7 +46,7 @@ function BannerForm() {
             className="bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] text-[46px] sm:text-[46px] md:text-[50px] lg:text-[65px] transition-all leading-[35px] sm:leading-[31px] md:leading-[40px] lg:leading-[60px]"
             style={{ fontFamily: "HandelGothic" }}
           >
-            <span className="sm:inline md:hidden lg:hidden">Contacto</span>
+            <span className="sm:inline md:hidden lg:hidden">{t("formText21")}</span>
           </p>
         </div>
 
@@ -57,7 +59,7 @@ function BannerForm() {
             className="text-white text-[25px] sm:text-[25px] md:text-[25px] lg:text-[30px]"
             style={{ fontFamily: "UniteaSans-semi-bold" }}
           >
-            Atendemos a tus solicitudes
+            {t("formText2")}
           </p>
         </div>
       </div>
