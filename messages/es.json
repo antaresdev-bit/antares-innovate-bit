@@ -116,7 +116,15 @@
     "dateBlog1":"5 de marzo de 2025",
 
     "footerBlogInfo":"Suscríbete a nuestro boletín para estar al tanto de las últimas novedades.",
-    "placeHolderBlog":"Tu dirección de correo electrónico..."
+    "placeHolderBlog":"Tu dirección de correo electrónico...",
+
+    "buttonBlogCard":"Leer Más",
+
+    "infoBlogNewsCat":"Categorías",
+    "infoBlogNewsTech":"Tecnología",
+    "infoBlogNewsMark":"Marketing",
+    "infoBlogNewsNews":"Noticias",
+    "infoBlogNewsPopu":"Artículos Populares"
   },
 
   "footer":{

@@ -4,8 +4,10 @@ import { DataBlog } from "@/components/blogComponents/DataBlog";
 
 import Blog from "@/components/header/Blog";
 import Footer from "@/components/header/Footer";
+import { useTranslations } from "next-intl";
 
 export default function BlogPost({ params }) {
+  const t = useTranslations("blog");
   const { id } = params;
 
   const data = DataBlog();
@@ -63,28 +65,28 @@ export default function BlogPost({ params }) {
               className="font-bold text-[24px] mb-2"
               style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
             >
-              Categorías
+              {t("infoBlogNewsCat")}
             </p>
             <hr className="my-2 border-[#676781]" />
             <p
               className="text-[17px] "
               style={{ fontFamily: "UniteaSans-bold", color: "#0B0C28" }}
             >
-              Tecnología
+             {t("infoBlogNewsTech")}
             </p>
             <hr className="my-2 border-[#676781]" />
             <p
               className="text-[17px] "
               style={{ fontFamily: "UniteaSans-bold", color: "#0B0C28" }}
             >
-              Marketing
+               {t("infoBlogNewsMark")}
             </p>
             <hr className="my-2 border-[#676781]" />
             <p
               className="text-[17px] "
               style={{ fontFamily: "UniteaSans-bold", color: "#0B0C28" }}
             >
-              Noticias
+              {t("infoBlogNewsNews")}
             </p>
           </div>
 
@@ -93,7 +95,7 @@ export default function BlogPost({ params }) {
               className="font-bold text-[24px] mb-2"
               style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
             >
-              Artículos Populares
+              {t("infoBlogNewsPopu")}
             </p>
             {latestPosts.map((article) => (
               <div key={article.id} className="mb-4">

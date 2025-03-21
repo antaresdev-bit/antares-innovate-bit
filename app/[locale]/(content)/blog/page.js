@@ -7,8 +7,10 @@ import CardBlog from "@/components/blogComponents/CardBlog";
 import Footer from "@/components/header/Footer";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { DataBlog } from "@/components/blogComponents/DataBlog";
+import { useTranslations } from "next-intl";
 
 export default function PageBlog() {
+  const t = useTranslations("blog");
   const locale = useLocale();
   const [posts, setPosts] = useState(
     DataBlog().sort((a, b) => b.id - a.id) 
@@ -94,7 +96,7 @@ export default function PageBlog() {
                       borderWidth: "1px",
                     }}
                   >
-                    Leer Más
+                    {t("buttonBlogCard")}
                   </button>
                 </Link>
               </div>
