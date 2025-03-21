@@ -162,5 +162,33 @@
     "formText18":"Innovation with AI",
     "formText19":"Tell us about your project*",
     "formText20":"Bring your idea to life*"
+  },
+  "realEstate": {
+    "bannerRealText1":"Real Estate Industry",
+    "bannerRealText2":"Expert Architects in Innovation",
+    "realEstText1":"'Project success comes from teamwork, strategy, and commitment.'",
+    "realEstText2":"Yamile Duran - Architect, Project Manager",
+    "realEstText4":"Years of Experience",
+    "realEstText5":"National & International Projects",
+    "realEstText6":"Skills in Structuring & Feasibility",
+    "realEstText7":"Specialists in Architectural Design",
+
+    "realEstText8":"Design | Project Manager",
+    "realEstText9":"Sustainable & Strategic Project Management",
+    "realEstText10":"At Antares, we revolutionize project management through innovative methodologies that streamline processes and unlock the full potential of every organization.",
+    "realEstText11":"Our approach integrates architecture, engineering, and management, ensuring efficient, sustainable projects that align with each company's strategic objectives.",
+    "realEstText12":"Get Consulting",
+
+    "realEstText13":"Some of Our Projects",
+    "realEstText14":"Driving Growth",
+
+    "realEstText15":"Spaces That Inspire",
+    "realEstText16":"We design smart architecture that optimizes every space and enhances efficiency.",
+    "realEstText17":"Optimized Profitability",
+    "realEstText18":"Less Waste. More Impact. A Precise Approach to Enhancing Costs & Results.",
+    "realEstText19":"Scalable Strategies",
+    "realEstText20":"We turn chaos into clarity, connections into structures, and ideas into scalable systems.",
+    "realEstText21":"Real Differentiation",
+    "realEstText22":"We refine your value proposition so the market not only sees you but chooses you."
   }
 }

@@ -167,5 +167,33 @@
     "formText18":"Innovación con IA",
     "formText19":"Cuéntanos sobre tu proyecto*",
     "formText20":"Dale vida a tu idea*"
+  },
+  "realEstate": {
+    "bannerRealText1":"Industria Inmobiliaria",
+    "bannerRealText2":"Arquitectos Expertos en Innovación",
+    "realEstText1":"'El éxito de un proyecto se logra trabajando en equipo con visión estratégica y compromiso.'",
+    "realEstText2":"Yamile Duran - Arquitecta, Project Manager",
+    "realEstText4":"Años de experiencia",
+    "realEstText5":"Proyectos Nacionales e Internacionales",
+    "realEstText6":"Proyectos Habilidades en Estructuracióny Viabilidad",
+    "realEstText7":"Especialistas en Diseño Arquitectónico",
+
+    "realEstText8":"Diseño | Project Manager",
+    "realEstText9":"Gestión de proyectos sostenible y estratégica",
+    "realEstText10":"En Antares, revolucionamos la gestión de proyectos mediante metodologías innovadoras que optimizan procesos y desbloquean el máximo potencial de cada organización.",
+    "realEstText11":"Nuestra metodología integra arquitectura, ingeniería y gestión para garantizar proyectos eficientes, sostenibles y alineados con los objetivos estratégicos de cada empresa.",
+    "realEstText12":"Obtén Asesoría",
+
+    "realEstText13":"Algunos de Nuestros Proyectos",
+    "realEstText14":"Impulsamos el Crecimiento",
+
+    "realEstText15":"Espacios que Inspiran",
+    "realEstText16":"Diseñamos arquitectura inteligente que optimiza cada metro y eleva la eficiencia.",
+    "realEstText17":"Rentabilidad Optimizada",
+    "realEstText18":"Menos desperdicio. Más impacto. Un enfoque preciso para mejorar costos y resultados.",
+    "realEstText19":"Estrategias que Escalan",
+    "realEstText20":"Convertimos el caos en claridad, las conexiones en estructuras y las ideas en sistemas que crecen.",
+    "realEstText21":"Diferenciación Real",
+    "realEstText22":"Refinamos tu propuesta de valor para que el mercado no solo te vea, sino que te elija."
   }
 }

@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const BannerRealEstate = () => {
+  const t = useTranslations("realEstate");
   return (
     <div className="w-full max-w-[1500px] mx-auto relative overflow-hidden">
       <div
@@ -33,7 +35,7 @@ const BannerRealEstate = () => {
             className="text-3xl sm:text-5xl font-bold text-white md:text-[46px] lg:text-[65px]"
             style={{ fontFamily: "HandelGothic" }}
           >
-            Industria Inmobiliaria
+            {t("bannerRealText1")}
           </h1>
 
           <div className="flex items-center space-x-4">
@@ -58,7 +60,7 @@ const BannerRealEstate = () => {
               className="text-lg sm:text-xl text-white md:text-[25px] lg:text-[30px]"
               style={{ fontFamily: "UniteaSans" }}
             >
-              Arquitectos Expertos en Innovación
+              {t("bannerRealText2")}
             </p>
           </div>
         </div>

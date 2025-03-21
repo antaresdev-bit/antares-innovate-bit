@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 function ArchitectProfile() {
+  const t = useTranslations("realEstate");
   const texts = {
-    paragraph:
-      '"El éxito de un proyecto se logra trabajando en equipo con visión estratégica y compromiso."',
-    name: "Yamile Duran - Arquitecta, Project Manager",
+    paragraph: t("realEstText1"),
+    name: t("realEstText2"),
   };
 
   return (

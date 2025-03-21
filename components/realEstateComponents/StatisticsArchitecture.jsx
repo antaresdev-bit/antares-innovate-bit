@@ -3,27 +3,30 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const statisticItems = [
-  {
-    title: "Años de experiencia",
-    image: "/assets/images/statistics/+30.png",
-  },
-  {
-    title: "Proyectos Nacionales e Internacionales",
-    image: "/assets/images/statistics/world.png",
-  },
-  {
-    title: "Proyectos Habilidades en Estructuracióny Viabilidad ",
-    image: "/assets/images/statistics/+100.png",
-  },
-  {
-    title: "Especialistas en Diseño Arquitectónico",
-    image: "/assets/images/statistics/brain.png",
-  },
-];
+import { useTranslations } from "next-intl";
 
 function StatisticsArchitecture() {
+  const t = useTranslations("realEstate");
+
+  const statisticItems = [
+    {
+      title: t("realEstText4"),
+      image: "/assets/images/statistics/+30.png",
+    },
+    {
+      title: t("realEstText5"),
+      image: "/assets/images/statistics/world.png",
+    },
+    {
+      title: t("realEstText6"),
+      image: "/assets/images/statistics/+100.png",
+    },
+    {
+      title: t("realEstText7"),
+      image: "/assets/images/statistics/brain.png",
+    },
+  ];
+
   const sliderSettings = {
     dots: true,
     infinite: true,

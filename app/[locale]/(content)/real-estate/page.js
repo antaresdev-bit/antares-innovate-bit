@@ -1,5 +1,4 @@
 import Footer from "@/components/header/Footer";
-import ConditionalTextMarketing from "@/components/marketingComponents/ConditionalTextMarketing";
 import ArchitectProfile from "@/components/realEstateComponents/ArchitectProfile";
 import BannerRealEstate from "@/components/realEstateComponents/BannerRealEstate";
 import CardArchitecture from "@/components/realEstateComponents/CardArchitecture";
@@ -9,9 +8,11 @@ import CardsSlider from "@/components/realEstateComponents/CardsSlider";
 import ConditionalCard from "@/components/realEstateComponents/ConditionalCard";
 import ConditionalTextArchitect from "@/components/realEstateComponents/ConditionalTextArquitect";
 import StatisticsArchitecture from "@/components/realEstateComponents/StatisticsArchitecture";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 function page() {
+  const t = useTranslations("realEstate");
   return (
     <div className="relative">
       <BannerRealEstate />
@@ -36,7 +37,7 @@ function page() {
             className="  text-[48px] sm;text-[48px] md:text-[56px] lg:text-[56px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[50px] max-w-[800px] "
             style={{ fontFamily: "HandelGothic" }}
           >
-            Algunos de Nuestros Proyectos
+            {t("realEstText13")}
           </h1>
         </div>
 
@@ -47,7 +48,7 @@ function page() {
             className="  text-[48px] sm;text-[48px] md:text-[56px] lg:text-[56px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[50px] max-w-[800px] "
             style={{ fontFamily: "HandelGothic" }}
           >
-            Impulsamos el Crecimiento
+            {t("realEstText14")}
           </h1>
         </div>
 
