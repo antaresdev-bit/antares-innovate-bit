@@ -86,9 +86,10 @@ export default function Home() {
 
   useEffect(() => {
     const preventDefault = (e) => e.preventDefault();
+    
+    const hasHashInUrl = typeof window !== 'undefined' && window.location.hash !== '';
 
-    if (isVideoLoading) {
-      // Aplicar bloqueo inmediatamente usando CSS
+    if (isVideoLoading && !hasHashInUrl) {
       document.documentElement.style.cssText = `
         overflow: hidden;
         position: fixed;

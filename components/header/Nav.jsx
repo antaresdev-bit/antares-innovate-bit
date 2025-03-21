@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaBars, FaChevronDown } from "react-icons/fa";
 import { useLocale } from "next-intl";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 function Nav() {
@@ -13,6 +13,7 @@ function Nav() {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const industriesRef = useRef(null);
   const menuRef = useRef(null);
   const languageRef = useRef(null);
@@ -46,6 +47,25 @@ function Nav() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      }
+    }
+  }, [pathname]);
+
+  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
+  const servicesLink = isHomePage ? '#our-services' : `/${locale}/#our-services`;
+
   return (
     <div className="flex justify-center w-full mt-[30px] md:mt-[50px] lg:mt-[50px]">
       <nav className="w-full max-w-[1500px] h-[76px] flex items-center bg-[rgba(14,5,28,0.65)] backdrop-blur-xl rounded-[24px] relative px-[21px] md:px-[clamp(10px,6vw,50px)] lg:px-[clamp(10px,6vw,71px)] justify-between border border-[rgba(255,255,255,0.25)]">
@@ -69,8 +89,9 @@ function Nav() {
             className="absolute top-full left-0 w-full bg-[#263B9E] rounded-[24px] shadow-md flex flex-col items-center py-4 mt-2 lg:hidden"
           >
             <Link
-              href={`/${locale}/`}
+              href={servicesLink}
               className="text-white hover:text-gray-300"
+              onClick={() => setIsMenuOpen(false)}
             >
               {t("navbar.services")}
             </Link>
@@ -164,7 +185,10 @@ function Nav() {
 
         {/* Menú Desktop */}
         <div className="hidden lg:flex items-center gap-x-6">
-          <Link href={`/${locale}/`} className="text-white hover:text-gray-300">
+          <Link
+            href={servicesLink}
+            className="text-white hover:text-gray-300"
+          >
             {t("navbar.services")}
           </Link>
           <Link
