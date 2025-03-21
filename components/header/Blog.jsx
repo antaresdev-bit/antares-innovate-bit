@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { DataBlog } from "../blogComponents/DataBlog";
+import { useTranslations } from "next-intl";
 
 function Blog() {
   const locale = useLocale();
+  const t = useTranslations("blog");
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,7 +20,7 @@ function Blog() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Llamar a la función DataBlog para obtener el array de datos
+ 
   const sortedDataBlog = DataBlog().sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
@@ -76,7 +79,8 @@ function Blog() {
                       color: isMarketingOrNews ? "white" : "black",
                     }}
                   >
-                    {item.title}
+                   
+                    {item.title.substring(0, 55)}...
                   </h3>
                   <div className="mt-auto flex justify-start">
                     <Link href={`/${locale}/blog`} className="w-full sm:w-auto">
@@ -100,13 +104,12 @@ function Blog() {
             className="leading-[35px] sm:leading-[31px] md:leading-[40px] lg:leading-[50px] text-[32px] sm:text-[32px] md:text-[40px] lg:text-[45px] font-bold max-w-[933px] mx-auto text-left bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] text-transparent bg-clip-text leading-tight md:leading-[43px]"
             style={{ fontFamily: "HandelGothic" }}
           >
-            Suscríbete a nuestro boletín para estar al tanto de las últimas
-            novedades.
+            {t("footerBlogInfo")}
           </p>
           <div className="flex justify-center mt-[20px]">
             <input
               type="email"
-              placeholder="Tu dirección de correo electrónico..."
+              placeholder={t("placeHolderBlog")}
               className="w-full max-w-[933px] h-[48px] rounded-[32px] px-4 text-gray-700"
             />
           </div>
