@@ -94,7 +94,7 @@ function Nav() {
             className="absolute top-full left-0 w-full bg-[#263B9E] rounded-[24px] shadow-md flex flex-col items-center py-4 mt-2 gap-y-2"
           >
             <SmoothLink
-              href={`/${locale}/`}
+              href={servicesLink}
               className="text-white hover:text-gray-300"
             >
               {t("navbar.services")}
@@ -157,7 +157,7 @@ function Nav() {
 
         {/* Menú Desktop */}
         <div className="hidden lg:flex items-center gap-x-6">
-          <Link href={`/${locale}/`} className="text-white hover:text-gray-300">
+          <Link href={servicesLink} className="text-white hover:text-gray-300">
             {t("navbar.services")}
           </Link>
           <Link
