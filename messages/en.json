@@ -105,6 +105,20 @@
 
     "footerBlogInfo":"Subscribe to our newsletter to stay up to date with the latest news.",
     "placeHolderBlog":"Your email address..."
-    
+  },
+  "footer":{
+    "contactUsFooter":"Contact",
+    "callUsFooter":"Call us",
+    "portfolioFooter":"Portfolio",
+    "aboutFooter":"About us",
+    "servicesFooter":"Services",
+    "creativityFooter":"Creativity",
+    "technologyFooter":"Technology",
+    "consultingFooter":"Consulting",
+    "industriesFooter":"Industries",
+    "realEstateFooter":"Real Estate",
+    "marketingFooter":"Marketing",
+    "legalInfo1":"By browsing this website you accept our",
+    "legalInfo2":"Privacy and Cookies Policy"
   }
 }

@@ -110,10 +110,21 @@
 
     "footerBlogInfo":"Suscríbete a nuestro boletín para estar al tanto de las últimas novedades.",
     "placeHolderBlog":"Tu dirección de correo electrónico..."
+  },
 
-
-    
-    
-    
+  "footer":{
+    "contactUsFooter":"Contacto",
+    "callUsFooter":"Llámanos",
+    "portfolioFooter":"Portafolio",
+    "aboutFooter":"Sobre Nosotros",
+    "servicesFooter":"Servicios",
+    "creativityFooter":"Creatividad",
+    "technologyFooter":"Tecnología",
+    "consultingFooter":"Consultoría",
+    "industriesFooter":"Industrias",
+    "realEstateFooter":"Inmobiliaria",
+    "marketingFooter":"Marketing",
+    "legalInfo1":"Al navegar por este sitio web acepta nuestra",
+    "legalInfo2":"Política de Privacidad y Cookies"
   }
 }

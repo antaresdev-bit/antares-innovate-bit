@@ -5,8 +5,10 @@ import {
   FaLinkedinIn,
   FaFacebook,
 } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 function Footer() {
+  const t = useTranslations("footer");
   return (
     <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
       <footer className=" w-full  py-2 text-white flex flex-col items-center sm:px-2.5 mt-[114px] sm:mt-[114px] md:mt-[150px] lg:mt-[150px]">
@@ -20,7 +22,7 @@ function Footer() {
             />
             <div className="w-[full] max-w-[450px] px-4 sm:px-0   ">
               <p>
-                Contacto:{" "}
+                {t("contactUsFooter")}:{" "}
                 <a
                   href="mailto:contacto@antaresfinancetrade.com"
                   className="text-[#ddd] hover:text-white"
@@ -37,7 +39,7 @@ function Footer() {
                 alt="WhatsApp"
                 className="w-8"
               />
-              <p className="ml-[15px]">Llámanos: +1 689 331 2690</p>
+              <p className="ml-[15px]">{t("callUsFooter")}: +1 689 331 2690</p>
             </div>
           </div>
 
@@ -48,45 +50,51 @@ function Footer() {
           >
             {/* Portafolio Section - Hidden on small screens */}
             <div className="hidden sm:block">
-              <h3 className="font-semibold text-white mb-2">Portafolio</h3>
+              <h3 className="font-semibold text-white mb-2">
+                {t("portfolioFooter")}
+              </h3>
               <ul className="space-y-2 text-[#ccc]">
                 <ul className="hover:text-white">
-                  <a href="#">Sobre Nosotros</a>
+                  <a href="#">{t("aboutFooter")}</a>
                 </ul>
                 <ul className="hover:text-white">
                   <a href="#">Blog</a>
                 </ul>
                 <ul className="hover:text-white">
-                  <a href="#">Contacto</a>
+                  <a href="#">{t("contactUsFooter")}</a>
                 </ul>
               </ul>
             </div>
 
             {/* Servicios Section - Hidden on small screens */}
             <div className="hidden sm:block">
-              <h3 className="font-semibold text-white mb-2">Servicios</h3>
+              <h3 className="font-semibold text-white mb-2">
+                {t("servicesFooter")}
+              </h3>
               <ul className="space-y-2 text-[#ccc]">
                 <ul className="hover:text-white">
-                  <a href="#">Creatividad</a>
+                  <a href="#">{t("creativityFooter")}</a>
                 </ul>
                 <ul className="hover:text-white">
-                  <a href="#">Tecnología</a>
+                  <a href="#">{t("technologyFooter")}</a>
                 </ul>
                 <ul className="hover:text-white">
-                  <a href="#">Consultoría</a>
+                  <a href="#">{t("consultingFooter")}</a>
                 </ul>
               </ul>
             </div>
 
             {/* Industrias Section - Hidden on small screens */}
             <div className="hidden sm:block">
-              <h3 className="font-semibold text-white mb-2">Industrias</h3>
+              <h3 className="font-semibold text-white mb-2">
+                {t("industriesFooter")}
+              </h3>
               <ul className="space-y-2 text-[#ccc]">
                 <ul className="hover:text-white">
-                  <a href="#">Inmobiliaria</a>
+                  <a href="#">{t("realEstateFooter")}</a>
                 </ul>
                 <ul className="hover:text-white">
-                  <a href="#">Marketing</a>
+                  <a href="#">{t("marketingFooter")}</a>
                 </ul>
               </ul>
             </div>
@@ -161,10 +169,9 @@ function Footer() {
           className="text-center text-xs text-[#ccc] mt-6 border-t w-full pt-[40px] sm:pt-[40px] md:pt-[20px] lg:pt-[20px] "
           style={{ fontFamily: "UniteaSans", fontSize: "17px" }}
         >
-          antaresglobaltechnology.com © Al navegar por este sitio web acepta
-          nuestra{" "}
+          antaresglobaltechnology.com © {t("legalInfo1")}{" "}
           <a href="#" className="underline hover:text-white">
-            Política de Privacidad y Cookies
+          {t("legalInfo2")}
           </a>
           .
         </div>
