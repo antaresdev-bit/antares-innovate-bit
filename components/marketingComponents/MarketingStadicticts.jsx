@@ -3,27 +3,29 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const statisticItems = [
-  {
-    title: "¿Cómo lo hacemos?",
-    image: "/assets/images/marketing/icon2.png",
-  },
-  {
-    title: "Estrategia digital a medida",
-    image: "/assets/images/marketing/icon3.png",
-  },
-  {
-    title: "Automatización inteligente",
-    image: "/assets/images/marketing/icon4.png",
-  },
-  {
-    title: "Generación de demanda:",
-    image: "/assets/images/marketing/icon1.png",
-  },
-];
+import { useTranslations } from "next-intl";
 
 function MarketingStadicticts() {
+  const t = useTranslations("marketing");
+  const statisticItems = [
+    {
+      title: t("marketingText11"),
+      image: "/assets/images/marketing/icon2.png",
+    },
+    {
+      title: t("marketingText12"),
+      image: "/assets/images/marketing/icon3.png",
+    },
+    {
+      title: t("marketingText13"),
+      image: "/assets/images/marketing/icon4.png",
+    },
+    {
+      title: t("marketingText14"),
+      image: "/assets/images/marketing/icon1.png",
+    },
+  ];
+
   const sliderSettings = {
     dots: true,
     infinite: true,

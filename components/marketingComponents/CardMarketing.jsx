@@ -2,8 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 function CardMarketing() {
+  const t = useTranslations("marketing");
   const locale = useLocale();
   return (
     <div className="flex items-center justify-center  ">
@@ -28,7 +30,7 @@ function CardMarketing() {
                 color: "#0B0C28",
               }}
             >
-              Marketing | Gerencia
+             {t("marketingText5")}
             </p>
             <h2
               className="text-[24px] sm:text-[24px] md:text-[30px] lg:text-[35px] font-bold text-gray-900 leading-tight mt-[20px]"
@@ -37,8 +39,7 @@ function CardMarketing() {
                 color: "#0B0C28",
               }}
             >
-              En Antares seguimos la evolución digital y la enfocamos al entorno
-              de su empresa.
+              {t("marketingText6")}
             </h2>
             <p
               className="text-gray-700 mt-[20px]"
@@ -48,9 +49,7 @@ function CardMarketing() {
                 fontSize: "18px",
               }}
             >
-              Más que atraer clientes, diseñamos ecosistemas donde la
-              estrategia, la innovación tecnológica y la creatividad se fusionan
-              para transformar resultados.
+              {t("marketingText8")}
             </p>
 
             <div className="flex items-center mt-10">
@@ -69,7 +68,7 @@ function CardMarketing() {
                   className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
                   style={{ fontFamily: "HandelGothic" }}
                 >
-                  Obtén Asesoría
+                  {t("marketingText9")}
                 </button>
               </Link>
             </div>

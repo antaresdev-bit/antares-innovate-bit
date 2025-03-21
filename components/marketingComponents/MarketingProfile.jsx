@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 function MarketingProfile() {
+  const t = useTranslations("marketing");
   const texts = {
-    paragraph:
-      '"Todo es susceptible de mejora, siempre y cuando exista una base de comparación."',
+    paragraph: t("marketingText3"),
     name: "William Mosquera - CEO",
   };
 

@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 
 function IntroductionMarketing() {
+  const t = useTranslations("marketing");
   return (
     <div className="max-w-[1500px] mx-auto px-[22px] md:px-[105px] lg:px-[223px]   ">
       <div className=" border-l-0 sm:border-l-0 md:border-l border-white ">
@@ -14,7 +16,7 @@ function IntroductionMarketing() {
               color: "transparent",
             }}
           >
-            Diseñamos Índices de Gestión Avanzados para la toma de decisiones
+            {t("marketingText31")}
           </h1>
         </div>
 
@@ -23,9 +25,7 @@ function IntroductionMarketing() {
             className="  leading-[30px] "
             style={{ fontFamily: "UniteaSans-medium", color: "white" }}
           >
-            Optimizamos la toma de decisiones empresariales a través de Índices
-            de Gestión Avanzados, diseñados para medir, analizar y mejorar el
-            rendimiento en tiempo real.
+            {t("marketingText32")}
           </p>
         </div>
       </div>

@@ -8,16 +8,18 @@ import MarketingProfile from "@/components/marketingComponents/MarketingProfile"
 import MarketingStadicticts from "@/components/marketingComponents/MarketingStadicticts";
 import SliderMarketing from "@/components/marketingComponents/SliderMarketing";
 import VideoCard from "@/components/marketingComponents/VideoCard";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 function page() {
+  const t = useTranslations("marketing");
   return (
     <div className="relative ">
       <BannerMarketing />
       <div className="max-w-[1500px] mx-auto px-[21px] sm:px-[21px] md:px-[49px] lg:px-[71px]">
         <ConditionalTextMarketing
-          title="Industria del Marketing"
-          subtitle="“En Antares, no solo anticipamos la revolución digital; la lideramos.”"
+          title={t("marketingText1")}
+          subtitle={t("marketingText2")}
           gradient="linear-gradient(to right, #FFFFFF, #FFFFFF)"
           circleColor="#1C5DE9"
           iconSrc="/assets/images/marketing/1.png"
@@ -32,7 +34,7 @@ function page() {
             className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
             style={{ fontFamily: "HandelGothic" }}
           >
-            Nuestros Indicadores de Gestión
+            {t("marketingText10")}
           </h1>
         </div>
 

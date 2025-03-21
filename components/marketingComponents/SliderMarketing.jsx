@@ -7,44 +7,41 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-const marketingItems = [
-  {
-    title: "Análisis comercial:",
-    subtitle:
-      "Identificamos oportunidades y optimizamos cada acción para maximizar el retorno de inversión.",
-    image: "/assets/images/marketing/1.jpg",
-  },
-  {
-    title: "Propuesta de valor de alto impacto:",
-    subtitle:
-      "Redefinimos tu mensaje para que destaque en un mercado competitivo.",
-    image: "/assets/images/marketing/2.jpg",
-  },
-  {
-    title: "Alineación de marketing y ventas:",
-    subtitle:
-      "Fomentamos una sinergia total entre ambos departamentos para maximizar el impacto y la eficiencia.",
-    image: "/assets/images/marketing/3.jpg",
-  },
-  {
-    title: "Definición del cliente ideal:",
-    subtitle:
-      "Nos enfocamos en aquellos perfiles que realmente importan para tu negocio.",
-    image: "/assets/images/marketing/4.jpg",
-  },
-  {
-    title: "Potenciación digital:",
-    subtitle:
-      "Optimizamos tu sitio web, redes sociales y contenido comercial para aumentar tu presencia y alcance en el entorno digital.",
-    image: "/assets/images/marketing/5.jpg",
-  },
-];
+import { useTranslations } from "next-intl";
 
 function SliderMarketing() {
+  const t = useTranslations("marketing");
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
+
+  const marketingItems = [
+    {
+      title: t("marketingText16"),
+      subtitle: t("marketingText17"),
+      image: "/assets/images/marketing/1.jpg",
+    },
+    {
+      title: t("marketingText17"),
+      subtitle: t("marketingText18"),
+      image: "/assets/images/marketing/2.jpg",
+    },
+    {
+      title: t("marketingText19"),
+      subtitle: t("marketingText20"),
+      image: "/assets/images/marketing/3.jpg",
+    },
+    {
+      title: t("marketingText21"),
+      subtitle: t("marketingText22"),
+      image: "/assets/images/marketing/4.jpg",
+    },
+    {
+      title: t("marketingText23"),
+      subtitle: t("marketingText24"),
+      image: "/assets/images/marketing/5.jpg",
+    },
+  ];
 
   useEffect(() => {
     if (swiperRef.current) {
@@ -76,7 +73,7 @@ function SliderMarketing() {
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        pagination={{ el: null }} 
+        pagination={{ el: null }}
         modules={[Pagination]}
         className="h-full"
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -97,11 +94,11 @@ function SliderMarketing() {
               className="text-xl font-bold mt-[150px] text-black"
               style={{
                 fontFamily: "HandelGothic",
-                fontSize: "60px",
+                fontSize: "45px",
                 lineHeight: "1",
               }}
             >
-              Nuestro Modelo Integral
+              {t("marketingText15")}
             </h3>
           </div>
         </SwiperSlide>
@@ -126,7 +123,7 @@ function SliderMarketing() {
                   fontFamily: "HandelGothic",
                   color: "white",
                   fontSize: "26px",
-                  marginLeft:"10px"
+                  marginLeft: "10px",
                 }}
               >
                 {item.title}
@@ -137,7 +134,7 @@ function SliderMarketing() {
                   fontFamily: "UniteaSans",
                   color: "white",
                   fontSize: "18px",
-                  marginLeft:"10px"
+                  marginLeft: "10px",
                 }}
               >
                 {item.subtitle}

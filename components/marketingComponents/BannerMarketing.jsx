@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const BannerMarketing = () => {
+  const t = useTranslations("marketing");
   return (
     <div className="w-full max-w-[1500px] mx-auto relative overflow-hidden">
       <div
@@ -33,7 +35,7 @@ const BannerMarketing = () => {
             className="text-3xl sm:text-5xl font-bold text-white md:text-[46px] lg:text-[65px] mb-[30px]"
             style={{ fontFamily: "HandelGothic" }}
           >
-            Industria del Marketing
+            {t("marketingText1")}
           </h1>
 
           <div className="flex items-center space-x-4">
@@ -54,8 +56,7 @@ const BannerMarketing = () => {
               className="text-lg sm:text-xl text-white md:text-[25px] lg:text-[30px]"
               style={{ fontFamily: "UniteaSans" }}
             >
-              En Antares, no solo anticipamos la revolución digital; la
-              lideramos.
+              {t("marketingText2")}
             </p>
           </div>
         </div>

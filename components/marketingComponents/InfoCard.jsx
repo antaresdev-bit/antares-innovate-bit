@@ -4,9 +4,11 @@ import { useLocale } from "next-intl";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 function InfoCard() {
   const locale = useLocale();
+  const t = useTranslations("marketing");
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="w-full max-w-[1299px] bg-[#1C5DE9] rounded-[48px] md:p-10 p-6">
@@ -19,7 +21,7 @@ function InfoCard() {
               fontSize: "40px",
             }}
           >
-            ¿Por qué elegir Antares?
+            {t("marketingText26")}
           </h2>
           <ul
             className="space-y-4 text-sm md:text-base mt-[40px] ml-[30px]  "
@@ -29,20 +31,9 @@ function InfoCard() {
               color: "white",
             }}
           >
-            <li>
-              Diseñamos arquitecturas inteligentes que optimizan cada proceso y
-              elevan la eficiencia operativa.
-            </li>
-            <li>
-              Expertos en transformación digital:Aceleramos la ejecución de
-              proyectos para que las ideas se materialicen con rapidez y
-              eficacia.
-            </li>
-            <li>
-              Decisiones basadas en datos: Cada acción que emprendemos está
-              respaldada por análisis exhaustivos orientados al crecimiento
-              sostenible.
-            </li>
+            <li>{t("marketingText27")}</li>
+            <li>{t("marketingText28")}</li>
+            <li>{t("marketingText29")}</li>
           </ul>
           <div className="flex items-center mt-10">
             <Image
@@ -57,7 +48,7 @@ function InfoCard() {
                 className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px]  hover:bg-gray-200 transition duration-300 font-bold"
                 style={{ fontFamily: "HandelGothic" }}
               >
-                Ver Portafolio
+                {t("marketingText30")}
               </button>
             </Link>
           </div>
