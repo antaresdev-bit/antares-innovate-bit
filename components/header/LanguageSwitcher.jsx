@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from "next/legacy/image";
 import { useLanguageSwitcher } from '@/hooks/useLanguageSwitcher';
-import { useResponsive } from "../../hooks/useResponsive";
 import { useLocale } from 'next-intl';
+import { FaChevronDown } from 'react-icons/fa';
 
 const FlagIcon = ({ iconPath }) => {
   return (
@@ -29,7 +29,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="language-switcher w-[24px]">
+    <div className="language-switcher">
       <button 
         onClick={toggleMenu} 
         className="language-button" 
@@ -37,14 +37,19 @@ const LanguageSwitcher = () => {
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
-        <Image
-          src={getFlagPath(currentLocale)}
-          alt={`${currentLocale === 'en' ? 'English' : 'Español'} Flag`}
-          width={24}
-          layout="fill"
-          objectFit="contain"
-        />
+        <div className="flex items-center gap-x-2">
+          <div className="relative w-[24px] h-[24px]">
+            <Image
+              src={getFlagPath(currentLocale)}
+              alt={`${currentLocale === 'en' ? 'English' : 'Español'} Flag`}
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <FaChevronDown className="w-4 h-4" />
+        </div>
       </button>
+
       
       {isOpen && (
         <ul className="language-list animate-in zoom-in fade-in" role="menu">
