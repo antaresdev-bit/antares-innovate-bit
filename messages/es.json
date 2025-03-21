@@ -124,7 +124,9 @@
     "infoBlogNewsTech":"Tecnología",
     "infoBlogNewsMark":"Marketing",
     "infoBlogNewsNews":"Noticias",
-    "infoBlogNewsPopu":"Artículos Populares"
+    "infoBlogNewsPopu":"Artículos Populares",
+
+    "bannerBlog":"Noticias - Artículos"
   },
 
   "footer":{
@@ -141,5 +143,29 @@
     "marketingFooter":"Marketing",
     "legalInfo1":"Al navegar por este sitio web acepta nuestra",
     "legalInfo2":"Política de Privacidad y Cookies"
+  },
+
+  "form":{
+    "formText1":"¿Hablamos de innovación?",
+    "formText2":"Atendemos a tus solicitudes",
+    "formText3":"La transformación digital comienza con una conversación. Cuéntanos tu idea y hagámosla realidad.",
+    "formText4":"Construyamos el futuro de tu marca.",
+    "formText5":"Dinos qué necesitas y crearemos una estrategia digital a la medida.",
+    "formText6":"¿Necesitas un cambio digital?",
+    "formText7":"Te ayudamos a modernizar tu negocio con tecnología, creatividad y estrategia.",
+
+    "formText8":"Formulario de Contacto",
+    "formText9":"Nombre de la empresa*",
+    "formText10":"Nombre*",
+    "formText11":"Correo Electrónico*",
+    "formText12":"Número Telefónico*",
+    "formText13":"¿Cómo podemos ayudarte? (Selecciona uno o varios servicios)",
+    "formText14":"Estrategia y Branding",
+    "formText15":"Automatización y Tech Lab",
+    "formText16":"Marketing Digital y Growth",
+    "formText17":"UX/UI y Diseño Web",
+    "formText18":"Innovación con IA",
+    "formText19":"Cuéntanos sobre tu proyecto*",
+    "formText20":"Dale vida a tu idea*"
   }
 }

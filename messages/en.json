@@ -63,7 +63,7 @@
     "cardPortTittle":"Let's do something amazing together?",
     "cardPortSubTittle":"You've seen our work, now it's your turn. If you have a project in mind and want to take it to the next level, let's talk.",
     "cardPortInfo1":"We transform ideas into digital experiences.",
-    "cardPortInfo2":"Fusionamos creatividad, tecnología y estrategia.",
+    "cardPortInfo2":"We merge creativity, technology, and strategy.",
     "cardPortInfo3":"We empower brands with innovation and automation.",
     "buttonPort":"Contact Us"
   },
@@ -120,7 +120,9 @@
     "infoBlogNewsTech":"Technology",
     "infoBlogNewsMark":"Marketing",
     "infoBlogNewsNews":"News",
-    "infoBlogNewsPopu":"Popular Articles"
+    "infoBlogNewsPopu":"Popular Articles",
+
+    "bannerBlog":"News - Articles"
   },
   "footer":{
     "contactUsFooter":"Contact",
@@ -136,5 +138,29 @@
     "marketingFooter":"Marketing",
     "legalInfo1":"By browsing this website you accept our",
     "legalInfo2":"Privacy and Cookies Policy"
+  },
+
+  "form":{
+    "formText1":"Do we talk about innovation?",
+    "formText2":"We attend to your requests",
+    "formText3":"Digital transformation starts with a conversation. Tell us your idea and let's make it happen.",
+    "formText4":"Let's build the future of your brand.",
+    "formText5":"Tell us what you need and we will create a customized digital strategy.",
+    "formText6":"Do you need a digital change?",
+    "formText7":"We help you modernize your business with technology, creativity and strategy.",
+
+    "formText8":"Contact Form",
+    "formText9":"Company name*",
+    "formText10":"name*",
+    "formText11":"Email*",
+    "formText12":"Phone number*",
+    "formText13":"How can we help you? (Select one or more services)",
+    "formText14":"Strategy and Branding",
+    "formText15":"Automation and Tech Lab",
+    "formText16":"Marketing Digital andGrowth",
+    "formText17":"UX/UI and Web Design",
+    "formText18":"Innovation with AI",
+    "formText19":"Tell us about your project*",
+    "formText20":"Bring your idea to life*"
   }
 }

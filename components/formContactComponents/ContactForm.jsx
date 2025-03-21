@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import { handleHomeContactSubmit } from "@/utils/handleSubmit";
+import { useTranslations } from "next-intl";
 
 function ContactForm() {
+  const t = useTranslations("form");
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -55,14 +57,14 @@ function ContactForm() {
           className="text-2xl font-bold text-left sm:text-[28px] md:text-[28px] lg:text-[35px]"
           style={{ fontFamily: "HandelGothic" }}
         >
-          Formulario de Contacto
+          {t("formText8")}
         </h2>
         <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <input
               type="text"
               name="company"
-              placeholder="Nombre de la empresa*"
+              placeholder={t("formText9")}
               className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
               required
@@ -70,7 +72,7 @@ function ContactForm() {
             <input
               type="text"
               name="name"
-              placeholder="Nombre*"
+              placeholder={t("formText10")}
               className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
               required
@@ -78,7 +80,7 @@ function ContactForm() {
             <input
               type="email"
               name="email"
-              placeholder="Correo Electrónico*"
+              placeholder={t("formText11")}
               className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
               style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
               required
@@ -86,7 +88,7 @@ function ContactForm() {
             <input
               type="tel"
               name="phone"
-              placeholder="Número Telefónico*"
+              placeholder={t("formText12")}
               pattern="[0-9+\s\-()]*"
               inputMode="numeric"
               className="w-full h-[48px] p-3 rounded-[32px] bg-[#3874F5] border border-white placeholder:text-white"
@@ -100,7 +102,7 @@ function ContactForm() {
               className="font-semibold"
               style={{ fontFamily: "HandelGothic", fontSize: "20px" }}
             >
-              ¿Cómo podemos ayudarte? (Selecciona uno o varios servicios)
+              {t("formText13")}
             </p>
           </div>
 
@@ -109,11 +111,11 @@ function ContactForm() {
             style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
           >
             {[
-              "Estrategia y Branding",
-              "Automatización y Tech Lab",
-              "Marketing Digital y Growth",
-              "UX/UI y Diseño Web",
-              "Innovación con IA",
+              t("formText14"),
+              t("formText15"),
+              t("formText16"),
+              t("formText17"),
+              t("formText18"),
             ].map((service, index) => (
               <label key={index} className="flex items-center space-x-2">
                 <input
@@ -130,7 +132,7 @@ function ContactForm() {
 
           <textarea
             name="message"
-            placeholder="Cuéntanos sobre tu proyecto*"
+            placeholder= {t("formText19")}
             className="w-full p-3 rounded-[24px] bg-[#3874F5] border border-white text-white min-h-[157px] placeholder:text-white"
             required
             style={{ fontFamily: "UniteaSans", fontSize: "18px" }}
@@ -151,7 +153,7 @@ function ContactForm() {
               className="w-full px-6 py-3 bg-white text-[#02021E] text-lg sm:text-xl rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
               style={{ fontFamily: "HandelGothic" }}
             >
-              Dale vida a tu idea
+              {t("formText20")}
             </button>
           </div>
         </form>

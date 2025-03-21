@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const BannerBlog = () => {
+  const t = useTranslations("blog");
   return (
     <div className="w-full max-w-[1500px] mx-auto relative overflow-hidden">
       <div
@@ -58,7 +60,7 @@ const BannerBlog = () => {
               className="text-lg sm:text-xl text-white md:text-[25px] lg:text-[30px]"
               style={{ fontFamily: "UniteaSans" }}
             >
-              Noticias - Artículos
+              {t("bannerBlog")}
             </p>
           </div>
         </div>
