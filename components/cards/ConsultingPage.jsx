@@ -28,22 +28,22 @@ function ConsultingPage() {
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0  ml-[0px] sm:ml-[0px] md:ml-[30px] ">
           <div className="relative">
             <Image
-              src="/assets/images/portadas-servicios-home/consultoriasm.png"
-              alt="Consultoria"
+              src="/assets/images/portadas-servicios-home/mobileCons.png"
+              alt="Consultoria mobile"
               width={400}
               height={400}
               className="rounded-lg md:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/consultoriatb.png"
+              src="/assets/images/portadas-servicios-home/tabletCons.png"
               alt="Consultoria Tablet"
               width={700}
               height={400}
               className="rounded-lg hidden md:block lg:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/Escritorio 3.png"
-              alt="Tecnologia Desktop"
+              src="/assets/images/portadas-servicios-home/desktopCons.png"
+              alt="Consultoria Desktop"
               width={560}
               height={300}
               className="rounded-lg hidden md:hidden lg:block"

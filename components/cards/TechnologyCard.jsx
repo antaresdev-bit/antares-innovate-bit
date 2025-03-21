@@ -28,21 +28,21 @@ function TechnologyCard() {
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0 mr-[0px] sm:mr-[0px] md:mr-[0px] lg:mr-[30px]">
           <div className="relative">
             <Image
-              src="/assets/images/portadas-servicios-home/phone 2.png"
-              alt="Tecnologia"
+              src="/assets/images/portadas-servicios-home/mobileTech.png"
+              alt="Tecnologia mobile"
               width={400}
               height={400}
               className="rounded-lg md:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/Tablet 2.png"
+              src="/assets/images/portadas-servicios-home/tabletTech.png"
               alt="Tecnologia Tablet"
               width={700}
               height={400}
               className="rounded-lg hidden md:block lg:hidden"
             />
             <Image
-              src="/assets/images/portadas-servicios-home/phone 2.png"
+              src="/assets/images/portadas-servicios-home/desktoptech.png"
               alt="Tecnologia Desktop"
               width={550}
               height={600}
