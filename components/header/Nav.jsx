@@ -34,13 +34,16 @@ function Nav() {
     }
   }, [pathname]);
 
+  const handleServiceClick = (e) => {
+    if (isHomePage) {
+      e.preventDefault();
+      scrollToElement('our-services');
+      toggleMenu();
+    }
+  };
+
   const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
   const servicesLink = isHomePage ? '#our-services' : `/${locale}/#our-services`;
-
-  const changeLanguage = (lang) => {
-    router.push(`/${lang}`);
-    setIsLanguageOpen(false);
-  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -95,6 +98,7 @@ function Nav() {
           >
             <SmoothLink
               href={servicesLink}
+              onClick={handleServiceClick}
               className="text-white hover:text-gray-300"
             >
               {t("navbar.services")}
@@ -157,9 +161,13 @@ function Nav() {
 
         {/* Menú Desktop */}
         <div className="hidden lg:flex items-center gap-x-6">
-          <Link href={servicesLink} className="text-white hover:text-gray-300">
+          <SmoothLink
+            href={servicesLink}
+            onClick={handleServiceClick}
+            className="text-white hover:text-gray-300"
+          >
             {t("navbar.services")}
-          </Link>
+          </SmoothLink>
           <Link
             href={`/${locale}/portafolio`}
             className="text-white hover:text-gray-300"
