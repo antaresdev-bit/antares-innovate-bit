@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import dynamic from "next/dynamic";
+import Footer from "../header/Footer";
 
 const CategoryButtons = dynamic(
   () => import("@/components/portafolioComponenets/CategoryButtons"),
@@ -40,14 +41,18 @@ export default function PortfolioClientVideosSection({ initialItems }) {
         onCategoryChange={setActiveCategory}
       />
 
-      <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] max-w-[1500px] mb-[40px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center">
+      <div className="  max-w-[1500px] mb-[40px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center">
         {filteredItems.map((item, index) => (
           <PortfolioItem key={index} item={item} locale={locale} />
         ))}
       </div>
 
-      <div className="mt-[187px]">
+      <div className="mt-[187px] max-w-[1500px] ">
         <CardPortafolio />
+      </div>
+
+      <div className="max-w-[1500px] ">
+        <Footer />
       </div>
     </>
   );

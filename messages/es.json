@@ -62,7 +62,14 @@
 
     "ourWorkText1":"Nuestros",
     "ourWorkText2":"Trabajos",
-    "ourWorkButtton":"Ver Portafolio"
+    "ourWorkButtton":"Ver Portafolio",
+
+    "cardPortTittle":"¿Hacemos algo increíble juntos?",
+    "cardPortSubTittle":"Has visto nuestro trabajo, ahora es tu turno. Si tienes un proyecto en mente y quieres llevarlo al siguiente nivel, hablemos.",
+    "cardPortInfo1":"Transformamos ideas en experiencias digitales.",
+    "cardPortInfo2":"Fusionamos creatividad, tecnología y estrategia.",
+    "cardPortInfo3":"Potenciamos marcas con innovación y automatización.",
+    "buttonPort":"Contáctanos"
   },
 
   "statistics":{

@@ -37,6 +37,7 @@
     "consCardInfo2":"Process optimization to enhance operational efficiency.",
     "consCardInfo3":"Financial and sales analysis to maximize profitability.",
     "consCardButtton":"View Portfolio"
+    
 
     
   },
@@ -59,8 +60,17 @@
 
     "ourWorkText1":"Our",
     "ourWorkText2":"Work",
-    "ourWorkButtton":"See More"
+    "ourWorkButtton":"See More",
+
+    "cardPortTittle":"Let's do something amazing together?",
+    "cardPortSubTittle":"You've seen our work, now it's your turn. If you have a project in mind and want to take it to the next level, let's talk.",
+    "cardPortInfo1":"We transform ideas into digital experiences.",
+    "cardPortInfo2":"Fusionamos creatividad, tecnología y estrategia.",
+    "cardPortInfo3":"We empower brands with innovation and automation.",
+    "buttonPort":"Contact Us"
+
   },
+
   "statistics":{
     "stadistic1":"Years of Experience",
     "stadistic2":"Presence in Colombia & USA",
