@@ -4,13 +4,16 @@ import React, { useState, useEffect, useRef } from "react";
 import Blog from "../../components/header/Blog";
 import Certificates from "../../components/header/Certificates";
 import Footer from "../../components/header/Footer";
-import OurServices from "../../components/header/OurServices";
 import Slider from "../../components/header/Slider";
 import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
 import LayoutComponents from "@/components/layout/LayoutComponents";
 import LoadingScreen from "@/components/loading/LoadingScreen";
+import CreativityCard from "@/components/cards/CreativityCard";
+import TechnologyCard from "@/components/cards/TechnologyCard";
+import ConsultingPage from "@/components/cards/ConsultingPage";
+import { useTranslations } from "next-intl";
 
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
@@ -123,6 +126,8 @@ export default function Home() {
     };
   }, [isVideoLoading]);
 
+  const t = useTranslations("landing");
+
   return (
     <>
       <LayoutComponents />
@@ -193,8 +198,27 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="our-services">
-        <OurServices />
+      <div className="relative bg-opacity-70" id="our-services">
+        <div className="max-w-[1500px] mx-auto">
+          <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[30px]">
+            <h1
+              className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
+              style={{ fontFamily: "HandelGothic" }}
+            >
+              {t("serviceText1")} <br /> {t("serviceText2")}
+            </h1>
+          </div>
+
+          <div id="creativity-services">
+            <CreativityCard />
+          </div>
+          <div id="technology-services">
+            <TechnologyCard />
+          </div>
+          <div id="consulting-services">
+            <ConsultingPage />
+          </div>
+        </div>
       </div>
       <OurWork />
       <Statistics />

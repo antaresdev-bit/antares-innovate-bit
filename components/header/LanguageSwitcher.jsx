@@ -37,7 +37,7 @@ const LanguageSwitcher = () => {
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
-        <div className="flex items-center gap-x-2">
+        <div className="flex items-center justify-end gap-x-2 pt-0 lg:pt-2">
           <div className="relative w-[24px] h-[24px]">
             <Image
               src={getFlagPath(currentLocale)}

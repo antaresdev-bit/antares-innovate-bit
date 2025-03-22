@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import Link from "next/link";
+import { scrollToElement } from "@/utils/scroll";
 
 const SmoothLink = ({ 
   href, 
@@ -7,7 +8,6 @@ const SmoothLink = ({
   className, 
   onClick, 
   isHomePage,
-  scrollToElement 
 }) => {
   const handleClick = useCallback((e) => {
     if (isHomePage && href.startsWith('#')) {

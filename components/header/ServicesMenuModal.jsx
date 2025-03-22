@@ -1,5 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
+import SmoothLink from "./SmoothLink";
+import { useLocale } from "next-intl";
 
 const AnimatedArrow = () => {
     return (
@@ -15,11 +18,16 @@ const AnimatedArrow = () => {
     )
 }
 
-const ServicesMenuCard = ({ title, image, delay }) => {
+const ServicesMenuCard = ({ title, image, delay, handleServiceClick, link, isHomePage }) => {
     return (
-        <div className={`group w-[280px] h-[198px] relative flex items-center justify-center hover:cursor-pointer`} 
-             style={{ animationDelay: `${delay}ms` }}>
-            <Image
+        <SmoothLink 
+            href={link} 
+            onClick={(e) => handleServiceClick(e, link.replace('#', ''))} 
+            isHomePage={isHomePage}
+        >
+            <div className={`group w-[280px] h-[198px] relative flex items-center justify-center hover:cursor-pointer`} 
+                 style={{ animationDelay: `${delay}ms` }}>
+                <Image
                 src="/assets/images/header/services-modal/menu-card-bg.png"
                 alt="light grey background"
                 width={245}
@@ -44,14 +52,19 @@ const ServicesMenuCard = ({ title, image, delay }) => {
                 </h1>
             </div>
         </div>
+        </SmoothLink>
     )
 }
 
-const ServicesMenuModal = () => {
+const ServicesMenuModal = ({ servicesMenuRef, handleServiceClick, creativityLink, technologyLink, consultingLink, isHomePage }) => {
     const t = useTranslations();
+    const locale = useLocale();
     return (
-        <div className="absolute top-full overflow-hidden right-0 left-0 animate-in fade-in zoom-in-95 duration-300">
-            <div className="flex items-center justify-center bg-white rounded-[24px] shadow-lg w-auto max-w-fit mx-auto p-6">
+        <div className="desktop-menu-dropdown"
+            ref={servicesMenuRef}
+        >
+            <div className="desktop-menu-dropdown-content">
+                <Link href={`/${locale}/form-contact`}>
                 <div className="group w-[280px] h-[198px] relative flex items-center justify-center animate-in fade-in hover:cursor-pointer">
                     <Image
                         src="/assets/images/header/services-modal/services-contact.png"
@@ -73,9 +86,10 @@ const ServicesMenuModal = () => {
                         />
                     </div>
                 </div>
-                <ServicesMenuCard title={t("landing.creatCardTittle")} image="creativity" delay={100} />
-                <ServicesMenuCard title={t("landing.tecCardTittle")} image="tech" delay={200} />
-                <ServicesMenuCard title={t("landing.consCardTittle")} image="consult" delay={300} />
+                </Link>
+                <ServicesMenuCard title={t("landing.creatCardTittle")} image="creativity" delay={100} handleServiceClick={handleServiceClick} link={creativityLink} isHomePage={isHomePage}/>
+                <ServicesMenuCard title={t("landing.tecCardTittle")} image="tech" delay={200} handleServiceClick={handleServiceClick} link={technologyLink} isHomePage={isHomePage}/>
+                <ServicesMenuCard title={t("landing.consCardTittle")} image="consult" delay={300} handleServiceClick={handleServiceClick} link={consultingLink} isHomePage={isHomePage}/>
             </div>
         </div>
     )
