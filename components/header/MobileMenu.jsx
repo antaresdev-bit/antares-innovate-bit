@@ -3,6 +3,27 @@ import SmoothLink from "./SmoothLink";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { FaBars, FaChevronDown } from "react-icons/fa";
 
+const IndustriesDropdown = ({ locale, toggleMenu, t }) => {
+    return (
+        <div className="w-full flex flex-col items-center bg-[#1A2B6D] rounded-lg shadow-lg mt-2">
+            <Link
+                href={`/${locale}/real-estate`}
+                className="text-white hover:bg-gray-700 w-full text-center"
+                onClick={toggleMenu}
+            >
+                {t("navbar.realEstate")}
+            </Link>
+            <Link
+                href={`/${locale}/marketing`}
+                className="text-white hover:bg-gray-700 w-full text-center"
+                onClick={toggleMenu}
+            >
+                {t("navbar.marketing")}
+            </Link>
+        </div>
+    )
+}
+
 const MobileMenu = (
     {
         MobileButtonRef,
@@ -61,22 +82,7 @@ const MobileMenu = (
                             {t("navbar.industries")} <FaChevronDown className="w-4 h-4" />
                         </button>
                         {isIndustriesOpen && (
-                            <div className="w-full flex flex-col items-center bg-[#1A2B6D] rounded-lg shadow-lg mt-2">
-                                <Link
-                                    href={`/${locale}/real-estate`}
-                                    className="text-white hover:bg-gray-700 w-full text-center"
-                                    onClick={toggleMenu}
-                                >
-                                    {t("navbar.realEstate")}
-                                </Link>
-                                <Link
-                                    href={`/${locale}/marketing`}
-                                    className="text-white hover:bg-gray-700 w-full text-center"
-                                    onClick={toggleMenu}
-                                >
-                                    {t("navbar.marketing")}
-                                </Link>
-                            </div>
+                            <IndustriesDropdown locale={locale} toggleMenu={toggleIndustries} t={t} />
                         )}
                     </div>
                     <Link

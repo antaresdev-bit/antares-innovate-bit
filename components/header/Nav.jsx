@@ -11,6 +11,7 @@ function Nav() {
   const t = useTranslations(); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
   const locale = useLocale();
   const pathname = usePathname();
   const industriesRef = useRef(null);
@@ -18,7 +19,20 @@ function Nav() {
   const MobileButtonRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleIndustries = () => setIsIndustriesOpen(!isIndustriesOpen);
+  const toggleIndustries = () => 
+    {
+      if (isServicesMenuOpen) {
+        setIsServicesMenuOpen(false);
+      }
+      setIsIndustriesOpen(!isIndustriesOpen);
+    };
+  const toggleServices = () => 
+    {
+      if (isIndustriesOpen) {
+        setIsIndustriesOpen(false);
+      } 
+      setIsServicesMenuOpen(!isServicesMenuOpen)
+    };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -40,6 +54,9 @@ function Nav() {
 
   const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
   const servicesLink = isHomePage ? '#our-services' : `/${locale}/#our-services`;
+  const creativityLink = isHomePage ? '#creativity-services' : `/${locale}/#creativity-services`;
+  const technologyLink = isHomePage ? '#technology-services' : `/${locale}/#technology-services`;
+  const consultingLink = isHomePage ? '#consulting-services' : `/${locale}/#consulting-services`;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -86,12 +103,12 @@ function Nav() {
         <DesktopMenu 
           isIndustriesOpen={isIndustriesOpen}
           toggleIndustries={toggleIndustries}
+          toggleServices={toggleServices}
           industriesRef={industriesRef}
           locale={locale}
-          servicesLink={servicesLink}
           isHomePage={isHomePage}
           scrollToElement={scrollToElement}
-          handleServiceClick={handleServiceClick}
+          isServicesMenuOpen={isServicesMenuOpen}
           t={t}
         />
       </nav>

@@ -28,8 +28,8 @@ function Blog() {
   const latestBlogItems = sortedDataBlog.slice(0, 3);
 
   return (
-    <>
-      <div className="mb-[40px] h-[80px] ml-[21px] sm:ml-[21px] md:ml-[49px] lg:ml-[72px] mt-[150px]">
+    <div className="flex flex-col items-center">
+      <div className="mb-[40px] h-[80px] mt-[150px] w-full max-w-[1500px] px-6 md:px-10 lg:px-28 lg:w-[1500px] mr-[21px] md:mr-[49px] lg:mr-[73px]">
         <h1
           className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px]"
           style={{ fontFamily: "HandelGothic" }}
@@ -124,7 +124,7 @@ function Blog() {
           }}
         ></div>
       </div>
-    </>
+    </div>
   );
 }
 

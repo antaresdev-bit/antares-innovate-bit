@@ -8,6 +8,7 @@
     "aboutUs": "Nosotros",
     "blog": "Blog",
     "contact": "Contacto",
+    "contactUs": "Contáctanos",
     "language": "Idioma"
   },
 
@@ -47,7 +48,7 @@
     "categoryPortAll":"Todos",
     "categoryPortCreat":"Creatividad",
     "categoryPortTec":"Tecnologia",
-    "categoryPortConsu":"Consultoria",
+    "categoryPortConsu":"Consultoría",
 
     "descUpardigital":"Revolucionando la educación virtual en Uparsistem",
     "descPaginasWeb":"Innovación y Experiencia de Usuario de Alto Impacto",
