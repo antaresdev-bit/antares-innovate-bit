@@ -25,6 +25,52 @@ const IndustriesDropdown = ({ locale, closeMenus, t }) => {
     )
 }
 
+const ServicesDropdown = ({ t, handleServiceClick, creativityLink, technologyLink, consultingLink, isHomePage, setIsServicesMobileOpen }) => {
+    return (
+        <div className="w-full flex flex-col items-center bg-[#1A2B6D] rounded-lg shadow-lg mt-2">
+            <SmoothLink
+                href={creativityLink}
+                onClick={
+                    (e) => {
+                        handleServiceClick(e, creativityLink.replace('#', ''))
+                        setIsServicesMobileOpen(false)
+                    }
+                }
+                isHomePage={isHomePage}
+                className="text-white hover:bg-gray-700 w-full text-center py-2"
+            >
+                {t("landing.creatCardTittle")}
+            </SmoothLink>
+            <SmoothLink
+                href={technologyLink}
+                className="text-white hover:bg-gray-700 w-full text-center py-2"
+                onClick={
+                    (e) => {
+                        handleServiceClick(e, technologyLink.replace('#', ''))
+                        setIsServicesMobileOpen(false)
+                    }
+                }
+                isHomePage={isHomePage}
+            >
+                {t("landing.tecCardTittle")}
+            </SmoothLink>
+            <SmoothLink
+                href={consultingLink}
+                className="text-white hover:bg-gray-700 w-full text-center py-2"
+                onClick={
+                    (e) => {
+                        handleServiceClick(e, consultingLink.replace('#', ''))
+                        setIsServicesMobileOpen(false)
+                    }
+                }
+                isHomePage={isHomePage}
+            >
+                {t("landing.consCardTittle")}
+            </SmoothLink>
+        </div>
+    )
+}
+
 const MobileMenu = ({
     MobileButtonRef,
     menuRef,
@@ -32,23 +78,39 @@ const MobileMenu = ({
     toggleMenu,
     locale,
     t,
-    servicesLink,
     handleServiceClick,
+    creativityLink,
+    technologyLink,
+    consultingLink,
+    isHomePage,
 }) => {
     // Estado local para el menú de industrias
-    const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
-    const industriesRef = useRef(null);
+    const [isIndustriesMobileOpen, setIsIndustriesMobileOpen] = useState(false);
+    const industriesMobileRef = useRef(null);
+    const [isServicesMobileOpen, setIsServicesMobileOpen] = useState(false);
     
     // Función para alternar el menú de industrias
     const toggleIndustries = (e) => {
         e.stopPropagation();
-        setIsIndustriesOpen(!isIndustriesOpen);
+        if (isServicesMobileOpen) {
+            setIsServicesMobileOpen(false);
+        }
+        setIsIndustriesMobileOpen(!isIndustriesMobileOpen);
+    };
+
+    const toggleServices = (e) => {
+        e.stopPropagation();
+        if (isIndustriesMobileOpen) {
+            setIsIndustriesMobileOpen(false);
+        }
+        setIsServicesMobileOpen(!isServicesMobileOpen);
     };
     
     // Función para cerrar todos los menús
     const closeMenus = () => {
         toggleMenu();
-        setIsIndustriesOpen(false);
+        setIsIndustriesMobileOpen(false);
+        setIsServicesMobileOpen(false);
     };
 
     return (
@@ -70,16 +132,29 @@ const MobileMenu = ({
                     ref={menuRef}
                     className="absolute top-full left-0 w-full bg-[#263B9E] rounded-[24px] shadow-md flex flex-col items-center py-4 mt-2 gap-y-2 lg:hidden z-50"
                 >
-                    <SmoothLink
-                        href={servicesLink}
-                        onClick={(e, id) => {
-                            handleServiceClick(e, id);
-                            // No necesitas cerrar el menú aquí ya que handleServiceClick ya lo hace
-                        }}
-                        className="text-white hover:text-gray-300 py-2"
+                                        <div
+                        className="w-full flex flex-col items-center"
                     >
-                        {t("navbar.services")}
-                    </SmoothLink>
+                        <button
+                            onClick={toggleServices}
+                            className="text-white hover:text-gray-300 flex items-center gap-1 py-2"
+                        >
+                            {t("navbar.services")} <FaChevronDown className="w-4 h-4" />
+                        </button>
+                        {isServicesMobileOpen && (
+                            <ServicesDropdown
+                            closeMenus={closeMenus}
+                            t={t}
+                            handleServiceClick={handleServiceClick}
+                            creativityLink={creativityLink}
+                            technologyLink={technologyLink}
+                            consultingLink={consultingLink}
+                            setIsServicesMobileOpen={setIsServicesMobileOpen}
+                            isHomePage={isHomePage}
+                        />
+                        )}
+                    </div>
+                   
                     <Link
                         href={`/${locale}/portafolio`}
                         className="text-white hover:text-gray-300 py-2"
@@ -89,7 +164,7 @@ const MobileMenu = ({
                     </Link>
                     <div
                         className="w-full flex flex-col items-center"
-                        ref={industriesRef}
+                        ref={industriesMobileRef}
                     >
                         <button
                             onClick={toggleIndustries}
@@ -97,7 +172,7 @@ const MobileMenu = ({
                         >
                             {t("navbar.industries")} <FaChevronDown className="w-4 h-4" />
                         </button>
-                        {isIndustriesOpen && (
+                        {isIndustriesMobileOpen && (
                             <IndustriesDropdown locale={locale} closeMenus={closeMenus} t={t} />
                         )}
                     </div>

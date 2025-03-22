@@ -124,6 +124,9 @@ function Nav() {
           t={t}
           servicesLink={servicesLink}
           handleServiceClick={handleServiceClick}
+          creativityLink={creativityLink}
+          technologyLink={technologyLink}
+          consultingLink={consultingLink}
         />
 
         {/* Menú Desktop */}
