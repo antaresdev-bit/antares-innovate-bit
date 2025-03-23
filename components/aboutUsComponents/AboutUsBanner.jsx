@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const AboutUsBanner = () => {
+  const t = useTranslations("AboutUs");
   return (
     <div
       className="relative w-full h-[457px] bg-gradient-to-r from-[#0046DC] to-[#4D86FF] px-4 sm:px-10"
@@ -26,7 +28,7 @@ const AboutUsBanner = () => {
             className="text-3xl sm:text-5xl font-bold text-white md:text-[46px] lg:text-[65px] mb-[20px] w-[320px] "
             style={{ fontFamily: "HandelGothic" }}
           >
-            Sobre Nosotros
+            {t("AboutUsText1")}
           </h1>
 
           <div className="flex items-center space-x-4">
@@ -47,7 +49,7 @@ const AboutUsBanner = () => {
               className="text-lg sm:text-xl text-white md:text-[25px] lg:text-[30px] w-[300px]"
               style={{ fontFamily: "UniteaSans" }}
             >
-              Transformación Digital Creativa
+              {t("AboutUsText2")}
             </p>
           </div>
         </div>
@@ -57,8 +59,8 @@ const AboutUsBanner = () => {
           <Image
             src="/assets/images/about/logo.png"
             alt="Antares Logo"
-            width={698} 
-            height={146} 
+            width={698}
+            height={146}
             className="object-contain"
             priority
           />

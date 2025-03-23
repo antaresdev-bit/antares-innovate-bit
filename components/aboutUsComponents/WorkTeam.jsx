@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { teamMembers } from "./teamMembers";
+import { useTranslations } from "next-intl";
+import { teamMembers } from "./teamMembers"; 
 
 function WorkTeam() {
+  const t = useTranslations("AboutUs");
   const [selectedMember, setSelectedMember] = useState(null);
 
   const openModal = (member) => {
@@ -37,6 +39,9 @@ function WorkTeam() {
     };
   }, [selectedMember]);
 
+  
+  const members = teamMembers();
+
   return (
     <>
       <div className="flex flex-col gap-4 items-start min-h-[20vh] px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px] mt-[213px] mb-[90px]">
@@ -44,13 +49,13 @@ function WorkTeam() {
           className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px]"
           style={{ fontFamily: "HandelGothic" }}
         >
-          Nuestro <br /> Team
+          {t("AboutUsText7")} <br /> {t("AboutUsText8")}
         </h1>
       </div>
 
       <div className="mx-auto w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
+          {members.map((member, index) => ( 
             <div
               key={index}
               className="flex flex-col items-center text-center mb-[90px] sm:mb-[90px] md:mb-[100px] mb-[143px]"
@@ -85,7 +90,7 @@ function WorkTeam() {
                   className="flex items-center justify-center text-[20px] w-[181px] h-[40px] bg-white text-[#02021E] text-[18px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
                   style={{ fontFamily: "HandelGothic" }}
                 >
-                  <p>Ver Perfil</p>
+                  <p>{t("AboutUsText9")}</p>
                   <div className="ml-[13px]">
                     <Image
                       src="/assets/images/Gif Avion.gif"

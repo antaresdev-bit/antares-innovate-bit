@@ -4,17 +4,19 @@ import TextAbout from "@/components/aboutUsComponents/TextAbout";
 import WorkTeam from "@/components/aboutUsComponents/WorkTeam";
 import Footer from "@/components/header/Footer";
 import OurWork from "@/components/header/OurWork";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 function AboutPage() {
+  const t = useTranslations("AboutUs");
   return (
     <>
       <div className="relative">
         <AboutUsBanner />
 
         <ConditionalTextAbout
-          title="Sobre Nosotros"
-          subtitle="Arquitectos Expertos en Innovación"
+          title={t("AboutUsText1")}
+          subtitle={t("AboutUsText2")}
           gradient="linear-gradient(to right, #4D86FF, #FFFFFF)"
         />
 

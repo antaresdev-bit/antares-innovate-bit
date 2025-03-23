@@ -355,5 +355,37 @@
     "webpageText10":"Integración de elementos 3D y animaciones fluidas",
     "webpageText11":"Optimización para velocidad, SEO y accesibilidad",
     "webpageText12":"Cada proyecto es desarrollado con herramientas de vanguardia y metodologías ágiles, asegurando que la web de nuestros clientes no solo luzca increíble, sino que también convierta y posicione. Nos especializamos en la construcción de plataformas digitales que potencian la identidad de marca y maximizan la presencia online."
+  },
+  "AboutUs":{
+    "AboutUsText1":"Sobre Nosotros",
+    "AboutUsText2":"Transformación Digital Creativa",
+    "AboutUsText3":"Conócenos",
+    "AboutUsText4":"En Antares, somos una agencia de transformación digital creativa dedicada a revolucionar el futuro de las empresas.",
+    "AboutUsText5":"Integramos inteligencia artificial, automatización y creatividad avanzada para convertir negocios tradicionales en marcas de alto impacto. Diseñamos ecosistemas digitales inteligentes y escalables, donde cada interacción se convierte en una oportunidad de conversión y cada cliente en un embajador de la marca.",
+    "AboutUsText6":"Nos enfocamos en potenciar la presencia, conversión y fidelización de las empresas con soluciones innovadoras, redefiniendo su futuro digital y posicionándolas como referentes en su industria.",
+    "AboutUsText7":"Nuestro",
+    "AboutUsText8":"Team",
+    "AboutUsText9":"Ver Perfil",
+
+    "WilliamPerfil":"Impulsa la transformación digital y escalabilidad empresarial a través de IA, automatización y estrategias digitales de alto impacto. Ha liderado la evolución de compañías en consumo masivo, bebidas, farmacéutico y tecnología, potenciando su crecimiento con innovación basada en datos, Con una trayectoria en Grupo Ardila Lule, Postobón y mercados de EE.UU., Brasil y Asia, ha optimizado modelos de negocio y diseñado estrategias de expansión global. Su enfoque en inteligencia de datos y metodologías ágiles lo posiciona como un referente en la evolución digital de marcas líderes.",
+    "WilliamRole":"CEO de Antares | Estratega en IA y Crecimiento Digital",
+
+    "MichellePerfil":"Innovadora en desarrollo web y mobile, Michelle domina el stack completo para crear aplicaciones escalables y disruptivas. Su experiencia en el sector educativo la posiciona como una líder en soluciones tecnológicas de alto impacto.",
+    "MichelleRole":"Arquitecta de Software y Experta Full Stack",
+
+    "LuisPerfil":"Ingeniero de innovación, Luis Fernando crea soluciones full stack de alto rendimiento, fusionando código, UX y automatización inteligente. Su enfoque en desarrollo ágil y optimización lo posiciona como un líder en la evolución digital.",
+    "LuisRole":"Fullstack y Visionario en Experiencias Digitales",
+
+    "AndresPerfil":"Experto en desarrollo web y mobile,  domina el stack completo para crear aplicaciones modernas, escalables y de alto rendimiento. Su enfoque en la arquitectura de software y experiencia en tecnologías de vanguardia le permiten diseñar soluciones innovadoras que transforman la experiencia digital. Con una visión estratégica y habilidades técnicas sólidas, lidera proyectos que impulsan la evolución tecnológica en diversos sectores.",
+    "AndresRole":"Arquitecto de Software y Experto Full Stack",
+
+    "SorangyPerfil":"Visionaria del marketing digital, Sorangy fusiona creatividad y tecnología para diseñar estrategias innovadoras impulsadas por IA. Especialista en growth marketing, personalización a escala y analítica avanzada, potencia marcas con soluciones disruptivas que generan impacto y conversión.",
+    "SorangyRole":"Search Marketing Specialist",
+
+    "YamilePerfil":"Líder en gestión de proyectos y arquitectura,  destaca en el sector inmobiliario por su capacidad para diseñar, planificar y ejecutar desarrollos innovadores. Con una visión estratégica y un enfoque en eficiencia, coordina equipos multidisciplinarios para materializar proyectos que transforman el entorno urbano.",
+    "YamileRole":"Project Manager Arquitecta",
+
+    "DanielPerfil":"Arquitecto de ideas disruptivas, Daniel fusiona creatividad y tecnología para diseñar estrategias de marketing impulsadas por IA. Maestro en storytelling y automatización, convierte marcas en experiencias memorables, escalando negocios con innovación y data inteligente.",
+    "DanielRole":"Creative Designer" 
   }
 }
