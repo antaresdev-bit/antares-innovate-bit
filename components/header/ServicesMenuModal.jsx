@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import SmoothLink from "./SmoothLink";
 import { useLocale } from "next-intl";
+import { useState, useEffect } from "react";
 
 const AnimatedArrow = () => {
     return (
@@ -56,14 +57,43 @@ const ServicesMenuCard = ({ title, image, delay, handleServiceClick, link, isHom
     )
 }
 
-const ServicesMenuModal = ({ servicesMenuRef, handleServiceClick, creativityLink, technologyLink, consultingLink, isHomePage }) => {
+const ServicesMenuModal = ({ 
+    servicesMenuRef, 
+    handleServiceClick, 
+    creativityLink, 
+    technologyLink, 
+    consultingLink, 
+    isHomePage,
+    isOpen,
+    onAnimationComplete
+}) => {
     const t = useTranslations();
     const locale = useLocale();
+    
+    const [isAnimating, setIsAnimating] = useState(true);
+    
+    useEffect(() => {
+        if (isOpen) {
+            setIsAnimating(true);
+        } else {
+            const timer = setTimeout(() => {
+                setIsAnimating(false);
+                if (onAnimationComplete) onAnimationComplete();
+            }, 300);
+            
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen, onAnimationComplete]);
+    
+    if (!isOpen && !isAnimating) return null;
+    
     return (
-        <div className="desktop-menu-dropdown"
-            ref={servicesMenuRef}
+        <div className={`desktop-menu-dropdown transition-all duration-300 ease-in-out
+                        ${isOpen ? 'opacity-100 transform scale-y-100' : 'opacity-0 transform scale-y-0'}`}
         >
-            <div className="desktop-menu-dropdown-content">
+            <div className={`desktop-menu-dropdown-content transition-all duration-300 ease-in-out
+                           ${isOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-4'}`}
+                           ref={servicesMenuRef}>
                 <Link href={`/${locale}/form-contact`}>
                 <div className="group w-[280px] h-[198px] relative flex items-center justify-center animate-in fade-in hover:cursor-pointer">
                     <Image
@@ -87,9 +117,9 @@ const ServicesMenuModal = ({ servicesMenuRef, handleServiceClick, creativityLink
                     </div>
                 </div>
                 </Link>
-                <ServicesMenuCard title={t("landing.creatCardTittle")} image="creativity" delay={100} handleServiceClick={handleServiceClick} link={creativityLink} isHomePage={isHomePage}/>
-                <ServicesMenuCard title={t("landing.tecCardTittle")} image="tech" delay={200} handleServiceClick={handleServiceClick} link={technologyLink} isHomePage={isHomePage}/>
-                <ServicesMenuCard title={t("landing.consCardTittle")} image="consult" delay={300} handleServiceClick={handleServiceClick} link={consultingLink} isHomePage={isHomePage}/>
+                <ServicesMenuCard title={t("landing.creatCardTittle")} image="creativity" delay={isOpen ? 100 : 0} handleServiceClick={handleServiceClick} link={creativityLink} isHomePage={isHomePage}/>
+                <ServicesMenuCard title={t("landing.tecCardTittle")} image="tech" delay={isOpen ? 200 : 0} handleServiceClick={handleServiceClick} link={technologyLink} isHomePage={isHomePage}/>
+                <ServicesMenuCard title={t("landing.consCardTittle")} image="consult" delay={isOpen ? 300 : 0} handleServiceClick={handleServiceClick} link={consultingLink} isHomePage={isHomePage}/>
             </div>
         </div>
     )

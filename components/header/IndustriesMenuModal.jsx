@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -18,7 +19,7 @@ const AnimatedArrow = () => {
     )
 }
 
-const IndustriesMenuCard = ({ title, image, delay, link, bgImage, setIsIndustriesOpen, lineColor }) => {
+const IndustriesMenuCard = ({ title, image, delay, link, bgImage, setIsIndustriesOpen, lineColor, isOpen }) => {
     return (
         <Link
             href={link} 
@@ -27,7 +28,7 @@ const IndustriesMenuCard = ({ title, image, delay, link, bgImage, setIsIndustrie
             }}
         >
             <div className={`group w-[450px] h-[198px] relative flex items-center justify-center hover:cursor-pointer`} 
-                 style={{ animationDelay: `${delay}ms` }}>
+                 style={{ animationDelay: `${isOpen ? delay : 0}ms` }}>
                 <Image
                 src={`/assets/images/header/industries-modal/${bgImage}.png`}
                 alt="colourful image background with an astronaut"
@@ -46,7 +47,7 @@ const IndustriesMenuCard = ({ title, image, delay, link, bgImage, setIsIndustrie
                     />
                     <AnimatedArrow />
                 </div>
-                <div className={`w-[150px] h-[1px] bg-[${lineColor}]`} />
+                <div className="w-[150px] h-[1px]" style={{ backgroundColor: lineColor }} />
 
                 <h1 className="text-[#02021E] text-[25px] group-hover:translate-x-2 transition-transform duration-300">
                     {title}
@@ -57,16 +58,38 @@ const IndustriesMenuCard = ({ title, image, delay, link, bgImage, setIsIndustrie
     )
 }
 
-const IndustriesMenuModal = ({ industriesRef, setIsIndustriesOpen}) => {
+const IndustriesMenuModal = ({ industriesRef, setIsIndustriesOpen, isOpen = true }) => {
     const t = useTranslations();
     const locale = useLocale();
+    
     return (
-        <div className="desktop-menu-dropdown"
-            ref={industriesRef}
+        <div className={`desktop-menu-dropdown transition-all duration-300 ease-in-out
+                       ${isOpen ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-95 pointer-events-none'}`}
+
         >
-            <div className="desktop-menu-dropdown-content">
-                <IndustriesMenuCard title={t("navbar.realEstate")} image="real-state" bgImage="real-state-bg" lineColor="white" delay={100}  link={`/${locale}/real-estate`} setIsIndustriesOpen={setIsIndustriesOpen}/>
-                <IndustriesMenuCard title={t("navbar.marketing")} image="marketing" bgImage="marketing-bg" lineColor="#173E9B" delay={200} link={`/${locale}/marketing`} setIsIndustriesOpen={setIsIndustriesOpen}/>
+            <div className={`desktop-menu-dropdown-content transition-all duration-300 ease-in-out
+                          ${isOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-4'}`}
+                          ref={industriesRef}>
+                <IndustriesMenuCard 
+                    title={t("navbar.realEstate")} 
+                    image="real-state" 
+                    bgImage="real-state-bg" 
+                    lineColor="white" 
+                    delay={100}  
+                    link={`/${locale}/real-estate`} 
+                    setIsIndustriesOpen={setIsIndustriesOpen}
+                    isOpen={isOpen}
+                />
+                <IndustriesMenuCard 
+                    title={t("navbar.marketing")} 
+                    image="marketing" 
+                    bgImage="marketing-bg" 
+                    lineColor="#173E9B" 
+                    delay={200} 
+                    link={`/${locale}/marketing`} 
+                    setIsIndustriesOpen={setIsIndustriesOpen}
+                    isOpen={isOpen}
+                />
             </div>
         </div>
     )
