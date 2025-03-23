@@ -1,22 +1,22 @@
 import Footer from "@/components/header/Footer";
 import OurWork from "@/components/header/OurWork";
-
 import React from "react";
 import BannerTest from "@/components/subPages/BannerSubPages";
 import ConditionalText from "@/components/subPages/ConditionalTextResponsive";
 import TextSubPages from "@/components/subPages/TextSubPages";
-import ProcessText from "@/components/subPages/ProcessText";
 import GridImageSectionOne from "@/components/webPageComponents/GridImageSectionOne";
 import GridImageSectionTwo from "@/components/webPageComponents/GridImageSectionTwo";
 import ProcessTextWeb from "@/components/webPageComponents/ProcessTextWeb";
+import { useTranslations } from "next-intl";
 
 function DesarrolloWebPage() {
+  const t = useTranslations("webpageSubpage");
   return (
     <div className="relative">
       <div>
         <BannerTest
           videoUrl="https://storage.googleapis.com/antares-agency-rcs/Paginas%20web%20Preview.mp4"
-          title="Diseño y Desarrollo Web"
+          title={t("webpageText1")}
           subtitle="Innovación y Experiencia de Usuario de Alto Impacto"
           textPosition="left"
           ColorText="linear-gradient(to right, #63B6DF, #FFFFFF)"
@@ -37,16 +37,16 @@ function DesarrolloWebPage() {
         {/* degrade */}
 
         <ConditionalText
-          title="Diseño y Desarrollo Web"
-          subtitle="Innovación y Experiencia de Usuario de Alto Impacto"
+          title={t("webpageText1")}
+          subtitle={t("webpageText2")}
           gradient="linear-gradient(to right, #63B6DF, #FFFFFF)"
         />
 
         <div className=" mt-[113px] sm:mt-[113px] md:mt-[119px] lg:mt-[152px] mb-[113px] sm:mb-[111px] md:mb-[111px] lg:mb-[154px]  ">
           <TextSubPages
-            title="Diseño, Tecnología e Interactividad para una Experiencia Inolvidable"
-            subtitle="UI UX | Responsive | 3D | SEO y SEM"
-            paragraph="En Antares, creamos páginas web innovadoras y completamente responsivas, diseñadas para ofrecer la mejor experiencia de usuario (UI/UX) y alineadas con las tendencias digitales más actuales. Nuestro enfoque combina tecnología, creatividad e interactividad, logrando productos digitales modernos, atractivos y funcionales"
+            title={t("webpageText3")}
+            subtitle={t("webpageText4")}
+            paragraph={t("webpageText5")}
           />
         </div>
 

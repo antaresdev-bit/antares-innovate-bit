@@ -333,5 +333,19 @@
     "B2FintechText5":"We implemented a React architecture using useState and useEffect to dynamically update the retrieved data every 40 seconds.",
     "B2FintechText6":"The interface, designed with Tailwind CSS, is fully responsive and organizes information into categories such as popular cryptocurrencies, top price increases, and newly added assets.",
     "B2FintechText7":"Optimized API integration ensures fast response times, while subtle animations enhance the real-time update experience. This project showcases our ability to develop fintech solutions with live data and an optimized user experience." 
+  },
+  "webpageSubpage":{
+    "webpageText1":"Web Design & Development",
+    "webpageText2":"High-Impact Innovation & User Experience",
+    "webpageText3":"Design, Technology & Interactivity for an Unforgettable Experience",
+    "webpageText4":"I/UX | Responsive | 3D | SEO & SEM",
+    "webpageText5":"At Antares, we create innovative and fully responsive websites, designed to deliver the best user experience (UI/UX) while staying aligned with the latest digital trends. Our approach merges technology, creativity, and interactivity, resulting in modern, engaging, and highly functional digital products.",
+    "webpageText6":"What Makes Our Websites Unique?",
+    "webpageText7":"User-centered UI/UX design",
+    "webpageText8":"Responsive & Adaptive Structures - Seamlessly optimized for all devices.",
+    "webpageText9":"Advanced Interactivity & Dynamic Experiences - Engaging and intuitive interactions.",
+    "webpageText10":"3D Elements & Smooth Animations - Immersive visuals for a next-level experience.",
+    "webpageText11":"Speed, SEO & Accessibility Optimization - Enhanced performance and visibility.",
+    "webpageText12":"Each project is developed using cutting-edge tools and agile methodologies, ensuring that our clients' websites not only look amazing but also convert and rank effectively. We specialize in building digital platforms that enhance brand identity and maximize online presence."
   }
 }
