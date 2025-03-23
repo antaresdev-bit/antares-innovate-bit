@@ -247,6 +247,10 @@
     "marketingText32": "Optimizamos la toma de decisiones empresariales a través de Índices de Gestión Avanzados, diseñados para medir, analizar y mejorar el rendimiento en tiempo real." 
   },
 
+  "textSubpages": {
+    "SubpagesText1":"Proceso" 
+  },
+
   "monsterSubpage": {
     "monsterText1":"Desatando la Bestia: Estrategia y Diseño para una Presencia Imponente",
     "monsterText2":"Presencia de Marca | Activaciones | Eventos | Stands",
@@ -319,5 +323,14 @@
     "wersusText5":"Desde Antares, hemos abordado este proyecto desde nuestra especialidad: consultoría, tecnología y creatividad, asegurando un enfoque estratégico e innovador.",
     "wersusText6":"Este ecosistema está diseñado para optimizar procesos, mejorar la eficiencia operativa y facilitar herramientas que beneficien tanto a los conductores como a la industria en general. Con un diseño intuitivo y accesible, Wersus está en camino de convertirse en un referente dentro del sector.",
     "wersusText7":"Seguimos en desarrollo, evolucionando y perfeccionando cada aspecto del proyecto para garantizar su impacto y funcionalidad en el mercado."
+  },
+  "uparsistemSubpage":{
+    "uparsistemText1":"Consolidando su Identidad Universitaria",
+    "uparsistemText2":"Forjando una Nueva Imagen para el Desarrollo Académico",
+    "uparsistemText3":"Branding | Brand Book",
+    "uparsistemText4":"Uparsistem avanza en su proceso de formalización como institución universitaria, y para ello desarrollamos una estrategia de branding integral que refuerza su identidad y su presencia en el sector educativo.",
+    "uparsistemText5":"Diseñamos un manual de marca detallado, definiendo lineamientos de identidad visual que garantizan coherencia y solidez en cada una de sus aplicaciones.",
+    "uparsistemText6":"Este proceso incluyó un rediseño completo de la imagen institucional, con una identidad gráfica moderna y alineada con la visión de la institución. Se trabajó en la conceptualización visual para reflejar innovación, dinamismo y accesibilidad, asegurando que la marca transmita confianza y solidez en su evolución como universidad.",
+    "uparsistemText7":"Además, se implementaron aplicaciones digitales y materiales gráficos que fortalecen la comunicación visual, consolidando la marca en el entorno educativo y preparando el camino para su reconocimiento oficial."
   }
 }

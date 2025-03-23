@@ -240,6 +240,9 @@
     "marketingText31": "We design Advanced Management Indicators for decision-making.",
     "marketingText32": "We optimize business decision-making through Advanced Management Indicators, designed to measure, analyze, and enhance performance in real-time." 
   },
+  "textSubpages": {
+    "SubpagesText1":"Process" 
+  },
   "monsterSubpage": {
     "monsterText1":"Unleashing the Beast: Strategy & Design for a Powerful Presence",
     "monsterText2":"Brand Presence | Activations | Events | Stands",
@@ -312,5 +315,14 @@
     "wersusText5":"At Antares, we have approached this project through our expertise in consulting, technology, and creativity, ensuring a strategic and innovative focus.",
     "wersusText6":"This ecosystem is designed to optimize processes, enhance operational efficiency, and provide tools that benefit both drivers and the industry as a whole. With an intuitive and accessible design, Wersus is on track to become a benchmark in the sector.",
     "wersusText7":"We are continuously evolving and refining every aspect of the project to ensure its impact and functionality in the market."
+  },
+  "uparsistemSubpage":{
+    "uparsistemText1":"Strengthening Its University Identity",
+    "uparsistemText2":"Shaping a New Image for Academic Development",
+    "uparsistemText3":"Branding | Brand Book",
+    "uparsistemText4":"Uparsistem is advancing in its formalization process as a university, and to support this transition, we developed a comprehensive branding strategy that strengthens its identity and presence in the education sector.",
+    "uparsistemText5":"We designed a detailed brand manual, establishing visual identity guidelines to ensure coherence and strength across all applications.",
+    "uparsistemText6":"This process included a complete institutional rebranding, featuring a modern graphic identity aligned with the institution’s vision. The visual concept was crafted to reflect innovation, dynamism, and accessibility, ensuring that the brand conveys trust and solidity as it evolves into a university.",
+    "uparsistemText7":"Additionally, digital applications and graphic materials were implemented to enhance visual communication, strengthening the brand within the educational sector and paving the way for its official recognition."
   }
 }

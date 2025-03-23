@@ -6,16 +6,18 @@ import GridImageVideo from "@/components/subPages/GridImageVideo";
 import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import GridLUparsistemGrid from "@/components/uparsistemComponents/GridLUparsistemGrid";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 function UparsistemPage() {
+  const t = useTranslations("uparsistemSubpage");
   return (
     <div className="relative">
       <div>
         <BannerTest
           videoUrl="https://storage.googleapis.com/antares-agency-rcs/Uparsistem%20Banner.mp4"
           title="Uparsistem"
-          subtitle="Consolidando su Identidad Universitaria"
+          subtitle={t("uparsistemText1")}
           textPosition="left"
           ColorText="linear-gradient(to right, #2A47A5, #FFFFFF)"
         />
@@ -36,15 +38,15 @@ function UparsistemPage() {
 
         <ConditionalText
           title="Uparsistem"
-          subtitle="Consolidando su Identidad Universitaria"
+          subtitle={t("uparsistemText1")}
           gradient="linear-gradient(to right, #2A47A5, #FFFFFF)"
         />
 
         <div className=" mt-[113px] sm:mt-[113px] md:mt-[119px] lg:mt-[152px] mb-[113px] sm:mb-[111px] md:mb-[111px] lg:mb-[154px]  ">
           <TextSubPages
-            title="Forjando una Nueva Imagen para el Desarrollo Académico"
-            subtitle="Branding | Brand Book"
-            paragraph="Uparsistem avanza en su proceso de formalización como institución universitaria, y para ello desarrollamos una estrategia de branding integral que refuerza su identidad y su presencia en el sector educativo."
+            title={t("uparsistemText2")}
+            subtitle={t("uparsistemText3")}
+            paragraph={t("uparsistemText4")}
           />
         </div>
 
@@ -56,20 +58,20 @@ function UparsistemPage() {
               alt: "Uparsistem",
             },
             left: {
-                type: "image",
-                src: "/assets/images/upairsistem/2.jpg",
-                alt: "Uparsistem",
+              type: "image",
+              src: "/assets/images/upairsistem/2.jpg",
+              alt: "Uparsistem",
             },
             right: {
-                type: "image",
-                src: "/assets/images/upairsistem/3.jpg",
-                alt: "Uparsistem",
+              type: "image",
+              src: "/assets/images/upairsistem/3.jpg",
+              alt: "Uparsistem",
             },
 
             bottom: {
-                type: "image",
-                src: "/assets/images/upairsistem/4.jpg",
-                alt: "Uparsistem",
+              type: "image",
+              src: "/assets/images/upairsistem/4.jpg",
+              alt: "Uparsistem",
             },
           }}
         />
@@ -77,9 +79,9 @@ function UparsistemPage() {
         <div className="mt-[108px] sm:mt-[108px] md:mt-[111px] lg:mt-[156px] mb-[100px] sm:mb-[100px] md:mb-[106px] lg:mb-[155px]  ">
           <ProcessText
             paragraphs={[
-              "Diseñamos un manual de marca detallado, definiendo lineamientos de identidad visual que garantizan coherencia y solidez en cada una de sus aplicaciones.",
-              "Este proceso incluyó un rediseño completo de la imagen institucional, con una identidad gráfica moderna y alineada con la visión de la institución. Se trabajó en la conceptualización visual para reflejar innovación, dinamismo y accesibilidad, asegurando que la marca transmita confianza y solidez en su evolución como universidad.",
-              "Además, se implementaron aplicaciones digitales y materiales gráficos que fortalecen la comunicación visual, consolidando la marca en el entorno educativo y preparando el camino para su reconocimiento oficial.",
+              t("uparsistemText5"),
+              t("uparsistemText6"),
+              t("uparsistemText7"),
             ]}
           />
         </div>
