@@ -6,8 +6,7 @@ import { useLocale } from "next-intl";
 import { useResponsive } from "../../hooks/useResponsive";
 import { useTranslations } from "next-intl";
 
-const WideVideoSection = ({ src }) => {
-  const { isMobile } = useResponsive();
+const WideVideoSection = ({ src, isMobile }) => {
   
   const getMobileVideoPath = (originalSrc) => {
     if (originalSrc.includes('wersuspreview')) {
@@ -41,6 +40,7 @@ const WideVideoSection = ({ src }) => {
 const OurWork = () => {
   const locale = useLocale();
   const t = useTranslations("portafolio");
+  const { isMobile } = useResponsive();
 
   const workItems = [
     {
@@ -48,7 +48,7 @@ const OurWork = () => {
       description: <div>{t("descUpardigital")}</div>,
       video: (
         <Link href={`/${locale}/upardigital`}>
-          <WideVideoSection src="/assets/videos/uparpreview.mp4" />
+          <WideVideoSection src="/assets/videos/uparpreview.mp4" isMobile={isMobile} />
         </Link>
       ),
     },
@@ -57,7 +57,7 @@ const OurWork = () => {
       description: '"I am the Beast"',
       video: (
         <Link href={`/${locale}/monster-energy`}>
-          <WideVideoSection src="/assets/videos/monsterpreview.mp4" />
+          <WideVideoSection src="/assets/videos/monsterpreview.mp4" isMobile={isMobile} />
         </Link>
       ),
     },
@@ -66,7 +66,7 @@ const OurWork = () => {
       description: <div>{t("descPaginasWeb")}</div>,
       video: (
         <Link href={`/${locale}/web-page`}>
-          <WideVideoSection src="/assets/videos/webpagespreview.mp4" />
+          <WideVideoSection src="/assets/videos/webpagespreview.mp4" isMobile={isMobile} />
         </Link>
       ),
     },
@@ -75,7 +75,7 @@ const OurWork = () => {
       description: <div>{t("descWersus")}</div>,
       video: (
         <Link href={`/${locale}/wersus`}>
-          <WideVideoSection src="/assets/videos/wersuspreview_mobile.webm" />
+          <WideVideoSection src="/assets/videos/wersuspreview_mobile.webm" isMobile={isMobile} />
         </Link>
       ),
     },
@@ -83,7 +83,9 @@ const OurWork = () => {
 
   return (
     <div className="relative bg-opacity-70">
-      <div className="max-w-[1500px] mx-auto">
+      <div className="max-w-[1500px] mx-auto"
+      data-aos="fade-up"
+      >
         <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1500px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[8px] ">
           <h1
             className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
@@ -125,7 +127,10 @@ const OurWork = () => {
           ))}
         </div>
         {/* Boton */}
-        <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
+        <div className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]"
+        data-aos={`${!isMobile && "fade-up"}`}
+        data-aos-delay={!isMobile && "50"}
+        >
           <div className="flex justify-center mb-[160px] w-full">
             <div className="flex items-center justify-center w-full sm:w-auto">
               <Image

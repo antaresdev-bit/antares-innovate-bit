@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import LayoutComponents from "@/components/layout/LayoutComponents";
+import AOSLayout from "@/components/layout/AOSLayout";
 import en from "@/messages/en.json";
 import es from "@/messages/es.json";
 
@@ -12,7 +12,6 @@ export const metadata = {
   description:
     "Antares Innovate es una empresa que se dedica a la transformación digital.",
 };
-
 
 const messages = { en, es };
 
@@ -39,8 +38,9 @@ export default function RootLayout({ children, params }) {
       </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages[locale]}>
-          <LayoutComponents />
-          {children}
+          <AOSLayout>
+            {children}
+          </AOSLayout>
         </NextIntlClientProvider>
       </body>
     </html>

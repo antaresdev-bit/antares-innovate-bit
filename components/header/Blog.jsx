@@ -3,12 +3,13 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import { DataBlog } from "../blogComponents/DataBlog";
 import { useTranslations } from "next-intl";
+import { useResponsive } from "@/hooks/useResponsive";
 
 function Blog() {
   const locale = useLocale();
   const t = useTranslations("blog");
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-
+  const isMobile = useResponsive();
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,12 +34,15 @@ function Blog() {
         <h1
           className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px]"
           style={{ fontFamily: "HandelGothic" }}
+          data-aos="fade-left"
         >
           Blog
         </h1>
       </div>
 
-      <div className="mx-[7px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]">
+      <div className="mx-[7px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]"
+      data-aos={`fade-${isMobile ? "up" : "left"}`}
+      >
         <div className="w-full max-w-[1299px] mx-auto sm:bg-white bg-transparent rounded-[48px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] mt-[px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[25px] sm:gap-[25px] md:gap-[15px] lg:gap-[29px]">
             {latestBlogItems.map((item, index) => {
@@ -103,6 +107,7 @@ function Blog() {
           <p
             className="leading-[35px] sm:leading-[31px] md:leading-[40px] lg:leading-[50px] text-[32px] sm:text-[32px] md:text-[40px] lg:text-[45px] font-bold max-w-[933px] mx-auto text-left bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] text-transparent bg-clip-text leading-tight md:leading-[43px]"
             style={{ fontFamily: "HandelGothic" }}
+            data-aos="fade-left"
           >
             {t("footerBlogInfo")}
           </p>
@@ -111,6 +116,7 @@ function Blog() {
               type="email"
               placeholder={t("placeHolderBlog")}
               className="w-full max-w-[933px] h-[48px] rounded-[32px] px-4 text-gray-700"
+              data-aos="fade-up"
             />
           </div>
         </div>

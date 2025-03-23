@@ -132,7 +132,7 @@ export default function Home() {
     <>
       <LayoutComponents />
       {isVideoLoading && <LoadingScreen />}
-      <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c]">
+      <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c] animate-in fade-in">
         <div ref={sceneContainerRef} className="w-full h-full">
           {showScene ? (
             <OptimisedScene />
@@ -145,10 +145,10 @@ export default function Home() {
           )}
         </div>
 
-        <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%]">
+        <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%] animate-in fade-in">
           <div className="flex justify-center">
             {" "}
-            <Certificates />
+            <Certificates/>
           </div>
         </div>
       </div>
@@ -164,8 +164,8 @@ export default function Home() {
               left: "0%",
               transform: "translateX(-50%) translateY(5%)",
               zIndex: -1,
-            }}
-          ></div>
+            }}            
+          />
           <TextIntroduction />
         </div>
       </div>
@@ -176,6 +176,8 @@ export default function Home() {
           borderBottomLeftRadius: "48px",
           borderBottomRightRadius: "48px",
         }}
+        data-aos="fade-up"
+        data-aos-delay="300"
       >
         <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[50px]  lg:mt-[50px] w-full">
           <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
@@ -198,29 +200,31 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative bg-opacity-70" id="our-services">
+      <div className="relative bg-opacity-70" id="our-services"
+      >
         <div className="max-w-[1500px] mx-auto">
           <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[30px]">
             <h1
               className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
               style={{ fontFamily: "HandelGothic" }}
+              data-aos="fade-left"
             >
               {t("serviceText1")} <br /> {t("serviceText2")}
             </h1>
           </div>
 
-          <div id="creativity-services">
+          <div id="creativity-services" data-aos="fade-left">
             <CreativityCard />
           </div>
-          <div id="technology-services">
+          <div id="technology-services" data-aos="fade-right">
             <TechnologyCard />
           </div>
-          <div id="consulting-services">
+          <div id="consulting-services" data-aos="fade-left">
             <ConsultingPage />
           </div>
         </div>
       </div>
-      <OurWork />
+      <OurWork/>
       <Statistics />
       <Blog />
 
