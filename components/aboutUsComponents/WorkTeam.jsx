@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { teamMembers } from "./teamMembers"; 
+import { teamMembers } from "./teamMembers";
 
 function WorkTeam() {
   const t = useTranslations("AboutUs");
@@ -39,7 +39,6 @@ function WorkTeam() {
     };
   }, [selectedMember]);
 
-  
   const members = teamMembers();
 
   return (
@@ -55,7 +54,7 @@ function WorkTeam() {
 
       <div className="mx-auto w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {members.map((member, index) => ( 
+          {members.map((member, index) => (
             <div
               key={index}
               className="flex flex-col items-center text-center mb-[90px] sm:mb-[90px] md:mb-[100px] mb-[143px]"
@@ -84,10 +83,10 @@ function WorkTeam() {
                 </p>
               </div>
 
-              <div className="mt-[20px]">
+              <div className="flex items-center mt-10">
                 <button
                   onClick={() => openModal(member)}
-                  className="flex items-center justify-center text-[20px] w-[181px] h-[40px] bg-white text-[#02021E] text-[18px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
+                  className="flex items-center justify-center text-[20px] w-full sm:w-[181px] h-[40px] bg-white text-[#02021E] text-[18px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold"
                   style={{ fontFamily: "HandelGothic" }}
                 >
                   <p>{t("AboutUsText9")}</p>
