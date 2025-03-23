@@ -6,16 +6,18 @@ import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import GridOneWersus from "@/components/wersusComponents/GridOneWersus";
 import GridTwoWersus from "@/components/wersusComponents/GridTwoWersus";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 function WersusPage() {
+  const t = useTranslations("wersusSubpage");
   return (
     <div className="relative">
       <div>
         <BannerTest
           videoUrl="https://storage.googleapis.com/antares-agency-rcs/Wersus%20preview.mp4"
           title="Wersus"
-          subtitle="Innovación en logística de transporte"
+          subtitle={t("wersusText1")}
           textPosition="left"
           ColorText="linear-gradient(to right, #2A47A5, #FFFFFF)"
         />
@@ -36,15 +38,15 @@ function WersusPage() {
 
         <ConditionalText
           title="Wersus"
-          subtitle="Innovación en logística de transporte"
+          subtitle={t("wersusText1")}
           gradient="linear-gradient(to right, #2A47A5, #FFFFFF)"
         />
 
         <div className=" mt-[113px] sm:mt-[113px] md:mt-[119px] lg:mt-[152px] mb-[113px] sm:mb-[111px] md:mb-[111px] lg:mb-[154px]  ">
           <TextSubPages
-            title="Transformando la Logística con Tecnología Centrada en el Conductor"
-            subtitle="UI UX | APP Development | Geolocalización | Monitoreo |  Branding"
-            paragraph="Wersus es un ecosistema digital en desarrollo que busca transformar la industria del transporte en Estados Unidos, poniendo al conductor en el centro de la experiencia."
+            title={t("wersusText2")}
+            subtitle={t("wersusText3")}
+            paragraph={t("wersusText4")}
           />
         </div>
 
@@ -52,11 +54,7 @@ function WersusPage() {
 
         <div className="mt-[108px] sm:mt-[108px] md:mt-[111px] lg:mt-[156px] mb-[100px] sm:mb-[100px] md:mb-[106px] lg:mb-[155px]  ">
           <ProcessText
-            paragraphs={[
-              "Desde Antares, hemos abordado este proyecto desde nuestra especialidad: consultoría, tecnología y creatividad, asegurando un enfoque estratégico e innovador.",
-              "Este ecosistema está diseñado para optimizar procesos, mejorar la eficiencia operativa y facilitar herramientas que beneficien tanto a los conductores como a la industria en general. Con un diseño intuitivo y accesible, Wersus está en camino de convertirse en un referente dentro del sector.",
-              "Seguimos en desarrollo, evolucionando y perfeccionando cada aspecto del proyecto para garantizar su impacto y funcionalidad en el mercado.",
-            ]}
+            paragraphs={[t("wersusText5"), t("wersusText6"), t("wersusText7")]}
           />
         </div>
 
