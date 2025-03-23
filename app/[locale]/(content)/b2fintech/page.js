@@ -6,16 +6,18 @@ import BannerTest from "@/components/subPages/BannerSubPages";
 import ConditionalText from "@/components/subPages/ConditionalTextResponsive";
 import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 function B2fintechPage() {
+  const t = useTranslations("B2FintechSubpage");
   return (
     <div className="relative">
       <div>
         <BannerTest
           videoUrl="https://storage.googleapis.com/antares-agency-rcs/B2fintech%20mockup%20video.mp4"
           title="B2Fintech"
-          subtitle="Conectando con el Mercado Global de Criptomonedas"
+          subtitle={t("B2FintechText1")}
           textPosition="left"
           ColorText="linear-gradient(to right, #3C2AA5, #FFFFFF)"
         />
@@ -36,27 +38,26 @@ function B2fintechPage() {
 
         <ConditionalText
           title="B2Fintech"
-          subtitle="Conectando con el Mercado Global de Criptomonedas"
+          subtitle={t("B2FintechText1")}
           gradient="linear-gradient(to right, #3C2AA5, #FFFFFF)"
         />
 
         <div className=" mt-[113px] sm:mt-[113px] md:mt-[119px] lg:mt-[152px] mb-[113px] sm:mb-[111px] md:mb-[111px] lg:mb-[154px]  ">
           <TextSubPages
-            title="Visualización Dinámica del Mercado Cripto en Tiempo Real"
-            subtitle="UI UX | Development | Cripto "
-            paragraph="Este proyecto fue desarrollado como una demostración de integración tecnológica en el sector fintech, conectando una plataforma con la API de Binance para mostrar precios y variaciones de criptomonedas en tiempo real sin necesidad de recargar la página."
+            title={t("B2FintechText2")}
+            subtitle={t("B2FintechText3")}
+            paragraph={t("B2FintechText4")}
           />
         </div>
 
-        <B2FintechGridOne/>
+        <B2FintechGridOne />
 
         <div className="mt-[108px] sm:mt-[108px] md:mt-[111px] lg:mt-[156px] mb-[100px] sm:mb-[100px] md:mb-[106px] lg:mb-[155px]  ">
           <ProcessText
             paragraphs={[
-              "A partir de datos técnicos especializados, desarrollamos visualizaciones de fácil interpretación que permiten comprender las rutas migratorias, los factores económicos involucrados y los riesgos asociados al desplazamiento irregular.",
-              "Estos mapas se integraron en un Fact Sheet oficial, distribuido por la OIM a nivel global como material informativo clave.",
-              "Su claridad y precisión lo convirtieron en una referencia para medios de comunicación y organismos internacionales, sirviendo como base para reportes y análisis sobre la crisis migratoria en Haití.",
-              "El proyecto destacó por su enfoque accesible y su capacidad para sintetizar datos complejos en representaciones visuales comprensibles, facilitando la difusión de información crucial sobre el fenómeno migratorio en el Caribe.",
+              t("B2FintechText5"),
+              t("B2FintechText6"),
+              t("B2FintechText7"),
             ]}
           />
         </div>

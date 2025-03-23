@@ -324,5 +324,14 @@
     "uparsistemText5":"We designed a detailed brand manual, establishing visual identity guidelines to ensure coherence and strength across all applications.",
     "uparsistemText6":"This process included a complete institutional rebranding, featuring a modern graphic identity aligned with the institution’s vision. The visual concept was crafted to reflect innovation, dynamism, and accessibility, ensuring that the brand conveys trust and solidity as it evolves into a university.",
     "uparsistemText7":"Additionally, digital applications and graphic materials were implemented to enhance visual communication, strengthening the brand within the educational sector and paving the way for its official recognition."
+  },
+  "B2FintechSubpage":{
+    "B2FintechText1":"Connecting with the Global Cryptocurrency Market",
+    "B2FintechText2":"Real-Time Dynamic Visualization of the Crypto Market",
+    "B2FintechText3":"UI/UX | Development | Crypto",
+    "B2FintechText4":"This project was developed as a technological integration showcase in the fintech sector, connecting a platform with the Binance API to display real-time cryptocurrency prices and variations without requiring page refreshes.",
+    "B2FintechText5":"We implemented a React architecture using useState and useEffect to dynamically update the retrieved data every 40 seconds.",
+    "B2FintechText6":"The interface, designed with Tailwind CSS, is fully responsive and organizes information into categories such as popular cryptocurrencies, top price increases, and newly added assets.",
+    "B2FintechText7":"Optimized API integration ensures fast response times, while subtle animations enhance the real-time update experience. This project showcases our ability to develop fintech solutions with live data and an optimized user experience." 
   }
 }
