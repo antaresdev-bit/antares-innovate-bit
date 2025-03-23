@@ -1,23 +1,24 @@
-import GridCimlOne from "@/components/CimlComponents/GridCimlOne";
+
 import GridPoliOne from "@/components/PolitecnicoComponents/GridPoliOne";
 import Footer from "@/components/header/Footer";
 import OurWork from "@/components/header/OurWork";
 import BannerTest from "@/components/subPages/BannerSubPages";
 import ConditionalText from "@/components/subPages/ConditionalTextResponsive";
-import GridImageSection from "@/components/subPages/GridImageSection";
 import GridImageVideo from "@/components/subPages/GridImageVideo";
 import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 function PolitecnicoPage() {
+  const t = useTranslations("politecnicoSubpage");
   return (
     <div className="relative">
       <div>
         <BannerTest
           videoUrl="https://storage.googleapis.com/antares-agency-rcs/politecnico%20Mockup.mp4"
           title="Politécnico Grancolombiano"
-          subtitle="Estrategia Digital para Conectar con los Jóvenes"
+          subtitle={t("politecnicoText1")}
           textPosition="left"
           ColorText="linear-gradient(to right, #4096D3, #FFFFFF)"
         />
@@ -38,15 +39,15 @@ function PolitecnicoPage() {
 
         <ConditionalText
           title="Politécnico Grancolombiano"
-          subtitle="Estrategia Digital para Conectar con los Jóvenes"
+          subtitle={t("politecnicoText1")}
           gradient="linear-gradient(to right, #4096D3, #FFFFFF)"
         />
 
         <div className=" mt-[113px] sm:mt-[113px] md:mt-[119px] lg:mt-[152px] mb-[113px] sm:mb-[111px] md:mb-[111px] lg:mb-[154px]  ">
           <TextSubPages
-            title="Creatividad para una Conexión Auténtica con la Generación Joven"
-            subtitle="Email Marketing | Redes Sociales "
-            paragraph="Nuestra colaboración con El Poli estuvo enfocada en la creación de piezas de email marketing y contenido visual para campañas en redes sociales. El objetivo era generar una comunicación efectiva y cercana con los jóvenes, utilizando un lenguaje fresco y moderno, alineado con su estilo de vida digital."
+            title={t("politecnicoText2")}
+            subtitle={t("politecnicoText3")}
+            paragraph={t("politecnicoText4")}
           />
         </div>
 
@@ -76,9 +77,9 @@ function PolitecnicoPage() {
         <div className="mt-[108px] sm:mt-[108px] md:mt-[111px] lg:mt-[156px] mb-[100px] sm:mb-[100px] md:mb-[106px] lg:mb-[155px]  ">
           <ProcessText
             paragraphs={[
-              "Para lograrlo, desarrollamos piezas visuales con una estética dinámica, integrando colores vibrantes, tipografías llamativas y composiciones interactivas que captaran la atención de los estudiantes potenciales. La estrategia incluyó campañas de captación, fidelización y promociones especiales, asegurando que la información fuera accesible y atractiva.",
-              "El contenido en redes sociales se diseñó bajo un enfoque conversacional y participativo, promoviendo la interacción a través de stories animadas, publicaciones informativas y material audiovisual adaptado a diferentes formatos. Paralelamente, los correos electrónicos se estructuraron con un diseño responsive, asegurando una experiencia óptima tanto en móviles como en computadoras.",
-              "Gracias a esta estrategia, se logró un mayor engagement en redes y una optimización en la tasa de apertura de correos electrónicos, consolidando la presencia digital de El Poli y su conexión con la comunidad estudiantil.",
+              t("politecnicoText5"),
+              t("politecnicoText6"),
+              t("politecnicoText7"),
             ]}
           />
         </div>
