@@ -283,5 +283,15 @@
     "upardigitalText4":"We designed Upardigital, an innovative educational platform tailored for Uparsistem students, featuring an intuitive UI/UX experience adapted for young audiences. The platform not only provides access to virtual courses and academic materials but also integrates a seamless navigation system, autonomous learning tools, and interactive modules, making education more accesible, flexibe, and scalable.",
     "upardigitalText5":"This digital ecosystem allows users to manage their academic progress, access specialized content, and engage in dynamic assessments within a gamified environment that encourages continuous learning. Additionally, it was designed with an accessibility-focused approach, ensuring that every student can fully leverage educational resources from any device.",
     "upardigitalText6":"The impact of Upardigital has been nationally recognized, earning first place in R&D&I within the Órbita Cesar Program, an award granted by the Chamber of Commerce with the support of Colombia’s Ministry of Science. This recognition highlights the project's contribution to the digital transformation of the education sector, solidifying Uparsistem as a pioneering institution in the integration of technology for virtual learning."
+  },
+  "oimSubpage":{
+    "oimText1":"Migration Mapping: Impact of Haitian Migration",
+    "oimText2":"Visual Analysis of Haitian Mobility for the IOM",
+    "oimText3":"apping | Fact Sheet",
+    "oimText4":"We collaborated with the IOM (International Organization for Migration) of the UN (United Nations Organization) in the development of a mapping system that documents Haitian migration and its impact on the region.",
+    "oimText5":"Based on specialized technical data, we developed easy-to-interpret visualizations that illustrate migration routes, economic factors, and the risks associated with irregular displacement.",
+    "oimText6":"These maps were integrated into an official Fact Sheet, distributed globally by the IOM as a key informational resource.",
+    "oimText7":"Its clarity and precision made it a reference for media outlets and international organizations, serving as a foundation for reports and analyses on the Haitian migration crisis.",
+    "oimText8":"The project stood out for its accessible approach and its ability to synthesize complex data into clear visual representations, facilitating the dissemination of crucial information on migration in the Caribbean."
   }
 }
