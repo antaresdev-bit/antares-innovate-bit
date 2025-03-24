@@ -183,7 +183,7 @@ export default function Home() {
               <SplitText
                 key={TEXTS[currentIndex]}
                 text={TEXTS[currentIndex]}
-                className="text-[50px] font-semibold text-center"
+                className="text-[25px] sm:text-[25px] md:text-[30px] lg:text-[40px] font-semibold text-center"
                 delay={200}
                 animationFrom={{
                   opacity: 0,
