@@ -14,6 +14,7 @@ import CreativityCard from "@/components/cards/CreativityCard";
 import TechnologyCard from "@/components/cards/TechnologyCard";
 import ConsultingPage from "@/components/cards/ConsultingPage";
 import { useTranslations } from "next-intl";
+import SplitText from "@/components/header/SplitText";
 
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
@@ -36,11 +37,31 @@ const VideoLanding = dynamic(
   }
 );
 
+const TEXTS = ["Digital Transformation", "Automation", "Consulting", "Desing, Web, Apps"];
+const ROTATION_INTERVAL = 3000;
+
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
   const [webGLSupported, setWebGLSupported] = useState(false);
   const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    if (!animationComplete) return;
+
+    const timer = setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % TEXTS.length);
+      setAnimationComplete(false);
+    }, ROTATION_INTERVAL);
+
+    return () => clearTimeout(timer);
+  }, [animationComplete]);
+
+  const handleAnimationComplete = () => {
+    setAnimationComplete(true);
+  };
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -90,7 +111,8 @@ export default function Home() {
   useEffect(() => {
     const preventDefault = (e) => e.preventDefault();
 
-    const hasHashInUrl = typeof window !== 'undefined' && window.location.hash !== '';
+    const hasHashInUrl =
+      typeof window !== "undefined" && window.location.hash !== "";
 
     if (isVideoLoading && !hasHashInUrl) {
       document.documentElement.style.cssText = `
@@ -140,13 +162,35 @@ export default function Home() {
             ) : (
               <div className="w-full h-full">
                 <p>
-                  {webGLSupported ? "Escena 3D no visible" : "WebGL no soportado"}
+                  {webGLSupported
+                    ? "Escena 3D no visible"
+                    : "WebGL no soportado"}
                 </p>
               </div>
             )}
           </div>
 
           <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%] animate-in fade-in">
+            <div
+              className="flex justify-center "
+              style={{ fontFamily: "HandelGothic" }}
+            >
+              <SplitText
+                key={TEXTS[currentIndex]}
+                text={TEXTS[currentIndex]}
+                className="text-[50px] font-semibold text-center"
+                delay={200}
+                animationFrom={{
+                  opacity: 0,
+                  transform: "translate3d(0,50px,0)",
+                }}
+                animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+                easing="easeOutCubic"
+                threshold={0.2}
+                rootMargin="-50px"
+                onLetterAnimationComplete={handleAnimationComplete}
+              />
+            </div>
             <div className="flex justify-center">
               {" "}
               <Certificates />
@@ -201,8 +245,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative bg-opacity-70" id="our-services"
-        >
+        <div className="relative bg-opacity-70" id="our-services">
           <div className="max-w-[1500px] mx-auto">
             <div className="flex flex-col gap-4 items-start min-h-[20vh]  px-5 sm:px-6 md:px-10 lg:px-16 lg:w-[1300px] mr-[21px] sm:mr-[21px] md:mr-[49px] lg:mr-[73px]  mt-[160px] mb-[30px]">
               <h1
