@@ -37,9 +37,6 @@
   font-style: normal;
 }
 
-
-
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -54,14 +51,15 @@
 
 body {
   color: var(--foreground);
-     background: #0E051C;     
-   /* background: #3a363f;  */
+  background: #0e051c;
+  /* background: #3a363f;  */
   font-family: Arial, Helvetica, sans-serif;
-   overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 @keyframes scaleText {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -83,12 +81,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #0E051C, #4a3b6b);
+  background: linear-gradient(to bottom, #0e051c, #4a3b6b);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #0E051C, #6d5b9a);
+  background: linear-gradient(to bottom, #0e051c, #6d5b9a);
 }
 
 ul li {
@@ -130,7 +128,8 @@ ul li {
   }
 }
 
-@media (min-width: 1920px) {  /* 3xl breakpoint */
+@media (min-width: 1920px) {
+  /* 3xl breakpoint */
   p {
     max-width: 70vw;
     margin-left: auto;
@@ -152,7 +151,7 @@ html {
   border: none;
   cursor: pointer;
   color: #fff;
-  transition: color .5s ease-in-out;  
+  transition: color 0.5s ease-in-out;
 }
 
 .language-list {
@@ -167,7 +166,6 @@ html {
 
   transform: translate(-40%, 10%);
   padding: 8px 2px 8px 2px;
-
 }
 
 .language-list li {
@@ -210,10 +208,80 @@ html {
   justify-content: center;
   background-color: white;
   border-radius: 24px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   width: auto;
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
   padding: 1.5rem;
 }
+
+/* CSS imagenes de las  Cards en movimiento en el landing */
+.tilted-card-figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tilted-card-mobile-alert {
+  position: absolute;
+  top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tilted-card-mobile-alert {
+    display: block;
+  }
+  .tilted-card-caption {
+    display: none;
+  }
+}
+
+.tilted-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.tilted-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  border-radius: 15px;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.tilted-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  will-change: transform;
+  transform: translateZ(30px);
+}
+
+.tilted-card-caption {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: #2d2d2d;
+  opacity: 0;
+  z-index: 3;
+}
+
+/* CSS imagenes de las  Cards en movimiento en el landing */

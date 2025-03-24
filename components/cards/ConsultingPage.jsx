@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { useTranslations } from "next-intl";
+import TiltedCard from "./CardMotion";
 
 function ConsultingPage() {
   const t = useTranslations("landing");
@@ -26,28 +27,57 @@ function ConsultingPage() {
 
       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white relative z-10">
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0  ml-[0px] sm:ml-[0px] md:ml-[30px] ">
-          <div className="relative">
-            <Image
-              src="/assets/images/portadas-servicios-home/mobileCons.png"
-              alt="Consultoria mobile"
-              width={400}
-              height={400}
-              className="rounded-lg md:hidden"
-            />
-            <Image
-              src="/assets/images/portadas-servicios-home/tabletCons.png"
-              alt="Consultoria Tablet"
-              width={700}
-              height={400}
-              className="rounded-lg hidden md:block lg:hidden"
-            />
-            <Image
-              src="/assets/images/portadas-servicios-home/desktopCons.png"
-              alt="Consultoria Desktop"
-              width={560}
-              height={300}
-              className="rounded-lg hidden md:hidden lg:block"
-            />
+          <div>
+            <div className="hidden lg:block">
+              <TiltedCard
+                imageSrc="/assets/images/portadas-servicios-home/desktopCons.png"
+                altText="Consultoría Desktop"
+                containerHeight="370px"
+                containerWidth="400px"
+                imageHeight="370px"
+                imageWidth="400px"
+                rotateAmplitude={8}
+                scaleOnHover={1.05}
+                showMobileWarning={false}
+                showTooltip={false}
+                displayOverlayContent={false}
+                className="rounded-lg"
+              />
+            </div>
+
+            <div className="hidden md:block lg:hidden">
+              <TiltedCard
+                imageSrc="/assets/images/portadas-servicios-home/tabletCons.png"
+                altText="Creatividad Tablet"
+                containerHeight="150px"
+                containerWidth="700px"
+                imageHeight="150px"
+                imageWidth="700px"
+                rotateAmplitude={8}
+                scaleOnHover={1.05}
+                showMobileWarning={false}
+                showTooltip={false}
+                displayOverlayContent={false}
+                className="rounded-lg"
+              />
+            </div>
+
+            <div className="block md:hidden">
+              <TiltedCard
+                imageSrc="/assets/images/portadas-servicios-home/mobileCons.png"
+                altText="Consultoría mobile"
+                containerHeight="400px"
+                containerWidth="400px"
+                imageHeight="400px"
+                imageWidth="400px"
+                rotateAmplitude={8}
+                scaleOnHover={1.05}
+                showMobileWarning={false}
+                showTooltip={false}
+                displayOverlayContent={false}
+                className="rounded-lg"
+              />
+            </div>
           </div>
         </div>
 

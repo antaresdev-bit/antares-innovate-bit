@@ -3,35 +3,66 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import TiltedCard from "./CardMotion";
 
 function CreativityCard() {
   const t = useTranslations("landing");
   const locale = useLocale();
   return (
-    <div className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-transparent rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white" id="creativity-services">
+    <div
+      className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-transparent rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white"
+      id="creativity-services"
+    >
       <div className="flex flex-wrap lg:flex-nowrap justify-between items-center bg-transparent rounded-[24px] p-[15px] sm:p-[15px] md:p-[22px] lg:p-[32px] text-white">
         <div className="w-full md:w-full lg:w-auto flex justify-center order-first lg:order-last mb-4 md:mb-4 lg:mb-0  ml-[0px] sm:ml-[0px] md:ml-[0px] lg:ml-[30px]">
-          <div className="relative">
-            <Image
-              src="/assets/images/portadas-servicios-home/mobleCreat.png"
-              alt="Consultoría mobile"
-              width={400}
-              height={400}
-              className="rounded-lg md:hidden"
+          <div className="hidden lg:block">
+            <TiltedCard
+              imageSrc="/assets/images/portadas-servicios-home/desktopCreat.png"
+              altText="Consultoría Desktop"
+              containerHeight="370px"
+              containerWidth="400px"
+              imageHeight="370px"
+              imageWidth="400px"
+              rotateAmplitude={8}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent={false}
+              className="rounded-lg"
             />
-            <Image
-              src="/assets/images/portadas-servicios-home/tabletCreat.png"
-              alt="Creatividad Tablet"
-              width={700}
-              height={400}
-              className="rounded-lg hidden md:block lg:hidden"
+          </div>
+
+          <div className="hidden md:block lg:hidden">
+            <TiltedCard
+              imageSrc="/assets/images/portadas-servicios-home/tabletCreat.png"
+              altText="Creatividad Tablet"
+              containerHeight="150px"
+              containerWidth="700px"
+              imageHeight="150px"
+              imageWidth="700px"
+              rotateAmplitude={8}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent={false}
+              className="rounded-lg"
             />
-            <Image
-              src="/assets/images/portadas-servicios-home/desktopCreat.png"
-              alt="Consultoría Desktop"
-              width={560}
-              height={300}
-              className="rounded-lg hidden md:hidden lg:block"
+          </div>
+
+          <div className="block md:hidden">
+            <TiltedCard
+              imageSrc="/assets/images/portadas-servicios-home/mobleCreat.png"
+              altText="Consultoría mobile"
+              containerHeight="400px"
+              containerWidth="400px"
+              imageHeight="400px"
+              imageWidth="400px"
+              rotateAmplitude={8}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent={false}
+              className="rounded-lg"
             />
           </div>
         </div>

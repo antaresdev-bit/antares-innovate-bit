@@ -14,7 +14,7 @@ import CreativityCard from "@/components/cards/CreativityCard";
 import TechnologyCard from "@/components/cards/TechnologyCard";
 import ConsultingPage from "@/components/cards/ConsultingPage";
 import { useTranslations } from "next-intl";
-import SplitText from "@/components/header/SplitText";
+import SplitText from "@/components/landing/SplitText";
 
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
@@ -37,7 +37,12 @@ const VideoLanding = dynamic(
   }
 );
 
-const TEXTS = ["Digital Transformation", "Automation", "Consulting", "Desing, Web, Apps"];
+const TEXTS = [
+  "Digital Transformation",
+  "Automation",
+  "Consulting",
+  "Desing, Web, Apps",
+];
 const ROTATION_INTERVAL = 3000;
 
 export default function Home() {
@@ -172,7 +177,7 @@ export default function Home() {
 
           <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%] animate-in fade-in">
             <div
-              className="flex justify-center "
+              className="flex justify-center  mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]"
               style={{ fontFamily: "HandelGothic" }}
             >
               <SplitText
