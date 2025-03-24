@@ -178,7 +178,7 @@ export default function Home() {
           <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%] animate-in fade-in">
             <div
               className="flex justify-center  mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]"
-              style={{ fontFamily: "HandelGothic" }}
+              style={{ fontFamily: "HandelGothic", color:"white" }}
             >
               <SplitText
                 key={TEXTS[currentIndex]}
