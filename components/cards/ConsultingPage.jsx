@@ -63,18 +63,11 @@ function ConsultingPage() {
             </div>
 
             <div className="block md:hidden">
-              <TiltedCard
-                imageSrc="/assets/images/portadas-servicios-home/mobileCons.png"
-                altText="Consultoría mobile"
-                containerHeight="400px"
-                containerWidth="400px"
-                imageHeight="400px"
-                imageWidth="400px"
-                rotateAmplitude={0}
-                scaleOnHover={1}
-                showMobileWarning={false}
-                showTooltip={false}
-                displayOverlayContent={false}
+              <Image
+                src="/assets/images/portadas-servicios-home/mobileCons.png"
+                alt="Consultoría mobile"
+                width={400}
+                height={400}
                 className="rounded-lg"
               />
             </div>

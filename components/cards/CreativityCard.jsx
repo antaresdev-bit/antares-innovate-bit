@@ -49,13 +49,13 @@ function CreativityCard() {
             />
           </div>
 
-          <div className="block md:hidden relative w-full max-w-[400px] h-[370px]">
+          <div className="block md:hidden">
             <Image
               src="/assets/images/portadas-servicios-home/mobleCreat.png"
-              alt="Tecnologia Mobile"
-              fill
-              className="rounded-lg object-cover"
-              sizes="(max-width: 768px) 100vw, 400px"
+              alt="Consultoría mobile"
+              width={400}
+              height={400}
+              className="rounded-lg"
             />
           </div>
         </div>
