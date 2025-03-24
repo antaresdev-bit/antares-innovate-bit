@@ -70,8 +70,8 @@ function ConsultingPage() {
                 containerWidth="400px"
                 imageHeight="400px"
                 imageWidth="400px"
-                rotateAmplitude={8}
-                scaleOnHover={1.05}
+                rotateAmplitude={0}
+                scaleOnHover={1}
                 showMobileWarning={false}
                 showTooltip={false}
                 displayOverlayContent={false}

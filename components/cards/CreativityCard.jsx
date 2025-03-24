@@ -49,20 +49,13 @@ function CreativityCard() {
             />
           </div>
 
-          <div className="block md:hidden">
-            <TiltedCard
-              imageSrc="/assets/images/portadas-servicios-home/mobleCreat.png"
-              altText="Consultoría mobile"
-              containerHeight="400px"
-              containerWidth="400px"
-              imageHeight="400px"
-              imageWidth="400px"
-              rotateAmplitude={8}
-              scaleOnHover={1.05}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={false}
-              className="rounded-lg"
+          <div className="block md:hidden relative w-full max-w-[400px] h-[370px]">
+            <Image
+              src="/assets/images/portadas-servicios-home/mobleCreat.png"
+              alt="Tecnologia Mobile"
+              fill
+              className="rounded-lg object-cover"
+              sizes="(max-width: 768px) 100vw, 400px"
             />
           </div>
         </div>
