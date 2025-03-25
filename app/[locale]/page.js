@@ -14,7 +14,7 @@ import CreativityCard from "@/components/cards/CreativityCard";
 import TechnologyCard from "@/components/cards/TechnologyCard";
 import ConsultingPage from "@/components/cards/ConsultingPage";
 import { useTranslations } from "next-intl";
-import SplitText from "@/components/landing/SplitText";
+import TextRotate from "@/fancy/components/text/text-rotate";
 
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
@@ -41,32 +41,14 @@ const TEXTS = [
   "Digital Transformation",
   "Automation",
   "Consulting",
-  "Desing, Web, Apps",
+  "Design, Web, Apps",
 ];
-const ROTATION_INTERVAL = 3000;
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
   const [webGLSupported, setWebGLSupported] = useState(false);
   const [isVideoLoading, setIsVideoLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [animationComplete, setAnimationComplete] = useState(false);
-
-  useEffect(() => {
-    if (!animationComplete) return;
-
-    const timer = setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % TEXTS.length);
-      setAnimationComplete(false);
-    }, ROTATION_INTERVAL);
-
-    return () => clearTimeout(timer);
-  }, [animationComplete]);
-
-  const handleAnimationComplete = () => {
-    setAnimationComplete(true);
-  };
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -180,20 +162,17 @@ export default function Home() {
               className="flex justify-center  mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]"
               style={{ fontFamily: "HandelGothic", color:"white" }}
             >
-              <SplitText
-                key={TEXTS[currentIndex]}
-                text={TEXTS[currentIndex]}
-                className="text-[25px] sm:text-[25px] md:text-[30px] lg:text-[40px] font-semibold text-center"
-                delay={200}
-                animationFrom={{
-                  opacity: 0,
-                  transform: "translate3d(0,50px,0)",
-                }}
-                animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
-                easing="easeOutCubic"
-                threshold={0.2}
-                rootMargin="-50px"
-                onLetterAnimationComplete={handleAnimationComplete}
+              <TextRotate
+                texts={TEXTS}
+                mainClassName="text-[25px] md:text-[30px] lg:text-[40px] font-semibold text-center"
+                staggerFrom={"first"}
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "-120%" }}
+                staggerDuration={0.025}
+                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 whitespace-normal"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={3000}
               />
             </div>
             <div className="flex justify-center">
