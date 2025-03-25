@@ -26,6 +26,8 @@ const VideoLanding = ({ onLoadComplete }) => {
       const newVideoSrc = isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM;
       video.src = newVideoSrc;
       video.preload = "auto";
+      video.playsInline = true;
+      video.muted = true;
     };
 
     preloadVideo();

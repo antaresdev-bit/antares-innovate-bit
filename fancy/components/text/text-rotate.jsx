@@ -139,7 +139,11 @@ const TextRotate = forwardRef((
       <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
         <motion.div
           key={currentTextIndex}
-          className={cn("flex flex-wrap", splitBy === "lines" && "flex-col w-full")}
+          className={cn(
+            "flex flex-wrap break-words whitespace-normal", 
+            splitBy === "lines" && "flex-col w-full",
+            "md:whitespace-pre-wrap"
+          )}
           layout
           aria-hidden="true">
           {(splitBy === "characters"
@@ -173,7 +177,7 @@ const TextRotate = forwardRef((
                   </motion.span>
                 ))}
                 {wordObj.needsSpace && (
-                  <span className="whitespace-pre px-[0.25em]"> </span>
+                  <span className="whitespace-pre px-[0.25em] break-keep"> </span>
                 )}
               </span>
             );

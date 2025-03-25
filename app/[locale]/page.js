@@ -15,8 +15,9 @@ import TechnologyCard from "@/components/cards/TechnologyCard";
 import ConsultingPage from "@/components/cards/ConsultingPage";
 import { useTranslations } from "next-intl";
 import TextRotate from "@/fancy/components/text/text-rotate";
-import CardSkeleton from "@/components/layout/Loading/CardSkeleton";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useResponsive } from "@/hooks/useResponsive";
+
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
   {
@@ -69,6 +70,7 @@ export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
   const [webGLSupported, setWebGLSupported] = useState(false);
+  const { isMobile } = useResponsive();
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -98,6 +100,7 @@ export default function Home() {
   }, [showScene]);
 
   useEffect(() => {
+    if (isMobile) return;
     const checkWebGL = () => {
       try {
         const canvas = document.createElement("canvas");
@@ -113,7 +116,7 @@ export default function Home() {
     };
 
     checkWebGL();
-  }, []);
+  }, [isMobile]);
 
 
   const t = useTranslations("landing");
@@ -130,7 +133,7 @@ export default function Home() {
             ) : (
               <div className="w-full h-full">
                 <p>
-                  {webGLSupported
+                  {isMobile ? "Escena 3D no visible" : webGLSupported
                     ? "Escena 3D no visible"
                     : "WebGL no soportado"}
                 </p>
