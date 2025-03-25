@@ -7,6 +7,7 @@ const VideoLanding = ({ onLoadComplete }) => {
   const { isMobile } = useResponsive();
   const [videoSrc, setVideoSrc] = useState("");
   const [isMuted, setIsMuted] = useState(true);
+  const [isIOS, setIsIOS] = useState(false);
   
   const VIDEO_SOURCES = {
     MOBILE: {
@@ -20,10 +21,22 @@ const VideoLanding = ({ onLoadComplete }) => {
   };
 
   useEffect(() => {
-    // Precarga el video adecuado
+
+    const detectIOS = () => {
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      setIsIOS(isIOS);
+    };
+    detectIOS();
+  }, []);
+
+  useEffect(() => {
+
     const preloadVideo = () => {
       const video = document.createElement('video');
-      const newVideoSrc = isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM;
+
+      const newVideoSrc = isIOS 
+        ? (isMobile ? VIDEO_SOURCES.MOBILE.MP4 : VIDEO_SOURCES.DESKTOP.MP4)
+        : (isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM);
       video.src = newVideoSrc;
       video.preload = "auto";
       video.playsInline = true;
@@ -31,8 +44,12 @@ const VideoLanding = ({ onLoadComplete }) => {
     };
 
     preloadVideo();
-    setVideoSrc(isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM);
-  }, [isMobile]);
+
+    setVideoSrc(isIOS 
+      ? (isMobile ? VIDEO_SOURCES.MOBILE.MP4 : VIDEO_SOURCES.DESKTOP.MP4)
+      : (isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM)
+    );
+  }, [isMobile, isIOS]);
 
   return (
     <div className="w-full max-w-[1298px] mx-auto overflow-hidden h-full">
@@ -45,8 +62,9 @@ const VideoLanding = ({ onLoadComplete }) => {
             loop
             muted={isMuted}
             preload="auto"
-            poster="/assets/images/video-poster.png" 
-          
+            poster="/assets/images/video-poster.png"
+            playsinline="true"
+            webkit-playsinline="true"
           >
             {/* WebM */}
             <source 
