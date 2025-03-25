@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import Blog from "../../components/header/Blog";
 import Certificates from "../../components/header/Certificates";
 import Footer from "../../components/header/Footer";
@@ -15,7 +15,8 @@ import TechnologyCard from "@/components/cards/TechnologyCard";
 import ConsultingPage from "@/components/cards/ConsultingPage";
 import { useTranslations } from "next-intl";
 import TextRotate from "@/fancy/components/text/text-rotate";
-
+import CardSkeleton from "@/components/layout/Loading/CardSkeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
   {
@@ -43,6 +44,29 @@ const TEXTS = [
   "Consulting",
   "Design, Web, Apps",
 ];
+
+const BackgroundGradient = () => (
+  <div
+    className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] -z-1 
+               translate-x-[-50%] translate-y-[5%] left-0
+               bg-radial-gradient from-primary-blue to-dark-purple"
+    aria-hidden="true"
+  />
+)
+
+const IntroductionSection = () => {
+  return (
+    <section className="relative flex justify-center overflow-hidden w-full" aria-label="Introducción">
+      <div className="w-full flex items-center justify-center overflow-visible relative">
+        <BackgroundGradient />
+        
+        <Suspense fallback={<CardSkeleton />}>
+          <TextIntroduction />
+        </Suspense>
+      </div>
+    </section>
+  )
+}
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
@@ -141,8 +165,9 @@ export default function Home() {
     <>
       <div className="overflow-x-hidden w-full">
         <LayoutComponents />
-        {isVideoLoading && <LoadingScreen />}
+        {/*       {isVideoLoading && <LoadingScreen />}
         <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c] animate-in fade-in">
+          
           <div ref={sceneContainerRef} className="w-full h-full">
             {showScene ? (
               <OptimisedScene />
@@ -173,6 +198,7 @@ export default function Home() {
                 splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 whitespace-normal"
                 transition={{ type: "spring", damping: 30, stiffness: 400 }}
                 rotationInterval={3000}
+                animatePresenceInitial={true}
               />
             </div>
             <div className="flex justify-center">
@@ -180,25 +206,8 @@ export default function Home() {
               <Certificates />
             </div>
           </div>
-        </div>
-
-        <div className="relative flex justify-center overflow-hidden w-full">
-          <div className="w-full flex items-center justify-center overflow-visible relative ">
-            {/* Degradado */}
-            <div
-              className="absolute inset-x-0 mx-auto w-[3000px] h-[800px]  "
-              style={{
-                background:
-                  "radial-gradient(ellipse at center, #22379A 0%, #0E051C 40%)",
-                left: "0%",
-                transform: "translateX(-50%) translateY(5%)",
-                zIndex: -1,
-              }}
-            />
-            <TextIntroduction />
-          </div>
-        </div>
-
+        </div>*/}
+        <IntroductionSection />
         <div
           className="relative overflow-hidden  mt-[60px]  "
           style={{
@@ -212,8 +221,9 @@ export default function Home() {
             <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
               <VideoLanding onLoadComplete={() => setIsVideoLoading(false)} />
             </div>
-
-            <Slider />
+            <Suspense fallback={<div className="w-full sm:px-10 md:px-20 lg:px-44 md:mt-[80px] lg:mt-[90px] mb-[40px] md:mb-[80px] lg:mb-[90px]  "><Skeleton className="w-full h-[74px] md:h-[84px] lg:h-[104px]" /></div>}>
+              <Slider />
+            </Suspense>
             {/* degrade */}
             <div
               className="absolute inset-x-0 mx-auto w-[3000px] h-[800px] "
@@ -224,7 +234,7 @@ export default function Home() {
                 transform: "translateX(-50%) translateY(-50%)",
                 zIndex: -1,
               }}
-            ></div>
+            />
             {/* degrade */}
           </div>
         </div>

@@ -12,7 +12,7 @@ const PortfolioContent = dynamic(() =>
 function LoadingItems() {
   return (
     <div 
-      className="loading-container mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mt-8"
+      className="mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mt-8"
       aria-label="Cargando elementos del portafolio"
       role="status"
     >

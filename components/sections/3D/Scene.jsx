@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense, useRef, useEffect } from 'react'
+import React, { Suspense, useRef, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Model } from './Model'
 import Head from 'next/head'
@@ -10,12 +10,17 @@ import EnvironmentTexture from './EnvironmentTexture'
 export default function Scene() {
 
   const lightRef = useRef()
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     window.onerror = function(msg, url, lineNo, columnNo, error) {
       console.log('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
       return false;
     };
+
+    setTimeout(() => {
+      setIsLoaded(true)
+    }, 100)
   }, []);
 
   return (
@@ -38,7 +43,9 @@ export default function Scene() {
       </Head>
     <div className="relative h-screen w-full flex items-center justify-center">
       <div
-        className="relative scene-height w-screen overflow-hidden"
+        className={`relative scene-height w-screen overflow-hidden transition-opacity duration-300 ease-in ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
 
         style={{
           maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 20%, #000 80%, rgba(0,0,0,0) 100%)',

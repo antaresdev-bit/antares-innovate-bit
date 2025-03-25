@@ -17,13 +17,15 @@ export default function OptimisedScene({ isSceneLoading }) {
         <>
             {isMobile ? (
                 <video                 
-                    src="/assets/videos/3dMobile.webm" 
                     autoPlay 
                     loop 
                     muted 
                     playsInline 
                     className="w-screen h-[550px] object-cover"
-                />
+                >
+                    <source src="/assets/videos/3dMobile.webm" type="video/webm" />
+                    <source src="/assets/videos/3dMobile.mp4" type="video/mp4" />
+                </video>
             ) : (
                 <Scene />
             )}

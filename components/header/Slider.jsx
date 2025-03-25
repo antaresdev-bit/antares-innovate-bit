@@ -18,11 +18,12 @@ const images = [
   "/assets/images/slider/n.png",
 ];
 
-function Slider() {
+async function Slider() {
   const duplicatedImages = Array(7).fill(images).flat();
+  await new Promise(resolve => setTimeout(resolve, 1200));
 
   return (
-    <div className="flex justify-center items-center w-full px-4 sm:px-10 md:px-20 lg:px-44 mt-[40px] sm:mt-[40px] md:mt-[80px] lg:mt-[90px] mb-[40px] sm:mb-[40px] md:mb-[80px] lg:mb-[90px] ">
+    <div className="flex justify-center items-center w-full px-4 sm:px-10 md:px-20 lg:px-44 mt-[40px]] md:mt-[80px] lg:mt-[90px] mb-[40px] md:mb-[80px] lg:mb-[90px] ">
       <div className="overflow-hidden whitespace-nowrap flex items-center">
         <div
           className="inline-block animate-slide"
@@ -36,7 +37,7 @@ function Slider() {
                 alt="Antares Agency Logo"
                 width={100}
                 height={104} 
-                className="rounded-lg object-cover w-auto h-[74px] sm:h-[74px] md:h-[84px] lg:h-[104px]"
+                className="rounded-lg object-cover w-auto h-[74px] md:h-[84px] lg:h-[104px]"
               />
             </div>
           ))}
