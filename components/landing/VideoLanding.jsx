@@ -3,40 +3,20 @@ import { useEffect, useState } from "react";
 import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import { useResponsive } from "../../hooks/useResponsive";
 
-const VideoLanding = ({ onLoadComplete }) => {
+const VideoLanding = () => {
   const { isMobile } = useResponsive();
   const [videoSrc, setVideoSrc] = useState("");
   const [isMuted, setIsMuted] = useState(true);
-  const [isIOS, setIsIOS] = useState(false);
   
   const VIDEO_SOURCES = {
-    MOBILE: {
-      WEBM: "/assets/videos/video_reel_mobile.webm",
-      MP4: "/assets/videos/video_reel_mobile.mp4"
-    },
-    DESKTOP: {
-      WEBM: "/assets/videos/video_reel_optimised.webm",
-      MP4: "/assets/videos/video_reel_optimised.mp4"
-    }
+    MOBILE: "/assets/videos/video_reel_mobile.mp4",
+    DESKTOP: "/assets/videos/video_reel_optimised.mp4"
   };
 
   useEffect(() => {
-
-    const detectIOS = () => {
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      setIsIOS(isIOS);
-    };
-    detectIOS();
-  }, []);
-
-  useEffect(() => {
-
     const preloadVideo = () => {
       const video = document.createElement('video');
-
-      const newVideoSrc = isIOS 
-        ? (isMobile ? VIDEO_SOURCES.MOBILE.MP4 : VIDEO_SOURCES.DESKTOP.MP4)
-        : (isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM);
+      const newVideoSrc = isMobile ? VIDEO_SOURCES.MOBILE : VIDEO_SOURCES.DESKTOP;
       video.src = newVideoSrc;
       video.preload = "auto";
       video.playsInline = true;
@@ -44,12 +24,8 @@ const VideoLanding = ({ onLoadComplete }) => {
     };
 
     preloadVideo();
-
-    setVideoSrc(isIOS 
-      ? (isMobile ? VIDEO_SOURCES.MOBILE.MP4 : VIDEO_SOURCES.DESKTOP.MP4)
-      : (isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM)
-    );
-  }, [isMobile, isIOS]);
+    setVideoSrc(isMobile ? VIDEO_SOURCES.MOBILE : VIDEO_SOURCES.DESKTOP);
+  }, [isMobile]);
 
   return (
     <div className="w-full max-w-[1298px] mx-auto overflow-hidden h-full">
@@ -66,14 +42,8 @@ const VideoLanding = ({ onLoadComplete }) => {
             playsinline="true"
             webkit-playsinline="true"
           >
-            {/* WebM */}
             <source 
-              src={isMobile ? VIDEO_SOURCES.MOBILE.WEBM : VIDEO_SOURCES.DESKTOP.WEBM} 
-              type="video/webm" 
-            />
-            {/* Fallback MP4*/}
-            <source 
-              src={isMobile ? VIDEO_SOURCES.MOBILE.MP4 : VIDEO_SOURCES.DESKTOP.MP4} 
+              src={isMobile ? VIDEO_SOURCES.MOBILE : VIDEO_SOURCES.DESKTOP} 
               type="video/mp4" 
             />
           </video>

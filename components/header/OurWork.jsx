@@ -45,7 +45,7 @@ const OurWork = () => {
       description: <div>{t("descWersus")}</div>,
       video: (
         <Link href={`/${locale}/wersus`}>
-          <WideVideoSection src="/assets/videos/wersuspreview_mobile.webm" isMobile={isMobile} />
+          <WideVideoSection src="/assets/videos/wersuspreview.mp4" isMobile={isMobile} />
         </Link>
       ),
     },
