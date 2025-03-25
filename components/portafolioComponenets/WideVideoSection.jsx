@@ -43,7 +43,6 @@ const WideVideoSection = ({ src }) => {
       playsInline
       className="w-full h-full object-cover opacity-80"
       preload="none"
-      poster="/assets/images/placeholder.jpg"
     >
       {isVisible && <source src={src} type="video/mp4" />}
       Your browser does not support the video tag.

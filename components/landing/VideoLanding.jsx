@@ -8,7 +8,6 @@ const VideoLanding = ({ onLoadComplete }) => {
   const [videoSrc, setVideoSrc] = useState("");
   const [isMuted, setIsMuted] = useState(true);
   
-  // Predefine las fuentes para mejor organización
   const VIDEO_SOURCES = {
     MOBILE: {
       WEBM: "/assets/videos/video_reel_mobile.webm",
@@ -44,11 +43,8 @@ const VideoLanding = ({ onLoadComplete }) => {
             loop
             muted={isMuted}
             preload="auto"
-            poster="/assets/images/video-poster.png" // Añade un poster para mejor UX
-            onLoadedData={() => {
-              console.log("Video cargado");
-              if (onLoadComplete) onLoadComplete();
-            }}
+            poster="/assets/images/video-poster.png" 
+          
           >
             {/* WebM */}
             <source 

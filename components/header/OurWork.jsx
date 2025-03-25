@@ -5,37 +5,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import { useResponsive } from "../../hooks/useResponsive";
 import { useTranslations } from "next-intl";
-
-const WideVideoSection = ({ src, isMobile }) => {
-  
-  const getMobileVideoPath = (originalSrc) => {
-    if (originalSrc.includes('wersuspreview')) {
-      return originalSrc;
-    }
-
-    const pathParts = originalSrc.split('.');
-    return `${pathParts[0]}_mobile.webm`;
-  };
-
-  const videoSrc = isMobile ? getMobileVideoPath(src) : src;
-
-  return (
-    <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="w-full h-full object-cover opacity-80"
-    >
-      {(isMobile || src.includes('wersuspreview')) ? (
-        <source src={videoSrc} type="video/webm" />
-      ) : (
-        <source src={src} type="video/mp4" />
-      )}
-      Your browser does not support the video tag.
-    </video>
-  );
-};
+import WideVideoSection from "../portafolioComponenets/WideVideoSection";
 
 const OurWork = () => {
   const locale = useLocale();

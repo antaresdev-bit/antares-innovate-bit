@@ -69,7 +69,6 @@ export default function Home() {
   const [showScene, setShowScene] = useState(true);
   const sceneContainerRef = useRef(null);
   const [webGLSupported, setWebGLSupported] = useState(false);
-  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -116,45 +115,6 @@ export default function Home() {
     checkWebGL();
   }, []);
 
-  useEffect(() => {
-    const preventDefault = (e) => e.preventDefault();
-
-    const hasHashInUrl =
-      typeof window !== "undefined" && window.location.hash !== "";
-
-    if (isVideoLoading && !hasHashInUrl) {
-      document.documentElement.style.cssText = `
-        overflow: hidden;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        touch-action: none;
-      `;
-
-      // Agregar listeners para todos los eventos táctiles
-      document.addEventListener("touchmove", preventDefault, {
-        passive: false,
-      });
-      document.addEventListener("touchstart", preventDefault, {
-        passive: false,
-      });
-      document.addEventListener("touchend", preventDefault, { passive: false });
-    } else {
-      // Restaurar scroll
-      document.documentElement.style.cssText = "";
-      document.removeEventListener("touchmove", preventDefault);
-      document.removeEventListener("touchstart", preventDefault);
-      document.removeEventListener("touchend", preventDefault);
-    }
-
-    return () => {
-      // Cleanup
-      document.documentElement.style.cssText = "";
-      document.removeEventListener("touchmove", preventDefault);
-      document.removeEventListener("touchstart", preventDefault);
-      document.removeEventListener("touchend", preventDefault);
-    };
-  }, [isVideoLoading]);
 
   const t = useTranslations("landing");
 
@@ -162,7 +122,6 @@ export default function Home() {
     <>
       <div className="overflow-x-hidden w-full">
         <LayoutComponents />
-        {isVideoLoading && <LoadingScreen />}
         <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c] animate-in fade-in">
           
           <div ref={sceneContainerRef} className="w-full h-full">
@@ -216,7 +175,7 @@ export default function Home() {
         >
           <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[50px]  lg:mt-[50px] w-full">
             <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
-              <VideoLanding onLoadComplete={() => setIsVideoLoading(false)} />
+              <VideoLanding/>
             </div>
             <Suspense fallback={<div className="w-full sm:px-10 md:px-20 lg:px-44 md:mt-[80px] lg:mt-[90px] mb-[40px] md:mb-[80px] lg:mb-[90px]  "><Skeleton className="w-full h-[74px] md:h-[84px] lg:h-[104px]" /></div>}>
               <Slider />
