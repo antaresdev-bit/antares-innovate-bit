@@ -58,11 +58,8 @@ const IntroductionSection = () => {
   return (
     <section className="relative flex justify-center overflow-hidden w-full" aria-label="Introducción">
       <div className="w-full flex items-center justify-center overflow-visible relative">
-        <BackgroundGradient />
-        
-        <Suspense fallback={<CardSkeleton />}>
+        <BackgroundGradient />        
           <TextIntroduction />
-        </Suspense>
       </div>
     </section>
   )

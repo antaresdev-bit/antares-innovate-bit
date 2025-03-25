@@ -44,7 +44,7 @@ const VideoLanding = ({ onLoadComplete }) => {
             loop
             muted={isMuted}
             preload="auto"
-            poster="/assets/images/video-poster.jpg" // Añade un poster para mejor UX
+            poster="/assets/images/video-poster.png" // Añade un poster para mejor UX
             onLoadedData={() => {
               console.log("Video cargado");
               if (onLoadComplete) onLoadComplete();

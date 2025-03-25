@@ -2,9 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-async function TextIntroduction() {
+function TextIntroduction() {
   const t = useTranslations("landing");
-  await new Promise(resolve => setTimeout(resolve, 1000));
 
   return (
     <div className="max-w-[1500px] mx-auto px-[22px] md:px-[105px] lg:px-[223px]   ">
