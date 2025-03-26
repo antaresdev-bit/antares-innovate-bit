@@ -1,4 +1,7 @@
 {
+  "loading":{
+    "generalLoading":"Cargando..."
+  },
   "navbar": {
     "services": "Servicios",
     "portfolio": "Portafolio",

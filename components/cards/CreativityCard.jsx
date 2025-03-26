@@ -5,9 +5,13 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import TiltedCard from "./CardMotion";
 
-function CreativityCard() {
+async function CreativityCard() {
   const t = useTranslations("landing");
   const locale = useLocale();
+  
+  //await new Promise(() => {});
+  await new Promise(resolve => setTimeout(resolve, 300));
+
   return (
     <div
       className="relative mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px] mb-12 p-[1px] bg-transparent rounded-[24px] sm:rounded-[24px] md:rounded-[48px] lg:rounded-[48px] border border-white"

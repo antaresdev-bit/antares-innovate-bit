@@ -1,22 +1,18 @@
 "use client";
 
 import React, { useState, useEffect, useRef, Suspense } from "react";
-import Blog from "../../components/header/Blog";
 import Certificates from "../../components/header/Certificates";
 import Footer from "../../components/header/Footer";
 import Slider from "../../components/header/Slider";
-import Statistics from "../../components/header/Statistics";
 import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
 import LayoutComponents from "@/components/layout/LayoutComponents";
 import LoadingScreen from "@/components/loading/LoadingScreen";
-import CreativityCard from "@/components/cards/CreativityCard";
-import TechnologyCard from "@/components/cards/TechnologyCard";
-import ConsultingPage from "@/components/cards/ConsultingPage";
 import { useTranslations } from "next-intl";
 import TextRotate from "@/fancy/components/text/text-rotate";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useResponsive } from "@/hooks/useResponsive";
+import CardSkeleton from "@/components/layout/Loading/CardSkeleton";
 
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
@@ -28,7 +24,7 @@ const OptimisedScene = dynamic(
 //Se hace importe dinámico a estos elementos para acelerar la carga de la Escena
 const OurWork = dynamic(() => import("../../components/header/OurWork"), {
   ssr: false,
-  loading: () => <div>Cargando OurWork...</div>,
+  loading: () => <Skeleton height={100} width={100} />,
 });
 
 const VideoLanding = dynamic(
@@ -38,6 +34,27 @@ const VideoLanding = dynamic(
     loading: () => <LoadingScreen />,
   }
 );
+
+const CreativityCard = dynamic(() => import("../../components/cards/CreativityCard"), {
+  ssr: false,
+  loading: () => <Skeleton height={100} width={100} />,
+});
+
+const TechnologyCard = dynamic(() => import("../../components/cards/TechnologyCard"), {
+  ssr: false,
+  loading: () => <Skeleton height={100} width={100} />,
+});
+
+const ConsultingPage = dynamic(() => import("../../components/cards/ConsultingPage"), {
+  ssr: false,
+  loading: () => <Skeleton height={100} width={100} />,
+});
+
+
+
+
+
+
 
 const TEXTS = [
   "Digital Transformation",
@@ -65,6 +82,16 @@ const IntroductionSection = () => {
     </section>
   )
 }
+
+const Blog = dynamic(() => import("../../components/header/Blog"), {
+  ssr: true,
+  loading: () => <Skeleton height={100} width={100} />
+});
+
+const Statistics = dynamic(() => import("../../components/header/Statistics"), {
+  ssr: true,
+  loading: () => <Skeleton height={100} width={100} />
+});
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
@@ -166,7 +193,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <IntroductionSection />
+        <Suspense fallback={<CardSkeleton />}>
+          <IntroductionSection />
+        </Suspense>
         <div
           className="relative overflow-hidden  mt-[60px]  "
           style={{
@@ -209,10 +238,11 @@ export default function Home() {
                 {t("serviceText1")} <br /> {t("serviceText2")}
               </h1>
             </div>
-
-            <div id="creativity-services" data-aos="fade-left">
-              <CreativityCard />
-            </div>
+            <Suspense fallback={<CardSkeleton imgleft={true} imgright={true} />}>
+              <div id="creativity-services" data-aos="fade-left">
+                <CreativityCard />
+              </div>
+            </Suspense>
             <div id="technology-services" data-aos="fade-right">
               <TechnologyCard />
             </div>
@@ -221,9 +251,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <OurWork />
-        <Statistics />
-        <Blog />
+        <Suspense fallback={<Skeleton />}>
+          <OurWork />
+          <Statistics />
+          <Blog />
+        </Suspense>
 
         <Footer />
       </div>
