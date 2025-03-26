@@ -20,12 +20,13 @@ export default function OptimisedScene() {
                     autoPlay 
                     loop 
                     muted 
-                    playsInline 
-                    playsinline="true"
+                    playsInline
                     webkit-playsinline="true"
+                    loading="eager"
+                    poster="/assets/images/3dMobile.jpg"
                     className="w-screen h-[550px] object-cover"
                 >
-                    <source src="/assets/videos/3dMobile.mp4" type="video/mp4" />
+                    <source src="/assets/videos/3dMobile.mp4" type="video/mp4" importance="high"/>
                 </video>
             ) : (
                 <Scene />

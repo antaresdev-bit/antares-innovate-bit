@@ -15,10 +15,10 @@ const OurWork = () => {
   const workItems = [
     {
       title: "Upardigital",
-      description: <div>{t("descUpardigital")}</div>,
+      description: <p>{t("descUpardigital")}</p>,
       video: (
         <Link href={`/${locale}/upardigital`}>
-          <WideVideoSection src="/assets/videos/uparpreview.mp4" isMobile={isMobile} />
+          <WideVideoSection src="/assets/videos/uparpreview_web.mp4"/>
         </Link>
       ),
     },
@@ -27,25 +27,25 @@ const OurWork = () => {
       description: '"I am the Beast"',
       video: (
         <Link href={`/${locale}/monster-energy`}>
-          <WideVideoSection src="/assets/videos/monsterpreview.mp4" isMobile={isMobile} />
+          <WideVideoSection src="/assets/videos/monsterpreview_web.mp4"/>
         </Link>
       ),
     },
     {
       title: "Páginas Web",
-      description: <div>{t("descPaginasWeb")}</div>,
+      description: <p>{t("descPaginasWeb")}</p>,
       video: (
         <Link href={`/${locale}/web-page`}>
-          <WideVideoSection src="/assets/videos/webpagespreview.mp4" isMobile={isMobile} />
+          <WideVideoSection src="/assets/videos/webpagespreview_web.mp4"/>
         </Link>
       ),
     },
     {
       title: "Wersus",
-      description: <div>{t("descWersus")}</div>,
+      description: <p>{t("descWersus")}</p>,
       video: (
         <Link href={`/${locale}/wersus`}>
-          <WideVideoSection src="/assets/videos/wersuspreview.mp4" isMobile={isMobile} />
+          <WideVideoSection src="/assets/videos/wersuspreview_web.mp4"/>
         </Link>
       ),
     },
@@ -90,7 +90,7 @@ const OurWork = () => {
               <div className="absolute bottom-4 left-4 text-white">
                 <h3 className="font-bold text-lg">{item.title}</h3>
                 {item.description && (
-                  <p className="text-sm">{item.description}</p>
+                  <div className="text-sm">{item.description}</div>
                 )}
               </div>
             </div>
