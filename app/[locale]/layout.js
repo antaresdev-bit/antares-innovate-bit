@@ -23,16 +23,16 @@ export default function RootLayout({ children, params }) {
       <head>
         <link
           rel="preload"
-          href="/fonts/HandelGo.woff2"
+          href="/fonts/HandelGo.ttf"
           as="font"
-          type="font/woff2"
+          type="font/ttf"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/fonts/UniteaSans-Regular.woff2"
+          href="/fonts/UniteaSans-Regular.ttf"
           as="font"
-          type="font/woff2"
+          type="font/ttf"
           crossOrigin="anonymous"
         />
       </head>
