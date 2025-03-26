@@ -10,6 +10,9 @@ import SliderMarketing from "@/components/marketingComponents/SliderMarketing";
 import VideoCard from "@/components/marketingComponents/VideoCard";
 import { useTranslations } from "next-intl";
 import React from "react";
+import { metadataMarketing } from "./metadata-marketing";
+
+export { metadataMarketing };
 
 function page() {
   const t = useTranslations("marketing");
