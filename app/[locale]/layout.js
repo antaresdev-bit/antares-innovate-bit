@@ -23,16 +23,16 @@ export default function RootLayout({ children, params }) {
       <head>
         <link
           rel="preload"
-          href="/assets/models/astronaut_web.gltf"
-          as="fetch"
-          type="model/gltf-binary"
+          href="/fonts/HandelGo.woff2"
+          as="font"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/assets/images/3D/hdri.hdr"
-          as="fetch"
-          type="application/octet-stream"
+          href="/fonts/UniteaSans-Regular.woff2"
+          as="font"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
       </head>

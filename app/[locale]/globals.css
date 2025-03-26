@@ -19,14 +19,14 @@
 @font-face {
   font-family: "UniteaSans-semi-bold";
   src: url("/fonts/UniteaSans-SemiBold.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "UniteaSans-bold";
   src: url("/fonts/UniteaSans-Bold.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
 }
 
