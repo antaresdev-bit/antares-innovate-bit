@@ -97,6 +97,7 @@ function WorkTeam() {
                       width={32}
                       height={32}
                       className="ml-2"
+                      unoptimized={true}
                     />
                   </div>
                 </button>

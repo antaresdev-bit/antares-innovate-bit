@@ -113,6 +113,7 @@ const ServicesMenuModal = ({
                             width={34}
                             height={34}
                             className="animate-pulse"
+                            unoptimized={true}
                         />
                     </div>
                 </div>

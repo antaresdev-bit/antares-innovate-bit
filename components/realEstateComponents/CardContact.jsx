@@ -92,6 +92,7 @@ function CardContact() {
               width={48}
               height={48}
               className=""
+              unoptimized={true}
             />
             <Link href={`/${locale}/form-contact`} className="w-full sm:w-auto">
               <button

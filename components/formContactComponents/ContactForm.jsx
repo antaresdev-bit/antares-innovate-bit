@@ -146,6 +146,7 @@ function ContactForm() {
                 width={48}
                 height={48}
                 className="rounded-[20px]"
+                unoptimized={true}
               />
             </div>
             <button

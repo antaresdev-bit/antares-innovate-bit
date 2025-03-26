@@ -113,6 +113,7 @@ function TechnologyCard() {
               width={48}
               height={48}
               className=""
+              unoptimized={true}
             />
             <Link href={`/${locale}/portafolio`} className="w-full sm:w-auto">
               <button
