@@ -1,6 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useRef, Suspense, useMemo, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  Suspense,
+  useMemo,
+  useCallback,
+} from "react";
 import dynamic from "next/dynamic";
 import Footer from "../../components/header/Footer";
 import LayoutComponents from "@/components/layout/LayoutComponents";
@@ -33,59 +40,81 @@ const VideoLanding = dynamic(
           fill
         />
       </div>
-    )
+    ),
   }
 );
 
-const TextIntroduction = dynamic(() => import("../../components/landing/TextIntroduction"), {
-  loading: () => <CardSkeleton />,
-});
+const TextIntroduction = dynamic(
+  () => import("../../components/landing/TextIntroduction"),
+  {
+    loading: () => <CardSkeleton />,
+  }
+);
 
-const Certificates = dynamic(() => import("../../components/landing/Certificates"), {
-  ssr: false,
-  loading: () => <Skeleton height={100} width={100} />,
-});
+const Certificates = dynamic(
+  () => import("../../components/landing/Certificates"),
+  {
+    ssr: false,
+    loading: () => <Skeleton height={100} width={100} />,
+  }
+);
 
-const OurWork = dynamic(() => import("../../components/portafolioComponenets/OurWork"), {
-  ssr: false,
-  loading: () => <Skeleton height={100} width={100} />,
-});
+const OurWork = dynamic(
+  () => import("../../components/portafolioComponenets/OurWork"),
+  {
+    ssr: false,
+    loading: () => <Skeleton height={100} width={100} />,
+  }
+);
 
+const CreativityCard = dynamic(
+  () => import("../../components/cards/CreativityCard"),
+  {
+    ssr: false,
+    loading: () => <Skeleton height={100} width={100} />,
+  }
+);
 
-const CreativityCard = dynamic(() => import("../../components/cards/CreativityCard"), {
-  ssr: false,
-  loading: () => <Skeleton height={100} width={100} />,
-});
+const TechnologyCard = dynamic(
+  () => import("../../components/cards/TechnologyCard"),
+  {
+    ssr: false,
+    loading: () => <Skeleton height={100} width={100} />,
+  }
+);
 
-const TechnologyCard = dynamic(() => import("../../components/cards/TechnologyCard"), {
-  ssr: false,
-  loading: () => <Skeleton height={100} width={100} />,
-});
-
-const ConsultingPage = dynamic(() => import("../../components/cards/ConsultingPage"), {
-  ssr: false,
-  loading: () => <Skeleton height={100} width={100} />,
-});
+const ConsultingPage = dynamic(
+  () => import("../../components/cards/ConsultingPage"),
+  {
+    ssr: false,
+    loading: () => <Skeleton height={100} width={100} />,
+  }
+);
 
 const Slider = dynamic(() => import("../../components/landing/Slider"), {
   ssr: false,
-  loading: () => <div className="w-full sm:px-10 md:px-20 lg:px-44 md:mt-[80px] lg:mt-[90px] mb-[40px] md:mb-[80px] lg:mb-[90px]  "><Skeleton className="w-full h-[74px] md:h-[84px] lg:h-[104px]" /></div>,
+  loading: () => (
+    <div className="w-full sm:px-10 md:px-20 lg:px-44 md:mt-[80px] lg:mt-[90px] mb-[40px] md:mb-[80px] lg:mb-[90px]  ">
+      <Skeleton className="w-full h-[74px] md:h-[84px] lg:h-[104px]" />
+    </div>
+  ),
 });
-
 
 const Blog = dynamic(() => import("../../components/landing/Blog"), {
   ssr: true,
-  loading: () => <Skeleton height={100} width={100} />
+  loading: () => <Skeleton height={100} width={100} />,
 });
 
-const Statistics = dynamic(() => import("../../components/landing/Statistics"), {
-  ssr: true,
-  loading: () => <Skeleton height={100} width={100} />
-});
-
+const Statistics = dynamic(
+  () => import("../../components/landing/Statistics"),
+  {
+    ssr: true,
+    loading: () => <Skeleton height={100} width={100} />,
+  }
+);
 
 const TEXTS = [
-  "Digital Transformation",
+  "Digital\nTransformation",
   "Automation",
   "Consulting",
   "Design, Web, Apps",
@@ -98,20 +127,21 @@ const BackgroundGradient = () => (
                bg-radial-gradient from-primary-blue to-dark-purple"
     aria-hidden="true"
   />
-)
+);
 
 const IntroductionSection = () => {
   return (
-    <section className="relative flex justify-center overflow-hidden w-full" aria-label="Introducción">
+    <section
+      className="relative flex justify-center overflow-hidden w-full"
+      aria-label="Introducción"
+    >
       <div className="w-full flex items-center justify-center overflow-visible relative">
-        <BackgroundGradient />        
-          <TextIntroduction />
+        <BackgroundGradient />
+        <TextIntroduction />
       </div>
     </section>
-  )
-}
-
-
+  );
+};
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
@@ -119,39 +149,52 @@ export default function Home() {
   const [webGLSupported, setWebGLSupported] = useState(false);
   const { isMobile } = useResponsive();
 
-  const memoizedScene = useMemo(() => (
-    showScene ? <OptimisedScene /> : (
-      <div className="w-full h-full">
-        <p>
-          {isMobile ? "Escena 3D no visible" : webGLSupported
-            ? "Escena 3D no visible"
-            : "WebGL no soportado"}
-        </p>
-      </div>
-    )
-  ), [showScene, isMobile, webGLSupported]);
+  const memoizedScene = useMemo(
+    () =>
+      showScene ? (
+        <OptimisedScene />
+      ) : (
+        <div className="w-full h-full">
+          <p>
+            {isMobile
+              ? "Escena 3D no visible"
+              : webGLSupported
+              ? "Escena 3D no visible"
+              : "WebGL no soportado"}
+          </p>
+        </div>
+      ),
+    [showScene, isMobile, webGLSupported]
+  );
 
-  const MemoizedTextRotate = useMemo(() => (
-    <TextRotate
-      texts={TEXTS}
-      mainClassName="text-[25px] md:text-[30px] lg:text-[40px] font-semibold text-center"
-      staggerFrom={"first"}
-      initial={{ y: "100%" }}
-      animate={{ y: 0 }}
-      exit={{ y: "-120%" }}
-      staggerDuration={0.025}
-      splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 whitespace-normal"
-      transition={{ type: "spring", damping: 30, stiffness: 400 }}
-      rotationInterval={3000}
-      animatePresenceInitial={true}
-    />
-  ), []);
+  const MemoizedTextRotate = useMemo(
+    () => (
+      <TextRotate
+        texts={TEXTS}
+        mainClassName="text-[25px] md:text-[30px] lg:text-[40px] font-semibold text-center flex flex-col items-center mb-[20px] "
+        staggerFrom="first"
+        staggerDuration={0.05}
+        initial={{ y: "100%", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: "-100%", opacity: 0 }}
+        splitBy="lines"
+        splitLevelClassName=" whitespace-normal leading-[2px] sm:leading-[2px] md:leading-[10px] lg:leading-[10px] mb-[10px] pt-[10px] pb-[10px] "
+        transition={{ type: "spring", damping: 30, stiffness: 400 }}
+        rotationInterval={3000}
+        animatePresenceInitial={true}
+      />
+    ),
+    []
+  );
 
-  const handleIntersection = useCallback(([entry]) => {
-    if (entry.isIntersecting !== showScene) {
-      setShowScene(entry.isIntersecting);
-    }
-  }, [showScene]);
+  const handleIntersection = useCallback(
+    ([entry]) => {
+      if (entry.isIntersecting !== showScene) {
+        setShowScene(entry.isIntersecting);
+      }
+    },
+    [showScene]
+  );
 
   useEffect(() => {
     const currentRef = sceneContainerRef.current;
@@ -177,8 +220,7 @@ export default function Home() {
       const canvas = document.createElement("canvas");
       const isSupported = !!(
         window.WebGLRenderingContext &&
-        (canvas.getContext("webgl") ||
-          canvas.getContext("experimental-webgl"))
+        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
       );
       setWebGLSupported(isSupported);
     } catch (e) {
@@ -191,7 +233,6 @@ export default function Home() {
     checkWebGL();
   }, [isMobile, checkWebGL]);
 
-
   const t = useTranslations("landing");
 
   return (
@@ -199,7 +240,6 @@ export default function Home() {
       <div className="overflow-x-hidden w-full">
         <LayoutComponents />
         <div className="relative lg:h-screen h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1c2364] via-[#0e051c] via-15% to-[#0e051c] animate-in fade-in">
-          
           <div ref={sceneContainerRef} className="w-full h-full">
             {memoizedScene}
           </div>
@@ -207,7 +247,7 @@ export default function Home() {
           <div className="absolute top-[calc(50%+30vh)] lg:top-[calc(50%+37vh)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10  w-full lg:max-w-[80%] md:max-w-[85%] max-w-[90%] animate-in fade-in">
             <div
               className="flex justify-center  mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-[71px]"
-              style={{ fontFamily: "HandelGothic", color:"white" }}
+              style={{ fontFamily: "HandelGothic", color: "white" }}
             >
               {MemoizedTextRotate}
             </div>
@@ -218,7 +258,7 @@ export default function Home() {
           </div>
         </div>
 
-          <IntroductionSection />
+        <IntroductionSection />
 
         <div
           className="relative overflow-hidden  mt-[60px]  "
@@ -231,10 +271,10 @@ export default function Home() {
         >
           <div className="relative z-10 mt-[0px] sm:mt-[0px] md:mt-[50px]  lg:mt-[50px] w-full">
             <div className=" mx-[21px] sm:mx-[21px] md:mx-[49px] lg:mx-71">
-              <VideoLanding/>
+              <VideoLanding />
             </div>
 
-              <Slider />
+            <Slider />
 
             {/* degrade */}
             <div
@@ -262,10 +302,10 @@ export default function Home() {
                 {t("serviceText1")} <br /> {t("serviceText2")}
               </h1>
             </div>
-          
-              <div id="creativity-services" data-aos="fade-left">
-                <CreativityCard />
-              </div>
+
+            <div id="creativity-services" data-aos="fade-left">
+              <CreativityCard />
+            </div>
 
             <div id="technology-services" data-aos="fade-right">
               <TechnologyCard />
@@ -276,10 +316,9 @@ export default function Home() {
           </div>
         </div>
 
-          <OurWork />
-          <Statistics />
-          <Blog />
-
+        <OurWork />
+        <Statistics />
+        <Blog />
 
         <Footer />
       </div>
