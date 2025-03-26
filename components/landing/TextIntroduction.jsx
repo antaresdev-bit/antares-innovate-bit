@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Link from 'next/link';
 
 function TextIntroduction() {
   const t = useTranslations("landing");
@@ -37,14 +38,18 @@ function TextIntroduction() {
                 height={48}
                 className="rounded-[20px]"
                 unoptimized={true}
+                loading="lazy"
               />
             </div>
-            <button
-              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold "
+            <Link
+              href="/form-contact"
+              className="w-full sm:w-[230px] h-[48px] bg-white text-[#02021E] text-[20px] 
+                       rounded-[32px] hover:bg-gray-200 transition duration-300 font-bold 
+                       flex items-center justify-center"
               style={{ fontFamily: "HandelGothic" }}
             >
               {t("buttonParagraph")}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

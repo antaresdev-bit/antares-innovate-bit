@@ -3,7 +3,7 @@ import ConditionalTextAbout from "@/components/aboutUsComponents/ConditionalText
 import TextAbout from "@/components/aboutUsComponents/TextAbout";
 import WorkTeam from "@/components/aboutUsComponents/WorkTeam";
 import Footer from "@/components/header/Footer";
-import OurWork from "@/components/header/OurWork";
+import OurWork from "@/components/portafolioComponenets/OurWork";
 import { useTranslations } from "next-intl";
 import React from "react";
 

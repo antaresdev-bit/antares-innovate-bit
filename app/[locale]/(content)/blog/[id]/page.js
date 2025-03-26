@@ -2,7 +2,7 @@
 import BannerBlog from "@/components/blogComponents/BannerBlog";
 import { DataBlog } from "@/components/blogComponents/DataBlog";
 
-import Blog from "@/components/header/Blog";
+import Blog from "@/components/landing/Blog";
 import Footer from "@/components/header/Footer";
 import { useTranslations } from "next-intl";
 

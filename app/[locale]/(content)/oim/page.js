@@ -1,5 +1,5 @@
 import Footer from "@/components/header/Footer";
-import OurWork from "@/components/header/OurWork";
+import OurWork from "@/components/portafolioComponenets/OurWork";
 import OimGridOne from "@/components/oimComponents/OimGridOne";
 import BannerTest from "@/components/subPages/BannerSubPages";
 import ConditionalText from "@/components/subPages/ConditionalTextResponsive";

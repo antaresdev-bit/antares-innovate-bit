@@ -1,5 +1,5 @@
 import Footer from "@/components/header/Footer";
-import OurWork from "@/components/header/OurWork";
+import OurWork from "@/components/portafolioComponenets/OurWork";
 import GridOneMonsterEnergy from "@/components/monsterEnergyComponents/GridOneMonsterEnergy";
 import GridTwoMonsterEnergy from "@/components/monsterEnergyComponents/GridTwoMonsterEnergy";
 import BannerTest from "@/components/subPages/BannerSubPages";

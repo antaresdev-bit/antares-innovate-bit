@@ -11,6 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useResponsive } from "@/hooks/useResponsive";
 import CardSkeleton from "@/components/layout/Loading/CardSkeleton";
 import Image from "next/image";
+
 const OptimisedScene = dynamic(
   () => import("../../components/sections/3D/OptimisedScene"),
   {
@@ -36,17 +37,16 @@ const VideoLanding = dynamic(
   }
 );
 
-const TextIntroduction = dynamic(() => import("../../components/header/TextIntroduction"), {
-  ssr: false,
+const TextIntroduction = dynamic(() => import("../../components/landing/TextIntroduction"), {
   loading: () => <CardSkeleton />,
 });
 
-const Certificates = dynamic(() => import("../../components/header/Certificates"), {
+const Certificates = dynamic(() => import("../../components/landing/Certificates"), {
   ssr: false,
   loading: () => <Skeleton height={100} width={100} />,
 });
 
-const OurWork = dynamic(() => import("../../components/header/OurWork"), {
+const OurWork = dynamic(() => import("../../components/portafolioComponenets/OurWork"), {
   ssr: false,
   loading: () => <Skeleton height={100} width={100} />,
 });
@@ -67,18 +67,18 @@ const ConsultingPage = dynamic(() => import("../../components/cards/ConsultingPa
   loading: () => <Skeleton height={100} width={100} />,
 });
 
-const Slider = dynamic(() => import("../../components/header/Slider"), {
+const Slider = dynamic(() => import("../../components/landing/Slider"), {
   ssr: false,
   loading: () => <div className="w-full sm:px-10 md:px-20 lg:px-44 md:mt-[80px] lg:mt-[90px] mb-[40px] md:mb-[80px] lg:mb-[90px]  "><Skeleton className="w-full h-[74px] md:h-[84px] lg:h-[104px]" /></div>,
 });
 
 
-const Blog = dynamic(() => import("../../components/header/Blog"), {
+const Blog = dynamic(() => import("../../components/landing/Blog"), {
   ssr: true,
   loading: () => <Skeleton height={100} width={100} />
 });
 
-const Statistics = dynamic(() => import("../../components/header/Statistics"), {
+const Statistics = dynamic(() => import("../../components/landing/Statistics"), {
   ssr: true,
   loading: () => <Skeleton height={100} width={100} />
 });
