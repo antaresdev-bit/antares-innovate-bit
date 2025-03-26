@@ -18,9 +18,8 @@ const images = [
   "/assets/images/slider/n.png",
 ];
 
-async function Slider() {
+function Slider() {
   const duplicatedImages = Array(7).fill(images).flat();
-  await new Promise(resolve => setTimeout(resolve, 300));
 
   return (
     <div className="flex justify-center items-center w-full px-4 sm:px-10 md:px-20 lg:px-44 mt-[40px]] md:mt-[80px] lg:mt-[90px] mb-[40px] md:mb-[80px] lg:mb-[90px] ">

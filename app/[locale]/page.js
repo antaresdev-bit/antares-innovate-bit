@@ -1,11 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef, Suspense } from "react";
-import Certificates from "../../components/header/Certificates";
-import Footer from "../../components/header/Footer";
-import Slider from "../../components/header/Slider";
-import TextIntroduction from "../../components/header/TextIntroduction";
 import dynamic from "next/dynamic";
+import Footer from "../../components/header/Footer";
 import LayoutComponents from "@/components/layout/LayoutComponents";
 import LoadingScreen from "@/components/loading/LoadingScreen";
 import { useTranslations } from "next-intl";
@@ -21,12 +18,6 @@ const OptimisedScene = dynamic(
   }
 );
 
-//Se hace importe dinámico a estos elementos para acelerar la carga de la Escena
-const OurWork = dynamic(() => import("../../components/header/OurWork"), {
-  ssr: false,
-  loading: () => <Skeleton height={100} width={100} />,
-});
-
 const VideoLanding = dynamic(
   () => import("../../components/landing/VideoLanding"),
   {
@@ -34,6 +25,22 @@ const VideoLanding = dynamic(
     loading: () => <LoadingScreen />,
   }
 );
+
+const TextIntroduction = dynamic(() => import("../../components/header/TextIntroduction"), {
+  ssr: false,
+  loading: () => <CardSkeleton />,
+});
+
+const Certificates = dynamic(() => import("../../components/header/Certificates"), {
+  ssr: false,
+  loading: () => <Skeleton height={100} width={100} />,
+});
+
+const OurWork = dynamic(() => import("../../components/header/OurWork"), {
+  ssr: false,
+  loading: () => <Skeleton height={100} width={100} />,
+});
+
 
 const CreativityCard = dynamic(() => import("../../components/cards/CreativityCard"), {
   ssr: false,
@@ -50,10 +57,21 @@ const ConsultingPage = dynamic(() => import("../../components/cards/ConsultingPa
   loading: () => <Skeleton height={100} width={100} />,
 });
 
+const Slider = dynamic(() => import("../../components/header/Slider"), {
+  ssr: false,
+  loading: () => <Skeleton height={100} width={100} />,
+});
 
 
+const Blog = dynamic(() => import("../../components/header/Blog"), {
+  ssr: true,
+  loading: () => <Skeleton height={100} width={100} />
+});
 
-
+const Statistics = dynamic(() => import("../../components/header/Statistics"), {
+  ssr: true,
+  loading: () => <Skeleton height={100} width={100} />
+});
 
 
 const TEXTS = [
@@ -83,15 +101,6 @@ const IntroductionSection = () => {
   )
 }
 
-const Blog = dynamic(() => import("../../components/header/Blog"), {
-  ssr: true,
-  loading: () => <Skeleton height={100} width={100} />
-});
-
-const Statistics = dynamic(() => import("../../components/header/Statistics"), {
-  ssr: true,
-  loading: () => <Skeleton height={100} width={100} />
-});
 
 export default function Home() {
   const [showScene, setShowScene] = useState(true);
