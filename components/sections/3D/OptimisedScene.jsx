@@ -34,11 +34,11 @@ export default function OptimisedScene() {
                         playsInline
                         webkit-playsinline="true"
                         loading="eager"
-                        poster="/assets/images/3dMobile.jpg"
+                        poster="/assets/images/3dMobile_optimised.jpg"
                         className="w-screen h-[550px] object-cover"
                         onLoadedData={() => setIsLoading(false)}   
                     >
-                        <source src="/assets/videos/3dMobile.mp4" type="video/mp4" importance="high" />
+                        <source src="/assets/videos/3dMobile_optimised.mp4" type="video/mp4" importance="high" />
                     </video>
 
                     {isLoading && (
