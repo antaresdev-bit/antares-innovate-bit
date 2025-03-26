@@ -38,7 +38,7 @@ const VideoLanding = () => {
             loop
             muted={isMuted}
             preload="auto"
-            poster="/assets/images/video_reel_poster.png"
+            poster="/assets/images/video_reel_poster.jpg"
             webkit-playsinline="true"
           >
             <source 
