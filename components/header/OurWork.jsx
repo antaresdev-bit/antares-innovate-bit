@@ -18,7 +18,7 @@ const OurWork = () => {
       description: <p>{t("descUpardigital")}</p>,
       video: (
         <Link href={`/${locale}/upardigital`}>
-          <WideVideoSection src="/assets/videos/uparpreview_web.mp4"/>
+          <WideVideoSection src="/assets/videos/uparpreview_web.mp4" poster="/assets/images/portafolio/posters/uparpreview_poster.jpg"/>
         </Link>
       ),
     },
@@ -27,7 +27,7 @@ const OurWork = () => {
       description: '"I am the Beast"',
       video: (
         <Link href={`/${locale}/monster-energy`}>
-          <WideVideoSection src="/assets/videos/monsterpreview_web.mp4"/>
+          <WideVideoSection src="/assets/videos/monsterpreview_web.mp4" poster="/assets/images/portafolio/posters/monsterpreview_poster.jpg"/>
         </Link>
       ),
     },
@@ -36,7 +36,7 @@ const OurWork = () => {
       description: <p>{t("descPaginasWeb")}</p>,
       video: (
         <Link href={`/${locale}/web-page`}>
-          <WideVideoSection src="/assets/videos/webpagespreview_web.mp4"/>
+          <WideVideoSection src="/assets/videos/webpagespreview_web.mp4" poster="/assets/images/portafolio/posters/webpagespreview_poster.jpg"/>
         </Link>
       ),
     },
@@ -45,7 +45,7 @@ const OurWork = () => {
       description: <p>{t("descWersus")}</p>,
       video: (
         <Link href={`/${locale}/wersus`}>
-          <WideVideoSection src="/assets/videos/wersuspreview_web.mp4"/>
+          <WideVideoSection src="/assets/videos/wersuspreview_web.mp4" poster="/assets/images/portafolio/posters/wersuspreview_poster.jpg"/>
         </Link>
       ),
     },

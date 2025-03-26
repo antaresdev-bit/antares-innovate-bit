@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 
-const WideVideoSection = ({ src }) => {
+const WideVideoSection = ({ src, poster }) => {
   const videoRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -43,6 +43,7 @@ const WideVideoSection = ({ src }) => {
       playsInline
       className="w-full h-full object-cover opacity-80"
       preload="none"
+      poster={poster}
     >
       {isVisible && <source src={src} type="video/mp4" />}
       Your browser does not support the video tag.
