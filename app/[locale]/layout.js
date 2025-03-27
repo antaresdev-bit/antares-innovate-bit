@@ -4,20 +4,21 @@ import { NextIntlClientProvider } from "next-intl";
 import AOSLayout from "@/components/layout/AOSLayout";
 import en from "@/messages/en.json";
 import es from "@/messages/es.json";
+import MetricsTracker from "@/components/layout/MetricsTracker";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Antares Innovate - Tecnología",
   description:
-    "Descubre las mejores estrategias de Tecnología, consultoría, marketingy  automatización con Antares Innovate.",
+    "Descubre las mejores estrategias de Tecnología, consultoría, marketing y  automatización con Antares Innovate.",
   openGraph: {
     type: "website",
     url: "https://antaresinnovate.com",
     title: "Antares Innovate - Tecnología y Marketing",
 
     siteName: "Antares Innovate",
-  }
+  },
 };
 
 const messages = { en, es };
@@ -44,6 +45,7 @@ export default function RootLayout({ children, params }) {
         />
       </head>
       <body>
+        <MetricsTracker />
         <NextIntlClientProvider locale={locale} messages={messages[locale]}>
           <AOSLayout>{children}</AOSLayout>
         </NextIntlClientProvider>
