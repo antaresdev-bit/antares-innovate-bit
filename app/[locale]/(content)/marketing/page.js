@@ -14,12 +14,12 @@ import { metadataMarketing } from "./metadata-marketing";
 
 export { metadataMarketing };
 
-function page() {
+function Page() {
   const t = useTranslations("marketing");
   return (
     <div className="relative ">
       <BannerMarketing />
-      <div className="max-w-[1500px] mx-auto px-[21px] sm:px-[21px] md:px-[49px] lg:px-[71px]">
+      <div className="max-w-[1500px] mx-auto px-[21px] sm:px-[21px] md:px-[49px] lg:px-[71px] ">
         <ConditionalTextMarketing
           title={t("marketingText1")}
           subtitle={t("marketingText2")}
@@ -32,9 +32,9 @@ function page() {
 
         <CardMarketing />
 
-        <div className="  mt-[164px] sm:mt-[164px] md:mt-[144px] lg:mt-[211px]  ">
+        <div className="  mt-[163px] sm:mt-[163px] md:mt-[143px] lg:mt-[210px]  w-[400px]   ">
           <h1
-            className=" text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[65px] max-w-[400px] "
+            className="  text-[48px] sm;text-[48px] md:text-[56px] lg:text-[56px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4D86FF] to-[#FFFFFF] leading-[50px] max-w-[800px] "
             style={{ fontFamily: "HandelGothic" }}
           >
             {t("marketingText10")}
@@ -64,4 +64,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

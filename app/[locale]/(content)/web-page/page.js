@@ -17,7 +17,7 @@ function DesarrolloWebPage() {
         <BannerTest
           videoUrl="https://storage.googleapis.com/antares-agency-rcs/Paginas%20web%20Preview.mp4"
           title={t("webpageText1")}
-          subtitle="Innovación y Experiencia de Usuario de Alto Impacto"
+          subtitle={t("webpageText2")}
           textPosition="left"
           ColorText="linear-gradient(to right, #63B6DF, #FFFFFF)"
         />

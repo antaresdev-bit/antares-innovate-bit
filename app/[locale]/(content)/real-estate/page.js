@@ -14,7 +14,7 @@ import { metadataRealEstate } from "./metadata-realEstate";
 
 export { metadataRealEstate };
 
-function page() {
+function Page() {
   const t = useTranslations("realEstate");
   return (
     <div className="relative">
@@ -70,4 +70,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
