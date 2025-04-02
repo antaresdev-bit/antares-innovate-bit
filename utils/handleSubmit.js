@@ -3,10 +3,10 @@ import { sendContactForm } from "@/lib/api";
 import generalMailTemplate from '@/lib/generalMailTemplate';
 
 
-export const handleHomeContactSubmit = async (values, { setSubmitting, resetForm }, successMsg, errorMsg) => {
+export const handleHomeContactSubmit = async (values, { setSubmitting, resetForm }, successMsg, errorMsg, clientname) => {
     try {
         await sendContactForm({
-            subject: 'Solicitud de Información de Servicios - Nuevo Cliente Potencial',
+            subject: `Solicitud de Información de Servicios - ${clientname}`,
             text: `
                 Empresa: ${values.company}\n
                 Nombre: ${values.name}\n

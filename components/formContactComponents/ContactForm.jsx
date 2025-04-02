@@ -38,7 +38,8 @@ function ContactForm() {
         resetForm: resetForm,
       },
       "Gracias por contactarnos",
-      "Error al enviar el formulario"
+      "Error al enviar el formulario",
+      formData.company
     );
   };
 
