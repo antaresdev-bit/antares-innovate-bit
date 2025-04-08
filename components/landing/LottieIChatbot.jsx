@@ -172,7 +172,7 @@ function LottieIChatbot() {
           className="fixed top-0 right-0 z-[1001] shadow-lg overflow-hidden flex flex-col"
           style={{
             width: "370px",
-            height: "100vh",
+            height: "100dvh",
             backgroundImage: 'url("/assets/images/fondo_chat.png")',
             backgroundSize: "cover",
             backgroundPosition: "top center",
@@ -259,12 +259,12 @@ function LottieIChatbot() {
           </div>
 
           <div className="p-[20px] mb-[15px]">
-            <div className="flex items-center w-full">
-              <div className="flex items-center bg-white rounded-full px-[10px] h-[39px] flex-1">
+            <div className="flex items-center w-full gap-2">
+              <div className="flex items-center bg-white rounded-full px-[10px] h-[39px] flex-1 min-w-0">
                 <img
                   src="/assets/images/face.svg"
                   alt="emoji"
-                  className="w-[26px] h-[26px]"
+                  className="w-[26px] h-[26px] shrink-0"
                 />
                 <input
                   value={input}
@@ -272,27 +272,28 @@ function LottieIChatbot() {
                   onKeyPress={handleKeyPress}
                   disabled={isLoading}
                   placeholder="Escribe tu mensaje..."
-                  className="flex-1 outline-none text-gray-500 text-[14px] bg-transparent placeholder:text-gray-400 mx-2"
+                  className="flex-1 outline-none text-gray-500 text-[16px] bg-transparent placeholder:text-gray-400 mx-2 min-w-0"
                 />
                 <img
                   src="/assets/images/clip.svg"
                   alt="clip"
-                  className="w-[26px] h-[26px]"
+                  className="w-[26px] h-[26px] shrink-0"
                 />
                 <button
                   onClick={sendMessage}
                   disabled={isLoading || input.trim() === ""}
-                  className="relative rounded-full overflow-hidden border-2 border-white flex items-center justify-center bg-[#3874F5] ml-2"
+                  className="rounded-full overflow-hidden border-2 border-white flex items-center justify-center bg-[#3874F5] ml-2 w-[32px] h-[32px] shrink-0"
                 >
                   <img
                     src="/assets/images/Gif Avion.gif"
                     alt="send"
-                    className="w-[26px] h-[26px]"
+                    className="w-[26px] h-[26px] min-w-[26px] min-h-[26px] max-w-[26px] max-h-[26px] object-contain"
                   />
                 </button>
               </div>
+
               <div
-                className="w-[39px] h-[39px] rounded-full flex items-center justify-center ml-2"
+                className="w-[39px] h-[39px] rounded-full flex items-center justify-center shrink-0"
                 style={{ backgroundColor: "#FDC548" }}
               >
                 <img
