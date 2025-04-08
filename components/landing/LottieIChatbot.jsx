@@ -168,93 +168,139 @@ function LottieIChatbot() {
       )}
 
       {isChatOpen && (
-        <div className="fixed bottom-[130px] left-[21px] right-[21px] sm:left-[21px] sm:right-[21px] md:left-[49px] md:right-[49px] lg:left-[71px] lg:right-[71px] max-w-[350px] ml-auto h-[450px] bg-white shadow-lg rounded-lg flex flex-col overflow-hidden">
-          <div className="flex justify-between items-center p-3 bg-blue-600 text-white">
-            <h3 className="text-lg font-semibold">EVA</h3>
+        <div
+          className="fixed top-0 right-0 z-[1001] shadow-lg overflow-hidden flex flex-col"
+          style={{
+            width: "370px",
+            height: "100vh",
+            backgroundImage: 'url("/assets/images/fondo_chat.png")',
+            backgroundSize: "cover",
+            backgroundPosition: "top center",
+            backgroundRepeat: "no-repeat",
+            borderTopLeftRadius: "48px",
+            borderBottomLeftRadius: "48px",
+          }}
+          data-aos="fade-left"
+          data-aos-duration="500"
+        >
+          <div className="ml-[20px] mt-[20px] self-start">
             <button
               onClick={toggleChat}
-              className="text-white hover:text-red-200"
+              className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200"
             >
               ✖
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-3 bg-gray-50">
-            {isOnline !== null && (
+          <div className="flex-1 flex flex-col items-center overflow-y-auto px-4 py-2 space-y-4">
+            <div className="w-[161px] h-[108px] bg-[#2D6DFF] rounded-bl-[24px] rounded-tr-[24px] px-3 py-2 text-white border flex flex-col items-center justify-center">
               <div
-                className={`text-sm text-center p-1 ${
-                  isOnline ? "text-green-600" : "text-red-600"
-                }`}
-              ></div>
-            )}
-
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className={`mb-3 max-w-[80%] ${
-                  msg.role === "user"
-                    ? "ml-auto bg-blue-500 text-white rounded-tl-lg rounded-tr-lg rounded-bl-lg"
-                    : "mr-auto bg-gray-200 text-gray-800 rounded-tr-lg rounded-tl-lg rounded-br-lg"
-                } p-3 shadow-sm`}
+                className="text-[48px] leading-none"
+                style={{ fontFamily: "HandelGothic", color: "#B1CCFF" }}
               >
-                {msg.content}
+                Eva
               </div>
-            ))}
-
-            {error && (
-              <div className="text-red-500 text-sm p-2 mb-3 bg-red-50 rounded border border-red-200">
-                {error}
+              <div className="flex items-center gap-2 mt-1 text-[14px] font-light">
+                <span>En Línea</span>
+                <span
+                  className="w-3 h-3 rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #7DEE47 0%, #1EDD31 100%)",
+                  }}
+                />
               </div>
-            )}
+            </div>
 
-            <div ref={messagesEndRef} />
+            <div className="relative w-[200px] h-[200px] min-h-[200px] flex items-center justify-center">
+              <div className="absolute w-[340px] h-[340px] rounded-full border border-white/10" />
+              <div className="absolute w-[286px] h-[286px] rounded-full border border-white/20" />
+              <div className="absolute w-[241px] h-[241px] rounded-full border border-white/30" />
+              <div className="absolute w-[205px] h-[205px] rounded-full border-2 border-white/80" />
+
+              <div className="w-[179px] h-[179px] rounded-full overflow-hidden relative z-10">
+                <video
+                  src="https://s3-figma-videos-production-sig.figma.com/video/TEAM/1191228606551987000/f0d5339302028b0942efd9dbdc82467530c15fc1?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=r1UMHc-~FMQFftN4pL-XfHTBIRWhHT7FwMxpP3ZTMBv3d4ISREoClN4k36pgs94TVFC2rnuYSlOZQrV5lxN3O7BR0c-9h1CZHo4gHMNaQvsYahtC1ndeEpiW2qXk9ZfYtmSwk8PFPpKxw6OeAF8Be75TR2cuK1SgMV7lmqM4cIhc9Ziu-SMH52SPX74M~9YvG1Gzpr3I4DkaQlN8IYv9T7vbZ733VumIOps1OO5SJgdclGjwdsggSMXmWN0w4nTSpsrzHJHeKSGMQiz0~ASSrnfPxwF2p6siwG43MUOkHlh6SUZt~liOaXdgIPOZGVXJysDgVx8DgAQFMIg3gk-X4w__"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div
+              className="border w-full flex-1 min-h-[200px] max-h-[400px] rounded-[24px] overflow-hidden"
+              style={{ backgroundColor: "rgba(56, 116, 245, 0.76)" }}
+            >
+              <div className="h-full overflow-y-auto p-4">
+                {messages.map((msg) => (
+                  <div
+                    key={msg.id}
+                    className={`mb-3 max-w-[80%] ${
+                      msg.role === "user"
+                        ? "ml-auto bg-[#1C5DEF] border border-white text-white text-[18px] rounded-tl-lg rounded-tr-[12px] rounded-bl-lg"
+                        : "mr-auto bg-white text-gray-800 text-[18px] rounded-tr-[12px] rounded-tl-lg rounded-br-lg"
+                    } p-3 shadow-sm`}
+                    style={{ fontFamily: "UniteaSans" }}
+                  >
+                    {msg.content}
+                  </div>
+                ))}
+                {error && (
+                  <div className="text-red-500 text-sm p-2 mb-3 bg-red-50 rounded border border-red-200">
+                    {error}
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+            </div>
           </div>
 
-          <div className="border-t p-3 bg-white">
-            <div className="flex items-center">
-              <textarea
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
-                disabled={isLoading}
-                className="flex-1 border border-gray-300 p-2 rounded-lg resize-none h-[50px]"
-                placeholder="Escribe un mensaje..."
-                rows="1"
-              />
-              <button
-                onClick={sendMessage}
-                disabled={isLoading || input.trim() === ""}
-                className={`ml-2 px-4 py-2 rounded-lg ${
-                  isLoading || input.trim() === ""
-                    ? "bg-gray-300 cursor-not-allowed"
-                    : "bg-blue-500 hover:bg-blue-600"
-                } text-white transition`}
+          <div className="p-[20px] mb-[15px]">
+            <div className="flex items-center w-full">
+              <div className="flex items-center bg-white rounded-full px-[10px] h-[39px] flex-1">
+                <img
+                  src="/assets/images/face.svg"
+                  alt="emoji"
+                  className="w-[26px] h-[26px]"
+                />
+                <input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  disabled={isLoading}
+                  placeholder="Escribe tu mensaje..."
+                  className="flex-1 outline-none text-gray-500 text-[14px] bg-transparent placeholder:text-gray-400 mx-2"
+                />
+                <img
+                  src="/assets/images/clip.svg"
+                  alt="clip"
+                  className="w-[26px] h-[26px]"
+                />
+                <button
+                  onClick={sendMessage}
+                  disabled={isLoading || input.trim() === ""}
+                  className="relative rounded-full overflow-hidden border-2 border-white flex items-center justify-center bg-[#3874F5] ml-2"
+                >
+                  <img
+                    src="/assets/images/Gif Avion.gif"
+                    alt="send"
+                    className="w-[26px] h-[26px]"
+                  />
+                </button>
+              </div>
+              <div
+                className="w-[39px] h-[39px] rounded-full flex items-center justify-center ml-2"
+                style={{ backgroundColor: "#FDC548" }}
               >
-                {isLoading ? (
-                  <svg
-                    className="animate-spin h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>
-                ) : (
-                  "Enviar"
-                )}
-              </button>
+                <img
+                  src="/assets/images/mic.png"
+                  alt="mic"
+                  className="w-[15px] h-[15px]"
+                />
+              </div>
             </div>
           </div>
         </div>
