@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
-const API_BASE_URL = "https://eva-llama-backend.onrender.com";
+const API_BASE_URL = "https://eva-chatbot-production.up.railway.app";
+
 
 function LottieIChatbot() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -111,7 +112,8 @@ function LottieIChatbot() {
         {
           id: Date.now(),
           role: "assistant",
-          content: "¡Hola! Soy Eva, ¿Cómo te llamas?",
+          content:
+            "¡Hola! Como te llamas? Soy tu asistente y estoy aquí para ayudarte.",
         },
       ]);
 
@@ -271,8 +273,12 @@ function LottieIChatbot() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   disabled={isLoading}
-                  placeholder="Escribe tu mensaje..."
-                  className="flex-1 outline-none text-gray-500 text-[16px] bg-transparent placeholder:text-gray-400 mx-2 min-w-0"
+                  placeholder={
+                    isLoading
+                      ? "Eva está escribiendo..."
+                      : "Escribe tu mensaje..."
+                  }
+                  className="flex-1 outline-none text-gray-500 text-[15px] bg-transparent placeholder:text-gray-400 mx-2 min-w-0"
                 />
                 <img
                   src="/assets/images/clip.svg"
