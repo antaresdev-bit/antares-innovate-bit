@@ -112,7 +112,7 @@ function LottieIChatbot() {
           id: Date.now(),
           role: "assistant",
           content:
-            "¡Hola! Soy Eva, tu asistente virtual. Estoy aquí para ayudarte en lo que necesites.",
+            "¡Hola! Soy Eva, tu asistente virtual. ¿me podrías indicar tu nombre?",
         },
       ]);
 
