@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 
 const API_BASE_URL = "https://eva-chatbot-production.up.railway.app";
 
-
 function LottieIChatbot() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -24,7 +23,7 @@ function LottieIChatbot() {
   }, [messages]);
 
   const handleClick = (phoneNumber) => {
-    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+    setIsChatOpen(!isChatOpen);
   };
 
   const toggleMenu = () => {
@@ -113,7 +112,7 @@ function LottieIChatbot() {
           id: Date.now(),
           role: "assistant",
           content:
-            "¡Hola! Como te llamas? Soy tu asistente y estoy aquí para ayudarte.",
+            "¡Hola! Soy Eva, tu asistente virtual. Estoy aquí para ayudarte en lo que necesites.",
         },
       ]);
 
@@ -126,7 +125,7 @@ function LottieIChatbot() {
   return (
     <div className="fixed bottom-[25px] right-[21px] sm:right-[21px] md:right-[49px] lg:right-[71px] z-[1000]">
       <button
-        onClick={toggleMenu}
+        onClick={toggleChat}
         className="w-[98px] h-[104px] border-none bg-transparent cursor-pointer p-0 relative"
       >
         <img
@@ -135,39 +134,6 @@ function LottieIChatbot() {
           className="w-full h-full object-cover"
         />
       </button>
-
-      {isMenuOpen && (
-        <div className="absolute bottom-[120px] right-0 bg-white shadow-lg rounded-lg p-4">
-          <p
-            className="text-[17px] font-semibold mb-2"
-            style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
-          >
-            Contactanos!
-          </p>
-
-          <button
-            onClick={toggleChat}
-            className="block w-full text-left py-2 px-4 hover:bg-gray-100 border border-[#0B0C28] rounded-[10px] mb-[10px]"
-            style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
-          >
-            👩🏼‍🚀 Eva
-          </button>
-          <button
-            onClick={() => handleClick("573053456611")}
-            className="block w-full text-left py-2 px-4 hover:bg-gray-100 border border-[#0B0C28] rounded-[10px] mb-[10px]"
-            style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
-          >
-            🇨🇴 COL
-          </button>
-          <button
-            onClick={() => handleClick("16893312690")}
-            className="block w-full text-left py-2 px-4 hover:bg-gray-100 border border-[#0B0C28] rounded-[10px]"
-            style={{ fontFamily: "HandelGothic", color: "#0B0C28" }}
-          >
-            🇺🇸 EU
-          </button>
-        </div>
-      )}
 
       {isChatOpen && (
         <div
