@@ -6,6 +6,90 @@ import EvaVideoMobile from "../chatbotComponents/EvaVideoMobile";
 
 const API_BASE_URL = "https://eva-chatbot-production.up.railway.app";
 
+const LinkifyText = ({ text }) => {
+  const normalizedText = text.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
+
+  const parts = [];
+  let remainingText = normalizedText;
+
+  const emailIndex = remainingText.indexOf("contacto@antaresinnovate.com");
+  if (emailIndex >= 0) {
+    if (emailIndex > 0) {
+      parts.push(
+        <span key="pre-email">{remainingText.substring(0, emailIndex)}</span>
+      );
+    }
+
+    parts.push(
+      <div key="email">
+        <a
+          href="mailto:contacto@antaresinnovate.com"
+          style={{
+            color: "#2D6DFF",
+            textDecoration: "underline",
+            fontSize: "15px",
+          }}
+        >
+          contacto@antaresinnovate.com
+        </a>
+      </div>
+    );
+
+    remainingText = remainingText.substring(
+      emailIndex + "contacto@antaresinnovate.com".length
+    );
+  }
+
+  // Procesamos WhatsApp Colombia
+  const whatsappColIndex = remainingText.indexOf("573053456611");
+  if (whatsappColIndex >= 0) {
+    parts.push(
+      <div key="whatsapp-col">
+        🇨🇴 WhatsApp:{" "}
+        <a
+          href="https://wa.me/573053456611"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#2D6DFF", textDecoration: "underline" }}
+        >
+          Link
+        </a>
+      </div>
+    );
+    remainingText = remainingText.substring(
+      whatsappColIndex + "573053456611".length
+    );
+  }
+
+  // Procesamos WhatsApp USA
+  const whatsappUsaIndex = remainingText.indexOf("16893312690");
+  if (whatsappUsaIndex >= 0) {
+    parts.push(
+      <div key="whatsapp-usa">
+        🇺🇸 WhatsApp:{" "}
+        <a
+          href="https://wa.me/16893312690"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#2D6DFF", textDecoration: "underline" }}
+        >
+          Link
+        </a>
+      </div>
+    );
+    remainingText = remainingText.substring(
+      whatsappUsaIndex + "16893312690".length
+    );
+  }
+
+  // Texto restante
+  if (remainingText.trim().length > 0) {
+    parts.push(<div key="remaining-text">{remainingText.trim()}</div>);
+  }
+
+  return <div style={{ lineHeight: "1.6" }}>{parts}</div>;
+};
+
 function LottieIChatbot() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -211,7 +295,8 @@ function LottieIChatbot() {
                     } p-3 shadow-sm`}
                     style={{ fontFamily: "UniteaSans" }}
                   >
-                    {msg.content}
+                    <LinkifyText text={msg.content} />
+                    {/*  {msg.content} */}
                   </div>
                 ))}
                 {error && (
@@ -261,7 +346,6 @@ function LottieIChatbot() {
                   />
                 </button>
               </div>
-
               {/* <div
                 className="w-[39px] h-[39px] rounded-full flex items-center justify-center shrink-0"
                 style={{ backgroundColor: "#FDC548" }}
