@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import EvaVideoDesktop from "../chatbotComponents/EvaVideoDesktop";
+import EvaVideoMobile from "../chatbotComponents/EvaVideoMobile";
 
 const API_BASE_URL = "https://eva-chatbot-production.up.railway.app";
 
@@ -12,7 +14,19 @@ function LottieIChatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isOnline, setIsOnline] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -180,23 +194,7 @@ function LottieIChatbot() {
               </div>
             </div>
 
-            <div className="relative w-[200px] h-[200px] min-h-[200px] flex items-center justify-center">
-              <div className="absolute w-[340px] h-[340px] rounded-full border border-white/10" />
-              <div className="absolute w-[286px] h-[286px] rounded-full border border-white/20" />
-              <div className="absolute w-[241px] h-[241px] rounded-full border border-white/30" />
-              <div className="absolute w-[205px] h-[205px] rounded-full border-2 border-white/80" />
-
-              <div className="w-[179px] h-[179px] rounded-full overflow-hidden relative z-10">
-                <video
-                  src="https://s3-figma-videos-production-sig.figma.com/video/TEAM/1191228606551987000/f0d5339302028b0942efd9dbdc82467530c15fc1?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=r1UMHc-~FMQFftN4pL-XfHTBIRWhHT7FwMxpP3ZTMBv3d4ISREoClN4k36pgs94TVFC2rnuYSlOZQrV5lxN3O7BR0c-9h1CZHo4gHMNaQvsYahtC1ndeEpiW2qXk9ZfYtmSwk8PFPpKxw6OeAF8Be75TR2cuK1SgMV7lmqM4cIhc9Ziu-SMH52SPX74M~9YvG1Gzpr3I4DkaQlN8IYv9T7vbZ733VumIOps1OO5SJgdclGjwdsggSMXmWN0w4nTSpsrzHJHeKSGMQiz0~ASSrnfPxwF2p6siwG43MUOkHlh6SUZt~liOaXdgIPOZGVXJysDgVx8DgAQFMIg3gk-X4w__"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+            {isMobile ? <EvaVideoMobile /> : <EvaVideoDesktop />}
 
             <div
               className="border w-full flex-1 min-h-[200px] max-h-[400px] rounded-[24px] overflow-hidden"
@@ -246,11 +244,11 @@ function LottieIChatbot() {
                   }
                   className="flex-1 outline-none text-gray-500 text-[15px] bg-transparent placeholder:text-gray-400 mx-2 min-w-0"
                 />
-                <img
+                {/* <img
                   src="/assets/images/clip.svg"
                   alt="clip"
                   className="w-[26px] h-[26px] shrink-0"
-                />
+                /> */}
                 <button
                   onClick={sendMessage}
                   disabled={isLoading || input.trim() === ""}
@@ -264,7 +262,7 @@ function LottieIChatbot() {
                 </button>
               </div>
 
-              <div
+              {/* <div
                 className="w-[39px] h-[39px] rounded-full flex items-center justify-center shrink-0"
                 style={{ backgroundColor: "#FDC548" }}
               >
@@ -273,7 +271,7 @@ function LottieIChatbot() {
                   alt="mic"
                   className="w-[15px] h-[15px]"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
