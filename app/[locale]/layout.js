@@ -9,15 +9,42 @@ import MetricsTracker from "@/components/layout/MetricsTracker";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Antares Innovate - Tecnología",
-  description:
-    "Descubre las mejores estrategias de Tecnología, consultoría, marketing y  automatización con Antares Innovate.",
-  openGraph: {
-    type: "website",
-    url: "https://antaresinnovate.com",
-    title: "Antares Innovate - Tecnología y Marketing",
+  es: {
+    title: "Antares Innovate - Tecnología",
+    description:
+      "Descubre las mejores estrategias de Tecnología, consultoría, marketing y  automatización con Antares Innovate.",
+    openGraph: {
+      type: "website",
+      url: "https://antaresinnovate.com",
+      title: "Antares Innovate - Tecnología y Marketing",
 
-    siteName: "Antares Innovate",
+      siteName: "Antares Innovate",
+      keywords: [
+        "consultoría tecnológica ",
+        "automatización",
+        "servicios de integración de IA",
+        "software para negocios"
+      ]
+    },
+  },
+  en: {
+    title: "Innovative Technology Solutions | Antares Innovate",
+    description:
+      "Tech consulting & automation for American businesses. We help US companies streamline operations and drive revenue through custom digital solutions.",
+    openGraph: {
+      type: "website",
+      url: "https://antaresinnovate.com",
+      title: "Technology Solutions for US Businesses ",
+
+      siteName: "Antares Innovate",
+    },
+    keywords: [
+      "US tech consulting",
+      "business automation USA",
+      "digital transformation for American companies",
+      "cloud solutions US",
+      "AI integration services",
+    ],
   },
 };
 
