@@ -12,7 +12,10 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { metadataMarketing } from "./metadata-marketing";
 
-export { metadataMarketing };
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataMarketing[lang];
+}
 
 function Page() {
   const t = useTranslations("marketing");
