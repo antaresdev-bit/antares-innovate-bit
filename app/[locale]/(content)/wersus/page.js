@@ -6,8 +6,15 @@ import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import GridOneWersus from "@/components/wersusComponents/GridOneWersus";
 import GridTwoWersus from "@/components/wersusComponents/GridTwoWersus";
+import { metadataWersus } from "@/components/wersusComponents/metadataWersus";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataWersus[lang];
+}
+
 
 function WersusPage() {
   const t = useTranslations("wersusSubpage");
