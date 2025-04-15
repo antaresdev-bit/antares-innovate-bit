@@ -6,8 +6,14 @@ import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import GridOneUpardigital from "@/components/upardigitalComponents/GridOneUpardigital";
 import GridTwoUpardigital from "@/components/upardigitalComponents/GridTwoUpardigital";
+import { metadataUpairSistem } from "@/components/uparsistemComponents/metadata-upairSistem";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataUpairSistem[lang];
+}
 
 function UpardigitalPage() {
   const t = useTranslations("upardigitalSubpage");
