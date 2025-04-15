@@ -25,7 +25,7 @@ export function teamMembers() {
       perfil: t("LuisPerfil"),
     },
     {
-      name: "Andrés Grondona",
+      name: "Andrés F. Grondona",
       role: t("AndresRole"),
       src: "/assets/images/about/3.png",
       perfil: t("AndresPerfil"),
