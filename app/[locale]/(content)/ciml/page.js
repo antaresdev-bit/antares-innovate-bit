@@ -1,4 +1,5 @@
 import GridCimlOne from "@/components/CimlComponents/GridCimlOne";
+import { metadataCIML } from "@/components/CimlComponents/metadataCIML";
 import Footer from "@/components/header/Footer";
 import OurWork from "@/components/portafolioComponenets/OurWork";
 import BannerTest from "@/components/subPages/BannerSubPages";
@@ -8,6 +9,11 @@ import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataCIML[lang];
+}
 
 function CimlPage() {
   const t = useTranslations("cimlSubpage");
@@ -73,11 +79,7 @@ function CimlPage() {
 
         <div className="mt-[108px] sm:mt-[108px] md:mt-[111px] lg:mt-[156px] mb-[100px] sm:mb-[100px] md:mb-[106px] lg:mb-[155px]  ">
           <ProcessText
-            paragraphs={[
-              t("cimlText5"),
-              t("cimlText6"),
-              t("cimlText7")
-            ]}
+            paragraphs={[t("cimlText5"), t("cimlText6"), t("cimlText7")]}
           />
         </div>
 
