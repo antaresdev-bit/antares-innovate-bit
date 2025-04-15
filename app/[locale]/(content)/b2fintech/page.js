@@ -1,5 +1,6 @@
 import B2FintechGridOne from "@/components/B2FintechComponents/B2FintechGridOne";
 import B2FintechGridTwo from "@/components/B2FintechComponents/B2FintechGridTwo";
+import { metadataB2Fintech } from "@/components/B2FintechComponents/metadataB2Fintech";
 import Footer from "@/components/header/Footer";
 import OurWork from "@/components/portafolioComponenets/OurWork";
 import BannerTest from "@/components/subPages/BannerSubPages";
@@ -8,6 +9,12 @@ import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataB2Fintech[lang];
+}
+
 
 function B2fintechPage() {
   const t = useTranslations("B2FintechSubpage");
