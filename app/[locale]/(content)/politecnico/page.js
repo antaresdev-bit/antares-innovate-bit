@@ -1,5 +1,6 @@
 
 import GridPoliOne from "@/components/PolitecnicoComponents/GridPoliOne";
+import { metadataPolitecnico } from "@/components/PolitecnicoComponents/metadataPolitecnico";
 import Footer from "@/components/header/Footer";
 import OurWork from "@/components/portafolioComponenets/OurWork";
 import BannerTest from "@/components/subPages/BannerSubPages";
@@ -9,6 +10,12 @@ import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataPolitecnico[lang];
+}
+
 
 function PolitecnicoPage() {
   const t = useTranslations("politecnicoSubpage");
