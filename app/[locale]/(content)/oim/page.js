@@ -8,6 +8,13 @@ import ProcessText from "@/components/subPages/ProcessText";
 import TextSubPages from "@/components/subPages/TextSubPages";
 import { useTranslations } from "next-intl";
 import React from "react";
+import { metadataOIM } from "@/components/oimComponents/metadataOIM";
+
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataOIM[lang];
+}
+
 
 function OimPage() {
   const t = useTranslations("oimSubpage");
