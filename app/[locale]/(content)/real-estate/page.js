@@ -10,9 +10,13 @@ import ConditionalTextArchitect from "@/components/realEstateComponents/Conditio
 import StatisticsArchitecture from "@/components/realEstateComponents/StatisticsArchitecture";
 import { useTranslations } from "next-intl";
 import React from "react";
-import { metadataRealEstate } from "./metadata-realEstate";
+import { metadataMarketing } from "../marketing/metadata-marketing";
 
-export { metadataRealEstate };
+
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataMarketing[lang];
+}
 
 function Page() {
   const t = useTranslations("realEstate");
