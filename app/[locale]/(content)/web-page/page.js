@@ -9,6 +9,12 @@ import GridImageSectionTwo from "@/components/webPageComponents/GridImageSection
 import ProcessTextWeb from "@/components/webPageComponents/ProcessTextWeb";
 import { useTranslations } from "next-intl";
 
+export function generateMetadata({ params }) {
+  const lang = params.lang || "en";
+  return metadataMonsterEnergy[lang];
+}
+
+
 function DesarrolloWebPage() {
   const t = useTranslations("webpageSubpage");
   return (

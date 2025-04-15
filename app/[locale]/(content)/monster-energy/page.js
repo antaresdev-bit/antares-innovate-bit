@@ -9,10 +9,11 @@ import TextSubPages from "@/components/subPages/TextSubPages";
 import { useTranslations } from "next-intl";
 import React from "react";
 import { metadataMonsterEnergy } from "@/components/monsterEnergyComponents/metadata-monster";
+import { metadataWebPage } from "@/components/webPageComponents/metadataWebPage";
 
 export function generateMetadata({ params }) {
   const lang = params.lang || "en";
-  return metadataMonsterEnergy[lang];
+  return metadataWebPage[lang];
 }
 
 function MonsterEnergy() {
