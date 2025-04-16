@@ -8,10 +8,11 @@ import GridImageSectionOne from "@/components/webPageComponents/GridImageSection
 import GridImageSectionTwo from "@/components/webPageComponents/GridImageSectionTwo";
 import ProcessTextWeb from "@/components/webPageComponents/ProcessTextWeb";
 import { useTranslations } from "next-intl";
+import { metadataWebPage } from "@/components/webPageComponents/metadataWebPage";
 
 export function generateMetadata({ params }) {
   const lang = params.lang || "en";
-  return metadataMonsterEnergy[lang];
+  return metadataWebPage[lang];
 }
 
 
