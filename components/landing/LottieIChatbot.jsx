@@ -859,7 +859,7 @@ function LottieIChatbot() {
                 </button>
               </div>
               <button
-                onClick={startListening}
+                onClick={() => startListening()}
                 className={`w-[39px] h-[39px] rounded-full flex items-center justify-center shrink-0 ${
                   isListening ? "bg-red-500" : "bg-[#FDC548]"
                 }`}
