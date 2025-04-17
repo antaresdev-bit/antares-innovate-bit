@@ -393,5 +393,9 @@
     "DanielPerfil":"An architect of disruptive ideas, Daniel merges creativity and technology to craft AI-driven marketing strategies. A master of storytelling and automation, he transforms brands into memorable experiences, scaling businesses through innovation and intelligent data.",
     "DanielRole":"Creative Designer" 
     
+  },
+
+  "evaChatbot": {
+    "initialGreeting":"Hi! I'm Eva, your virtual assistant, could you tell me your name?" 
   }
 }

@@ -366,13 +366,12 @@
 
 // export default LottieIChatbot;
 
-
-
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import EvaVideoDesktop from "../chatbotComponents/EvaVideoDesktop";
 import EvaVideoMobile from "../chatbotComponents/EvaVideoMobile";
+import { useTranslations } from "next-intl";
 
 const API_BASE_URL = "https://eva-chatbot-production.up.railway.app";
 
@@ -458,6 +457,8 @@ const LinkifyText = ({ text }) => {
 };
 
 function LottieIChatbot() {
+  const t = useTranslations("evaChatbot");
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -561,25 +562,22 @@ function LottieIChatbot() {
         setError(null);
       } catch (err) {
         console.error("Error al iniciar reconocimiento de voz:", err);
-        "❌ No pudimos acceder al micrófono. Por favor, ve a Ajustes > Safari > Micrófono y actívalo manualmente para este sitio."
+        ("❌ No pudimos acceder al micrófono. Por favor, ve a Ajustes > Safari > Micrófono y actívalo manualmente para este sitio.");
       }
     }
   };
 
   const getBestSpanishVoice = () => {
     const voices = speechSynthesis.getVoices();
-  
+
     const preferred = voices.find((v) =>
-      [ "Microsoft Francisca"].some((name) =>
-        v.name.includes(name)
-      )
+      ["Microsoft Francisca"].some((name) => v.name.includes(name))
     );
-  
+
     const fallback = voices.find((v) => v.lang.startsWith("es"));
-  
+
     return preferred || fallback || voices[0];
   };
-  
 
   const speak = (text) => {
     if (!speechSynthesisRef.current || !text) {
@@ -609,7 +607,7 @@ function LottieIChatbot() {
 
     const utterance = new SpeechSynthesisUtterance(processedText);
     utterance.rate = 1.1;
-    utterance.pitch = 1.1; 
+    utterance.pitch = 1.1;
     utterance.volume = 1.0;
 
     if (voice) {
@@ -630,7 +628,7 @@ function LottieIChatbot() {
 
     setTimeout(() => {
       speechSynthesisRef.current.speak(utterance);
-    }, 100); 
+    }, 100);
   };
 
   const sendMessage = async (voiceInput = null) => {
@@ -722,8 +720,7 @@ function LottieIChatbot() {
       const welcomeMessage = {
         id: Date.now(),
         role: "assistant",
-        content:
-          "¡Hola! Soy Eva, tu asistente virtual. ¿me podrías indicar tu nombre?",
+        content: t("initialGreeting"),
       };
 
       setMessages([welcomeMessage]);
@@ -883,4 +880,3 @@ function LottieIChatbot() {
 }
 
 export default LottieIChatbot;
-

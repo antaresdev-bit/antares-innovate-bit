@@ -400,5 +400,8 @@
 
     "DanielPerfil":"Arquitecto de ideas disruptivas, Daniel fusiona creatividad y tecnología para diseñar estrategias de marketing impulsadas por IA. Maestro en storytelling y automatización, convierte marcas en experiencias memorables, escalando negocios con innovación y data inteligente.",
     "DanielRole":"Creative Designer" 
+  },
+  "evaChatbot": {
+    "initialGreeting":"¡Hola! Soy Eva, tu asistente virtual. ¿me podrías indicar tu nombre?" 
   }
 }
