@@ -17,7 +17,6 @@ export const metadata = {
       type: "website",
       url: "https://antaresinnovate.com",
       title: "Antares Innovate - Tecnología y Marketing",
-
       siteName: "Antares Innovate",
       keywords: [
         "consultoría tecnológica ",
@@ -35,7 +34,6 @@ export const metadata = {
       type: "website",
       url: "https://antaresinnovate.com",
       title: "Technology Solutions for US Businesses ",
-
       siteName: "Antares Innovate",
     },
     keywords: [
@@ -70,6 +68,11 @@ export default function RootLayout({ children, params }) {
           type="font/ttf"
           crossOrigin="anonymous"
         />
+
+        {/* hreflang tags for international SEO */}
+        <link rel="alternate" href="https://antaresinnovate.com/en" hreflang="en-us" />
+        <link rel="alternate" href="https://antaresinnovate.com/es" hreflang="es" />
+        <link rel="alternate" href="https://antaresinnovate.com" hreflang="x-default" />
       </head>
       <body>
         <MetricsTracker />
