@@ -7,6 +7,24 @@ export function DataBlog() {
 
   return [
     {
+      id: "9",
+      title: t("titleBlog9"),
+      info: t("infoBlog9"),
+      category: t("categoryBlog9"),
+      image:
+        "https://media.licdn.com/dms/image/v2/D4E12AQFQ9boO7byDxg/article-cover_image-shrink_720_1280/B4EZZEPQ9cG0AI-/0/1744901579425?e=1750291200&v=beta&t=XYuEh8w6w168bS5rcKg_PDXRLE-0kLXSNs5cOz3a3hA",
+      date: t("dateBlog9"),
+    },
+    {
+      id: "8",
+      title: t("titleBlog8"),
+      info: t("infoBlog8"),
+      category: t("categoryBlog8"),
+      image:
+        "https://media.licdn.com/dms/image/v2/D4E12AQEq9ffdmpfZSQ/article-cover_image-shrink_720_1280/B4EZYiJKePG0AI-/0/1744329554647?e=1750291200&v=beta&t=SyUrwdSn8qG-1YU1g4AvfeB7HsFE6S0guo0EyIuH0ZI",
+      date: t("dateBlog8"),
+    },
+    {
       id: "7",
       title: t("titleBlog7"),
       info: t("infoBlog7"),
