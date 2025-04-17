@@ -561,7 +561,7 @@ function LottieIChatbot() {
         setError(null);
       } catch (err) {
         console.error("Error al iniciar reconocimiento de voz:", err);
-        setError("No se pudo iniciar el reconocimiento de voz");
+        "❌ No pudimos acceder al micrófono. Por favor, ve a Ajustes > Safari > Micrófono y actívalo manualmente para este sitio."
       }
     }
   };

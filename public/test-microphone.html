@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de micrófono</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 80px;">
+  <h2>🔊 Solicitando acceso al micrófono...</h2>
+  <p>Si aparece un cuadro de permiso, acepta para continuar.</p>
+  <script>
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(stream => {
+        document.body.innerHTML += "<p style='color:green;'>✅ Micrófono habilitado correctamente.</p>";
+      })
+      .catch(err => {
+        document.body.innerHTML += `<p style='color:red;'>❌ Error: ${err.message}<br>Ve a Ajustes > Safari > Micrófono y permite el acceso para este sitio.</p>`;
+      });
+  </script>
+</body>
+</html>
