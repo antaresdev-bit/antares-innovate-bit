@@ -9,40 +9,75 @@ import MetricsTracker from "@/components/layout/MetricsTracker";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL("https://antaresinnovate.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en",
+      es: "/es",
+      "x-default": "/",
+    },
+  },
   es: {
-    title: "Antares Innovate - Tecnología",
+    title:
+      "Antares Innovate - Estrategias de Tecnología, Marketing y Automatización para Empresas", // Título más genérico para alcance hispano
     description:
-      "Descubre las mejores estrategias de Tecnología, consultoría, marketing y  automatización con Antares Innovate.",
+      "Descubre las mejores estrategias de Tecnología, consultoría, marketing y automatización con Antares Innovate. Impulsa tu negocio con soluciones innovadoras.", // Descripción genérica
     openGraph: {
       type: "website",
-      url: "https://antaresinnovate.com",
-      title: "Antares Innovate - Tecnología y Marketing",
+      url: "https://antaresinnovate.com/es",
+      title:
+        "Antares Innovate - Tecnología y Marketing para el Éxito Empresarial", // Título Open Graph genérico
       siteName: "Antares Innovate",
       keywords: [
-        "consultoría tecnológica ",
-        "automatización",
-        "servicios de integración de IA",
-        "software para negocios"
-      ]
+        "estrategias de tecnología",
+        "consultoría de automatización",
+        "marketing digital B2B",
+        "integración de IA en negocios",
+        "software empresarial",
+      ],
+    },
+  },
+  "en-US": {
+    // Enfoque específico en 'en-US'
+    title:
+      "Antares Innovate - Tech Consulting, Digital Marketing & Automation for US Businesses", // Título con enfoque en EE.UU.
+    description:
+      "Boost your US business with Antares Innovate's expert tech consulting, digital marketing, and automation services. Drive growth and efficiency.", // Descripción directa al público estadounidense
+    openGraph: {
+      type: "website",
+      url: "https://antaresinnovate.com/en",
+      title:
+        "Antares Innovate - Technology & Marketing Solutions for American Companies", // Título Open Graph para EE.UU.
+      siteName: "Antares Innovate",
+      keywords: [
+        "US tech consulting services",
+        "business automation solutions USA",
+        "digital marketing agency for US businesses",
+        "AI implementation for American companies",
+        "cloud services for US enterprises",
+        "B2B marketing strategy United States",
+      ],
     },
   },
   en: {
-    title: "Innovative Technology Solutions | Antares Innovate",
+    title: "Antares Innovate - Tech Consulting, Digital Marketing & Automation",
     description:
-      "Tech consulting & automation for American businesses. We help US companies streamline operations and drive revenue through custom digital solutions.",
+      "Expert tech consulting, digital marketing, and automation services by Antares Innovate.",
     openGraph: {
       type: "website",
-      url: "https://antaresinnovate.com",
-      title: "Technology Solutions for US Businesses ",
+      url: "https://antaresinnovate.com/en",
+      title: "Antares Innovate - Technology & Marketing Solutions",
       siteName: "Antares Innovate",
+      keywords: [
+        "tech consulting services",
+        "business automation solutions",
+        "digital marketing agency",
+        "AI implementation",
+        "cloud services",
+        "B2B marketing strategy",
+      ],
     },
-    keywords: [
-      "US tech consulting",
-      "business automation USA",
-      "digital transformation for American companies",
-      "cloud solutions US",
-      "AI integration services",
-    ],
   },
 };
 
@@ -68,11 +103,8 @@ export default function RootLayout({ children, params }) {
           type="font/ttf"
           crossOrigin="anonymous"
         />
-
-        {/* hreflang tags for international SEO */}
-        <link rel="alternate" href="https://antaresinnovate.com/en" hreflang="en-us" />
-        <link rel="alternate" href="https://antaresinnovate.com/es" hreflang="es" />
-        <link rel="alternate" href="https://antaresinnovate.com" hreflang="x-default" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
         <MetricsTracker />
