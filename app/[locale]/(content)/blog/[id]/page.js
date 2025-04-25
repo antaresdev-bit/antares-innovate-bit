@@ -1,12 +1,15 @@
 "use client";
 import BannerBlog from "@/components/blogComponents/BannerBlog";
 import { DataBlog } from "@/components/blogComponents/DataBlog";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
 import Blog from "@/components/landing/Blog";
 import Footer from "@/components/header/Footer";
 import { useTranslations } from "next-intl";
 
 export default function BlogPost({ params }) {
+  const locale = useLocale();
   const t = useTranslations("blog");
   const { id } = params;
 
@@ -57,6 +60,12 @@ export default function BlogPost({ params }) {
           >
             {post.info}
           </p>
+
+          <Link href={`/${locale}/blog/${Math.floor(Math.random() * 9) + 1}`}>
+            <button className="mt-[20px] italic text-blue-600 underline">
+            {t("infoBlogNewsRandom")}
+            </button>
+          </Link>
         </div>
 
         <div className="w-[300px] flex-shrink-0 hidden lg:block  ">
@@ -72,14 +81,14 @@ export default function BlogPost({ params }) {
               className="text-[17px] "
               style={{ fontFamily: "UniteaSans-bold", color: "#0B0C28" }}
             >
-             {t("infoBlogNewsTech")}
+              {t("infoBlogNewsTech")}
             </p>
             <hr className="my-2 border-[#676781]" />
             <p
               className="text-[17px] "
               style={{ fontFamily: "UniteaSans-bold", color: "#0B0C28" }}
             >
-               {t("infoBlogNewsMark")}
+              {t("infoBlogNewsMark")}
             </p>
             <hr className="my-2 border-[#676781]" />
             <p
