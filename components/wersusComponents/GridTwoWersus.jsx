@@ -47,7 +47,7 @@ function GridTwoWersus() {
       <div className="w-full max-w-[1298px] mx-auto mt-[14px] sm:mt-[14px] md:mt-[23px] lg:mt-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/wersus/Desarrollo Mockup.png"
-          alt="Video Preview"
+          alt="Route Planner App for CDL Drivers in the U.S. Market"
           className="w-full h-full object-cover"
         />
       </div>

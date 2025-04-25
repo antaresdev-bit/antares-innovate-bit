@@ -8,7 +8,7 @@ function GridOneWersus() {
       <div className="w-full max-w-[1298px] mx-auto mb-[14px] sm:mb-[14px] md:mb-[23px] lg:mb-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/wersus/Pagina Web Mockup.jpg"
-          alt="Stand Moto Cross"
+          alt="Smart Truck Navigation App for American Long-Haul Drivers"
           className="w-full h-full object-cover"
         />
       </div>
@@ -19,7 +19,7 @@ function GridOneWersus() {
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
             src="/assets/images/wersus/App Mockup 1.jpg"
-            alt="Flyer Connor McGregor"
+            alt="Real-Time Route Optimization for Freight and Semi-Trucks"
             className="w-full h-full object-cover"
           />
         </div>
@@ -28,7 +28,7 @@ function GridOneWersus() {
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
             src="/assets/images/wersus/App Mockup 2.jpg"
-            alt="Render Punto de Venta"
+            alt="GPS App for Heavy-Duty Trucks Across the United States"
             className="w-full h-full object-cover"
           />
         </div>
@@ -38,7 +38,7 @@ function GridOneWersus() {
       <div className="w-full max-w-[1298px] mx-auto mt-[14px] sm:mt-[14px] md:mt-[23px] lg:mt-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/wersus/outdoor_advertising_billboard_mockup_a copia.png"
-          alt="Video Preview"
+          alt="Navigation Solution Designed for U.S. Commercial Trucking"
           className="w-full h-full object-cover"
         />
       </div>
