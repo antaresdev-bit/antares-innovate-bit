@@ -7,7 +7,7 @@ function GridImageSectionOne() {
       <div className="w-full max-w-[1298px] mx-auto mb-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/web-page/1.jpg"
-          alt="Stand Moto Cross"
+          alt="Interactive Web Platform for a Real Estate Business in the U.S."
           className="w-full h-full object-cover"
         />
       </div>
@@ -17,7 +17,7 @@ function GridImageSectionOne() {
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
             src="/assets/images/web-page/2.jpg"
-            alt="Flyer Connor McGregor"
+            alt="Dynamic Website Redesign for a U.S.-Based Technology Company"
             className="w-full h-full object-cover"
           />
         </div>
@@ -26,7 +26,7 @@ function GridImageSectionOne() {
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
             src="/assets/images/web-page/3.jpg"
-            alt="Render Punto de Venta"
+            alt="Immersive 3D Web Experience for a National Sports Brand"
             className="w-full h-full object-cover"
           />
         </div>
@@ -36,7 +36,7 @@ function GridImageSectionOne() {
       <div className="w-full max-w-[1298px] mx-auto mt-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/web-page/4.jpg"
-          alt="Stand Moto Cross"
+          alt="Custom E-Commerce Site Designed for U.S. Fashion Retail"
           className="w-full h-full object-cover"
         />
       </div>
