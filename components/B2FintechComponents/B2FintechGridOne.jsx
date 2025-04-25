@@ -6,7 +6,7 @@ function B2FintechGridOne() {
       <div className="w-full max-w-[1298px] mx-auto mb-[14px] sm:mb-[14px] md:mb-[23px] lg:mb-[25px] rounded-3xl overflow-hidden aspect-[1298/869] ">
         <img
           src="/assets/images/B2Fintech/1.jpg"
-          alt="ciml"
+          alt="Real-Time Cryptocurrency Market Dashboard with Binance API Integration"
           className="w-full h-full object-cover"
         />
       </div>

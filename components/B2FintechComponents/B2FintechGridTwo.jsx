@@ -6,14 +6,14 @@ function B2FintechGridTwo() {
       <div className="w-full max-w-[1298px] mx-auto mb-[14px] sm:mb-[14px] md:mb-[23px] lg:mb-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/B2Fintech/2.jpg"
-          alt="B2Fintech"
+          alt="Dynamic Crypto Price Visualization Platform for U.S. Fintech Users"
           className="w-full h-full object-cover"
         />
       </div>
       <div className="w-full max-w-[1298px] mx-auto mb-[14px] sm:mb-[14px] md:mb-[23px] lg:mb-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/B2Fintech/3.jpg"
-          alt="B2Fintech"
+          alt="Live Cryptocurrency Price Tracker for Financial Technology Startups in the U.S."
           className="w-full h-full object-cover"
         />
       </div>
@@ -22,7 +22,7 @@ function B2FintechGridTwo() {
         <div className="w-full rounded-3xl overflow-hidden aspect-[632/632]">
           <img
             src="/assets/images/B2Fintech/4.jpg"
-            alt="B2Fintech"
+            alt="Dynamic Crypto Market Visualization Tools for U.S. Investors"
             className="w-full h-full object-cover"
           />
         </div>
