@@ -7,7 +7,7 @@ function GridCimlOne() {
       <div className="w-full max-w-[1298px] mx-auto mb-[14px] sm:mb-[14px] md:mb-[23px] lg:mb-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/ciml/5.jpg"
-          alt="ciml"
+          alt="Creative Visual Campaigns for Social Awareness in U.S. Education"
           className="w-full h-full object-cover"
         />
       </div>
@@ -42,7 +42,7 @@ function GridCimlOne() {
       <div className="w-full max-w-[1298px] mx-auto mt-[14px] sm:mt-[14px] md:mt-[23px] lg:mt-[25px] rounded-3xl overflow-hidden aspect-[1298/869]">
         <img
           src="/assets/images/ciml/9.jpg"
-          alt="Stand Moto Cross"
+          alt="Advanced Educational Visual Strategies for American Nonprofits"
           className="w-full h-full object-cover"
         />
       </div>
@@ -53,7 +53,7 @@ function GridCimlOne() {
         <div className="w-full rounded-3xl mt-[14px] sm:mt-[14px] md:mt-[23px] lg:mt-[25px]  overflow-hidden aspect-[632/632]">
           <img
             src="/assets/images/ciml/10.png"
-            alt="Flyer Connor McGregor"
+            alt="Impactful Graphic Solutions for Social Change Initiatives in the USA"
             className="w-full h-full object-cover"
           />
         </div>
@@ -62,7 +62,7 @@ function GridCimlOne() {
         <div className="w-full rounded-3xl sm:mt-[14px] md:mt-[23px] lg:mt-[25px] overflow-hidden aspect-[632/632]">
           <img
             src="/assets/images/ciml/11.jpg"
-            alt="Render Punto de Venta"
+            alt="Professional Educational Design Services for U.S. Awareness Programs"
             className="w-full h-full object-cover"
           />
         </div>
