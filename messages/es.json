@@ -139,7 +139,7 @@
     "infoBlogNewsMark":"Marketing",
     "infoBlogNewsNews":"Noticias",
     "infoBlogNewsPopu":"Artículos Populares",
-    "infoBlogNewsRandom":"Quieres ver mas articulos como este has click aca",
+    "infoBlogNewsRandom": "¿Quieres ver más artículos sobre {words}? Haz clic aquí.",
 
     "bannerBlog":"Noticias - Artículos"
   },

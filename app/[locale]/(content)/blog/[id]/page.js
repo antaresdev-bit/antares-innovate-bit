@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import BannerBlog from "@/components/blogComponents/BannerBlog";
 import { DataBlog } from "@/components/blogComponents/DataBlog";
 import Link from "next/link";
@@ -19,9 +20,46 @@ export default function BlogPost({ params }) {
 
   const latestPosts = data.slice(-3).reverse();
 
-  if (!post) {
-    return <div className="text-center text-xl py-10">Post not found</div>;
-  }
+  const wordsNews =
+    locale === "es"
+      ? [
+          "innovación",
+          "estrategia",
+          "crecimiento",
+          "futuro",
+          "líderes",
+          "tecnología",
+          "tendencias",
+          "transformación",
+          "impacto",
+          "digital",
+          "automatización",
+          "inteligencia artificial",
+        ]
+      : [
+          "innovation",
+          "strategy",
+          "growth",
+          "future",
+          "leaders",
+          "technology",
+          "trends",
+          "transformation",
+          "impact",
+          "digital",
+          "automation",
+          "artificial intelligence",
+        ];
+
+  const [randomWords, setRandomWords] = useState("");
+
+  useEffect(() => {
+    const getRandomWord = (arr) => {
+      return arr[Math.floor(Math.random() * arr.length)];
+    };
+    setRandomWords(getRandomWord(wordsNews));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="relative bg-[white] ">
@@ -63,7 +101,7 @@ export default function BlogPost({ params }) {
 
           <Link href={`/${locale}/blog/${Math.floor(Math.random() * 9) + 1}`}>
             <button className="mt-[20px] italic text-blue-600 underline">
-            {t("infoBlogNewsRandom")}
+              {t("infoBlogNewsRandom", { words: randomWords })}
             </button>
           </Link>
         </div>

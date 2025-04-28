@@ -135,7 +135,7 @@
     "infoBlogNewsMark":"Marketing",
     "infoBlogNewsNews":"News",
     "infoBlogNewsPopu":"Popular Articles",
-    "infoBlogNewsRandom":"For more articles like this one, click here.",
+    "infoBlogNewsRandom": "For more articles about {words}, click here.",
 
     "bannerBlog":"News - Articles"
   },
